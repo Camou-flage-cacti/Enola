@@ -1,0 +1,5 @@
+Dependencies for Project 'test_ns', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 6180000::V6.18::ARMCLANG
+F (.\main_ns.c)(0x641B9587)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-mlittle-endian -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/USB-I./RTE/_Target_1-IC:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include-IC:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -D_RTE_-o ./objects/main_ns.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x62530996)
+F (RTE/USB/USBD_Config_ADC_0.h)(0x641B954C)()

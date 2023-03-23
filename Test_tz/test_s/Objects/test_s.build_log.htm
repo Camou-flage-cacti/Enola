@@ -1,0 +1,2356 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: MD Armanuzzaman, University at Buffalo, LIC=W961Z-3VIQK-BQ0RI-B9VEP-8KHDN-E6BA0
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      CMSIS_AGDI_V8M.DLL V1.7.17.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\dakum\OneDrive\Desktop\projects\pac-cfa\Projects\temp\Test_tz\test_s\test_s.uvprojx
+Project File Date:  03/22/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpu_armv8m_drv.c(10): error: 'cmsis.h' file not found
+#include "cmsis.h"
+         ^~~~~~~~~
+1 error generated.
+compiling mpu_armv8m_drv.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_USART.h(65): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include/Driver_Common.h(47): warning: // comments are not allowed in this language [-Wcomment]
+  uint16_t api;                         ///< API version
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_USART.h(80): warning: // comments are not allowed in this language [-Wcomment]
+#define ARM_USART_MODE_ASYNCHRONOUS         (0x01UL << ARM_USART_CONTROL_Pos)   ///< UART (Asynchronous); arg = Baudrate
+                                                                                ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(38): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_USART.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(247): error: 'dma350_drv.h' file not found
+#include "dma350_drv.h"
+         ^~~~~~~~~~~~~~
+31 warnings and 1 error generated.
+compiling Driver_USART.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/Keil/ARM_Compiler/1.7.2/Source/retarget_io.c(386): warning: // comments are not allowed in this language [-Wcomment]
+// User defined ...
+^
+1 warning generated.
+compiling retarget_io.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(16): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(16): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(16): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(70): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_INTERN_ERR_BLK_IDX_TOO_HIGH = -1,
+                                            ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(16): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.h(110): warning: padding struct 'struct mpc_sie_dev_data_t' with 2 bytes to align 'sie_version' [-Wpadded]
+    uint32_t sie_version;   /*!< SIE version */
+             ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.h(77): warning: padding size of 'struct mpc_sie_memory_range_t' with 3 bytes to alignment boundary [-Wpadded]
+struct mpc_sie_memory_range_t {
+       ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(611): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool gating_present = false;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(653): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool gating_present = false;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(743): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present)
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(756): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    *gating_present = (bool)(p_mpc->ctrl & MPC_SIE300_CTRL_GATE_PRESENT);
+                       ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(769): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev)
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/mpc_sie_drv.c(774): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return (bool)(p_mpc->ctrl & MPC_SIE300_CTRL_GATE_ACK);
+            ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+13 warnings generated.
+compiling mpc_sie_drv.c...
+compiling main.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Source/dma350_address_remap.c(24): error: 'dma350_lib.h' file not found
+#include "dma350_lib.h"
+         ^~~~~~~~~~~~~~
+1 error generated.
+compiling dma350_address_remap.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.h(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_Common.h(47): warning: // comments are not allowed in this language [-Wcomment]
+  uint16_t api;                         ///< API version
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.h(25): warning: // comments are not allowed in this language [-Wcomment]
+#define ARM_MPC_ERR_NOT_INIT      (ARM_DRIVER_ERROR_SPECIFIC - 1)  ///< MPC not initialized */
+                                                                   ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.h(38): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    ARM_MPC_ATTR_MIXED,      ///< Mixed attribute
+                      ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(38): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_MPC.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(247): error: 'dma350_drv.h' file not found
+#include "dma350_drv.h"
+         ^~~~~~~~~~~~~~
+32 warnings and 1 error generated.
+compiling Driver_MPC.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(311): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+        default:
+        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(49): warning: padding size of 'struct ppc_corstone310_dev_cfg_t' with 3 bytes to alignment boundary [-Wpadded]
+struct ppc_corstone310_dev_cfg_t {
+       ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.h(56): warning: padding size of 'struct ppc_corstone310_dev_data_t' with 3 bytes to alignment boundary [-Wpadded]
+struct ppc_corstone310_dev_data_t {
+       ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(356): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(400): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/ppc_corstone310_drv.c(445): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev)
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+12 warnings generated.
+compiling ppc_corstone310_drv.c...
+RTE/Device/SSE-310-MPS3/startup_SSE310MPS3.c(24): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(62): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_irq.h(153): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART5_IRQn                         = 127,   /* UART 5 combined Interrupt */
+                                            ^~
+RTE/Device/SSE-310-MPS3/startup_SSE310MPS3.c(24): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(66): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_pins.h(90): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    AHB_GPIO3_15 = 15U,
+                      ^
+2 warnings generated.
+compiling startup_SSE310MPS3.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.h(27): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_Flash.h(52): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include/Driver_Common.h(47): warning: // comments are not allowed in this language [-Wcomment]
+  uint16_t api;                         ///< API version
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.h(27): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_Flash.h(67): warning: // comments are not allowed in this language [-Wcomment]
+  uint32_t start;                       ///< Sector Start address
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.h(39): warning: // comments are not allowed in this language [-Wcomment]
+  uint32_t start;                       ///< Sector Start address
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.h(57): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    EMULATED_FLASH_NOT_READY,         /*!< Not ready error */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.c(124): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+    rc  = is_range_valid(dev, addr);
+        ~ ^~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/emulated_flash_drv.c(125): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'unsigned int' [-Wsign-conversion]
+    rc |= is_sector_aligned(dev, addr);
+       ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+6 warnings generated.
+compiling emulated_flash_drv.c...
+RTE/Device/SSE-310-MPS3/system_SSE310MPS3.c(24): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(62): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_irq.h(153): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART5_IRQn                         = 127,   /* UART 5 combined Interrupt */
+                                            ^~
+RTE/Device/SSE-310-MPS3/system_SSE310MPS3.c(24): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(66): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_pins.h(90): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    AHB_GPIO3_15 = 15U,
+                      ^
+2 warnings generated.
+compiling system_SSE310MPS3.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(20): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_Common.h(47): warning: // comments are not allowed in this language [-Wcomment]
+  uint16_t api;                         ///< API version
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(32): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_CONFIG,     /*!< Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(39): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_CONFIG,                 /*!< Privilege only access */
+                               ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(113): warning: // comments are not allowed in this language [-Wcomment]
+  ARM_DRIVER_VERSION  (*GetVersion)       (void);            ///< Pointer to \ref ARM_PPC_GetVersion   : Get driver version.
+                                                             ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(117): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+  bool                (*IsPeriphPrivOnly) (uint32_t periph);  ///< Pointer to \ref IsPeriphPrivOnly : Check if the peripheral is configured to be privilege only.
+  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(120): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+  bool                (*IsPeriphSecure)   (uint32_t periph);  ///< Pointer to \ref IsPeriphSecure :   Check if the peripheral is configured to be secure.
+  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+  bool                (*InterruptState)   (void);            ///< Pointer to \ref ARM_PPC_InterruptState   : PPC interrupt State.
+  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(20): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(62): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_irq.h(153): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART5_IRQn                         = 127,   /* UART 5 combined Interrupt */
+                                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(20): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(66): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_pins.h(90): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    AHB_GPIO3_15 = 15U,
+                      ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(38): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_PPC.c(21): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(247): error: 'dma350_drv.h' file not found
+#include "dma350_drv.h"
+         ^~~~~~~~~~~~~~
+38 warnings and 1 error generated.
+compiling Driver_PPC.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(38): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition/device_definition.h(247): error: 'dma350_drv.h' file not found
+#include "dma350_drv.h"
+         ^~~~~~~~~~~~~~
+29 warnings and 1 error generated.
+compiling device_definition.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_I2C.h(63): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include/Driver_Common.h(47): warning: // comments are not allowed in this language [-Wcomment]
+  uint16_t api;                         ///< API version
+                                        ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_I2C.h(74): warning: // comments are not allowed in this language [-Wcomment]
+#define ARM_I2C_OWN_ADDRESS             (0x01UL)    ///< Set Own Slave Address; arg = address 
+                                                    ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_I2C.h(210): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+  int32_t              (*MasterTransmit) (uint32_t addr, const uint8_t *data, uint32_t num, bool xfer_pending); ///< Pointer to \ref ARM_I2C_MasterTransmit : Start transmitting data as I2C Master.
+                                                                                            ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include\Driver_I2C.h(211): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+  int32_t              (*MasterReceive)  (uint32_t addr,       uint8_t *data, uint32_t num, bool xfer_pending); ///< Pointer to \ref ARM_I2C_MasterReceive : Start receiving data as I2C Master.
+                                                                                            ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(62): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_irq.h(153): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART5_IRQn                         = 127,   /* UART 5 combined Interrupt */
+                                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(19): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include\SSE310MPS3.h(66): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform\platform_pins.h(90): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    AHB_GPIO3_15 = 15U,
+                      ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(38): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Driver_I2C.c(20): warning: In file included from...
+./RTE/Device/SSE-310-MPS3\cmsis_driver_config.h(22): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(247): error: 'dma350_drv.h' file not found
+#include "dma350_drv.h"
+         ^~~~~~~~~~~~~~
+35 warnings and 1 error generated.
+compiling Driver_I2C.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/spi_pl022_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/spi_pl022_drv.h(39): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    SPI_PL022_SLAVE_SELECT,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/spi_pl022_drv.h(44): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    SPI_PL022_SLAVE_OUTPUT_DIS,
+                              ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/spi_pl022_drv.h(49): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    SPI_PL022_LOOPBACK_MODE_EN,
+                              ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/spi_pl022_drv.h(106): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    SPI_PL022_ERR_BAD_CONFIG,    /*!< Bad SPI configuration */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/spi_pl022_drv.h(75): warning: padding struct 'struct spi_pl022_ctrl_cfg_t' with 3 bytes to align 'bit_rate' [-Wpadded]
+    uint32_t bit_rate;                      /*!< required bit rate */
+             ^
+5 warnings generated.
+compiling spi_pl022_drv.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(48): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(166): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(171): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntcr,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(191): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(196): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntcr,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(216): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(221): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntcr,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(241): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(246): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntcr,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(266): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(271): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntcr,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(283): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntsr,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(327): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(332): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntid,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(336): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(341): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntid,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(364): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+            GET_BIT(p_cnt->cntid,
+            ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(56): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1U << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(388): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syscounter_armv8-m_cntrl_drv.c(428): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
+    default:
+    ^
+28 warnings generated.
+compiling syscounter_armv8-m_cntrl_drv.c...
+compiling syscounter_armv8-m_read_drv.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(23): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(23): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(23): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(23): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(23): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(23): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(176): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(181): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntp_ctl, SYSCTIMER_ARMV8M_CNTP_CTL_EN_OFF);
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(31): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(202): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(208): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return !GET_BIT(p_cnt->cntp_ctl, SYSCTIMER_ARMV8M_CNTP_CTL_IMASK_OFF);
+            ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(31): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(211): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(216): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntp_ctl, SYSCTIMER_ARMV8M_CNTP_CTL_ISTATUS_OFF);
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(31): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(262): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(267): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntp_aival_ctl,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(31): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(279): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(284): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_cnt->cntp_cfg,
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_drv.c(31): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+16 warnings generated.
+compiling systimer_armv8-m_drv.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(92): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev)
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_wdog->wcs, SYSWDOG_ARMV8M_CNTR_WCS_EN_OFF);
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(34): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(100): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev)
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(105): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_wdog->wcs, SYSWDOG_ARMV8M_CNTR_WCS_WS0_OFF);
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(34): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(108): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev)
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    return GET_BIT(p_wdog->wcs, SYSWDOG_ARMV8M_CNTR_WCS_WS1_OFF);
+           ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/syswdog_armv8-m_drv.c(34): note: expanded from macro 'GET_BIT'
+#define GET_BIT(WORD, BIT_INDEX) (bool)(((WORD) & (1u << (BIT_INDEX))))
+                                  ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+9 warnings generated.
+compiling syswdog_armv8-m_drv.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(38): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(63): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;                /*!< Indicates if the PPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(76): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_NONSECURE_ACCESS,     /*! Non-secure access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(83): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    PPC_CORSTONE310_PRIV_ONLY_ACCESS,            /*! Privilege only access */
+                                    ^~
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(137): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_priv_only(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(170): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_is_periph_secure(struct ppc_corstone310_dev_t* dev,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(93): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\ppc_corstone310_drv.h(213): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool ppc_corstone310_irq_state(struct ppc_corstone310_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(97): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(222): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(254): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_halt_on_debug_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(288): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_scale_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(326): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(363): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_pslverr_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(385): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_halted_on_debug(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(421): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_counter_scaling_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(149): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syscounter_armv8-m_cntrl_drv.h(433): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syscounter_armv8_m_cntrl_is_clock_switching_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(95): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(263): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_timer_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(295): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(311): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_interrupt_asserted(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(383): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_enabled(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(164): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\systimer_armv8-m_drv.h(405): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool systimer_armv8_m_is_autoinc_implemented(
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(102): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_is_wdog_enabled(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(113): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_0(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(201): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\syswdog_armv8-m_drv.h(124): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool syswdog_armv8_m_read_irq_status_1(struct syswdog_armv8_m_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(66): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    MPC_SIE_SEC_ATTR_MIXED,
+                          ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(107): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+    bool is_initialized;    /*!< Indicates if the MPC driver
+    ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(309): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+                                               bool* gating_present);
+                                               ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(211): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver\mpc_sie_drv.h(331): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool mpc_sie_get_gate_ack(struct mpc_sie_dev_t* dev);
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/systimer_armv8-m_timeout.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/timeout.h(26): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition\device_definition.h(247): error: 'dma350_drv.h' file not found
+#include "dma350_drv.h"
+         ^~~~~~~~~~~~~~
+29 warnings and 1 error generated.
+compiling systimer_armv8-m_timeout.c...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/uart_cmsdk_drv.c(17): warning: In file included from...
+C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver/uart_cmsdk_drv.h(58): warning: commas at the end of enumerator lists are a C99-specific feature [-Wc99-extensions]
+    UART_CMSDK_ERR_NOT_READY,     /*!< Error UART not ready */
+                            ^~
+1 warning generated.
+compiling uart_cmsdk_drv.c...
+".\Objects\test_s.axf" - 8 Error(s), 289 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: I2C Version: 2.4.0
+   * Component: MCI Version: 2.4.0
+   * Component: USART Version: 2.4.0
+   * Component: Custom Version: 1.0.0
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.1.0.pack
+                ARM.V2M_MPS3_SSE_310_BSP.1.1.0
+                ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
+   * Component: I2C Version: 1.0.0
+   * Component: MPC Version: 1.0.0
+   * Component: PPC Version: 1.0.0
+   * Component: USART Version: 1.0.0
+   * Component: Definition Version: 1.1.0
+   * Component: Startup Variant: Baremetal Version: 1.0.1
+   * Component: SSE-310 Remap Version: 1.0.0
+   * Component: Flash Version: 1.0.0
+   * Component: MPC Version: 1.0.0
+   * Component: MPU Version: 1.0.0
+   * Component: PPC Version: 1.0.0
+   * Component: SPI Version: 1.0.0
+   * Component: SysCounter Version: 1.0.0
+   * Component: SysTimer Version: 1.0.0
+   * Component: Timeout Version: 1.0.0
+   * Component: UART Version: 1.0.0
+   * Component: Watch Dog Version: 1.0.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.ARM_Compiler.1.7.2.pack
+                Keil.ARM_Compiler.1.7.2
+                Keil ARM Compiler extensions for ARM Compiler 5 and ARM Compiler 6
+   * Component: STDOUT Variant: User Version: 1.2.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/SSE-310-MPS3
+  ./RTE/_Target_1
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Device_Definition
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Board/Platform
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Config
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/CMSIS_Driver/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Device/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.1.0/Native_Driver
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS Driver:I2C:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_I2C.h
+
+   * Component: ::CMSIS Driver:MCI:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_MCI.h
+
+   * Component: ::CMSIS Driver:USART:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
+
+   * Component: ARM::CMSIS Driver:I2C:1.0.0
+      Source file:   CMSIS_Driver/Driver_I2C.c
+
+   * Component: ARM::CMSIS Driver:MCI:Custom:1.0.0
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_MCI.c
+      Include file:  CMSIS/Driver/Include/Driver_MCI.h
+
+   * Component: ARM::CMSIS Driver:MPC:1.0.0
+      Source file:   CMSIS_Driver/Driver_MPC.c
+      Include file:  CMSIS_Driver/Driver_MPC.h
+
+   * Component: ARM::CMSIS Driver:PPC:1.0.0
+      Source file:   CMSIS_Driver/Driver_PPC.c
+      Include file:  CMSIS_Driver/Driver_PPC.h
+
+   * Component: ARM::CMSIS Driver:USART:1.0.0
+      Source file:   CMSIS_Driver/Driver_USART.c
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
+      Include file:  CMSIS/Core/Include/tz_context.h
+      Source file:   CMSIS/Core/Template/ARMv8-M/tz_context.c
+
+   * Component: ARM::Device:Definition:1.1.0
+      Include file:  Board/Platform/platform_base_address.h
+      Include file:  Board/Platform/platform_description.h
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Device_Definition/device_definition.h
+
+   * Component: ARM::Device:Startup:Baremetal:1.0.1
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
+      Include file:  CMSIS_Driver/Config/RTE_Device.h
+      Include file:  Device/Include/region_defs.h
+      Include file:  Device/Include/region_limits.h
+      Include file:  Device/Config/Baremetal/device_cfg.h
+      Source file:   Device/Source/startup_SSE310MPS3.c
+
+   * Component: ARM::Native Driver:DMA350 Remap:SSE-310 Remap:1.0.0
+      Source file:   Device/Source/dma350_address_remap.c
+
+   * Component: ARM::Native Driver:Flash:1.0.0
+      Include file:  Native_Driver/emulated_flash_drv.h
+      Source file:   Native_Driver/emulated_flash_drv.c
+
+   * Component: ARM::Native Driver:MPC:1.0.0
+      Include file:  Native_Driver/mpc_sie_drv.h
+      Source file:   Native_Driver/mpc_sie_drv.c
+
+   * Component: ARM::Native Driver:MPU:1.0.0
+      Include file:  Native_Driver/mpu_armv8m_reg_map.h
+      Include file:  Native_Driver/mpu_armv8m_drv.h
+      Source file:   Native_Driver/mpu_armv8m_drv.c
+
+   * Component: ARM::Native Driver:PPC:1.0.0
+      Include file:  Native_Driver/ppc_corstone310_drv.h
+      Source file:   Native_Driver/ppc_corstone310_drv.c
+
+   * Component: ARM::Native Driver:SPI:1.0.0
+      Source file:   Native_Driver/spi_pl022_drv.c
+      Include file:  Native_Driver/spi_pl022_drv.h
+      Include file:  Native_Driver/spi_pl022_reg_map.h
+
+   * Component: ARM::Native Driver:SysCounter:1.0.0
+      Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
+      Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
+      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
+
+   * Component: ARM::Native Driver:SysTimer:1.0.0
+      Source file:   Native_Driver/systimer_armv8-m_drv.c
+      Include file:  Native_Driver/systimer_armv8-m_drv.h
+      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
+
+   * Component: ARM::Native Driver:Timeout:1.0.0
+      Source file:   Native_Driver/systimer_armv8-m_timeout.c
+      Include file:  Native_Driver/timeout.h
+
+   * Component: ARM::Native Driver:UART:1.0.0
+      Include file:  Native_Driver/uart_cmsdk_drv.h
+      Source file:   Native_Driver/uart_cmsdk_drv.c
+
+   * Component: ARM::Native Driver:Watch Dog:1.0.0
+      Include file:  Native_Driver/syswdog_armv8-m_reg_map.h
+      Source file:   Native_Driver/syswdog_armv8-m_drv.c
+      Include file:  Native_Driver/syswdog_armv8-m_drv.h
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
+      Source file:   Template/stdout_user.c
+      Source file:   Template/stdout_display.c
+      Source file:   Source/retarget_io.c
+      Source file:   Template/stdout_USART.c
+Target not created.
+Build Time Elapsed:  00:00:10
+</pre>
+</body>
+</html>
