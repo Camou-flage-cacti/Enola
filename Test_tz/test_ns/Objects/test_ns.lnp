@@ -1,6 +1,13 @@
 --cpu=Cortex-M85 --fpu=FPv5_D16
-".\objects\main_ns.o"
---strict --scatter ".\Objects\test_ns.sct"
+".\objects\main.o"
+"..\test_ss\Objects\test_s_CMSE_Lib.o"
+".\objects\device_definition.o"
+".\objects\startup_sse310mps3.o"
+".\objects\system_sse310mps3.o"
+".\objects\mpc_sie_drv.o"
+".\objects\ppc_corstone310_drv.o"
+".\objects\uart_cmsdk_drv.o"
+--strict --scatter ".\RTE\Device\SSE-310-MPS3_AN555\corstone310_mps3_s.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\test_ns.map" -o .\Objects\test_ns.axf

@@ -1,0 +1,238 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: MD Armanuzzaman, University at Buffalo, LIC=W961Z-3VIQK-BQ0RI-B9VEP-8KHDN-E6BA0
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      CMSIS_AGDI_V8M.DLL V1.7.17.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ss\test_s.uvprojx
+Project File Date:  03/30/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build Project 'test_s' - Target 'Target 1'
+linking...
+.\Objects\test_s.axf: warning: Your license for feature Keil will expire in 10 days [-Wlicense-management]
+.\Objects\test_s.axf: Warning: L6848E: No CMSE symbols written in import library ..\test_ss\Objects\test_s_CMSE_Lib.o.
+Program Size: Code=6832 RO-data=888 RW-data=172 ZI-data=36184  
+Finished: 0 information, 1 warning and 0 error messages.
+FromELF: creating hex file...
+.\Objects\test_s.hex: Warning: Q9931W: Your license for feature Keil will expire in 10 days
+Finished: 0 information, 1 warning and 0 error messages.
+".\Objects\test_s.axf" - 0 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: I2C Version: 2.4.0
+   * Component: USART Version: 2.4.0
+   * Component: RTOS2 Version: 2.1.3
+   * Component: Custom Version: 1.0.0
+   * Component: Custom Version: 1.0.0
+   * Component: CORE Version: 5.6.0
+   * Component: DSP Variant: Source Version: 1.10.0
+   * Component: Keil RTX5 Variant: Library Version: 5.5.4
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.2.0.pack
+                ARM.V2M_MPS3_SSE_310_BSP.1.2.0
+                ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
+   * Component: I2C Version: 1.0.1
+   * Component: MPC Version: 1.1.0
+   * Component: PPC Version: 1.1.0
+   * Component: USART Version: 1.1.0
+   * Component: Definition Version: 1.2.0
+   * Component: Startup Variant: Baremetal Version: 1.2.0
+   * Component: I2C SBCon Version: 1.0.0
+   * Component: MPC Version: 1.1.0
+   * Component: PPC Version: 1.1.0
+   * Component: SysCounter Version: 1.0.1
+   * Component: SysTimer Version: 1.0.0
+   * Component: Timeout Version: 1.0.1
+   * Component: UART Version: 1.1.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/CMSIS
+  ./RTE/Device/SSE-310-MPS3_AN555
+  ./RTE/_Target_1
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/DSP/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/DSP/PrivateInclude
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Board/Device_Definition
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Board/Platform
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/CMSIS_Driver
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/CMSIS_Driver/Config
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/CMSIS_Driver/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Device/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS Driver:I2C:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_I2C.h
+
+   * Component: ::CMSIS Driver:USART:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
+
+   * Component: ::CMSIS:RTOS2:2.1.3 (API)
+      Include file:  CMSIS/RTOS2/Include/cmsis_os2.h
+
+   * Component: ARM::CMSIS Driver:I2C:1.0.1
+      Source file:   CMSIS_Driver/Driver_I2C.c
+
+   * Component: ARM::CMSIS Driver:I2C:Custom:1.0.0
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
+      Include file:  CMSIS/Driver/Include/Driver_I2C.h
+
+   * Component: ARM::CMSIS Driver:MPC:1.1.0
+      Include file:  CMSIS_Driver/Driver_MPC.h
+      Source file:   CMSIS_Driver/Driver_MPC.c
+
+   * Component: ARM::CMSIS Driver:PPC:1.1.0
+      Include file:  CMSIS_Driver/Driver_PPC_Common.h
+      Source file:   CMSIS_Driver/Driver_PPC.c
+      Include file:  CMSIS_Driver/Driver_PPC.h
+
+   * Component: ARM::CMSIS Driver:USART:1.1.0
+      Include file:  CMSIS_Driver/Driver_USART_Common.h
+      Source file:   CMSIS_Driver/Driver_USART.c
+      Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
+
+   * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+      Source file:   CMSIS/Core/Template/ARMv8-M/tz_context.c
+      Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
+
+   * Component: ARM::CMSIS:DSP:Source:1.10.0
+      Include file:  CMSIS/DSP/Include/arm_common_tables_f16.h
+      Include file:  CMSIS/DSP/Include/arm_math.h
+      Include file:  CMSIS/DSP/Include/arm_const_structs.h
+      Source file:   CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctions.c
+      Source file:   CMSIS/DSP/Source/QuaternionMathFunctions/QuaternionMathFunctions.c
+      Include file:  CMSIS/DSP/Include/arm_common_tables.h
+      Include file:  CMSIS/DSP/Include/arm_math_f16.h
+      Source file:   CMSIS/DSP/Source/BayesFunctions/BayesFunctions.c
+      Include file:  CMSIS/DSP/Include/arm_const_structs_f16.h
+      Source file:   CMSIS/DSP/Source/FastMathFunctions/FastMathFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/DistanceFunctions/DistanceFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/BayesFunctions/BayesFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/SVMFunctions/SVMFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/ControllerFunctions/ControllerFunctions.c
+      Source file:   CMSIS/DSP/Source/MatrixFunctions/MatrixFunctions.c
+      Source file:   CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/MatrixFunctions/MatrixFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/DistanceFunctions/DistanceFunctions.c
+      Source file:   CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/TransformFunctions/TransformFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctions.c
+      Source file:   CMSIS/DSP/Source/FilteringFunctions/FilteringFunctions.c
+      Source file:   CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctions.c
+      Source file:   CMSIS/DSP/Source/SupportFunctions/SupportFunctions.c
+      Source file:   CMSIS/DSP/Source/FastMathFunctions/FastMathFunctions.c
+      Source file:   CMSIS/DSP/Source/SVMFunctions/SVMFunctions.c
+      Source file:   CMSIS/DSP/Source/CommonTables/CommonTables.c
+      Source file:   CMSIS/DSP/Source/TransformFunctions/TransformFunctions.c
+      Source file:   CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctions.c
+      Source file:   CMSIS/DSP/Source/FilteringFunctions/FilteringFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/CommonTables/CommonTablesF16.c
+      Source file:   CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/SupportFunctions/SupportFunctionsF16.c
+
+   * Component: ARM::CMSIS:RTOS2:Keil RTX5:Library:5.5.4
+      Library file:  CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMF.lib
+      Source file:   CMSIS/RTOS2/RTX/Template/svc_user.c
+      Source file:   CMSIS/RTOS2/RTX/Config/RTX_Config.c
+      Source file:   CMSIS/RTOS2/RTX/Template/MemPool.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Events.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Timer.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Semaphore.c
+      Include file:  CMSIS/RTOS2/RTX/Config/RTX_Config.h
+      Source file:   CMSIS/RTOS2/RTX/Source/rtx_lib.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Mutex.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Thread.c
+      Include file:  CMSIS/RTOS2/RTX/Include/rtx_os.h
+      Source file:   CMSIS/RTOS2/RTX/Template/main.c
+      Source file:   CMSIS/RTOS2/RTX/Template/MsgQueue.c
+
+   * Component: ARM::Device:Definition:1.2.0
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Platform/platform_base_address.h
+      Include file:  Board/Device_Definition/device_definition.h
+      Include file:  Board/Platform/platform_description.h
+
+   * Component: ARM::Device:Startup:Baremetal:1.2.0
+      Include file:  Device/Include/region_defs.h
+      Include file:  Device/Include/region_limits.h
+      Source file:   Device/Source/startup_SSE310MPS3.c
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  Device/Config/Baremetal/device_cfg.h
+
+   * Component: ARM::Native Driver:I2C SBCon:1.0.0
+      Include file:  Native_Driver/i2c_sbcon_reg_map.h
+      Source file:   Native_Driver/i2c_sbcon_drv.c
+      Include file:  Native_Driver/i2c_sbcon_drv.h
+
+   * Component: ARM::Native Driver:MPC:1.1.0
+      Source file:   Native_Driver/mpc_sie_drv.c
+      Include file:  Native_Driver/mpc_sie_drv.h
+      Include file:  Native_Driver/mpc_sie_reg_map.h
+
+   * Component: ARM::Native Driver:PPC:1.1.0
+      Include file:  Native_Driver/ppc_corstone310_drv.h
+      Source file:   Native_Driver/ppc_corstone310_drv.c
+      Include file:  Native_Driver/ppc_corstone310_reg_map.h
+
+   * Component: ARM::Native Driver:SysCounter:1.0.1
+      Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
+      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
+      Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
+
+   * Component: ARM::Native Driver:SysTimer:1.0.0
+      Include file:  Native_Driver/systimer_armv8-m_drv.h
+      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
+      Source file:   Native_Driver/systimer_armv8-m_drv.c
+
+   * Component: ARM::Native Driver:Timeout:1.0.1
+      Include file:  Native_Driver/timeout.h
+      Source file:   Native_Driver/systimer_armv8-m_timeout.c
+
+   * Component: ARM::Native Driver:UART:1.1.0
+      Include file:  Native_Driver/uart_cmsdk_reg_map.h
+      Include file:  Native_Driver/uart_cmsdk_drv.h
+      Source file:   Native_Driver/uart_cmsdk_drv.c
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

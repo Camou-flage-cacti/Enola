@@ -16,9 +16,6 @@
  */
 #define CMSIS_device_header "SSE310MPS3.h"
 
-/* Keil.MDK-Plus::USB:Device:ADC:6.16.0 */
-#define RTE_USB_Device_ADC_0            /* USB Device ADC instance 0 */
-
 
 
 #endif /* RTE_COMPONENTS_H */
