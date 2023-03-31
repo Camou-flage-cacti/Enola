@@ -28,7 +28,7 @@ Project File Date:  03/30/2023
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'test_ns' - Target 'Target 1'
 linking...
-.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 10 days [-Wlicense-management]
+.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 9 days [-Wlicense-management]
 Program Size: Code=1436 RO-data=592 RW-data=8 ZI-data=2048  
 ".\Objects\test_ns.axf" - 0 Error(s), 1 Warning(s).
 
@@ -84,33 +84,33 @@ Package Vendor: ARM
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
+      Include file:  Board/Platform/platform_description.h
       Source file:   Board/Device_Definition/device_definition.c
       Include file:  Board/Platform/platform_base_address.h
       Include file:  Board/Device_Definition/device_definition.h
-      Include file:  Board/Platform/platform_description.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
       Include file:  Device/Include/region_defs.h
       Include file:  Device/Include/region_limits.h
-      Source file:   Device/Source/startup_SSE310MPS3.c
-      Source file:   Device/Source/system_SSE310MPS3.c
       Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
-      Include file:  Device/Include/system_SSE310MPS3.h
       Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Source file:   Device/Source/startup_SSE310MPS3.c
 
    * Component: ARM::Native Driver:MPC:1.1.0
       Source file:   Native_Driver/mpc_sie_drv.c
-      Include file:  Native_Driver/mpc_sie_drv.h
       Include file:  Native_Driver/mpc_sie_reg_map.h
+      Include file:  Native_Driver/mpc_sie_drv.h
 
    * Component: ARM::Native Driver:PPC:1.1.0
       Include file:  Native_Driver/ppc_corstone310_drv.h
-      Source file:   Native_Driver/ppc_corstone310_drv.c
       Include file:  Native_Driver/ppc_corstone310_reg_map.h
+      Source file:   Native_Driver/ppc_corstone310_drv.c
 
    * Component: ARM::Native Driver:UART:1.1.0
-      Include file:  Native_Driver/uart_cmsdk_reg_map.h
       Include file:  Native_Driver/uart_cmsdk_drv.h
+      Include file:  Native_Driver/uart_cmsdk_reg_map.h
       Source file:   Native_Driver/uart_cmsdk_drv.c
 Build Time Elapsed:  00:00:00
 </pre>

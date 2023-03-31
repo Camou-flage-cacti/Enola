@@ -21,6 +21,12 @@ int main()
 		"MSR PAC_KEY_U_0_NS, r5\n\t"
 	);
 	
+	/*__asm volatile(
+		"MOVW r0, #0x0000\n\t"
+		"MOVT r0, #0x1020\n\t"
+	  "BLXNS r0\n\t"
+	);*/
+	
 	NonSecure_ResetHandler();
 	return 0;
 }
