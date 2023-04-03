@@ -19,8 +19,8 @@
 
 #include "region_defs.h"
 
-LR_CODE S_CODE_START {
-    ER_CODE S_CODE_START {
+LR_CODE NS_CODE_START {
+    ER_CODE NS_CODE_START {
         *.o (RESET +First)
         .ANY (+RO)
     }
@@ -33,9 +33,9 @@ LR_CODE S_CODE_START {
     /* Make sure that the sections allocated in the SRAM does not exceed the
      * size of the SRAM available.
      */
-    ScatterAssert(ImageLimit(CODE_WATERMARK) <= S_CODE_START + S_CODE_SIZE)
+    ScatterAssert(ImageLimit(CODE_WATERMARK) <= NS_CODE_START + NS_CODE_SIZE)
 
-    ER_DATA S_DATA_START {
+    ER_DATA NS_DATA_START {
         .ANY (+ZI +RW)
     }
 
@@ -58,5 +58,5 @@ LR_CODE S_CODE_START {
     /* Make sure that the sections allocated in the SRAM does not exceed the
      * size of the SRAM available.
      */
-    ScatterAssert(ImageLimit(SRAM_WATERMARK) <= S_DATA_START + S_DATA_SIZE)
+    ScatterAssert(ImageLimit(SRAM_WATERMARK) <= NS_DATA_START + NS_DATA_SIZE)
 }
