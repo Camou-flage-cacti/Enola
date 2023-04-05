@@ -1,4 +1,4 @@
---cpu=Cortex-M85 --fpu=FPv5_D16
+--cpu=Cortex-M85.no_mve --fpu=FPv5_D16
 ".\objects\main.o"
 ".\objects\basicmathfunctions.o"
 ".\objects\basicmathfunctionsf16.o"

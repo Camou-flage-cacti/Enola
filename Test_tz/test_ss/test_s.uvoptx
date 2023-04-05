@@ -88,8 +88,8 @@
         <sRmem>1</sRmem>
         <sRfunc>1</sRfunc>
         <sRbox>1</sRbox>
-        <tLdApp>1</tLdApp>
-        <tGomain>1</tGomain>
+        <tLdApp>0</tLdApp>
+        <tGomain>0</tGomain>
         <tRbreak>1</tRbreak>
         <tRwatch>1</tRwatch>
         <tRmem>1</tRmem>
@@ -113,10 +113,15 @@
         <tDllPa></tDllPa>
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
-        <tIfile></tIfile>
+        <tIfile>..\Debug.ini</tIfile>
         <pMon>BIN\CMSIS_AGDI_V8M.DLL</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>DbgFMv8M</Key>
+          <Name></Name>
+        </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
@@ -135,7 +140,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>CMSIS_AGDI_V8M</Key>
-          <Name>-X"" -O206 -S8 -C0 -P00000000 -N00("ARM CoreSight SW-DP") -D00(4C013477) -L00(0) -TO65554 -TC10000000 -TT10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD1000000 -FC1000 -FN0</Name>
+          <Name>-X"Any" -UAny -O238 -S8 -C0 -P00000000 -N00("ARM CoreSight SW-DP") -D00(4C013477) -L00(0) -TO65554 -TC10000000 -TT10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD1000000 -FC1000 -FN0</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -152,9 +157,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>30</LineNumber>
+          <LineNumber>94</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>285215932</Address>
+          <Address>285216600</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -163,14 +168,14 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>&lt;1&gt;.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\test_s\main.c\30</Expression>
+          <Expression>\\test_s\main.c\94</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>17</LineNumber>
+          <LineNumber>97</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>285215916</Address>
+          <Address>285216612</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -179,32 +184,145 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>&lt;1&gt;.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\test_s\main.c\17</Expression>
+          <Expression>\\test_s\main.c\97</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>24</LineNumber>
+          <LineNumber>100</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>285216632</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>&lt;1&gt;.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\test_s\main.c\100</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>294</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285216806</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\mpc_sie_drv.c\294</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>306</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285216844</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\mpc_sie_drv.c\306</Expression>
+        </Bp>
+        <Bp>
+          <Number>5</Number>
+          <Type>0</Type>
+          <LineNumber>296</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285216814</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\mpc_sie_drv.c\296</Expression>
+        </Bp>
+        <Bp>
+          <Number>6</Number>
+          <Type>0</Type>
+          <LineNumber>289</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285216754</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\mpc_sie_drv.c\289</Expression>
+        </Bp>
+        <Bp>
+          <Number>7</Number>
+          <Type>0</Type>
+          <LineNumber>150</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285215924</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\mpc_sie_drv.c\150</Expression>
+        </Bp>
+        <Bp>
+          <Number>8</Number>
+          <Type>0</Type>
+          <LineNumber>100</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285216414</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c\100</Expression>
+        </Bp>
+        <Bp>
+          <Number>9</Number>
+          <Type>0</Type>
+          <LineNumber>97</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>285216398</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>&lt;1&gt;C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\test_s\C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver/mpc_sie_drv.c\97</Expression>
         </Bp>
       </Breakpoint>
-      <WatchWindow1>
-        <Ww>
-          <count>0</count>
+      <MemoryWindow1>
+        <Mm>
           <WinNumber>1</WinNumber>
-          <ItemText>NONSECURE_START</ItemText>
-        </Ww>
-      </WatchWindow1>
+          <SubType>0</SubType>
+          <ItemText>0x1020000</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow1>
       <ScvdPack>
         <Filename>C:\Users\dakum\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\RTX\RTX5.scvd</Filename>
         <Type>ARM.CMSIS.5.9.0</Type>
@@ -253,7 +371,7 @@
       <pSingCmdsp></pSingCmdsp>
       <pMultCmdsp></pMultCmdsp>
       <DebugDescription>
-        <Enable>1</Enable>
+        <Enable>0</Enable>
         <EnableFlashSeq>1</EnableFlashSeq>
         <EnableLog>0</EnableLog>
         <Protocol>2</Protocol>

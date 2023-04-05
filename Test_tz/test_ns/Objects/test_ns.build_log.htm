@@ -22,13 +22,13 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\test_ns.uvprojx
-Project File Date:  03/30/2023
+Project File Date:  04/03/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'test_ns' - Target 'Target 1'
 linking...
-.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 9 days [-Wlicense-management]
+.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 4 days [-Wlicense-management]
 Program Size: Code=1436 RO-data=592 RW-data=8 ZI-data=2048  
 ".\Objects\test_ns.axf" - 0 Error(s), 1 Warning(s).
 
@@ -77,17 +77,17 @@ Package Vendor: ARM
       Include file:  CMSIS/Driver/Include/Driver_I2C.h
 
    * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
-      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
       Include file:  CMSIS/Driver/Include/Driver_USART.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
-      Include file:  Board/Platform/platform_description.h
       Source file:   Board/Device_Definition/device_definition.c
-      Include file:  Board/Platform/platform_base_address.h
       Include file:  Board/Device_Definition/device_definition.h
+      Include file:  Board/Platform/platform_description.h
+      Include file:  Board/Platform/platform_base_address.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
       Include file:  Device/Include/region_defs.h
@@ -95,13 +95,13 @@ Package Vendor: ARM
       Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
       Include file:  Device/Config/Baremetal/device_cfg.h
       Include file:  Device/Include/system_SSE310MPS3.h
-      Source file:   Device/Source/system_SSE310MPS3.c
       Source file:   Device/Source/startup_SSE310MPS3.c
+      Source file:   Device/Source/system_SSE310MPS3.c
 
    * Component: ARM::Native Driver:MPC:1.1.0
-      Source file:   Native_Driver/mpc_sie_drv.c
       Include file:  Native_Driver/mpc_sie_reg_map.h
       Include file:  Native_Driver/mpc_sie_drv.h
+      Source file:   Native_Driver/mpc_sie_drv.c
 
    * Component: ARM::Native Driver:PPC:1.1.0
       Include file:  Native_Driver/ppc_corstone310_drv.h
@@ -109,8 +109,8 @@ Package Vendor: ARM
       Source file:   Native_Driver/ppc_corstone310_drv.c
 
    * Component: ARM::Native Driver:UART:1.1.0
-      Include file:  Native_Driver/uart_cmsdk_drv.h
       Include file:  Native_Driver/uart_cmsdk_reg_map.h
+      Include file:  Native_Driver/uart_cmsdk_drv.h
       Source file:   Native_Driver/uart_cmsdk_drv.c
 Build Time Elapsed:  00:00:00
 </pre>
