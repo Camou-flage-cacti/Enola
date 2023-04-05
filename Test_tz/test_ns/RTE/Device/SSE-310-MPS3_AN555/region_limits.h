@@ -39,7 +39,7 @@
 //#define NS_ROM_ALIAS              (0x01000000) /* SRAM_BASE_NS */
 #define NS_ROM_ALIAS              (0x01000000 + 0x00020000) /* SRAM_BASE_NS */
 //#define NS_ROM_ALIAS              (0x28000000 ) /* SRAM_BASE_NS */
-#define TOTAL_NS_ROM_SIZE         (0x00020000) /* 128 kB */
+#define TOTAL_NS_ROM_SIZE         (0x20000) /* 128 kB */
 
 /* Non-Secure Data */
 //#define NS_RAM_ALIAS              (0x21000000) /* ISRAM0_BASE_NS */

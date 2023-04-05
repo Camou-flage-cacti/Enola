@@ -7,6 +7,7 @@
 #include "Driver_MPC.h"
 
 #define MPC_SRAM_CONTROLLER 0x57000000
+//#define MPC_QSPI_CONTROLLER 0x57001000
 
 #define     __IM     volatile const      /*! Defines 'read only' structure member permissions */
 #define     __OM     volatile            /*! Defines 'write only' structure member permissions */
@@ -32,6 +33,12 @@ typedef struct /* see "ARM CoreLink SSE-200 Subsystem Technical Reference Manual
 #define MPS3_MPCFPGASRAM         ((struct mpc_sie_reg_map_t               *) MPC_SRAM_CONTROLLER   )
 #define MPS3_MPCFPGASRAM2         ((struct mpc_sie_reg_map_t               *) MPC_SRAM_CONTROLLER   )
 #define NONSECURE_START (0x1020000u)
+//#define NONSECURE_START (0x28000000u)
+
+#define FPGA_MPC_ADDRESS_BASE 0x01020000//0x28000000 //
+#define FPGA_MPC_ADDRESS_LIMIT 0x011FFFFF//0x287FFFFF //
+#define MPC_REGION_OFFSET 0x20000
+
 
 //#define NONSECURE_START SRAM_BASE_NS
 /* typedef for NonSecure callback functions */
@@ -58,23 +65,24 @@ int main()
  // MPS3_MPCFPGASRAM2->blk_lutn = 0xFFFFFFFFUL;            /* configure blocks */
 	
 	//MPC_ISRAM1_RANGE_BASE_NS->CTRL &= ~(1UL << 8U);  
-	uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
-  NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
-	ARM_DRIVER_MPC tst;
-	uintptr_t base = 0x57000000, limit = 0x00020000;
-	ARM_MPC_SEC_ATTR atttr= ARM_MPC_ATTR_MIXED;
+		uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
+		NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
+	//ARM_DRIVER_MPC tst;
+	//uintptr_t base = 0x57000000, limit = 0x00020000;
+//	ARM_MPC_SEC_ATTR atttr= ARM_MPC_ATTR_MIXED;
 //	int ret = tst.Initialize();
 	//tst.ConfigRegion(base, limit, atttr);
 	
   //__ASM volatile ("MSR msp_ns, %0" : : "r" (NONSECURE_START) : );
 		
 		
-		struct mpc_sie_memory_range_t rng = {0x1000000, 0x000200000, 0, MPC_SIE_SEC_ATTR_NONSECURE};
+		//struct mpc_sie_memory_range_t rng = {0x28000000, 0x287FFFFF, 0, MPC_SIE_SEC_ATTR_NONSECURE};
+		struct mpc_sie_memory_range_t rng = {FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, MPC_REGION_OFFSET, MPC_SIE_SEC_ATTR_NONSECURE};
 		
 		const struct mpc_sie_memory_range_t *rng_ptr = &rng;
 		const struct mpc_sie_memory_range_t **double_rng_ptr = & rng_ptr;
 		
-		const struct mpc_sie_dev_cfg_t mpc_cfg = {0x57000000, double_rng_ptr, 1}; 
+		const struct mpc_sie_dev_cfg_t mpc_cfg = {MPC_SRAM_CONTROLLER, double_rng_ptr, 1}; 
 		
 		struct mpc_sie_dev_data_t mpc_data = {false, 0x65};
 		
@@ -93,16 +101,23 @@ int main()
 		uint32_t blk_size_holder = 0;
 		enum mpc_sie_error_t get_block_size = mpc_sie_get_block_size(&dev_test, &blk_size_holder);
 		
+		/*get region config test */
+		enum mpc_sie_sec_attr_t mpc_get_config_holder; 
+		enum mpc_sie_error_t mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
 		/*test config region*/
-		enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, 0x1000000, 0x000200000, mpc_attr);
+		//rng.attr = MPC_SIE_SEC_ATTR_NONSECURE;
+		//enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
+		
+		/*confirm NS configuration*/
+		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
 		
 		
-	__asm volatile(
+	/*__asm volatile(
 		"MOV r5, #0x1122\n\t"
 		"MSR PAC_KEY_U_0, r5\n\t"
 	  "MSR PAC_KEY_P_0_NS, r5\n\t"
 		"MSR PAC_KEY_U_0_NS, r5\n\t"
-	);
+	);*/
 	
 	/*__asm volatile(
 		"MOVW r0, #0x0000\n\t"

@@ -46,6 +46,7 @@
 ".\objects\systimer_armv8-m_drv.o"
 ".\objects\systimer_armv8-m_timeout.o"
 ".\objects\uart_cmsdk_drv.o"
+".\objects\emulated_flash_drv.o"
 --strict --scatter ".\RTE\Device\SSE-310-MPS3_AN555\corstone310_mps3_s.sct"
 --import-cmse-lib-out="..\test_ss\Objects\test_s_CMSE_Lib.o"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

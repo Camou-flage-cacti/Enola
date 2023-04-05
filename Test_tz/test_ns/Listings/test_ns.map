@@ -5,6 +5,245 @@ Component: Arm Compiler for Embedded 6.18 Tool: armlink [5e4cc100]
 Section Cross References
 
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
+    driver_mpc.o(.text.ARM_MPC_GetVersion) refers to driver_mpc.o(.rodata.DriverVersion) for DriverVersion
+    driver_mpc.o(.ARM.exidx.text.ARM_MPC_GetVersion) refers to driver_mpc.o(.text.ARM_MPC_GetVersion) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_Initialize) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_Initialize) refers to mpc_sie_drv.o(.text.mpc_sie_init) for mpc_sie_init
+    driver_mpc.o(.text.Driver_SRAM_MPC_Initialize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_Initialize) refers to driver_mpc.o(.text.Driver_SRAM_MPC_Initialize) for [Anonymous Symbol]
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_Uninitialize) refers to driver_mpc.o(.text.Driver_SRAM_MPC_Uninitialize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetBlockSize) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetBlockSize) refers to mpc_sie_drv.o(.text.mpc_sie_get_block_size) for mpc_sie_get_block_size
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetBlockSize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_GetBlockSize) refers to driver_mpc.o(.text.Driver_SRAM_MPC_GetBlockSize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetCtrlConfig) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_ctrl) for mpc_sie_get_ctrl
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.Driver_SRAM_MPC_GetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_SetCtrlConfig) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_SetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_set_ctrl) for mpc_sie_set_ctrl
+    driver_mpc.o(.text.Driver_SRAM_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.Driver_SRAM_MPC_SetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_ConfigRegion) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_ConfigRegion) refers to mpc_sie_drv.o(.text.mpc_sie_config_region) for mpc_sie_config_region
+    driver_mpc.o(.text.Driver_SRAM_MPC_ConfigRegion) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_ConfigRegion) refers to driver_mpc.o(.text.Driver_SRAM_MPC_ConfigRegion) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetRegionConfig) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetRegionConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_region_config) for mpc_sie_get_region_config
+    driver_mpc.o(.text.Driver_SRAM_MPC_GetRegionConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_GetRegionConfig) refers to driver_mpc.o(.text.Driver_SRAM_MPC_GetRegionConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_EnableInterrupt) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_EnableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_enable) for mpc_sie_irq_enable
+    driver_mpc.o(.text.Driver_SRAM_MPC_EnableInterrupt) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_EnableInterrupt) refers to driver_mpc.o(.text.Driver_SRAM_MPC_EnableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_DisableInterrupt) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_DisableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_disable) for mpc_sie_irq_disable
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_DisableInterrupt) refers to driver_mpc.o(.text.Driver_SRAM_MPC_DisableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_ClearInterrupt) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_ClearInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_clear_irq) for mpc_sie_clear_irq
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_ClearInterrupt) refers to driver_mpc.o(.text.Driver_SRAM_MPC_ClearInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_InterruptState) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_InterruptState) refers to mpc_sie_drv.o(.text.mpc_sie_irq_state) for mpc_sie_irq_state
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_InterruptState) refers to driver_mpc.o(.text.Driver_SRAM_MPC_InterruptState) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_SRAM_MPC_LockDown) refers to device_definition.o(.data.MPC_SRAM_DEV_S) for MPC_SRAM_DEV_S
+    driver_mpc.o(.text.Driver_SRAM_MPC_LockDown) refers to mpc_sie_drv.o(.text.mpc_sie_lock_down) for mpc_sie_lock_down
+    driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_LockDown) refers to driver_mpc.o(.text.Driver_SRAM_MPC_LockDown) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_Initialize) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_Initialize) refers to mpc_sie_drv.o(.text.mpc_sie_init) for mpc_sie_init
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_Initialize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_Initialize) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_Initialize) for [Anonymous Symbol]
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_Uninitialize) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_Uninitialize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetBlockSize) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetBlockSize) refers to mpc_sie_drv.o(.text.mpc_sie_get_block_size) for mpc_sie_get_block_size
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetBlockSize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_GetBlockSize) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_GetBlockSize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetCtrlConfig) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_ctrl) for mpc_sie_get_ctrl
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_GetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_SetCtrlConfig) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_SetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_set_ctrl) for mpc_sie_set_ctrl
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_SetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_ConfigRegion) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_ConfigRegion) refers to mpc_sie_drv.o(.text.mpc_sie_config_region) for mpc_sie_config_region
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_ConfigRegion) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_ConfigRegion) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_ConfigRegion) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetRegionConfig) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetRegionConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_region_config) for mpc_sie_get_region_config
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_GetRegionConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_GetRegionConfig) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_GetRegionConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_EnableInterrupt) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_EnableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_enable) for mpc_sie_irq_enable
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_EnableInterrupt) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_EnableInterrupt) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_EnableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_DisableInterrupt) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_DisableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_disable) for mpc_sie_irq_disable
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_DisableInterrupt) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_DisableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_ClearInterrupt) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_ClearInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_clear_irq) for mpc_sie_clear_irq
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_ClearInterrupt) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_ClearInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_InterruptState) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_InterruptState) refers to mpc_sie_drv.o(.text.mpc_sie_irq_state) for mpc_sie_irq_state
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_InterruptState) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_InterruptState) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_LockDown) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM0_MPC_LockDown) refers to mpc_sie_drv.o(.text.mpc_sie_lock_down) for mpc_sie_lock_down
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_LockDown) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_LockDown) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_Initialize) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_Initialize) refers to mpc_sie_drv.o(.text.mpc_sie_init) for mpc_sie_init
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_Initialize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_Initialize) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_Initialize) for [Anonymous Symbol]
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_Uninitialize) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_Uninitialize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetBlockSize) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetBlockSize) refers to mpc_sie_drv.o(.text.mpc_sie_get_block_size) for mpc_sie_get_block_size
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetBlockSize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_GetBlockSize) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_GetBlockSize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetCtrlConfig) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_ctrl) for mpc_sie_get_ctrl
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_GetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_SetCtrlConfig) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_SetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_set_ctrl) for mpc_sie_set_ctrl
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_SetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_ConfigRegion) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_ConfigRegion) refers to mpc_sie_drv.o(.text.mpc_sie_config_region) for mpc_sie_config_region
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_ConfigRegion) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_ConfigRegion) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_ConfigRegion) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetRegionConfig) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetRegionConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_region_config) for mpc_sie_get_region_config
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_GetRegionConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_GetRegionConfig) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_GetRegionConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_EnableInterrupt) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_EnableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_enable) for mpc_sie_irq_enable
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_EnableInterrupt) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_EnableInterrupt) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_EnableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_DisableInterrupt) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_DisableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_disable) for mpc_sie_irq_disable
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_DisableInterrupt) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_DisableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_ClearInterrupt) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_ClearInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_clear_irq) for mpc_sie_clear_irq
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_ClearInterrupt) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_ClearInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_InterruptState) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_InterruptState) refers to mpc_sie_drv.o(.text.mpc_sie_irq_state) for mpc_sie_irq_state
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_InterruptState) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_InterruptState) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_LockDown) refers to device_definition.o(.data.MPC_ISRAM0_DEV_S) for MPC_ISRAM0_DEV_S
+    driver_mpc.o(.text.Driver_ISRAM1_MPC_LockDown) refers to mpc_sie_drv.o(.text.mpc_sie_lock_down) for mpc_sie_lock_down
+    driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_LockDown) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_LockDown) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_Initialize) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_Initialize) refers to mpc_sie_drv.o(.text.mpc_sie_init) for mpc_sie_init
+    driver_mpc.o(.text.Driver_QSPI_MPC_Initialize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_Initialize) refers to driver_mpc.o(.text.Driver_QSPI_MPC_Initialize) for [Anonymous Symbol]
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_Uninitialize) refers to driver_mpc.o(.text.Driver_QSPI_MPC_Uninitialize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetBlockSize) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetBlockSize) refers to mpc_sie_drv.o(.text.mpc_sie_get_block_size) for mpc_sie_get_block_size
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetBlockSize) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_GetBlockSize) refers to driver_mpc.o(.text.Driver_QSPI_MPC_GetBlockSize) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetCtrlConfig) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_ctrl) for mpc_sie_get_ctrl
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_GetCtrlConfig) refers to driver_mpc.o(.text.Driver_QSPI_MPC_GetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_SetCtrlConfig) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_SetCtrlConfig) refers to mpc_sie_drv.o(.text.mpc_sie_set_ctrl) for mpc_sie_set_ctrl
+    driver_mpc.o(.text.Driver_QSPI_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_SetCtrlConfig) refers to driver_mpc.o(.text.Driver_QSPI_MPC_SetCtrlConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_ConfigRegion) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_ConfigRegion) refers to mpc_sie_drv.o(.text.mpc_sie_config_region) for mpc_sie_config_region
+    driver_mpc.o(.text.Driver_QSPI_MPC_ConfigRegion) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_ConfigRegion) refers to driver_mpc.o(.text.Driver_QSPI_MPC_ConfigRegion) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetRegionConfig) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetRegionConfig) refers to mpc_sie_drv.o(.text.mpc_sie_get_region_config) for mpc_sie_get_region_config
+    driver_mpc.o(.text.Driver_QSPI_MPC_GetRegionConfig) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_GetRegionConfig) refers to driver_mpc.o(.text.Driver_QSPI_MPC_GetRegionConfig) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_EnableInterrupt) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_EnableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_enable) for mpc_sie_irq_enable
+    driver_mpc.o(.text.Driver_QSPI_MPC_EnableInterrupt) refers to driver_mpc.o(.text.mpc_sie_error_trans) for mpc_sie_error_trans
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_EnableInterrupt) refers to driver_mpc.o(.text.Driver_QSPI_MPC_EnableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_DisableInterrupt) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_DisableInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_irq_disable) for mpc_sie_irq_disable
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_DisableInterrupt) refers to driver_mpc.o(.text.Driver_QSPI_MPC_DisableInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_ClearInterrupt) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_ClearInterrupt) refers to mpc_sie_drv.o(.text.mpc_sie_clear_irq) for mpc_sie_clear_irq
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_ClearInterrupt) refers to driver_mpc.o(.text.Driver_QSPI_MPC_ClearInterrupt) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_InterruptState) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_InterruptState) refers to mpc_sie_drv.o(.text.mpc_sie_irq_state) for mpc_sie_irq_state
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_InterruptState) refers to driver_mpc.o(.text.Driver_QSPI_MPC_InterruptState) for [Anonymous Symbol]
+    driver_mpc.o(.text.Driver_QSPI_MPC_LockDown) refers to device_definition.o(.data.MPC_QSPI_DEV_S) for MPC_QSPI_DEV_S
+    driver_mpc.o(.text.Driver_QSPI_MPC_LockDown) refers to mpc_sie_drv.o(.text.mpc_sie_lock_down) for mpc_sie_lock_down
+    driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_LockDown) refers to driver_mpc.o(.text.Driver_QSPI_MPC_LockDown) for [Anonymous Symbol]
+    driver_mpc.o(.ARM.exidx.text.mpc_sie_error_trans) refers to driver_mpc.o(.text.mpc_sie_error_trans) for [Anonymous Symbol]
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.ARM_MPC_GetVersion) for ARM_MPC_GetVersion
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_Initialize) for Driver_SRAM_MPC_Initialize
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_Uninitialize) for Driver_SRAM_MPC_Uninitialize
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_GetBlockSize) for Driver_SRAM_MPC_GetBlockSize
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_GetCtrlConfig) for Driver_SRAM_MPC_GetCtrlConfig
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_SetCtrlConfig) for Driver_SRAM_MPC_SetCtrlConfig
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_ConfigRegion) for Driver_SRAM_MPC_ConfigRegion
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_GetRegionConfig) for Driver_SRAM_MPC_GetRegionConfig
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_EnableInterrupt) for Driver_SRAM_MPC_EnableInterrupt
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_DisableInterrupt) for Driver_SRAM_MPC_DisableInterrupt
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_ClearInterrupt) for Driver_SRAM_MPC_ClearInterrupt
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_InterruptState) for Driver_SRAM_MPC_InterruptState
+    driver_mpc.o(.rodata.Driver_SRAM_MPC) refers to driver_mpc.o(.text.Driver_SRAM_MPC_LockDown) for Driver_SRAM_MPC_LockDown
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.ARM_MPC_GetVersion) for ARM_MPC_GetVersion
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_Initialize) for Driver_ISRAM0_MPC_Initialize
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_Uninitialize) for Driver_ISRAM0_MPC_Uninitialize
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_GetBlockSize) for Driver_ISRAM0_MPC_GetBlockSize
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_GetCtrlConfig) for Driver_ISRAM0_MPC_GetCtrlConfig
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_SetCtrlConfig) for Driver_ISRAM0_MPC_SetCtrlConfig
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_ConfigRegion) for Driver_ISRAM0_MPC_ConfigRegion
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_GetRegionConfig) for Driver_ISRAM0_MPC_GetRegionConfig
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_EnableInterrupt) for Driver_ISRAM0_MPC_EnableInterrupt
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_DisableInterrupt) for Driver_ISRAM0_MPC_DisableInterrupt
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_ClearInterrupt) for Driver_ISRAM0_MPC_ClearInterrupt
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_InterruptState) for Driver_ISRAM0_MPC_InterruptState
+    driver_mpc.o(.rodata.Driver_ISRAM0_MPC) refers to driver_mpc.o(.text.Driver_ISRAM0_MPC_LockDown) for Driver_ISRAM0_MPC_LockDown
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.ARM_MPC_GetVersion) for ARM_MPC_GetVersion
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_Initialize) for Driver_ISRAM1_MPC_Initialize
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_Uninitialize) for Driver_ISRAM1_MPC_Uninitialize
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_GetBlockSize) for Driver_ISRAM1_MPC_GetBlockSize
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_GetCtrlConfig) for Driver_ISRAM1_MPC_GetCtrlConfig
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_SetCtrlConfig) for Driver_ISRAM1_MPC_SetCtrlConfig
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_ConfigRegion) for Driver_ISRAM1_MPC_ConfigRegion
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_GetRegionConfig) for Driver_ISRAM1_MPC_GetRegionConfig
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_EnableInterrupt) for Driver_ISRAM1_MPC_EnableInterrupt
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_DisableInterrupt) for Driver_ISRAM1_MPC_DisableInterrupt
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_ClearInterrupt) for Driver_ISRAM1_MPC_ClearInterrupt
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_InterruptState) for Driver_ISRAM1_MPC_InterruptState
+    driver_mpc.o(.rodata.Driver_ISRAM1_MPC) refers to driver_mpc.o(.text.Driver_ISRAM1_MPC_LockDown) for Driver_ISRAM1_MPC_LockDown
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.ARM_MPC_GetVersion) for ARM_MPC_GetVersion
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_Initialize) for Driver_QSPI_MPC_Initialize
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_Uninitialize) for Driver_QSPI_MPC_Uninitialize
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_GetBlockSize) for Driver_QSPI_MPC_GetBlockSize
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_GetCtrlConfig) for Driver_QSPI_MPC_GetCtrlConfig
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_SetCtrlConfig) for Driver_QSPI_MPC_SetCtrlConfig
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_ConfigRegion) for Driver_QSPI_MPC_ConfigRegion
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_GetRegionConfig) for Driver_QSPI_MPC_GetRegionConfig
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_EnableInterrupt) for Driver_QSPI_MPC_EnableInterrupt
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_DisableInterrupt) for Driver_QSPI_MPC_DisableInterrupt
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_ClearInterrupt) for Driver_QSPI_MPC_ClearInterrupt
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_InterruptState) for Driver_QSPI_MPC_InterruptState
+    driver_mpc.o(.rodata.Driver_QSPI_MPC) refers to driver_mpc.o(.text.Driver_QSPI_MPC_LockDown) for Driver_QSPI_MPC_LockDown
+    device_definition.o(.data.MPC_SRAM_DEV_CFG_S) refers to device_definition.o(.data.MPC_SRAM_RANGE_LIST) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_SRAM_DEV_S) refers to device_definition.o(.data.MPC_SRAM_DEV_CFG_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_SRAM_DEV_S) refers to device_definition.o(.bss.MPC_SRAM_DEV_DATA_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_QSPI_DEV_CFG_S) refers to device_definition.o(.data.MPC_QSPI_RANGE_LIST) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_QSPI_DEV_S) refers to device_definition.o(.data.MPC_QSPI_DEV_CFG_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_QSPI_DEV_S) refers to device_definition.o(.bss.MPC_QSPI_DEV_DATA_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM0_DEV_CFG_S) refers to device_definition.o(.data.MPC_ISRAM0_RANGE_LIST) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM0_DEV_S) refers to device_definition.o(.data.MPC_ISRAM0_DEV_CFG_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM0_DEV_S) refers to device_definition.o(.bss.MPC_ISRAM0_DEV_DATA_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM1_DEV_CFG_S) refers to device_definition.o(.data.MPC_ISRAM1_RANGE_LIST) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM1_DEV_S) refers to device_definition.o(.data.MPC_ISRAM1_DEV_CFG_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM1_DEV_S) refers to device_definition.o(.bss.MPC_ISRAM1_DEV_DATA_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_SRAM_RANGE_LIST) refers to device_definition.o(.rodata.MPC_SRAM_RANGE_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_SRAM_RANGE_LIST) refers to device_definition.o(.rodata.MPC_SRAM_RANGE_NS) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_QSPI_RANGE_LIST) refers to device_definition.o(.rodata.MPC_QSPI_RANGE_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_QSPI_RANGE_LIST) refers to device_definition.o(.rodata.MPC_QSPI_RANGE_NS) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM0_RANGE_LIST) refers to device_definition.o(.rodata.MPC_ISRAM0_RANGE_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM0_RANGE_LIST) refers to device_definition.o(.rodata.MPC_ISRAM0_RANGE_NS) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM1_RANGE_LIST) refers to device_definition.o(.rodata.MPC_ISRAM1_RANGE_S) for [Anonymous Symbol]
+    device_definition.o(.data.MPC_ISRAM1_RANGE_LIST) refers to device_definition.o(.rodata.MPC_ISRAM1_RANGE_NS) for [Anonymous Symbol]
     startup_sse310mps3.o(.ARM.exidx.text.NMI_Handler) refers to startup_sse310mps3.o(.text.NMI_Handler) for [Anonymous Symbol]
     startup_sse310mps3.o(.ARM.exidx.text.HardFault_Handler) refers to startup_sse310mps3.o(.text.HardFault_Handler) for [Anonymous Symbol]
     startup_sse310mps3.o(.ARM.exidx.text.MemManage_Handler) refers to startup_sse310mps3.o(.text.MemManage_Handler) for [Anonymous Symbol]
@@ -303,6 +542,69 @@ Section Cross References
     uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable) for [Anonymous Symbol]
     uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable) for [Anonymous Symbol]
     uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
+    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.emulated_flash_read_data) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_range_valid) refers to emulated_flash_drv.o(.text.is_range_valid) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_secure_alias_needed) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_write_aligned) for is_write_aligned
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_flash_ready_to_write) for is_flash_ready_to_write
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.emulated_flash_program_data) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_write_aligned) refers to emulated_flash_drv.o(.text.is_write_aligned) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_flash_ready_to_write) refers to emulated_flash_drv.o(.text.is_flash_ready_to_write) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_sector_aligned) for is_sector_aligned
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to aeabi_memset.o(.text) for __aeabi_memset
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.emulated_flash_erase_sector) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_sector_aligned) refers to emulated_flash_drv.o(.text.is_sector_aligned) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_erase_chip) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_erase_chip) refers to aeabi_memset.o(.text) for __aeabi_memset
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_chip) refers to emulated_flash_drv.o(.text.emulated_flash_erase_chip) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_get_info) refers to emulated_flash_drv.o(.text.emulated_flash_get_info) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_enable) refers to spi_pl022_drv.o(.text.spi_pl022_dev_enable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_disable) refers to spi_pl022_drv.o(.text.spi_pl022_dev_disable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_status) refers to spi_pl022_drv.o(.text.spi_pl022_get_status) for [Anonymous Symbol]
+    spi_pl022_drv.o(.text.spi_pl022_init) refers to spi_pl022_drv.o(.text.spi_set_configuration) for spi_set_configuration
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_init) refers to spi_pl022_drv.o(.text.spi_pl022_init) for [Anonymous Symbol]
+    spi_pl022_drv.o(.text.spi_set_configuration) refers to spi_pl022_drv.o(.text.spi_calc_clock_rate) for spi_calc_clock_rate
+    spi_pl022_drv.o(.ARM.exidx.text.spi_set_configuration) refers to spi_pl022_drv.o(.text.spi_set_configuration) for [Anonymous Symbol]
+    spi_pl022_drv.o(.text.spi_pl022_set_ctrl_cfg) refers to spi_pl022_drv.o(.text.spi_set_configuration) for spi_set_configuration
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_ctrl_cfg) refers to spi_pl022_drv.o(.text.spi_pl022_set_ctrl_cfg) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_ctrl_cfg) refers to spi_pl022_drv.o(.text.spi_pl022_get_ctrl_cfg) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_select_mode) refers to spi_pl022_drv.o(.text.spi_pl022_select_mode) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_slave_output) refers to spi_pl022_drv.o(.text.spi_pl022_set_slave_output) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_loopback_mode) refers to spi_pl022_drv.o(.text.spi_pl022_set_loopback_mode) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_enable_interrupt) refers to spi_pl022_drv.o(.text.spi_pl022_enable_interrupt) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_disable_interrupt) refers to spi_pl022_drv.o(.text.spi_pl022_disable_interrupt) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_raw_irq_status) refers to spi_pl022_drv.o(.text.spi_pl022_get_raw_irq_status) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_masked_irq_status) refers to spi_pl022_drv.o(.text.spi_pl022_get_masked_irq_status) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_clear_interrupt) refers to spi_pl022_drv.o(.text.spi_pl022_clear_interrupt) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dma_mode_enable) refers to spi_pl022_drv.o(.text.spi_pl022_dma_mode_enable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dma_mode_disable) refers to spi_pl022_drv.o(.text.spi_pl022_dma_mode_disable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_periphID) refers to spi_pl022_drv.o(.text.spi_pl022_get_periphID) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_PrimeCell_ID) refers to spi_pl022_drv.o(.text.spi_pl022_get_PrimeCell_ID) for [Anonymous Symbol]
+    spi_pl022_drv.o(.text.spi_pl022_set_sys_clk) refers to spi_pl022_drv.o(.text.spi_calc_clock_rate) for spi_calc_clock_rate
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_sys_clk) refers to spi_pl022_drv.o(.text.spi_pl022_set_sys_clk) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_calc_clock_rate) refers to spi_pl022_drv.o(.text.spi_calc_clock_rate) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_read) refers to spi_pl022_drv.o(.text.spi_pl022_read) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_slave_read) refers to spi_pl022_drv.o(.text.spi_pl022_slave_read) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_write) refers to spi_pl022_drv.o(.text.spi_pl022_write) for [Anonymous Symbol]
+    spi_pl022_drv.o(.text.spi_pl022_txrx_blocking) refers to spi_pl022_drv.o(.text.spi_pl022_write) for spi_pl022_write
+    spi_pl022_drv.o(.text.spi_pl022_txrx_blocking) refers to spi_pl022_drv.o(.text.spi_pl022_read) for spi_pl022_read
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_txrx_blocking) refers to spi_pl022_drv.o(.text.spi_pl022_txrx_blocking) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_test_fifo_enable) refers to spi_pl022_drv.o(.text.spi_pl022_test_fifo_enable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_test_fifo_disable) refers to spi_pl022_drv.o(.text.spi_pl022_test_fifo_disable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_integration_test_enable) refers to spi_pl022_drv.o(.text.spi_pl022_integration_test_enable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_integration_test_disable) refers to spi_pl022_drv.o(.text.spi_pl022_integration_test_disable) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_write_test_data) refers to spi_pl022_drv.o(.text.spi_pl022_write_test_data) for [Anonymous Symbol]
+    spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_read_test_output_reg) refers to spi_pl022_drv.o(.text.spi_pl022_read_test_output_reg) for [Anonymous Symbol]
+    rt_memcpy_v6.o(.text) refers to rt_memcpy_w.o(.text) for __aeabi_memcpy4
+    aeabi_memset.o(.text) refers to rt_memclr.o(.text) for _memset
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
@@ -317,6 +619,7 @@ Section Cross References
     __rtentry.o(.ARM.exidx) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
     __rtentry.o(.ARM.exidx) refers (Special) to __rtentry7.o(.ARM.Collect$$rtentry$$00000007) for __rt_entry_sh
     __rtentry.o(.ARM.exidx) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for .ARM.Collect$$rtentry$$00000000
+    rt_memclr.o(.text) refers to rt_memclr_w.o(.text) for _memset_w
     __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
@@ -474,7 +777,138 @@ Removing Unused input sections from the image.
     Removing main.o(.text), (0 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
+    Removing driver_mpc.o(.text), (0 bytes).
+    Removing driver_mpc.o(.text.ARM_MPC_GetVersion), (24 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.ARM_MPC_GetVersion), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_Initialize), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_Initialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_GetBlockSize), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_GetBlockSize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_GetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_GetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_SetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_SetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_ConfigRegion), (68 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_ConfigRegion), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_GetRegionConfig), (64 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_GetRegionConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_EnableInterrupt), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_EnableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_DisableInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_DisableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_ClearInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_ClearInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_InterruptState), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_InterruptState), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_SRAM_MPC_LockDown), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_SRAM_MPC_LockDown), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_Initialize), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_Initialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_GetBlockSize), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_GetBlockSize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_GetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_GetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_SetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_SetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_ConfigRegion), (68 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_ConfigRegion), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_GetRegionConfig), (64 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_GetRegionConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_EnableInterrupt), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_EnableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_DisableInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_DisableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_ClearInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_ClearInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_InterruptState), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_InterruptState), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM0_MPC_LockDown), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM0_MPC_LockDown), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_Initialize), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_Initialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_GetBlockSize), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_GetBlockSize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_GetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_GetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_SetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_SetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_ConfigRegion), (68 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_ConfigRegion), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_GetRegionConfig), (64 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_GetRegionConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_EnableInterrupt), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_EnableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_DisableInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_DisableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_ClearInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_ClearInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_InterruptState), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_InterruptState), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_ISRAM1_MPC_LockDown), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_ISRAM1_MPC_LockDown), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_Initialize), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_Initialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_Uninitialize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_GetBlockSize), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_GetBlockSize), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_GetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_GetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_SetCtrlConfig), (56 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_SetCtrlConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_ConfigRegion), (68 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_ConfigRegion), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_GetRegionConfig), (64 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_GetRegionConfig), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_EnableInterrupt), (52 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_EnableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_DisableInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_DisableInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_ClearInterrupt), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_ClearInterrupt), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_InterruptState), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_InterruptState), (8 bytes).
+    Removing driver_mpc.o(.text.Driver_QSPI_MPC_LockDown), (40 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.Driver_QSPI_MPC_LockDown), (8 bytes).
+    Removing driver_mpc.o(.text.mpc_sie_error_trans), (140 bytes).
+    Removing driver_mpc.o(.ARM.exidx.text.mpc_sie_error_trans), (8 bytes).
+    Removing driver_mpc.o(.rodata.Driver_SRAM_MPC), (52 bytes).
+    Removing driver_mpc.o(.rodata.Driver_ISRAM0_MPC), (52 bytes).
+    Removing driver_mpc.o(.rodata.Driver_ISRAM1_MPC), (52 bytes).
+    Removing driver_mpc.o(.rodata.Driver_QSPI_MPC), (52 bytes).
+    Removing driver_mpc.o(.rodata.DriverVersion), (4 bytes).
+    Removing driver_spi.o(.text), (0 bytes).
     Removing device_definition.o(.text), (0 bytes).
+    Removing device_definition.o(.data.MPC_SRAM_DEV_CFG_S), (12 bytes).
+    Removing device_definition.o(.bss.MPC_SRAM_DEV_DATA_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_SRAM_DEV_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_QSPI_DEV_CFG_S), (12 bytes).
+    Removing device_definition.o(.bss.MPC_QSPI_DEV_DATA_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_QSPI_DEV_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_ISRAM0_DEV_CFG_S), (12 bytes).
+    Removing device_definition.o(.bss.MPC_ISRAM0_DEV_DATA_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_ISRAM0_DEV_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_ISRAM1_DEV_CFG_S), (12 bytes).
+    Removing device_definition.o(.bss.MPC_ISRAM1_DEV_DATA_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_ISRAM1_DEV_S), (8 bytes).
+    Removing device_definition.o(.data.MPC_SRAM_RANGE_LIST), (8 bytes).
+    Removing device_definition.o(.rodata.MPC_SRAM_RANGE_S), (16 bytes).
+    Removing device_definition.o(.rodata.MPC_SRAM_RANGE_NS), (16 bytes).
+    Removing device_definition.o(.data.MPC_QSPI_RANGE_LIST), (8 bytes).
+    Removing device_definition.o(.rodata.MPC_QSPI_RANGE_S), (16 bytes).
+    Removing device_definition.o(.rodata.MPC_QSPI_RANGE_NS), (16 bytes).
+    Removing device_definition.o(.data.MPC_ISRAM0_RANGE_LIST), (8 bytes).
+    Removing device_definition.o(.rodata.MPC_ISRAM0_RANGE_S), (16 bytes).
+    Removing device_definition.o(.rodata.MPC_ISRAM0_RANGE_NS), (16 bytes).
+    Removing device_definition.o(.data.MPC_ISRAM1_RANGE_LIST), (8 bytes).
+    Removing device_definition.o(.rodata.MPC_ISRAM1_RANGE_S), (16 bytes).
+    Removing device_definition.o(.rodata.MPC_ISRAM1_RANGE_NS), (16 bytes).
     Removing startup_sse310mps3.o(.text), (0 bytes).
     Removing startup_sse310mps3.o(.ARM.exidx.text.NMI_Handler), (8 bytes).
     Removing startup_sse310mps3.o(.ARM.exidx.text.HardFault_Handler), (8 bytes).
@@ -686,8 +1120,92 @@ Removing Unused input sections from the image.
     Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable), (8 bytes).
     Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable), (44 bytes).
     Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable), (8 bytes).
+    Removing emulated_flash_drv.o(.text), (0 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_read_data), (146 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_read_data), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_range_valid), (54 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_range_valid), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_secure_alias_needed), (24 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_secure_alias_needed), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_program_data), (204 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_program_data), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_write_aligned), (48 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_write_aligned), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_flash_ready_to_write), (64 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_flash_ready_to_write), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_erase_sector), (158 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_sector), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_sector_aligned), (48 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_sector_aligned), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_erase_chip), (134 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_chip), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_get_info), (16 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_get_info), (8 bytes).
+    Removing spi_pl022_drv.o(.text), (0 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_dev_enable), (30 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_enable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_dev_disable), (30 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_disable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_get_status), (24 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_status), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_init), (124 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_init), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_set_configuration), (238 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_set_configuration), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_set_ctrl_cfg), (140 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_ctrl_cfg), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_get_ctrl_cfg), (78 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_ctrl_cfg), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_select_mode), (74 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_select_mode), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_set_slave_output), (44 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_slave_output), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_set_loopback_mode), (42 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_loopback_mode), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_enable_interrupt), (36 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_enable_interrupt), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_disable_interrupt), (40 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_disable_interrupt), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_get_raw_irq_status), (28 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_raw_irq_status), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_get_masked_irq_status), (28 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_masked_irq_status), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_clear_interrupt), (32 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_clear_interrupt), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_dma_mode_enable), (36 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dma_mode_enable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_dma_mode_disable), (40 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dma_mode_disable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_get_periphID), (126 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_periphID), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_get_PrimeCell_ID), (62 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_PrimeCell_ID), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_set_sys_clk), (130 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_set_sys_clk), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_calc_clock_rate), (112 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_calc_clock_rate), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_read), (86 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_read), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_slave_read), (54 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_slave_read), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_write), (116 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_write), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_txrx_blocking), (372 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_txrx_blocking), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_test_fifo_enable), (32 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_test_fifo_enable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_test_fifo_disable), (32 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_test_fifo_disable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_integration_test_enable), (32 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_integration_test_enable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_integration_test_disable), (32 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_integration_test_disable), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_write_test_data), (56 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_write_test_data), (8 bytes).
+    Removing spi_pl022_drv.o(.text.spi_pl022_read_test_output_reg), (26 bytes).
+    Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_read_test_output_reg), (8 bytes).
 
-215 unused section(s) (total 5944 bytes) removed from the image.
+430 unused section(s) (total 12836 bytes) removed from the image.
 
 ==============================================================================
 
@@ -722,13 +1240,21 @@ Image Symbol Table
     ../clib/libinit.s                        0x00000000   Number         0  libinit5.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_v6.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  aeabi_memset.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit_81m.o ABSOLUTE
+    Driver_MPC.c                             0x00000000   Number         0  driver_mpc.o ABSOLUTE
+    Driver_SPI.c                             0x00000000   Number         0  driver_spi.o ABSOLUTE
     armsys.c                                 0x00000000   Number         0  argv_veneer.o ABSOLUTE
     armsys.c                                 0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     armsys.c                                 0x00000000   Number         0  no_argv.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     device_definition.c                      0x00000000   Number         0  device_definition.o ABSOLUTE
+    emulated_flash_drv.c                     0x00000000   Number         0  emulated_flash_drv.o ABSOLUTE
     heapalloc.c                              0x00000000   Number         0  hrguard.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
     mpc_sie_drv.c                            0x00000000   Number         0  mpc_sie_drv.o ABSOLUTE
@@ -747,6 +1273,7 @@ Image Symbol Table
     signal.c                                 0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     signal.c                                 0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     signal.c                                 0x00000000   Number         0  defsig_other.o ABSOLUTE
+    spi_pl022_drv.c                          0x00000000   Number         0  spi_pl022_drv.o ABSOLUTE
     startup_SSE310MPS3.c                     0x00000000   Number         0  startup_sse310mps3.o ABSOLUTE
     stdlib.c                                 0x00000000   Number         0  exit.o ABSOLUTE
     sysapp.c                                 0x00000000   Number         0  sys_exit.o ABSOLUTE
@@ -1173,187 +1700,187 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x01020000   0x01020000   0x00000240   Data   RO          261    RESET               startup_sse310mps3.o
-    0x01020240   0x01020240   0x0000000c   Code   RO          384  * !!!main             c_xa.l(__main.o)
-    0x0102024c   0x0102024c   0x0000003c   Code   RO          589    !!!scatter          c_xa.l(__scatter.o)
-    0x01020288   0x01020288   0x0000001e   Code   RO          591    !!handler_copy      c_xa.l(__scatter_copy.o)
-    0x010202a6   0x010202a6   0x00000008   Code   RO          419    .ARM.Collect$$libinit$$00000000  c_xa.l(libinit.o)
-    0x010202ae   0x010202ae   0x00000004   Code   RO          429    .ARM.Collect$$libinit$$00000001  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          432    .ARM.Collect$$libinit$$00000004  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          434    .ARM.Collect$$libinit$$00000006  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          437    .ARM.Collect$$libinit$$0000000C  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          439    .ARM.Collect$$libinit$$0000000E  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          441    .ARM.Collect$$libinit$$00000010  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          444    .ARM.Collect$$libinit$$00000013  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          446    .ARM.Collect$$libinit$$00000015  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          448    .ARM.Collect$$libinit$$00000017  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          450    .ARM.Collect$$libinit$$00000019  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          452    .ARM.Collect$$libinit$$0000001B  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          454    .ARM.Collect$$libinit$$0000001D  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          456    .ARM.Collect$$libinit$$0000001F  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          458    .ARM.Collect$$libinit$$00000021  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          460    .ARM.Collect$$libinit$$00000023  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          462    .ARM.Collect$$libinit$$00000025  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          464    .ARM.Collect$$libinit$$00000027  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          468    .ARM.Collect$$libinit$$0000002E  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          470    .ARM.Collect$$libinit$$00000030  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          472    .ARM.Collect$$libinit$$00000032  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x00000000   Code   RO          474    .ARM.Collect$$libinit$$00000034  c_xa.l(libinit2.o)
-    0x010202b2   0x010202b2   0x0000000a   Code   RO          475    .ARM.Collect$$libinit$$00000035  c_xa.l(libinit2.o)
-    0x010202bc   0x010202bc   0x00000008   Code   RO          509    .ARM.Collect$$libshutdown$$00000000  c_xa.l(libshutdown.o)
-    0x010202c4   0x010202c4   0x00000000   Code   RO          526    .ARM.Collect$$libshutdown$$00000002  c_xa.l(libshutdown2.o)
-    0x010202c4   0x010202c4   0x00000000   Code   RO          528    .ARM.Collect$$libshutdown$$00000004  c_xa.l(libshutdown2.o)
-    0x010202c4   0x010202c4   0x00000000   Code   RO          531    .ARM.Collect$$libshutdown$$00000007  c_xa.l(libshutdown2.o)
-    0x010202c4   0x010202c4   0x00000000   Code   RO          534    .ARM.Collect$$libshutdown$$0000000A  c_xa.l(libshutdown2.o)
-    0x010202c4   0x010202c4   0x00000000   Code   RO          536    .ARM.Collect$$libshutdown$$0000000C  c_xa.l(libshutdown2.o)
-    0x010202c4   0x010202c4   0x00000000   Code   RO          539    .ARM.Collect$$libshutdown$$0000000F  c_xa.l(libshutdown2.o)
-    0x010202c4   0x010202c4   0x0000000a   Code   RO          540    .ARM.Collect$$libshutdown$$00000010  c_xa.l(libshutdown2.o)
-    0x010202ce   0x010202ce   0x00000004   Code   RO          386    .ARM.Collect$$rtentry$$00000000  c_xa.l(__rtentry.o)
-    0x010202d2   0x010202d2   0x00000000   Code   RO          389    .ARM.Collect$$rtentry$$00000002  c_xa.l(__rtentry2.o)
-    0x010202d2   0x010202d2   0x00000004   Code   RO          403    .ARM.Collect$$rtentry$$00000007  c_xa.l(__rtentry7.o)
-    0x010202d6   0x010202d6   0x00000000   Code   RO          391    .ARM.Collect$$rtentry$$00000009  c_xa.l(__rtentry2.o)
-    0x010202d6   0x010202d6   0x00000004   Code   RO          392    .ARM.Collect$$rtentry$$0000000A  c_xa.l(__rtentry2.o)
-    0x010202da   0x010202da   0x00000000   Code   RO          394    .ARM.Collect$$rtentry$$0000000C  c_xa.l(__rtentry2.o)
-    0x010202da   0x010202da   0x00000008   Code   RO          395    .ARM.Collect$$rtentry$$0000000D  c_xa.l(__rtentry2.o)
+    0x01020000   0x01020000   0x00000240   Data   RO          402    RESET               startup_sse310mps3.o
+    0x01020240   0x01020240   0x0000000c   Code   RO          625  * !!!main             c_xa.l(__main.o)
+    0x0102024c   0x0102024c   0x0000003c   Code   RO          836    !!!scatter          c_xa.l(__scatter.o)
+    0x01020288   0x01020288   0x0000001e   Code   RO          838    !!handler_copy      c_xa.l(__scatter_copy.o)
+    0x010202a6   0x010202a6   0x00000008   Code   RO          666    .ARM.Collect$$libinit$$00000000  c_xa.l(libinit.o)
+    0x010202ae   0x010202ae   0x00000004   Code   RO          676    .ARM.Collect$$libinit$$00000001  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          679    .ARM.Collect$$libinit$$00000004  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          681    .ARM.Collect$$libinit$$00000006  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          684    .ARM.Collect$$libinit$$0000000C  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          686    .ARM.Collect$$libinit$$0000000E  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          688    .ARM.Collect$$libinit$$00000010  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          691    .ARM.Collect$$libinit$$00000013  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          693    .ARM.Collect$$libinit$$00000015  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          695    .ARM.Collect$$libinit$$00000017  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          697    .ARM.Collect$$libinit$$00000019  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          699    .ARM.Collect$$libinit$$0000001B  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          701    .ARM.Collect$$libinit$$0000001D  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          703    .ARM.Collect$$libinit$$0000001F  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          705    .ARM.Collect$$libinit$$00000021  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          707    .ARM.Collect$$libinit$$00000023  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          709    .ARM.Collect$$libinit$$00000025  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          711    .ARM.Collect$$libinit$$00000027  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          715    .ARM.Collect$$libinit$$0000002E  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          717    .ARM.Collect$$libinit$$00000030  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          719    .ARM.Collect$$libinit$$00000032  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x00000000   Code   RO          721    .ARM.Collect$$libinit$$00000034  c_xa.l(libinit2.o)
+    0x010202b2   0x010202b2   0x0000000a   Code   RO          722    .ARM.Collect$$libinit$$00000035  c_xa.l(libinit2.o)
+    0x010202bc   0x010202bc   0x00000008   Code   RO          756    .ARM.Collect$$libshutdown$$00000000  c_xa.l(libshutdown.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          773    .ARM.Collect$$libshutdown$$00000002  c_xa.l(libshutdown2.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          775    .ARM.Collect$$libshutdown$$00000004  c_xa.l(libshutdown2.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          778    .ARM.Collect$$libshutdown$$00000007  c_xa.l(libshutdown2.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          781    .ARM.Collect$$libshutdown$$0000000A  c_xa.l(libshutdown2.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          783    .ARM.Collect$$libshutdown$$0000000C  c_xa.l(libshutdown2.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          786    .ARM.Collect$$libshutdown$$0000000F  c_xa.l(libshutdown2.o)
+    0x010202c4   0x010202c4   0x0000000a   Code   RO          787    .ARM.Collect$$libshutdown$$00000010  c_xa.l(libshutdown2.o)
+    0x010202ce   0x010202ce   0x00000004   Code   RO          627    .ARM.Collect$$rtentry$$00000000  c_xa.l(__rtentry.o)
+    0x010202d2   0x010202d2   0x00000000   Code   RO          634    .ARM.Collect$$rtentry$$00000002  c_xa.l(__rtentry2.o)
+    0x010202d2   0x010202d2   0x00000004   Code   RO          648    .ARM.Collect$$rtentry$$00000007  c_xa.l(__rtentry7.o)
+    0x010202d6   0x010202d6   0x00000000   Code   RO          636    .ARM.Collect$$rtentry$$00000009  c_xa.l(__rtentry2.o)
+    0x010202d6   0x010202d6   0x00000004   Code   RO          637    .ARM.Collect$$rtentry$$0000000A  c_xa.l(__rtentry2.o)
+    0x010202da   0x010202da   0x00000000   Code   RO          639    .ARM.Collect$$rtentry$$0000000C  c_xa.l(__rtentry2.o)
+    0x010202da   0x010202da   0x00000008   Code   RO          640    .ARM.Collect$$rtentry$$0000000D  c_xa.l(__rtentry2.o)
     0x010202e2   0x010202e2   0x00000002   PAD
-    0x010202e4   0x010202e4   0x00000004   Code   RO          404    .ARM.Collect$$rtentry$$00002718  c_xa.l(__rtentry7.o)
-    0x010202e8   0x010202e8   0x00000006   Code   RO          427    .ARM.Collect$$rtexit$$00000000  c_xa.l(rtexit.o)
-    0x010202ee   0x010202ee   0x00000000   Code   RO          484    .ARM.Collect$$rtexit$$00000002  c_xa.l(rtexit2.o)
-    0x010202ee   0x010202ee   0x00000004   Code   RO          485    .ARM.Collect$$rtexit$$00000003  c_xa.l(rtexit2.o)
-    0x010202f2   0x010202f2   0x00000006   Code   RO          486    .ARM.Collect$$rtexit$$00000004  c_xa.l(rtexit2.o)
-    0x010202f8   0x010202f8   0x00000010   Code   RO          410    .text               c_xa.l(exit.o)
-    0x01020308   0x01020308   0x00000006   Code   RO          480    .text               c_xa.l(use_no_semi.o)
-    0x0102030e   0x0102030e   0x00000000   Code   RO          482    .text               c_xa.l(indicate_semi.o)
+    0x010202e4   0x010202e4   0x00000004   Code   RO          649    .ARM.Collect$$rtentry$$00002718  c_xa.l(__rtentry7.o)
+    0x010202e8   0x010202e8   0x00000006   Code   RO          674    .ARM.Collect$$rtexit$$00000000  c_xa.l(rtexit.o)
+    0x010202ee   0x010202ee   0x00000000   Code   RO          731    .ARM.Collect$$rtexit$$00000002  c_xa.l(rtexit2.o)
+    0x010202ee   0x010202ee   0x00000004   Code   RO          732    .ARM.Collect$$rtexit$$00000003  c_xa.l(rtexit2.o)
+    0x010202f2   0x010202f2   0x00000006   Code   RO          733    .ARM.Collect$$rtexit$$00000004  c_xa.l(rtexit2.o)
+    0x010202f8   0x010202f8   0x00000010   Code   RO          657    .text               c_xa.l(exit.o)
+    0x01020308   0x01020308   0x00000006   Code   RO          727    .text               c_xa.l(use_no_semi.o)
+    0x0102030e   0x0102030e   0x00000000   Code   RO          729    .text               c_xa.l(indicate_semi.o)
     0x0102030e   0x0102030e   0x00000002   PAD
-    0x01020310   0x01020310   0x00000012   Code   RO          495    .text               c_xa.l(sys_exit.o)
+    0x01020310   0x01020310   0x00000012   Code   RO          742    .text               c_xa.l(sys_exit.o)
     0x01020322   0x01020322   0x00000006   PAD
-    0x01020328   0x01020328   0x00000008   Code   RO           55    .text.BRIDGE_ERROR_Handler  startup_sse310mps3.o
-    0x01020330   0x01020330   0x00000008   Code   RO           23    .text.BusFault_Handler  startup_sse310mps3.o
-    0x01020338   0x01020338   0x00000008   Code   RO           57    .text.COMBINED_PPU_Handler  startup_sse310mps3.o
-    0x01020340   0x01020340   0x00000008   Code   RO           63    .text.CPU0_CTI_0_Handler  startup_sse310mps3.o
-    0x01020348   0x01020348   0x00000008   Code   RO           65    .text.CPU0_CTI_1_Handler  startup_sse310mps3.o
-    0x01020350   0x01020350   0x00000008   Code   RO          119    .text.DMA_Ch_0_Combined_Handler  startup_sse310mps3.o
-    0x01020358   0x01020358   0x00000008   Code   RO          115    .text.DMA_Ch_0_Error_Handler  startup_sse310mps3.o
-    0x01020360   0x01020360   0x00000008   Code   RO          117    .text.DMA_Ch_0_Terminal_Count_Handler  startup_sse310mps3.o
-    0x01020368   0x01020368   0x00000008   Code   RO          125    .text.DMA_Ch_1_Combined_Handler  startup_sse310mps3.o
-    0x01020370   0x01020370   0x00000008   Code   RO          121    .text.DMA_Ch_1_Error_Handler  startup_sse310mps3.o
-    0x01020378   0x01020378   0x00000008   Code   RO          123    .text.DMA_Ch_1_Terminal_Count_Handler  startup_sse310mps3.o
-    0x01020380   0x01020380   0x00000008   Code   RO          131    .text.DMA_Ch_2_Combined_Handler  startup_sse310mps3.o
-    0x01020388   0x01020388   0x00000008   Code   RO          127    .text.DMA_Ch_2_Error_Handler  startup_sse310mps3.o
-    0x01020390   0x01020390   0x00000008   Code   RO          129    .text.DMA_Ch_2_Terminal_Count_Handler  startup_sse310mps3.o
-    0x01020398   0x01020398   0x00000008   Code   RO          137    .text.DMA_Ch_3_Combined_Handler  startup_sse310mps3.o
-    0x010203a0   0x010203a0   0x00000008   Code   RO          133    .text.DMA_Ch_3_Error_Handler  startup_sse310mps3.o
-    0x010203a8   0x010203a8   0x00000008   Code   RO          135    .text.DMA_Ch_3_Terminal_Count_Handler  startup_sse310mps3.o
-    0x010203b0   0x010203b0   0x00000008   Code   RO           31    .text.DebugMon_Handler  startup_sse310mps3.o
-    0x010203b8   0x010203b8   0x00000008   Code   RO          101    .text.ETHERNET_Handler  startup_sse310mps3.o
-    0x010203c0   0x010203c0   0x00000008   Code   RO          139    .text.ETHOS_U55_Handler  startup_sse310mps3.o
-    0x010203c8   0x010203c8   0x00000008   Code   RO          149    .text.GPIO0_0_Handler  startup_sse310mps3.o
-    0x010203d0   0x010203d0   0x00000008   Code   RO          169    .text.GPIO0_10_Handler  startup_sse310mps3.o
-    0x010203d8   0x010203d8   0x00000008   Code   RO          171    .text.GPIO0_11_Handler  startup_sse310mps3.o
-    0x010203e0   0x010203e0   0x00000008   Code   RO          173    .text.GPIO0_12_Handler  startup_sse310mps3.o
-    0x010203e8   0x010203e8   0x00000008   Code   RO          175    .text.GPIO0_13_Handler  startup_sse310mps3.o
-    0x010203f0   0x010203f0   0x00000008   Code   RO          177    .text.GPIO0_14_Handler  startup_sse310mps3.o
-    0x010203f8   0x010203f8   0x00000008   Code   RO          179    .text.GPIO0_15_Handler  startup_sse310mps3.o
-    0x01020400   0x01020400   0x00000008   Code   RO          151    .text.GPIO0_1_Handler  startup_sse310mps3.o
-    0x01020408   0x01020408   0x00000008   Code   RO          153    .text.GPIO0_2_Handler  startup_sse310mps3.o
-    0x01020410   0x01020410   0x00000008   Code   RO          155    .text.GPIO0_3_Handler  startup_sse310mps3.o
-    0x01020418   0x01020418   0x00000008   Code   RO          157    .text.GPIO0_4_Handler  startup_sse310mps3.o
-    0x01020420   0x01020420   0x00000008   Code   RO          159    .text.GPIO0_5_Handler  startup_sse310mps3.o
-    0x01020428   0x01020428   0x00000008   Code   RO          161    .text.GPIO0_6_Handler  startup_sse310mps3.o
-    0x01020430   0x01020430   0x00000008   Code   RO          163    .text.GPIO0_7_Handler  startup_sse310mps3.o
-    0x01020438   0x01020438   0x00000008   Code   RO          165    .text.GPIO0_8_Handler  startup_sse310mps3.o
-    0x01020440   0x01020440   0x00000008   Code   RO          167    .text.GPIO0_9_Handler  startup_sse310mps3.o
-    0x01020448   0x01020448   0x00000008   Code   RO          141    .text.GPIO0_Combined_Handler  startup_sse310mps3.o
-    0x01020450   0x01020450   0x00000008   Code   RO          181    .text.GPIO1_0_Handler  startup_sse310mps3.o
-    0x01020458   0x01020458   0x00000008   Code   RO          201    .text.GPIO1_10_Handler  startup_sse310mps3.o
-    0x01020460   0x01020460   0x00000008   Code   RO          203    .text.GPIO1_11_Handler  startup_sse310mps3.o
-    0x01020468   0x01020468   0x00000008   Code   RO          205    .text.GPIO1_12_Handler  startup_sse310mps3.o
-    0x01020470   0x01020470   0x00000008   Code   RO          207    .text.GPIO1_13_Handler  startup_sse310mps3.o
-    0x01020478   0x01020478   0x00000008   Code   RO          209    .text.GPIO1_14_Handler  startup_sse310mps3.o
-    0x01020480   0x01020480   0x00000008   Code   RO          211    .text.GPIO1_15_Handler  startup_sse310mps3.o
-    0x01020488   0x01020488   0x00000008   Code   RO          183    .text.GPIO1_1_Handler  startup_sse310mps3.o
-    0x01020490   0x01020490   0x00000008   Code   RO          185    .text.GPIO1_2_Handler  startup_sse310mps3.o
-    0x01020498   0x01020498   0x00000008   Code   RO          187    .text.GPIO1_3_Handler  startup_sse310mps3.o
-    0x010204a0   0x010204a0   0x00000008   Code   RO          189    .text.GPIO1_4_Handler  startup_sse310mps3.o
-    0x010204a8   0x010204a8   0x00000008   Code   RO          191    .text.GPIO1_5_Handler  startup_sse310mps3.o
-    0x010204b0   0x010204b0   0x00000008   Code   RO          193    .text.GPIO1_6_Handler  startup_sse310mps3.o
-    0x010204b8   0x010204b8   0x00000008   Code   RO          195    .text.GPIO1_7_Handler  startup_sse310mps3.o
-    0x010204c0   0x010204c0   0x00000008   Code   RO          197    .text.GPIO1_8_Handler  startup_sse310mps3.o
-    0x010204c8   0x010204c8   0x00000008   Code   RO          199    .text.GPIO1_9_Handler  startup_sse310mps3.o
-    0x010204d0   0x010204d0   0x00000008   Code   RO          143    .text.GPIO1_Combined_Handler  startup_sse310mps3.o
-    0x010204d8   0x010204d8   0x00000008   Code   RO          213    .text.GPIO2_0_Handler  startup_sse310mps3.o
-    0x010204e0   0x010204e0   0x00000008   Code   RO          233    .text.GPIO2_10_Handler  startup_sse310mps3.o
-    0x010204e8   0x010204e8   0x00000008   Code   RO          235    .text.GPIO2_11_Handler  startup_sse310mps3.o
-    0x010204f0   0x010204f0   0x00000008   Code   RO          237    .text.GPIO2_12_Handler  startup_sse310mps3.o
-    0x010204f8   0x010204f8   0x00000008   Code   RO          239    .text.GPIO2_13_Handler  startup_sse310mps3.o
-    0x01020500   0x01020500   0x00000008   Code   RO          241    .text.GPIO2_14_Handler  startup_sse310mps3.o
-    0x01020508   0x01020508   0x00000008   Code   RO          243    .text.GPIO2_15_Handler  startup_sse310mps3.o
-    0x01020510   0x01020510   0x00000008   Code   RO          215    .text.GPIO2_1_Handler  startup_sse310mps3.o
-    0x01020518   0x01020518   0x00000008   Code   RO          217    .text.GPIO2_2_Handler  startup_sse310mps3.o
-    0x01020520   0x01020520   0x00000008   Code   RO          219    .text.GPIO2_3_Handler  startup_sse310mps3.o
-    0x01020528   0x01020528   0x00000008   Code   RO          221    .text.GPIO2_4_Handler  startup_sse310mps3.o
-    0x01020530   0x01020530   0x00000008   Code   RO          223    .text.GPIO2_5_Handler  startup_sse310mps3.o
-    0x01020538   0x01020538   0x00000008   Code   RO          225    .text.GPIO2_6_Handler  startup_sse310mps3.o
-    0x01020540   0x01020540   0x00000008   Code   RO          227    .text.GPIO2_7_Handler  startup_sse310mps3.o
-    0x01020548   0x01020548   0x00000008   Code   RO          229    .text.GPIO2_8_Handler  startup_sse310mps3.o
-    0x01020550   0x01020550   0x00000008   Code   RO          231    .text.GPIO2_9_Handler  startup_sse310mps3.o
-    0x01020558   0x01020558   0x00000008   Code   RO          145    .text.GPIO2_Combined_Handler  startup_sse310mps3.o
-    0x01020560   0x01020560   0x00000008   Code   RO          245    .text.GPIO3_0_Handler  startup_sse310mps3.o
-    0x01020568   0x01020568   0x00000008   Code   RO          247    .text.GPIO3_1_Handler  startup_sse310mps3.o
-    0x01020570   0x01020570   0x00000008   Code   RO          249    .text.GPIO3_2_Handler  startup_sse310mps3.o
-    0x01020578   0x01020578   0x00000008   Code   RO          251    .text.GPIO3_3_Handler  startup_sse310mps3.o
-    0x01020580   0x01020580   0x00000008   Code   RO          147    .text.GPIO3_Combined_Handler  startup_sse310mps3.o
-    0x01020588   0x01020588   0x00000008   Code   RO           19    .text.HardFault_Handler  startup_sse310mps3.o
-    0x01020590   0x01020590   0x00000008   Code   RO          103    .text.I2S_Handler   startup_sse310mps3.o
-    0x01020598   0x01020598   0x00000008   Code   RO           49    .text.MPC_Handler   startup_sse310mps3.o
-    0x010205a0   0x010205a0   0x00000008   Code   RO           53    .text.MSC_Handler   startup_sse310mps3.o
-    0x010205a8   0x010205a8   0x00000008   Code   RO           21    .text.MemManage_Handler  startup_sse310mps3.o
-    0x010205b0   0x010205b0   0x00000008   Code   RO           17    .text.NMI_Handler   startup_sse310mps3.o
-    0x010205b8   0x010205b8   0x00000008   Code   RO           39    .text.NONSEC_WATCHDOG_Handler  startup_sse310mps3.o
-    0x010205c0   0x010205c0   0x00000008   Code   RO           37    .text.NONSEC_WATCHDOG_RESET_REQ_Handler  startup_sse310mps3.o
-    0x010205c8   0x010205c8   0x00000008   Code   RO           51    .text.PPC_Handler   startup_sse310mps3.o
-    0x010205d0   0x010205d0   0x00000008   Code   RO           33    .text.PendSV_Handler  startup_sse310mps3.o
-    0x010205d8   0x010205d8   0x00000036   Code   RO          259    .text.Reset_Handler  startup_sse310mps3.o
+    0x01020328   0x01020328   0x00000008   Code   RO          196    .text.BRIDGE_ERROR_Handler  startup_sse310mps3.o
+    0x01020330   0x01020330   0x00000008   Code   RO          164    .text.BusFault_Handler  startup_sse310mps3.o
+    0x01020338   0x01020338   0x00000008   Code   RO          198    .text.COMBINED_PPU_Handler  startup_sse310mps3.o
+    0x01020340   0x01020340   0x00000008   Code   RO          204    .text.CPU0_CTI_0_Handler  startup_sse310mps3.o
+    0x01020348   0x01020348   0x00000008   Code   RO          206    .text.CPU0_CTI_1_Handler  startup_sse310mps3.o
+    0x01020350   0x01020350   0x00000008   Code   RO          260    .text.DMA_Ch_0_Combined_Handler  startup_sse310mps3.o
+    0x01020358   0x01020358   0x00000008   Code   RO          256    .text.DMA_Ch_0_Error_Handler  startup_sse310mps3.o
+    0x01020360   0x01020360   0x00000008   Code   RO          258    .text.DMA_Ch_0_Terminal_Count_Handler  startup_sse310mps3.o
+    0x01020368   0x01020368   0x00000008   Code   RO          266    .text.DMA_Ch_1_Combined_Handler  startup_sse310mps3.o
+    0x01020370   0x01020370   0x00000008   Code   RO          262    .text.DMA_Ch_1_Error_Handler  startup_sse310mps3.o
+    0x01020378   0x01020378   0x00000008   Code   RO          264    .text.DMA_Ch_1_Terminal_Count_Handler  startup_sse310mps3.o
+    0x01020380   0x01020380   0x00000008   Code   RO          272    .text.DMA_Ch_2_Combined_Handler  startup_sse310mps3.o
+    0x01020388   0x01020388   0x00000008   Code   RO          268    .text.DMA_Ch_2_Error_Handler  startup_sse310mps3.o
+    0x01020390   0x01020390   0x00000008   Code   RO          270    .text.DMA_Ch_2_Terminal_Count_Handler  startup_sse310mps3.o
+    0x01020398   0x01020398   0x00000008   Code   RO          278    .text.DMA_Ch_3_Combined_Handler  startup_sse310mps3.o
+    0x010203a0   0x010203a0   0x00000008   Code   RO          274    .text.DMA_Ch_3_Error_Handler  startup_sse310mps3.o
+    0x010203a8   0x010203a8   0x00000008   Code   RO          276    .text.DMA_Ch_3_Terminal_Count_Handler  startup_sse310mps3.o
+    0x010203b0   0x010203b0   0x00000008   Code   RO          172    .text.DebugMon_Handler  startup_sse310mps3.o
+    0x010203b8   0x010203b8   0x00000008   Code   RO          242    .text.ETHERNET_Handler  startup_sse310mps3.o
+    0x010203c0   0x010203c0   0x00000008   Code   RO          280    .text.ETHOS_U55_Handler  startup_sse310mps3.o
+    0x010203c8   0x010203c8   0x00000008   Code   RO          290    .text.GPIO0_0_Handler  startup_sse310mps3.o
+    0x010203d0   0x010203d0   0x00000008   Code   RO          310    .text.GPIO0_10_Handler  startup_sse310mps3.o
+    0x010203d8   0x010203d8   0x00000008   Code   RO          312    .text.GPIO0_11_Handler  startup_sse310mps3.o
+    0x010203e0   0x010203e0   0x00000008   Code   RO          314    .text.GPIO0_12_Handler  startup_sse310mps3.o
+    0x010203e8   0x010203e8   0x00000008   Code   RO          316    .text.GPIO0_13_Handler  startup_sse310mps3.o
+    0x010203f0   0x010203f0   0x00000008   Code   RO          318    .text.GPIO0_14_Handler  startup_sse310mps3.o
+    0x010203f8   0x010203f8   0x00000008   Code   RO          320    .text.GPIO0_15_Handler  startup_sse310mps3.o
+    0x01020400   0x01020400   0x00000008   Code   RO          292    .text.GPIO0_1_Handler  startup_sse310mps3.o
+    0x01020408   0x01020408   0x00000008   Code   RO          294    .text.GPIO0_2_Handler  startup_sse310mps3.o
+    0x01020410   0x01020410   0x00000008   Code   RO          296    .text.GPIO0_3_Handler  startup_sse310mps3.o
+    0x01020418   0x01020418   0x00000008   Code   RO          298    .text.GPIO0_4_Handler  startup_sse310mps3.o
+    0x01020420   0x01020420   0x00000008   Code   RO          300    .text.GPIO0_5_Handler  startup_sse310mps3.o
+    0x01020428   0x01020428   0x00000008   Code   RO          302    .text.GPIO0_6_Handler  startup_sse310mps3.o
+    0x01020430   0x01020430   0x00000008   Code   RO          304    .text.GPIO0_7_Handler  startup_sse310mps3.o
+    0x01020438   0x01020438   0x00000008   Code   RO          306    .text.GPIO0_8_Handler  startup_sse310mps3.o
+    0x01020440   0x01020440   0x00000008   Code   RO          308    .text.GPIO0_9_Handler  startup_sse310mps3.o
+    0x01020448   0x01020448   0x00000008   Code   RO          282    .text.GPIO0_Combined_Handler  startup_sse310mps3.o
+    0x01020450   0x01020450   0x00000008   Code   RO          322    .text.GPIO1_0_Handler  startup_sse310mps3.o
+    0x01020458   0x01020458   0x00000008   Code   RO          342    .text.GPIO1_10_Handler  startup_sse310mps3.o
+    0x01020460   0x01020460   0x00000008   Code   RO          344    .text.GPIO1_11_Handler  startup_sse310mps3.o
+    0x01020468   0x01020468   0x00000008   Code   RO          346    .text.GPIO1_12_Handler  startup_sse310mps3.o
+    0x01020470   0x01020470   0x00000008   Code   RO          348    .text.GPIO1_13_Handler  startup_sse310mps3.o
+    0x01020478   0x01020478   0x00000008   Code   RO          350    .text.GPIO1_14_Handler  startup_sse310mps3.o
+    0x01020480   0x01020480   0x00000008   Code   RO          352    .text.GPIO1_15_Handler  startup_sse310mps3.o
+    0x01020488   0x01020488   0x00000008   Code   RO          324    .text.GPIO1_1_Handler  startup_sse310mps3.o
+    0x01020490   0x01020490   0x00000008   Code   RO          326    .text.GPIO1_2_Handler  startup_sse310mps3.o
+    0x01020498   0x01020498   0x00000008   Code   RO          328    .text.GPIO1_3_Handler  startup_sse310mps3.o
+    0x010204a0   0x010204a0   0x00000008   Code   RO          330    .text.GPIO1_4_Handler  startup_sse310mps3.o
+    0x010204a8   0x010204a8   0x00000008   Code   RO          332    .text.GPIO1_5_Handler  startup_sse310mps3.o
+    0x010204b0   0x010204b0   0x00000008   Code   RO          334    .text.GPIO1_6_Handler  startup_sse310mps3.o
+    0x010204b8   0x010204b8   0x00000008   Code   RO          336    .text.GPIO1_7_Handler  startup_sse310mps3.o
+    0x010204c0   0x010204c0   0x00000008   Code   RO          338    .text.GPIO1_8_Handler  startup_sse310mps3.o
+    0x010204c8   0x010204c8   0x00000008   Code   RO          340    .text.GPIO1_9_Handler  startup_sse310mps3.o
+    0x010204d0   0x010204d0   0x00000008   Code   RO          284    .text.GPIO1_Combined_Handler  startup_sse310mps3.o
+    0x010204d8   0x010204d8   0x00000008   Code   RO          354    .text.GPIO2_0_Handler  startup_sse310mps3.o
+    0x010204e0   0x010204e0   0x00000008   Code   RO          374    .text.GPIO2_10_Handler  startup_sse310mps3.o
+    0x010204e8   0x010204e8   0x00000008   Code   RO          376    .text.GPIO2_11_Handler  startup_sse310mps3.o
+    0x010204f0   0x010204f0   0x00000008   Code   RO          378    .text.GPIO2_12_Handler  startup_sse310mps3.o
+    0x010204f8   0x010204f8   0x00000008   Code   RO          380    .text.GPIO2_13_Handler  startup_sse310mps3.o
+    0x01020500   0x01020500   0x00000008   Code   RO          382    .text.GPIO2_14_Handler  startup_sse310mps3.o
+    0x01020508   0x01020508   0x00000008   Code   RO          384    .text.GPIO2_15_Handler  startup_sse310mps3.o
+    0x01020510   0x01020510   0x00000008   Code   RO          356    .text.GPIO2_1_Handler  startup_sse310mps3.o
+    0x01020518   0x01020518   0x00000008   Code   RO          358    .text.GPIO2_2_Handler  startup_sse310mps3.o
+    0x01020520   0x01020520   0x00000008   Code   RO          360    .text.GPIO2_3_Handler  startup_sse310mps3.o
+    0x01020528   0x01020528   0x00000008   Code   RO          362    .text.GPIO2_4_Handler  startup_sse310mps3.o
+    0x01020530   0x01020530   0x00000008   Code   RO          364    .text.GPIO2_5_Handler  startup_sse310mps3.o
+    0x01020538   0x01020538   0x00000008   Code   RO          366    .text.GPIO2_6_Handler  startup_sse310mps3.o
+    0x01020540   0x01020540   0x00000008   Code   RO          368    .text.GPIO2_7_Handler  startup_sse310mps3.o
+    0x01020548   0x01020548   0x00000008   Code   RO          370    .text.GPIO2_8_Handler  startup_sse310mps3.o
+    0x01020550   0x01020550   0x00000008   Code   RO          372    .text.GPIO2_9_Handler  startup_sse310mps3.o
+    0x01020558   0x01020558   0x00000008   Code   RO          286    .text.GPIO2_Combined_Handler  startup_sse310mps3.o
+    0x01020560   0x01020560   0x00000008   Code   RO          386    .text.GPIO3_0_Handler  startup_sse310mps3.o
+    0x01020568   0x01020568   0x00000008   Code   RO          388    .text.GPIO3_1_Handler  startup_sse310mps3.o
+    0x01020570   0x01020570   0x00000008   Code   RO          390    .text.GPIO3_2_Handler  startup_sse310mps3.o
+    0x01020578   0x01020578   0x00000008   Code   RO          392    .text.GPIO3_3_Handler  startup_sse310mps3.o
+    0x01020580   0x01020580   0x00000008   Code   RO          288    .text.GPIO3_Combined_Handler  startup_sse310mps3.o
+    0x01020588   0x01020588   0x00000008   Code   RO          160    .text.HardFault_Handler  startup_sse310mps3.o
+    0x01020590   0x01020590   0x00000008   Code   RO          244    .text.I2S_Handler   startup_sse310mps3.o
+    0x01020598   0x01020598   0x00000008   Code   RO          190    .text.MPC_Handler   startup_sse310mps3.o
+    0x010205a0   0x010205a0   0x00000008   Code   RO          194    .text.MSC_Handler   startup_sse310mps3.o
+    0x010205a8   0x010205a8   0x00000008   Code   RO          162    .text.MemManage_Handler  startup_sse310mps3.o
+    0x010205b0   0x010205b0   0x00000008   Code   RO          158    .text.NMI_Handler   startup_sse310mps3.o
+    0x010205b8   0x010205b8   0x00000008   Code   RO          180    .text.NONSEC_WATCHDOG_Handler  startup_sse310mps3.o
+    0x010205c0   0x010205c0   0x00000008   Code   RO          178    .text.NONSEC_WATCHDOG_RESET_REQ_Handler  startup_sse310mps3.o
+    0x010205c8   0x010205c8   0x00000008   Code   RO          192    .text.PPC_Handler   startup_sse310mps3.o
+    0x010205d0   0x010205d0   0x00000008   Code   RO          174    .text.PendSV_Handler  startup_sse310mps3.o
+    0x010205d8   0x010205d8   0x00000036   Code   RO          400    .text.Reset_Handler  startup_sse310mps3.o
     0x0102060e   0x0102060e   0x00000002   PAD
-    0x01020610   0x01020610   0x00000008   Code   RO           41    .text.SLOWCLK_Timer_Handler  startup_sse310mps3.o
-    0x01020618   0x01020618   0x00000008   Code   RO          109    .text.SPI_ADC_Handler  startup_sse310mps3.o
-    0x01020620   0x01020620   0x00000008   Code   RO          111    .text.SPI_SHIELD0_Handler  startup_sse310mps3.o
-    0x01020628   0x01020628   0x00000008   Code   RO          113    .text.SPI_SHIELD1_Handler  startup_sse310mps3.o
-    0x01020630   0x01020630   0x00000008   Code   RO           29    .text.SVC_Handler   startup_sse310mps3.o
-    0x01020638   0x01020638   0x00000008   Code   RO           27    .text.SecureFault_Handler  startup_sse310mps3.o
-    0x01020640   0x01020640   0x00000008   Code   RO           35    .text.SysTick_Handler  startup_sse310mps3.o
-    0x01020648   0x01020648   0x0000007e   Code   RO          271    .text.SystemInit    system_sse310mps3.o
+    0x01020610   0x01020610   0x00000008   Code   RO          182    .text.SLOWCLK_Timer_Handler  startup_sse310mps3.o
+    0x01020618   0x01020618   0x00000008   Code   RO          250    .text.SPI_ADC_Handler  startup_sse310mps3.o
+    0x01020620   0x01020620   0x00000008   Code   RO          252    .text.SPI_SHIELD0_Handler  startup_sse310mps3.o
+    0x01020628   0x01020628   0x00000008   Code   RO          254    .text.SPI_SHIELD1_Handler  startup_sse310mps3.o
+    0x01020630   0x01020630   0x00000008   Code   RO          170    .text.SVC_Handler   startup_sse310mps3.o
+    0x01020638   0x01020638   0x00000008   Code   RO          168    .text.SecureFault_Handler  startup_sse310mps3.o
+    0x01020640   0x01020640   0x00000008   Code   RO          176    .text.SysTick_Handler  startup_sse310mps3.o
+    0x01020648   0x01020648   0x0000007e   Code   RO          412    .text.SystemInit    system_sse310mps3.o
     0x010206c6   0x010206c6   0x00000002   PAD
-    0x010206c8   0x010206c8   0x00000008   Code   RO           67    .text.System_Timestamp_Counter_Handler  startup_sse310mps3.o
-    0x010206d0   0x010206d0   0x00000008   Code   RO           43    .text.TFM_TIMER0_IRQ_Handler  startup_sse310mps3.o
-    0x010206d8   0x010206d8   0x00000008   Code   RO           45    .text.TIMER1_Handler  startup_sse310mps3.o
-    0x010206e0   0x010206e0   0x00000008   Code   RO           47    .text.TIMER2_Handler  startup_sse310mps3.o
-    0x010206e8   0x010206e8   0x00000008   Code   RO           61    .text.TIMER3_AON_Handler  startup_sse310mps3.o
-    0x010206f0   0x010206f0   0x00000008   Code   RO          105    .text.TOUCH_SCREEN_Handler  startup_sse310mps3.o
-    0x010206f8   0x010206f8   0x00000008   Code   RO           89    .text.UART0_Combined_Handler  startup_sse310mps3.o
-    0x01020700   0x01020700   0x00000008   Code   RO           91    .text.UART1_Combined_Handler  startup_sse310mps3.o
-    0x01020708   0x01020708   0x00000008   Code   RO           93    .text.UART2_Combined_Handler  startup_sse310mps3.o
-    0x01020710   0x01020710   0x00000008   Code   RO           95    .text.UART3_Combined_Handler  startup_sse310mps3.o
-    0x01020718   0x01020718   0x00000008   Code   RO           97    .text.UART4_Combined_Handler  startup_sse310mps3.o
-    0x01020720   0x01020720   0x00000008   Code   RO          257    .text.UART5_Combined_Handler  startup_sse310mps3.o
-    0x01020728   0x01020728   0x00000008   Code   RO           99    .text.UARTOVF_Handler  startup_sse310mps3.o
-    0x01020730   0x01020730   0x00000008   Code   RO           69    .text.UARTRX0_Handler  startup_sse310mps3.o
-    0x01020738   0x01020738   0x00000008   Code   RO           73    .text.UARTRX1_Handler  startup_sse310mps3.o
-    0x01020740   0x01020740   0x00000008   Code   RO           77    .text.UARTRX2_Handler  startup_sse310mps3.o
-    0x01020748   0x01020748   0x00000008   Code   RO           81    .text.UARTRX3_Handler  startup_sse310mps3.o
-    0x01020750   0x01020750   0x00000008   Code   RO           85    .text.UARTRX4_Handler  startup_sse310mps3.o
-    0x01020758   0x01020758   0x00000008   Code   RO          253    .text.UARTRX5_Handler  startup_sse310mps3.o
-    0x01020760   0x01020760   0x00000008   Code   RO           71    .text.UARTTX0_Handler  startup_sse310mps3.o
-    0x01020768   0x01020768   0x00000008   Code   RO           75    .text.UARTTX1_Handler  startup_sse310mps3.o
-    0x01020770   0x01020770   0x00000008   Code   RO           79    .text.UARTTX2_Handler  startup_sse310mps3.o
-    0x01020778   0x01020778   0x00000008   Code   RO           83    .text.UARTTX3_Handler  startup_sse310mps3.o
-    0x01020780   0x01020780   0x00000008   Code   RO           87    .text.UARTTX4_Handler  startup_sse310mps3.o
-    0x01020788   0x01020788   0x00000008   Code   RO          255    .text.UARTTX5_Handler  startup_sse310mps3.o
-    0x01020790   0x01020790   0x00000008   Code   RO          107    .text.USB_Handler   startup_sse310mps3.o
-    0x01020798   0x01020798   0x00000008   Code   RO           25    .text.UsageFault_Handler  startup_sse310mps3.o
+    0x010206c8   0x010206c8   0x00000008   Code   RO          208    .text.System_Timestamp_Counter_Handler  startup_sse310mps3.o
+    0x010206d0   0x010206d0   0x00000008   Code   RO          184    .text.TFM_TIMER0_IRQ_Handler  startup_sse310mps3.o
+    0x010206d8   0x010206d8   0x00000008   Code   RO          186    .text.TIMER1_Handler  startup_sse310mps3.o
+    0x010206e0   0x010206e0   0x00000008   Code   RO          188    .text.TIMER2_Handler  startup_sse310mps3.o
+    0x010206e8   0x010206e8   0x00000008   Code   RO          202    .text.TIMER3_AON_Handler  startup_sse310mps3.o
+    0x010206f0   0x010206f0   0x00000008   Code   RO          246    .text.TOUCH_SCREEN_Handler  startup_sse310mps3.o
+    0x010206f8   0x010206f8   0x00000008   Code   RO          230    .text.UART0_Combined_Handler  startup_sse310mps3.o
+    0x01020700   0x01020700   0x00000008   Code   RO          232    .text.UART1_Combined_Handler  startup_sse310mps3.o
+    0x01020708   0x01020708   0x00000008   Code   RO          234    .text.UART2_Combined_Handler  startup_sse310mps3.o
+    0x01020710   0x01020710   0x00000008   Code   RO          236    .text.UART3_Combined_Handler  startup_sse310mps3.o
+    0x01020718   0x01020718   0x00000008   Code   RO          238    .text.UART4_Combined_Handler  startup_sse310mps3.o
+    0x01020720   0x01020720   0x00000008   Code   RO          398    .text.UART5_Combined_Handler  startup_sse310mps3.o
+    0x01020728   0x01020728   0x00000008   Code   RO          240    .text.UARTOVF_Handler  startup_sse310mps3.o
+    0x01020730   0x01020730   0x00000008   Code   RO          210    .text.UARTRX0_Handler  startup_sse310mps3.o
+    0x01020738   0x01020738   0x00000008   Code   RO          214    .text.UARTRX1_Handler  startup_sse310mps3.o
+    0x01020740   0x01020740   0x00000008   Code   RO          218    .text.UARTRX2_Handler  startup_sse310mps3.o
+    0x01020748   0x01020748   0x00000008   Code   RO          222    .text.UARTRX3_Handler  startup_sse310mps3.o
+    0x01020750   0x01020750   0x00000008   Code   RO          226    .text.UARTRX4_Handler  startup_sse310mps3.o
+    0x01020758   0x01020758   0x00000008   Code   RO          394    .text.UARTRX5_Handler  startup_sse310mps3.o
+    0x01020760   0x01020760   0x00000008   Code   RO          212    .text.UARTTX0_Handler  startup_sse310mps3.o
+    0x01020768   0x01020768   0x00000008   Code   RO          216    .text.UARTTX1_Handler  startup_sse310mps3.o
+    0x01020770   0x01020770   0x00000008   Code   RO          220    .text.UARTTX2_Handler  startup_sse310mps3.o
+    0x01020778   0x01020778   0x00000008   Code   RO          224    .text.UARTTX3_Handler  startup_sse310mps3.o
+    0x01020780   0x01020780   0x00000008   Code   RO          228    .text.UARTTX4_Handler  startup_sse310mps3.o
+    0x01020788   0x01020788   0x00000008   Code   RO          396    .text.UARTTX5_Handler  startup_sse310mps3.o
+    0x01020790   0x01020790   0x00000008   Code   RO          248    .text.USB_Handler   startup_sse310mps3.o
+    0x01020798   0x01020798   0x00000008   Code   RO          166    .text.UsageFault_Handler  startup_sse310mps3.o
     0x010207a0   0x010207a0   0x0000001a   Code   RO            7    .text.main          main.o
-    0x010207ba   0x010207ba   0x00000022   Code   RO          493    x$fpl$fpinit        fz_xva.l(fpinit_81m.o)
-    0x010207dc   0x010207dc   0x00000010   Data   RO          588    Region$$Table       anon$$obj.o
+    0x010207ba   0x010207ba   0x00000022   Code   RO          740    x$fpl$fpinit        fz_xva.l(fpinit_81m.o)
+    0x010207dc   0x010207dc   0x00000010   Data   RO          835    Region$$Table       anon$$obj.o
 
 
     Execution Region CODE_WATERMARK (Exec base: 0x010207ec, Load base: 0x010207ec, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
@@ -1367,8 +1894,8 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x21040000   0x010207ec   0x00000004   Data   RW          274    .data.PeripheralClock  system_sse310mps3.o
-    0x21040004   0x010207f0   0x00000004   Data   RW          273    .data.SystemCoreClock  system_sse310mps3.o
+    0x21040000   0x010207ec   0x00000004   Data   RW          415    .data.PeripheralClock  system_sse310mps3.o
+    0x21040004   0x010207f0   0x00000004   Data   RW          414    .data.SystemCoreClock  system_sse310mps3.o
 
 
     Execution Region ARM_LIB_HEAP (Exec base: 0x21040008, Load base: 0x010207f8, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)

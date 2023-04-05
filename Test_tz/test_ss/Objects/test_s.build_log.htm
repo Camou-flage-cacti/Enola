@@ -22,15 +22,16 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ss\test_s.uvprojx
-Project File Date:  04/03/2023
+Project File Date:  04/05/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'test_s' - Target 'Target 1'
+compiling emulated_flash_drv.c...
 linking...
 .\Objects\test_s.axf: warning: Your license for feature Keil will expire in 4 days [-Wlicense-management]
 .\Objects\test_s.axf: Warning: L6848E: No CMSE symbols written in import library ..\test_ss\Objects\test_s_CMSE_Lib.o.
-Program Size: Code=8260 RO-data=912 RW-data=172 ZI-data=36184  
+Program Size: Code=8388 RO-data=912 RW-data=172 ZI-data=36184  
 Finished: 0 information, 1 warning and 0 error messages.
 FromELF: creating hex file...
 .\Objects\test_s.hex: Warning: Q9931W: Your license for feature Keil will expire in 4 days
@@ -62,6 +63,7 @@ Package Vendor: ARM
    * Component: USART Version: 1.1.0
    * Component: Definition Version: 1.2.0
    * Component: Startup Variant: Baremetal Version: 1.2.0
+   * Component: Flash Version: 1.1.0
    * Component: I2C SBCon Version: 1.0.0
    * Component: MPC Version: 1.1.0
    * Component: PPC Version: 1.1.0
@@ -195,6 +197,10 @@ Package Vendor: ARM
       Include file:  Device/Include/system_SSE310MPS3.h
       Source file:   Device/Source/startup_SSE310MPS3.c
       Source file:   Device/Source/system_SSE310MPS3.c
+
+   * Component: ARM::Native Driver:Flash:1.1.0
+      Include file:  Native_Driver/emulated_flash_drv.h
+      Source file:   Native_Driver/emulated_flash_drv.c
 
    * Component: ARM::Native Driver:I2C SBCon:1.0.0
       Include file:  Native_Driver/i2c_sbcon_reg_map.h

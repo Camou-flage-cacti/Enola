@@ -495,6 +495,12 @@
           <targetInfo name="Target 1"/>
         </targetInfos>
       </component>
+      <component Cclass="Native Driver" Cgroup="Flash" Cvendor="ARM" Cversion="1.1.0" condition="SSE-310-MPS3 Device">
+        <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
       <component Cclass="Native Driver" Cgroup="I2C SBCon" Cvendor="ARM" Cversion="1.0.0" condition="SSE-310-MPS3 Timeout">
         <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
