@@ -106,10 +106,10 @@ int main()
 		enum mpc_sie_error_t mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
 		/*test config region*/
 		//rng.attr = MPC_SIE_SEC_ATTR_NONSECURE;
-		//enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
+	  enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
 		
 		/*confirm NS configuration*/
-		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
+		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, 0x01000000, 0x011FFFFF, &mpc_get_config_holder);
 		
 		
 	/*__asm volatile(
