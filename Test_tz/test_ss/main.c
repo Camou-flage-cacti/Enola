@@ -5,6 +5,7 @@
 #include "mpc_sie_drv.h"
 #include "mpc_sie_reg_map.h"
 #include "Driver_MPC.h"
+#include "user_func.h"
 
 #define MPC_SRAM_CONTROLLER 0x57000000
 //#define MPC_QSPI_CONTROLLER 0x57001000
@@ -45,7 +46,8 @@ typedef struct /* see "ARM CoreLink SSE-200 Subsystem Technical Reference Manual
 typedef int32_t (*NonSecure_fpParam)(uint32_t) __attribute__((cmse_nonsecure_call));
 typedef void (*NonSecure_fpVoid)(void) __attribute__((cmse_nonsecure_call));
 
-int main()
+
+void setup_MPC()
 {
 	//struct mpc_sie_dev_t obj;
 	//obj.data->sie_version = 0x65;
@@ -65,8 +67,7 @@ int main()
  // MPS3_MPCFPGASRAM2->blk_lutn = 0xFFFFFFFFUL;            /* configure blocks */
 	
 	//MPC_ISRAM1_RANGE_BASE_NS->CTRL &= ~(1UL << 8U);  
-		uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
-		NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
+	
 	//ARM_DRIVER_MPC tst;
 	//uintptr_t base = 0x57000000, limit = 0x00020000;
 //	ARM_MPC_SEC_ATTR atttr= ARM_MPC_ATTR_MIXED;
@@ -110,21 +111,40 @@ int main()
 		
 		/*confirm NS configuration*/
 		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, 0x01000000, 0x011FFFFF, &mpc_get_config_holder);
-		
-		
-	/*__asm volatile(
+}
+void setup_NS_PAC_Keys()
+{
+		__asm volatile(
 		"MOV r5, #0x1122\n\t"
 		"MSR PAC_KEY_U_0, r5\n\t"
 	  "MSR PAC_KEY_P_0_NS, r5\n\t"
 		"MSR PAC_KEY_U_0_NS, r5\n\t"
-	);*/
+	);
 	
-	/*__asm volatile(
+	__asm volatile(
 		"MOVW r0, #0x0000\n\t"
 		"MOVT r0, #0x1020\n\t"
 	  "BLXNS r0\n\t"
-	);*/
+	);
+}
+
+void switch_to_NS ()
+{
+		uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
+		NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
+		NonSecure_ResetHandler();
+}
+int main()
+{
 	
-	NonSecure_ResetHandler();
+	int result = func_add(10, 30);
+	func_substract(5, &result);
+	func_multiply(result, 2);
+	func_div(2, &result);
+	
+	//setup_MPC();
+	//setup_NS_PAC_Keys();
+	//switch_to_NS ();
+	
 	return 0;
 }
