@@ -121,22 +121,40 @@ void setup_NS_PAC_Keys()
 		"MSR PAC_KEY_U_0_NS, r5\n\t"
 	);
 	
-	__asm volatile(
+	/*__asm volatile(
 		"MOVW r0, #0x0000\n\t"
 		"MOVT r0, #0x1020\n\t"
 	  "BLXNS r0\n\t"
+	);*/
+}
+void setup_S_PAC_Keys()
+{
+		__asm volatile(
+		"MOV r5, #0x1122\n\t"
+	  "MSR PAC_KEY_P_0, r5\n\t"
+		"MSR PAC_KEY_P_1, r5\n\t"
+		"MSR PAC_KEY_P_2, r5\n\t"
+		"MSR PAC_KEY_P_3, r5\n\t"
 	);
 }
-
 void switch_to_NS ()
 {
 		uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
 		NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
 		NonSecure_ResetHandler();
 }
+
+void init_r12()
+{
+	__asm volatile(
+		"MOV r12, #0x0\n\t"
+	);
+}
+
 int main()
 {
-	
+	setup_S_PAC_Keys();
+	init_r12();
 	int result = func_add(10, 30);
 	func_substract(5, &result);
 	func_multiply(result, 2);

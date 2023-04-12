@@ -395,9 +395,9 @@
               <FilePath>.\user_func.h</FilePath>
             </File>
             <File>
-              <FileName>unser_func.c</FileName>
+              <FileName>user_func.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\unser_func.c</FilePath>
+              <FilePath>.\user_func.c</FilePath>
             </File>
           </Files>
         </Group>
