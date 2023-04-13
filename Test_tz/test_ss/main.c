@@ -165,7 +165,6 @@ int main()
 	setup_S_PAC_Keys();
 	init_r12();
 	enable_PAC();
-	enable_PAC();
 	int result = func_add(10, 30);
 	func_substract(5, &result);
 	func_multiply(result, 2);

@@ -6898,23 +6898,23 @@ Image Symbol Table
     [Anonymous Symbol]                       0x11000cf8   Section        0  user_func.o(.text.func_substract)
     [Anonymous Symbol]                       0x11000d18   Section        0  main.o(.text.init_r12)
     [Anonymous Symbol]                       0x11000d28   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x11000d84   Section        0  rtx_kernel.o(.text.osKernelGetState)
-    __arm_cp.5_0                             0x11000dac   Number         4  rtx_kernel.o(.text.osKernelGetState)
-    __arm_cp.5_1                             0x11000db0   Number         4  rtx_kernel.o(.text.osKernelGetState)
-    [Anonymous Symbol]                       0x11000db4   Section        0  rtx_kernel.o(.text.osKernelInitialize)
-    __arm_cp.2_0                             0x11000ddc   Number         4  rtx_kernel.o(.text.osKernelInitialize)
-    [Anonymous Symbol]                       0x11000de0   Section        0  rtx_msgqueue.o(.text.osMessageQueueGet)
-    __arm_cp.5_0                             0x11000e4c   Number         4  rtx_msgqueue.o(.text.osMessageQueueGet)
-    [Anonymous Symbol]                       0x11000e50   Section        0  rtx_msgqueue.o(.text.osMessageQueuePut)
-    __arm_cp.4_0                             0x11000ecc   Number         4  rtx_msgqueue.o(.text.osMessageQueuePut)
-    [Anonymous Symbol]                       0x11000ed0   Section        0  rtx_mutex.o(.text.osMutexAcquire)
-    __arm_cp.4_0                             0x11000ef0   Number         4  rtx_mutex.o(.text.osMutexAcquire)
-    [Anonymous Symbol]                       0x11000ef4   Section        0  rtx_mutex.o(.text.osMutexDelete)
-    __arm_cp.7_0                             0x11000f14   Number         4  rtx_mutex.o(.text.osMutexDelete)
-    [Anonymous Symbol]                       0x11000f18   Section        0  rtx_mutex.o(.text.osMutexNew)
-    __arm_cp.2_0                             0x11000f38   Number         4  rtx_mutex.o(.text.osMutexNew)
-    [Anonymous Symbol]                       0x11000f3c   Section        0  rtx_mutex.o(.text.osMutexRelease)
-    __arm_cp.5_0                             0x11000f5c   Number         4  rtx_mutex.o(.text.osMutexRelease)
+    [Anonymous Symbol]                       0x11000d80   Section        0  rtx_kernel.o(.text.osKernelGetState)
+    __arm_cp.5_0                             0x11000da8   Number         4  rtx_kernel.o(.text.osKernelGetState)
+    __arm_cp.5_1                             0x11000dac   Number         4  rtx_kernel.o(.text.osKernelGetState)
+    [Anonymous Symbol]                       0x11000db0   Section        0  rtx_kernel.o(.text.osKernelInitialize)
+    __arm_cp.2_0                             0x11000dd8   Number         4  rtx_kernel.o(.text.osKernelInitialize)
+    [Anonymous Symbol]                       0x11000ddc   Section        0  rtx_msgqueue.o(.text.osMessageQueueGet)
+    __arm_cp.5_0                             0x11000e48   Number         4  rtx_msgqueue.o(.text.osMessageQueueGet)
+    [Anonymous Symbol]                       0x11000e4c   Section        0  rtx_msgqueue.o(.text.osMessageQueuePut)
+    __arm_cp.4_0                             0x11000ec8   Number         4  rtx_msgqueue.o(.text.osMessageQueuePut)
+    [Anonymous Symbol]                       0x11000ecc   Section        0  rtx_mutex.o(.text.osMutexAcquire)
+    __arm_cp.4_0                             0x11000eec   Number         4  rtx_mutex.o(.text.osMutexAcquire)
+    [Anonymous Symbol]                       0x11000ef0   Section        0  rtx_mutex.o(.text.osMutexDelete)
+    __arm_cp.7_0                             0x11000f10   Number         4  rtx_mutex.o(.text.osMutexDelete)
+    [Anonymous Symbol]                       0x11000f14   Section        0  rtx_mutex.o(.text.osMutexNew)
+    __arm_cp.2_0                             0x11000f34   Number         4  rtx_mutex.o(.text.osMutexNew)
+    [Anonymous Symbol]                       0x11000f38   Section        0  rtx_mutex.o(.text.osMutexRelease)
+    __arm_cp.5_0                             0x11000f58   Number         4  rtx_mutex.o(.text.osMutexRelease)
     [Anonymous Symbol]                       0x11000f60   Section        0  rtx_config.o(.text.osRtxErrorNotify)
     [Anonymous Symbol]                       0x11000fa6   Section        0  rtx_kernel.o(.text.osRtxKernelErrorNotify)
     [Anonymous Symbol]                       0x11000faa   Section        0  rtx_kernel.o(.text.osRtxKernelPreInit)
@@ -7267,15 +7267,15 @@ Image Symbol Table
     func_multiply                            0x11000cd9   Thumb Code    28  user_func.o(.text.func_multiply)
     func_substract                           0x11000cf9   Thumb Code    28  user_func.o(.text.func_substract)
     init_r12                                 0x11000d19   Thumb Code    10  main.o(.text.init_r12)
-    main                                     0x11000d29   Thumb Code    90  main.o(.text.main)
-    osKernelGetState                         0x11000d85   Thumb Code    40  rtx_kernel.o(.text.osKernelGetState)
-    osKernelInitialize                       0x11000db5   Thumb Code    40  rtx_kernel.o(.text.osKernelInitialize)
-    osMessageQueueGet                        0x11000de1   Thumb Code   108  rtx_msgqueue.o(.text.osMessageQueueGet)
-    osMessageQueuePut                        0x11000e51   Thumb Code   124  rtx_msgqueue.o(.text.osMessageQueuePut)
-    osMutexAcquire                           0x11000ed1   Thumb Code    32  rtx_mutex.o(.text.osMutexAcquire)
-    osMutexDelete                            0x11000ef5   Thumb Code    32  rtx_mutex.o(.text.osMutexDelete)
-    osMutexNew                               0x11000f19   Thumb Code    32  rtx_mutex.o(.text.osMutexNew)
-    osMutexRelease                           0x11000f3d   Thumb Code    32  rtx_mutex.o(.text.osMutexRelease)
+    main                                     0x11000d29   Thumb Code    86  main.o(.text.main)
+    osKernelGetState                         0x11000d81   Thumb Code    40  rtx_kernel.o(.text.osKernelGetState)
+    osKernelInitialize                       0x11000db1   Thumb Code    40  rtx_kernel.o(.text.osKernelInitialize)
+    osMessageQueueGet                        0x11000ddd   Thumb Code   108  rtx_msgqueue.o(.text.osMessageQueueGet)
+    osMessageQueuePut                        0x11000e4d   Thumb Code   124  rtx_msgqueue.o(.text.osMessageQueuePut)
+    osMutexAcquire                           0x11000ecd   Thumb Code    32  rtx_mutex.o(.text.osMutexAcquire)
+    osMutexDelete                            0x11000ef1   Thumb Code    32  rtx_mutex.o(.text.osMutexDelete)
+    osMutexNew                               0x11000f15   Thumb Code    32  rtx_mutex.o(.text.osMutexNew)
+    osMutexRelease                           0x11000f39   Thumb Code    32  rtx_mutex.o(.text.osMutexRelease)
     osRtxErrorNotify                         0x11000f61   Thumb Code    70  rtx_config.o(.text.osRtxErrorNotify)
     osRtxKernelErrorNotify                   0x11000fa7   Thumb Code     4  rtx_kernel.o(.text.osRtxKernelErrorNotify)
     osRtxKernelPreInit                       0x11000fab   Thumb Code     2  rtx_kernel.o(.text.osRtxKernelPreInit)
@@ -7550,16 +7550,17 @@ Memory Map of the image
     0x11000d14   0x11000d14   0x00000004   PAD
     0x11000d18   0x11000d18   0x0000000a   Code   RO           17    .text.init_r12      main.o
     0x11000d22   0x11000d22   0x00000006   PAD
-    0x11000d28   0x11000d28   0x0000005a   Code   RO           19    .text.main          main.o
-    0x11000d82   0x11000d82   0x00000002   PAD
-    0x11000d84   0x11000d84   0x00000030   Code   RO         2937    .text.osKernelGetState  RTX_V8MMF.lib(rtx_kernel.o)
-    0x11000db4   0x11000db4   0x0000002c   Code   RO         2931    .text.osKernelInitialize  RTX_V8MMF.lib(rtx_kernel.o)
-    0x11000de0   0x11000de0   0x00000070   Code   RO         3304    .text.osMessageQueueGet  RTX_V8MMF.lib(rtx_msgqueue.o)
-    0x11000e50   0x11000e50   0x00000080   Code   RO         3302    .text.osMessageQueuePut  RTX_V8MMF.lib(rtx_msgqueue.o)
-    0x11000ed0   0x11000ed0   0x00000024   Code   RO         3193    .text.osMutexAcquire  RTX_V8MMF.lib(rtx_mutex.o)
-    0x11000ef4   0x11000ef4   0x00000024   Code   RO         3199    .text.osMutexDelete  RTX_V8MMF.lib(rtx_mutex.o)
-    0x11000f18   0x11000f18   0x00000024   Code   RO         3189    .text.osMutexNew    RTX_V8MMF.lib(rtx_mutex.o)
-    0x11000f3c   0x11000f3c   0x00000024   Code   RO         3195    .text.osMutexRelease  RTX_V8MMF.lib(rtx_mutex.o)
+    0x11000d28   0x11000d28   0x00000056   Code   RO           19    .text.main          main.o
+    0x11000d7e   0x11000d7e   0x00000002   PAD
+    0x11000d80   0x11000d80   0x00000030   Code   RO         2937    .text.osKernelGetState  RTX_V8MMF.lib(rtx_kernel.o)
+    0x11000db0   0x11000db0   0x0000002c   Code   RO         2931    .text.osKernelInitialize  RTX_V8MMF.lib(rtx_kernel.o)
+    0x11000ddc   0x11000ddc   0x00000070   Code   RO         3304    .text.osMessageQueueGet  RTX_V8MMF.lib(rtx_msgqueue.o)
+    0x11000e4c   0x11000e4c   0x00000080   Code   RO         3302    .text.osMessageQueuePut  RTX_V8MMF.lib(rtx_msgqueue.o)
+    0x11000ecc   0x11000ecc   0x00000024   Code   RO         3193    .text.osMutexAcquire  RTX_V8MMF.lib(rtx_mutex.o)
+    0x11000ef0   0x11000ef0   0x00000024   Code   RO         3199    .text.osMutexDelete  RTX_V8MMF.lib(rtx_mutex.o)
+    0x11000f14   0x11000f14   0x00000024   Code   RO         3189    .text.osMutexNew    RTX_V8MMF.lib(rtx_mutex.o)
+    0x11000f38   0x11000f38   0x00000024   Code   RO         3195    .text.osMutexRelease  RTX_V8MMF.lib(rtx_mutex.o)
+    0x11000f5c   0x11000f5c   0x00000004   PAD
     0x11000f60   0x11000f60   0x00000046   Code   RO         1786    .text.osRtxErrorNotify  rtx_config.o
     0x11000fa6   0x11000fa6   0x00000004   Code   RO         2929    .text.osRtxKernelErrorNotify  RTX_V8MMF.lib(rtx_kernel.o)
     0x11000faa   0x11000faa   0x00000002   Code   RO         2927    .text.osRtxKernelPreInit  RTX_V8MMF.lib(rtx_kernel.o)
@@ -7679,7 +7680,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       144          0          0          0          0       2809   main.o
+       140          0          0          0          0       2808   main.o
         70          6          0          0          0        748   rtx_config.o
        364          0        268          0      34125       7638   rtx_lib.o
       1016          0        576          0          0      11511   startup_sse310mps3.o
@@ -7687,7 +7688,7 @@ Image component sizes
        110          0          0          0          0        946   user_func.o
 
     ----------------------------------------------------------------------
-      1874          6        876          8      36180      25968   Object Totals
+      1870          6        876          8      36180      25967   Object Totals
          0          0         32          0       2048          0   (incl. Generated)
         44          0          0          0          7          0   (incl. Padding)
 
@@ -7729,8 +7730,8 @@ Image component sizes
         30          0          0          0          0        164   fpinit.o
 
     ----------------------------------------------------------------------
-      5130        138         12        164          4     119281   Library Totals
-        20          0          1          0          4          0   (incl. Padding)
+      5134        142         12        164          4     119281   Library Totals
+        24          4          1          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -7741,7 +7742,7 @@ Image component sizes
         30          0          0          0          0        164   fz_xva.l
 
     ----------------------------------------------------------------------
-      5130        138         12        164          4     119281   Library Totals
+      5134        142         12        164          4     119281   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -7750,9 +7751,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7004        144        888        172      36184     144873   Grand Totals
-      7004        144        888        172      36184     144873   ELF Image Totals
-      7004        144        888        172          0          0   ROM Totals
+      7004        148        888        172      36184     144872   Grand Totals
+      7004        148        888        172      36184     144872   ELF Image Totals
+      7004        148        888        172          0          0   ROM Totals
 
 ==============================================================================
 

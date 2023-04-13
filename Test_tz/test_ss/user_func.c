@@ -1,6 +1,6 @@
 #include "user_func.h"
 
-
+//"AUTG r12, r14, r5\n\t" validate
 int func_add(int a, int b)
 {
 	int res = a + b;
