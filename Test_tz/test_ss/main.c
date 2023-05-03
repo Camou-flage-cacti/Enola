@@ -170,9 +170,9 @@ int main()
 	func_multiply(result, 2);
 	func_div(2, &result);
 	
-	//setup_MPC();
+	setup_MPC();
 	//setup_NS_PAC_Keys();
-	//switch_to_NS ();
+	switch_to_NS ();
 	
 	return 0;
 }
