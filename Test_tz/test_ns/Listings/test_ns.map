@@ -496,6 +496,30 @@ Section Cross References
     system_sse310mps3.o(.text.SystemInit) refers to system_sse310mps3.o(.data.SystemCoreClock) for SystemCoreClock
     system_sse310mps3.o(.text.SystemInit) refers to system_sse310mps3.o(.data.PeripheralClock) for PeripheralClock
     system_sse310mps3.o(.ARM.exidx.text.SystemInit) refers to system_sse310mps3.o(.text.SystemInit) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
+    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.emulated_flash_read_data) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_range_valid) refers to emulated_flash_drv.o(.text.is_range_valid) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_secure_alias_needed) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_write_aligned) for is_write_aligned
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_flash_ready_to_write) for is_flash_ready_to_write
+    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.emulated_flash_program_data) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_write_aligned) refers to emulated_flash_drv.o(.text.is_write_aligned) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_flash_ready_to_write) refers to emulated_flash_drv.o(.text.is_flash_ready_to_write) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_sector_aligned) for is_sector_aligned
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to aeabi_memset.o(.text) for __aeabi_memset
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.emulated_flash_erase_sector) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.is_sector_aligned) refers to emulated_flash_drv.o(.text.is_sector_aligned) for [Anonymous Symbol]
+    emulated_flash_drv.o(.text.emulated_flash_erase_chip) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
+    emulated_flash_drv.o(.text.emulated_flash_erase_chip) refers to aeabi_memset.o(.text) for __aeabi_memset
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_chip) refers to emulated_flash_drv.o(.text.emulated_flash_erase_chip) for [Anonymous Symbol]
+    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_get_info) refers to emulated_flash_drv.o(.text.emulated_flash_get_info) for [Anonymous Symbol]
     mpc_sie_drv.o(.text.mpc_sie_init) refers to mpc_sie_drv.o(.text.get_sie_version) for get_sie_version
     mpc_sie_drv.o(.ARM.exidx.text.mpc_sie_init) refers to mpc_sie_drv.o(.text.mpc_sie_init) for [Anonymous Symbol]
     mpc_sie_drv.o(.ARM.exidx.text.get_sie_version) refers to mpc_sie_drv.o(.text.get_sie_version) for [Anonymous Symbol]
@@ -525,47 +549,6 @@ Section Cross References
     ppc_corstone310_drv.o(.ARM.exidx.text.ppc_corstone310_init) refers to ppc_corstone310_drv.o(.text.ppc_corstone310_init) for [Anonymous Symbol]
     ppc_corstone310_drv.o(.ARM.exidx.text.ppc_corstone310_config_privilege) refers to ppc_corstone310_drv.o(.text.ppc_corstone310_config_privilege) for [Anonymous Symbol]
     ppc_corstone310_drv.o(.ARM.exidx.text.ppc_corstone310_is_periph_priv_only) refers to ppc_corstone310_drv.o(.text.ppc_corstone310_is_periph_priv_only) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_init) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_baudrate) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_read) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_write) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_ready) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable) for [Anonymous Symbol]
-    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
-    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
-    emulated_flash_drv.o(.text.emulated_flash_read_data) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
-    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_read_data) refers to emulated_flash_drv.o(.text.emulated_flash_read_data) for [Anonymous Symbol]
-    emulated_flash_drv.o(.ARM.exidx.text.is_range_valid) refers to emulated_flash_drv.o(.text.is_range_valid) for [Anonymous Symbol]
-    emulated_flash_drv.o(.ARM.exidx.text.is_secure_alias_needed) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for [Anonymous Symbol]
-    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
-    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_write_aligned) for is_write_aligned
-    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
-    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.is_flash_ready_to_write) for is_flash_ready_to_write
-    emulated_flash_drv.o(.text.emulated_flash_program_data) refers to rt_memcpy_v6.o(.text) for __aeabi_memcpy
-    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_program_data) refers to emulated_flash_drv.o(.text.emulated_flash_program_data) for [Anonymous Symbol]
-    emulated_flash_drv.o(.ARM.exidx.text.is_write_aligned) refers to emulated_flash_drv.o(.text.is_write_aligned) for [Anonymous Symbol]
-    emulated_flash_drv.o(.ARM.exidx.text.is_flash_ready_to_write) refers to emulated_flash_drv.o(.text.is_flash_ready_to_write) for [Anonymous Symbol]
-    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_range_valid) for is_range_valid
-    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_sector_aligned) for is_sector_aligned
-    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
-    emulated_flash_drv.o(.text.emulated_flash_erase_sector) refers to aeabi_memset.o(.text) for __aeabi_memset
-    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_sector) refers to emulated_flash_drv.o(.text.emulated_flash_erase_sector) for [Anonymous Symbol]
-    emulated_flash_drv.o(.ARM.exidx.text.is_sector_aligned) refers to emulated_flash_drv.o(.text.is_sector_aligned) for [Anonymous Symbol]
-    emulated_flash_drv.o(.text.emulated_flash_erase_chip) refers to emulated_flash_drv.o(.text.is_secure_alias_needed) for is_secure_alias_needed
-    emulated_flash_drv.o(.text.emulated_flash_erase_chip) refers to aeabi_memset.o(.text) for __aeabi_memset
-    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_chip) refers to emulated_flash_drv.o(.text.emulated_flash_erase_chip) for [Anonymous Symbol]
-    emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_get_info) refers to emulated_flash_drv.o(.text.emulated_flash_get_info) for [Anonymous Symbol]
     spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_enable) refers to spi_pl022_drv.o(.text.spi_pl022_dev_enable) for [Anonymous Symbol]
     spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_disable) refers to spi_pl022_drv.o(.text.spi_pl022_dev_disable) for [Anonymous Symbol]
     spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_get_status) refers to spi_pl022_drv.o(.text.spi_pl022_get_status) for [Anonymous Symbol]
@@ -603,6 +586,23 @@ Section Cross References
     spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_integration_test_disable) refers to spi_pl022_drv.o(.text.spi_pl022_integration_test_disable) for [Anonymous Symbol]
     spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_write_test_data) refers to spi_pl022_drv.o(.text.spi_pl022_write_test_data) for [Anonymous Symbol]
     spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_read_test_output_reg) refers to spi_pl022_drv.o(.text.spi_pl022_read_test_output_reg) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_init) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_baudrate) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_read) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_write) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_ready) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable) for [Anonymous Symbol]
     rt_memcpy_v6.o(.text) refers to rt_memcpy_w.o(.text) for __aeabi_memcpy4
     aeabi_memset.o(.text) refers to rt_memclr.o(.text) for _memset
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
@@ -1037,6 +1037,27 @@ Removing Unused input sections from the image.
     Removing system_sse310mps3.o(.text.SystemCoreClockUpdate), (34 bytes).
     Removing system_sse310mps3.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_sse310mps3.o(.ARM.exidx.text.SystemInit), (8 bytes).
+    Removing emulated_flash_drv.o(.text), (0 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_read_data), (146 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_read_data), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_range_valid), (54 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_range_valid), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_secure_alias_needed), (24 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_secure_alias_needed), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_program_data), (204 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_program_data), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_write_aligned), (48 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_write_aligned), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_flash_ready_to_write), (64 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_flash_ready_to_write), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_erase_sector), (158 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_sector), (8 bytes).
+    Removing emulated_flash_drv.o(.text.is_sector_aligned), (48 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.is_sector_aligned), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_erase_chip), (134 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_chip), (8 bytes).
+    Removing emulated_flash_drv.o(.text.emulated_flash_get_info), (16 bytes).
+    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_get_info), (8 bytes).
     Removing mpc_sie_drv.o(.text), (0 bytes).
     Removing mpc_sie_drv.o(.text.mpc_sie_init), (94 bytes).
     Removing mpc_sie_drv.o(.ARM.exidx.text.mpc_sie_init), (8 bytes).
@@ -1085,62 +1106,6 @@ Removing Unused input sections from the image.
     Removing ppc_corstone310_drv.o(.ARM.exidx.text.ppc_corstone310_config_privilege), (8 bytes).
     Removing ppc_corstone310_drv.o(.text.ppc_corstone310_is_periph_priv_only), (60 bytes).
     Removing ppc_corstone310_drv.o(.ARM.exidx.text.ppc_corstone310_is_periph_priv_only), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text), (0 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_init), (98 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_set_baudrate), (112 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate), (18 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock), (92 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_read), (62 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_write), (62 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_enable), (62 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_disable), (44 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready), (56 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_enable), (62 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_disable), (44 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_ready), (52 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt), (90 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_enable), (62 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable), (44 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable), (62 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable), (44 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable), (8 bytes).
-    Removing emulated_flash_drv.o(.text), (0 bytes).
-    Removing emulated_flash_drv.o(.text.emulated_flash_read_data), (146 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_read_data), (8 bytes).
-    Removing emulated_flash_drv.o(.text.is_range_valid), (54 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.is_range_valid), (8 bytes).
-    Removing emulated_flash_drv.o(.text.is_secure_alias_needed), (24 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.is_secure_alias_needed), (8 bytes).
-    Removing emulated_flash_drv.o(.text.emulated_flash_program_data), (204 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_program_data), (8 bytes).
-    Removing emulated_flash_drv.o(.text.is_write_aligned), (48 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.is_write_aligned), (8 bytes).
-    Removing emulated_flash_drv.o(.text.is_flash_ready_to_write), (64 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.is_flash_ready_to_write), (8 bytes).
-    Removing emulated_flash_drv.o(.text.emulated_flash_erase_sector), (158 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_sector), (8 bytes).
-    Removing emulated_flash_drv.o(.text.is_sector_aligned), (48 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.is_sector_aligned), (8 bytes).
-    Removing emulated_flash_drv.o(.text.emulated_flash_erase_chip), (134 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_erase_chip), (8 bytes).
-    Removing emulated_flash_drv.o(.text.emulated_flash_get_info), (16 bytes).
-    Removing emulated_flash_drv.o(.ARM.exidx.text.emulated_flash_get_info), (8 bytes).
     Removing spi_pl022_drv.o(.text), (0 bytes).
     Removing spi_pl022_drv.o(.text.spi_pl022_dev_enable), (30 bytes).
     Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_dev_enable), (8 bytes).
@@ -1204,6 +1169,41 @@ Removing Unused input sections from the image.
     Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_write_test_data), (8 bytes).
     Removing spi_pl022_drv.o(.text.spi_pl022_read_test_output_reg), (26 bytes).
     Removing spi_pl022_drv.o(.ARM.exidx.text.spi_pl022_read_test_output_reg), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text), (0 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_init), (98 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_set_baudrate), (112 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate), (18 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock), (92 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_read), (62 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_write), (62 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_enable), (62 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_disable), (44 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready), (56 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_enable), (62 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_disable), (44 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_ready), (52 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt), (90 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_enable), (62 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable), (44 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable), (62 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable), (44 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable), (8 bytes).
 
 430 unused section(s) (total 12836 bytes) removed from the image.
 

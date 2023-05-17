@@ -162,17 +162,18 @@ void init_r12()
 
 int main()
 {
-	//setup_S_PAC_Keys();
-	//init_r12();
-	//enable_PAC();
-	//int result = func_add(10, 30);
-	//func_substract(5, &result);
-	//func_multiply(result, 2);
-	//func_div(2, &result);
+	setup_S_PAC_Keys();
+	init_r12();
+	enable_PAC();
+	int result = func_add(10, 30);
+	func_substract(5, &result);
+	func_multiply(result, 2);
+	func_div(2, &result);
 	
-	setup_MPC();
+	int r = cond_function(5, 5);
+	//setup_MPC();
 	//setup_NS_PAC_Keys();
-	switch_to_NS ();
+	//switch_to_NS ();
 	
 	return 0;
 }
