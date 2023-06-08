@@ -69,6 +69,14 @@ def main():
         print("Angr.apstone Disassembly")
         print(block.capstone.pp())
 
+        print("Loop over each instruction in current block")
+        for insn in block.capstone.insns:
+            if insn.mnemonic == 'ret':
+                print(f"Retrun instruction identified inthe block")
+                print(f"Address: 0x{insn.address:08x}")
+                print(f"Mnemonic: {insn.mnemonic}")
+                print(f"Operands: {insn.op_str}")
+                print()
         #f1= cfg.kb.functions[src.addr-1]
         #f2 = cfg.kb.functions[dst.addr-1]
         print("Source bb function name = %s " %(get_function_name(block, cfg)))
