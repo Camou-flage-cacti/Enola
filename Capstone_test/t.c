@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+extern void _hook_ret();
+
 void func(int a)
 {
 	printf("Value %d\n", a);

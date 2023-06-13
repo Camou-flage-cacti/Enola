@@ -77,6 +77,8 @@ def main():
                 print(f"Mnemonic: {insn.mnemonic}")
                 print(f"Operands: {insn.op_str}")
                 print()
+            if insn.mnemonic == 'ret' and get_function_name(block, cfg) == 'func':
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ret instruction in func@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         #f1= cfg.kb.functions[src.addr-1]
         #f2 = cfg.kb.functions[dst.addr-1]
         print("Source bb function name = %s " %(get_function_name(block, cfg)))
