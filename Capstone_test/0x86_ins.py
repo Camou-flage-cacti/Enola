@@ -15,6 +15,8 @@ from enum import Enum
 from datetime import datetime
 import angr
 
+binary_name = 'asm_hooked'
+
 def get_function_name(block, cfg):
     function = None
     for f_addr, func in cfg.kb.functions.items():
@@ -26,12 +28,17 @@ def get_function_name(block, cfg):
     else:
         return None
 
+def get_function_addr(cfg, target_func):
+    for function in cfg.functions.values():
+        if function.name == target_func:
+            function_addr = function.addr
+    return function_addr
 def main():
     control_flow_statements = []
     md = Cs(CS_ARCH_ARM, CS_MODE_THUMB + CS_MODE_MCLASS)
     md.detail = True
 
-    proj = angr.Project('out', auto_load_libs=False)
+    proj = angr.Project(binary_name, auto_load_libs=False)
     block = proj.factory.block(proj.entry)
     print(block.pp())
 
@@ -69,6 +76,16 @@ def main():
         print("Angr.apstone Disassembly")
         print(block.capstone.pp())
 
+        print("Loop over each instruction in current block")
+        for insn in block.capstone.insns:
+            if insn.mnemonic == 'ret':
+                print(f"Retrun instruction identified inthe block")
+                print(f"Address: 0x{insn.address:08x}")
+                print(f"Mnemonic: {insn.mnemonic}")
+                print(f"Operands: {insn.op_str}")
+                print()
+            if insn.mnemonic == 'ret' and get_function_name(block, cfg) == 'func':
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ret instruction in func@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         #f1= cfg.kb.functions[src.addr-1]
         #f2 = cfg.kb.functions[dst.addr-1]
         print("Source bb function name = %s " %(get_function_name(block, cfg)))
@@ -77,7 +94,9 @@ def main():
         else:
             visited.append(src)
 
-        print('----------------BB end-------------') 
+        print('----------------BB end-------------')
+        target_function = '_hook_ret'
+        print("_hook_ret address %x" % get_function_addr(cfg, target_function))
 
 
 
@@ -87,7 +106,7 @@ def main():
             #print(f"Address: {hex(instruction.address)}, Instruction: {instruction.mnemonic} {instruction.op_str}")
 
     #print(instructions)
-    with open('out', "rb") as f:
+    with open(binary_name, "rb") as f:
         mm = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
         code = mm.read(mm.size() - mm.tell())
         current_addr = 0x401171
