@@ -112,7 +112,8 @@ void setup_MPC()
 		/*confirm NS configuration*/
 		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, 0x01000000, 0x011FFFFF, &mpc_get_config_holder);
 }
-void __attribute__((naked)) setup_NS_PAC_Keys()
+//void __attribute__((naked)) setup_NS_PAC_Keys()
+void setup_NS_PAC_Keys()
 {
 		__asm volatile(
 		"MOV r5, #0x1122\n\t"
@@ -127,7 +128,8 @@ void __attribute__((naked)) setup_NS_PAC_Keys()
 	  "BLXNS r0\n\t"
 	);*/
 }
-void __attribute__((naked)) setup_S_PAC_Keys()
+//void __attribute__((naked)) setup_S_PAC_Keys()
+void setup_S_PAC_Keys()
 {
 		__asm volatile(
 		"MOV r5, #0x1122\n\t"
@@ -145,7 +147,8 @@ void switch_to_NS ()
 		NonSecure_ResetHandler();
 }
 
-void __attribute__((naked)) enable_PAC() //change to naked functions we don't need function prolouge and epilougle.
+//void __attribute__((naked)) enable_PAC() //change to naked functions we don't need function prolouge and epilougle.
+void enable_PAC()
 {
 	__asm volatile(
 		"MOV r5, #0x4c\n\t"
@@ -153,7 +156,8 @@ void __attribute__((naked)) enable_PAC() //change to naked functions we don't ne
 	);
 }
 
-void __attribute__((naked)) init_r12()
+//void __attribute__((naked)) init_r12()
+void init_r12()
 {
 	__asm volatile(
 		"MOV r12, #0x0\n\t"
