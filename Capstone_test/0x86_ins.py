@@ -15,7 +15,7 @@ from enum import Enum
 from datetime import datetime
 import angr
 
-binary_name = 'asm_hooked'
+binary_name = 'bin/FreeRTOS_MPU_ns.axf'
 
 def get_function_name(block, cfg):
     function = None
@@ -33,6 +33,7 @@ def get_function_addr(cfg, target_func):
         if function.name == target_func:
             function_addr = function.addr
     return function_addr
+
 def main():
     control_flow_statements = []
     md = Cs(CS_ARCH_ARM, CS_MODE_THUMB + CS_MODE_MCLASS)
@@ -78,14 +79,15 @@ def main():
 
         print("Loop over each instruction in current block")
         for insn in block.capstone.insns:
-            if insn.mnemonic == 'ret':
+            if insn.mnemonic == 'bne':
                 print(f"Retrun instruction identified inthe block")
                 print(f"Address: 0x{insn.address:08x}")
                 print(f"Mnemonic: {insn.mnemonic}")
                 print(f"Operands: {insn.op_str}")
                 print()
-            if insn.mnemonic == 'ret' and get_function_name(block, cfg) == 'func':
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ret instruction in func@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            #if insn.mnemonic == 'bne' and get_function_name(block, cfg) == 'func':
+            if insn.mnemonic == 'bne':
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@bne instruction in func@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         #f1= cfg.kb.functions[src.addr-1]
         #f2 = cfg.kb.functions[dst.addr-1]
         print("Source bb function name = %s " %(get_function_name(block, cfg)))
@@ -95,8 +97,8 @@ def main():
             visited.append(src)
 
         print('----------------BB end-------------')
-        target_function = '_hook_ret'
-        print("_hook_ret address %x" % get_function_addr(cfg, target_function))
+        #target_function = '_hook_ret'
+        #print("_hook_ret address %x" % get_function_addr(cfg, target_function))
 
 
 
