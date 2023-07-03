@@ -47,6 +47,59 @@ typedef int32_t (*NonSecure_fpParam)(uint32_t) __attribute__((cmse_nonsecure_cal
 typedef void (*NonSecure_fpVoid)(void) __attribute__((cmse_nonsecure_call));
 
 
+//void __attribute__((naked)) setup_NS_PAC_Keys()
+void setup_NS_PAC_Keys()
+{
+		__asm volatile(
+		"MOV r5, #0x1122\n\t"
+		"MSR PAC_KEY_U_0, r5\n\t"
+	  "MSR PAC_KEY_P_0_NS, r5\n\t"
+		"MSR PAC_KEY_U_0_NS, r5\n\t"
+	);
+	
+	/*__asm volatile(
+		"MOVW r0, #0x0000\n\t"
+		"MOVT r0, #0x1020\n\t"
+	  "BLXNS r0\n\t"
+	);*/
+}
+//void __attribute__((naked)) setup_S_PAC_Keys()
+void setup_S_PAC_Keys()
+{
+		__asm volatile(
+		"MOV r5, #0x1122\n\t"
+		"MOVT r5, #0x3344\n\t"
+	  "MSR PAC_KEY_P_0, r5\n\t"
+		"MSR PAC_KEY_P_1, r5\n\t"
+		"MSR PAC_KEY_P_2, r5\n\t"
+		"MSR PAC_KEY_P_3, r5\n\t"
+	);
+}
+void switch_to_NS ()
+{
+		uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
+		NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
+		NonSecure_ResetHandler();
+}
+
+//void __attribute__((naked)) enable_PAC() //change to naked functions we don't need function prolouge and epilougle.
+void enable_PAC()
+{
+	__asm volatile(
+		"MOV r5, #0x4c\n\t"
+	  "MSR CONTROL, r5\n\t"
+	);
+}
+
+//void __attribute__((naked)) init_r12()
+void init_r12()
+{
+	__asm volatile(
+		"MOV r12, #0x0\n\t"
+	);
+}
+
+
 void setup_MPC()
 {
 	//struct mpc_sie_dev_t obj;
@@ -110,63 +163,11 @@ void setup_MPC()
 	  enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
 		
 		/*confirm NS configuration*/
-		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, 0x01000000, 0x011FFFFF, &mpc_get_config_holder);
+		mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, 0x01020000, 0x011FFFFF, &mpc_get_config_holder);
 }
-//void __attribute__((naked)) setup_NS_PAC_Keys()
-void setup_NS_PAC_Keys()
-{
-		__asm volatile(
-		"MOV r5, #0x1122\n\t"
-		"MSR PAC_KEY_U_0, r5\n\t"
-	  "MSR PAC_KEY_P_0_NS, r5\n\t"
-		"MSR PAC_KEY_U_0_NS, r5\n\t"
-	);
-	
-	/*__asm volatile(
-		"MOVW r0, #0x0000\n\t"
-		"MOVT r0, #0x1020\n\t"
-	  "BLXNS r0\n\t"
-	);*/
-}
-//void __attribute__((naked)) setup_S_PAC_Keys()
-void setup_S_PAC_Keys()
-{
-		__asm volatile(
-		"MOV r5, #0x1122\n\t"
-		"MOVT r5, #0x3344\n\t"
-	  "MSR PAC_KEY_P_0, r5\n\t"
-		"MSR PAC_KEY_P_1, r5\n\t"
-		"MSR PAC_KEY_P_2, r5\n\t"
-		"MSR PAC_KEY_P_3, r5\n\t"
-	);
-}
-void switch_to_NS ()
-{
-		uint32_t NonSecure_StackPointer = (*((uint32_t *)(NONSECURE_START + 0u)));
-		NonSecure_fpVoid NonSecure_ResetHandler = (NonSecure_fpVoid)(*((uint32_t *)(NONSECURE_START + 4u)));
-		NonSecure_ResetHandler();
-}
-
-//void __attribute__((naked)) enable_PAC() //change to naked functions we don't need function prolouge and epilougle.
-void enable_PAC()
-{
-	__asm volatile(
-		"MOV r5, #0x4c\n\t"
-	  "MSR CONTROL, r5\n\t"
-	);
-}
-
-//void __attribute__((naked)) init_r12()
-void init_r12()
-{
-	__asm volatile(
-		"MOV r12, #0x0\n\t"
-	);
-}
-
 int main()
 {
-	setup_S_PAC_Keys();
+	/*setup_S_PAC_Keys();
 	init_r12();
 	enable_PAC();
 	int result = func_add(10, 30);
@@ -174,10 +175,10 @@ int main()
 	func_multiply(result, 2);
 	func_div(2, &result);
 	
-	int r = cond_function(5, 5);
-	//setup_MPC();
-	//setup_NS_PAC_Keys();
-	//switch_to_NS ();
+	int r = cond_function(5, 5);*/
+	setup_MPC();
+	setup_NS_PAC_Keys();
+	switch_to_NS ();
 	
 	return 0;
 }
