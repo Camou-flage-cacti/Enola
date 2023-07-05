@@ -176,7 +176,7 @@ int main()
 	func_div(2, &result);
 	
 	int r = cond_function(5, 5);*/
-	setup_MPC();
+	//setup_MPC();
 	setup_NS_PAC_Keys();
 	switch_to_NS ();
 	
