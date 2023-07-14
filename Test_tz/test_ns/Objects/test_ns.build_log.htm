@@ -26,122 +26,75 @@ Project File Date:  04/05/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild Project 'test_ns' - Target 'Target 1'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\CMSIS_Driver\Driver_MPC.c(19): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\Driver_MPC_Sie.h(49): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-    default:
+Build Project 'test_ns' - Target 'Target 1'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(29): warning: In file included from...
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
+    SAU_INIT_REGION(0);
     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\CMSIS_Driver\Driver_MPC.c(17): warning: In file included from...
-C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\RTE\Device\SSE-310-MPS3_AN555\cmsis_driver_config.h(22): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Board\Device_Definition\device_definition.h(211): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(112): warning: padding size of 'struct mpc_sie_dev_cfg_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_dev_cfg_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(91): warning: padding size of 'struct mpc_sie_memory_range_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_memory_range_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(124): warning: padding struct 'struct mpc_sie_dev_data_t' with 3 bytes to align 'sie_version' [-Wpadded]
-    uint32_t sie_version;   /*!< SIE version */
-             ^
-4 warnings generated.
-compiling Driver_MPC.c...
-compiling uart_cmsdk_drv.c...
-C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\main.c(8): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-1 warning generated.
-compiling main.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.c(16): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(112): warning: padding size of 'struct mpc_sie_dev_cfg_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_dev_cfg_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(91): warning: padding size of 'struct mpc_sie_memory_range_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_memory_range_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(124): warning: padding struct 'struct mpc_sie_dev_data_t' with 3 bytes to align 'sie_version' [-Wpadded]
-    uint32_t sie_version;   /*!< SIE version */
-             ^
-3 warnings generated.
-compiling mpc_sie_drv.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\emulated_flash_drv.c(60): warning: unused parameter 'addr' [-Wunused-parameter]
-static int32_t is_secure_alias_needed(uint32_t addr)
-                                               ^
-1 warning generated.
-compiling emulated_flash_drv.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\ppc_corstone310_drv.c(193): warning: default label in switch which covers all enumeration values [-Wcovered-switch-default]
-        default:
-        ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\ppc_corstone310_drv.c(17): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\ppc_corstone310_drv.h(49): warning: padding size of 'struct ppc_corstone310_dev_cfg_t' with 3 bytes to alignment boundary [-Wpadded]
-struct ppc_corstone310_dev_cfg_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\ppc_corstone310_drv.h(56): warning: padding size of 'struct ppc_corstone310_dev_data_t' with 3 bytes to alignment boundary [-Wpadded]
-struct ppc_corstone310_dev_data_t {
-       ^
-3 warnings generated.
-compiling ppc_corstone310_drv.c...
-compiling Driver_SPI.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(118): warning: unused variable 'mpc_config_ret' [-Wunused-variable]
-          enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
-                               ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(106): warning: unused variable 'get_ctrl' [-Wunused-variable]
-                enum mpc_sie_error_t get_ctrl = mpc_sie_get_ctrl(&dev_test, &ctrl_holder);
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(539): note: expanded from macro 'SAU_INIT_REGION'
+    SAU->RNR  =  (n                                     & SAU_RNR_REGION_Msk); \
+    ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RNR_REGION_Msk'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(539): note: expanded from macro 'SAU_INIT_REGION'
+    SAU->RNR  =  (n                                     & SAU_RNR_REGION_Msk); \
+                                                          ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(540): note: expanded from macro 'SAU_INIT_REGION'
+    SAU->RBAR =  (SAU_INIT_START##n                     & SAU_RBAR_BADDR_Msk); \
+    ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RBAR_BADDR_Msk'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(540): note: expanded from macro 'SAU_INIT_REGION'
+    SAU->RBAR =  (SAU_INIT_START##n                     & SAU_RBAR_BADDR_Msk); \
+                                                          ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(541): note: expanded from macro 'SAU_INIT_REGION'
+    SAU->RLAR =  (SAU_INIT_END##n                       & SAU_RLAR_LADDR_Msk) | \
+    ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RLAR_LADDR_Msk'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(541): note: expanded from macro 'SAU_INIT_REGION'
+    SAU->RLAR =  (SAU_INIT_END##n                       & SAU_RLAR_LADDR_Msk) | \
+                                                          ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RLAR_NSC_Pos'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(542): note: expanded from macro 'SAU_INIT_REGION'
+                ((SAU_INIT_NSC##n << SAU_RLAR_NSC_Pos)  & SAU_RLAR_NSC_Msk)   | 1U
                                      ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(115): warning: variable 'mpc_current_config_ret' set but not used [-Wunused-but-set-variable]
-                enum mpc_sie_error_t mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
-                                     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(111): warning: unused variable 'get_block_size' [-Wunused-variable]
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RLAR_NSC_Msk'
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(542): note: expanded from macro 'SAU_INIT_REGION'
+                ((SAU_INIT_NSC##n << SAU_RLAR_NSC_Pos)  & SAU_RLAR_NSC_Msk)   | 1U
+                                                          ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(592): error: use of undeclared identifier 'SAU'
+    SAU->CTRL = ((SAU_INIT_CTRL_ENABLE << SAU_CTRL_ENABLE_Pos) & SAU_CTRL_ENABLE_Msk) |
+    ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(592): error: use of undeclared identifier 'SAU_CTRL_ENABLE_Pos'
+    SAU->CTRL = ((SAU_INIT_CTRL_ENABLE << SAU_CTRL_ENABLE_Pos) & SAU_CTRL_ENABLE_Msk) |
+                                          ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(592): error: use of undeclared identifier 'SAU_CTRL_ENABLE_Msk'
+    SAU->CTRL = ((SAU_INIT_CTRL_ENABLE << SAU_CTRL_ENABLE_Pos) & SAU_CTRL_ENABLE_Msk) |
+                                                                 ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(593): error: use of undeclared identifier 'SAU_CTRL_ALLNS_Pos'
+                ((SAU_INIT_CTRL_ALLNS  << SAU_CTRL_ALLNS_Pos)  & SAU_CTRL_ALLNS_Msk)   ;
+                                          ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(593): error: use of undeclared identifier 'SAU_CTRL_ALLNS_Msk'
+                ((SAU_INIT_CTRL_ALLNS  << SAU_CTRL_ALLNS_Pos)  & SAU_CTRL_ALLNS_Msk)   ;
+                                                                 ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(123): warning: unused variable 'get_block_size' [-Wunused-variable]
                 enum mpc_sie_error_t get_block_size = mpc_sie_get_block_size(&dev_test, &blk_size_holder);
                                      ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(102): warning: unused variable 'init_mpc_dev' [-Wunused-variable]
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(130): warning: unused variable 'mpc_config_ret' [-Wunused-variable]
+          enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
+                               ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(127): warning: variable 'mpc_current_config_ret' set but not used [-Wunused-but-set-variable]
+                enum mpc_sie_error_t mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
+                                     ^
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(114): warning: unused variable 'init_mpc_dev' [-Wunused-variable]
                 enum mpc_sie_error_t init_mpc_dev = mpc_sie_init(&dev_test); /*Initialization correct*/
                                      ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(58): warning: no previous prototype for function 'setup_MPC' [-Wmissing-prototypes]
-void setup_MPC()
-     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(58): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void setup_MPC()
-^
-static 
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(58): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void setup_MPC()
-              ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(25): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(91): warning: padding size of 'struct mpc_sie_memory_range_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_memory_range_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(112): warning: padding size of 'struct mpc_sie_dev_cfg_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_dev_cfg_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(124): warning: padding struct 'struct mpc_sie_dev_data_t' with 3 bytes to align 'sie_version' [-Wpadded]
-    uint32_t sie_version;   /*!< SIE version */
-             ^
-10 warnings generated.
+C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(118): warning: unused variable 'get_ctrl' [-Wunused-variable]
+                enum mpc_sie_error_t get_ctrl = mpc_sie_get_ctrl(&dev_test, &ctrl_holder);
+                                     ^
+5 warnings and 13 errors generated.
 compiling system_SSE310MPS3.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Board\Device_Definition\device_definition.c(26): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Board\Device_Definition\device_definition.h(211): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(112): warning: padding size of 'struct mpc_sie_dev_cfg_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_dev_cfg_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(91): warning: padding size of 'struct mpc_sie_memory_range_t' with 3 bytes to alignment boundary [-Wpadded]
-struct mpc_sie_memory_range_t {
-       ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\mpc_sie_drv.h(124): warning: padding struct 'struct mpc_sie_dev_data_t' with 3 bytes to align 'sie_version' [-Wpadded]
-    uint32_t sie_version;   /*!< SIE version */
-             ^
-3 warnings generated.
-compiling device_definition.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\spi_pl022_drv.c(17): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Native_Driver\spi_pl022_drv.h(75): warning: padding struct 'struct spi_pl022_ctrl_cfg_t' with 3 bytes to align 'bit_rate' [-Wpadded]
-    uint32_t bit_rate;                      /*!< required bit rate */
-             ^
-1 warning generated.
-compiling spi_pl022_drv.c...
-compiling startup_SSE310MPS3.c...
-linking...
-.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 25 days [-Wlicense-management]
-Program Size: Code=3540 RO-data=616 RW-data=8 ZI-data=2048  
-".\Objects\test_ns.axf" - 0 Error(s), 27 Warning(s).
+".\Objects\test_ns.axf" - 13 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -195,8 +148,8 @@ Package Vendor: ARM
       Include file:  CMSIS/Driver/Include/Driver_USART.h
 
    * Component: ARM::CMSIS Driver:I2C:Custom:1.0.0
-      Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
       Include file:  CMSIS/Driver/Include/Driver_I2C.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:MPC:1.1.0
       Include file:  CMSIS_Driver/Driver_MPC.h
@@ -206,26 +159,26 @@ Package Vendor: ARM
       Source file:   CMSIS_Driver/Driver_SPI.c
 
    * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
-      Include file:  CMSIS/Driver/Include/Driver_USART.h
       Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
       Include file:  Board/Platform/platform_description.h
+      Include file:  Board/Device_Definition/device_definition.h
       Source file:   Board/Device_Definition/device_definition.c
       Include file:  Board/Platform/platform_base_address.h
-      Include file:  Board/Device_Definition/device_definition.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
-      Include file:  Device/Include/region_limits.h
       Include file:  Device/Include/region_defs.h
-      Include file:  Device/Config/Baremetal/device_cfg.h
-      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
+      Include file:  Device/Include/region_limits.h
       Source file:   Device/Source/startup_SSE310MPS3.c
-      Source file:   Device/Source/system_SSE310MPS3.c
       Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
+      Include file:  Device/Config/Baremetal/device_cfg.h
+      Source file:   Device/Source/system_SSE310MPS3.c
 
    * Component: ARM::Native Driver:Flash:1.1.0
       Source file:   Native_Driver/emulated_flash_drv.c
@@ -237,20 +190,21 @@ Package Vendor: ARM
       Include file:  Native_Driver/mpc_sie_reg_map.h
 
    * Component: ARM::Native Driver:PPC:1.1.0
+      Source file:   Native_Driver/ppc_corstone310_drv.c
       Include file:  Native_Driver/ppc_corstone310_reg_map.h
       Include file:  Native_Driver/ppc_corstone310_drv.h
-      Source file:   Native_Driver/ppc_corstone310_drv.c
 
    * Component: ARM::Native Driver:SPI:1.0.0
+      Include file:  Native_Driver/spi_pl022_reg_map.h
       Source file:   Native_Driver/spi_pl022_drv.c
       Include file:  Native_Driver/spi_pl022_drv.h
-      Include file:  Native_Driver/spi_pl022_reg_map.h
 
    * Component: ARM::Native Driver:UART:1.1.0
-      Include file:  Native_Driver/uart_cmsdk_reg_map.h
-      Source file:   Native_Driver/uart_cmsdk_drv.c
       Include file:  Native_Driver/uart_cmsdk_drv.h
-Build Time Elapsed:  00:00:02
+      Source file:   Native_Driver/uart_cmsdk_drv.c
+      Include file:  Native_Driver/uart_cmsdk_reg_map.h
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

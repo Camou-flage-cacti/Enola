@@ -99,6 +99,16 @@ void init_r12()
 	);
 }
 
+void set_MSP_NS()
+{
+	__asm volatile(
+		"MOV r12, #0x0818\n\t"
+		"MOVT r12, #0x2104\n\t"
+		"MSR MSP_NS, r12\n\t"
+		//"MSR PSP_NS, r12\n\t"
+	);
+}
+
 
 int main()
 {
@@ -113,6 +123,7 @@ int main()
 	int r = cond_function(5, 5);*/
 	//setup_MPC();
 	setup_NS_PAC_Keys();
+	set_MSP_NS();
 	switch_to_NS ();
 	
 	return 0;
