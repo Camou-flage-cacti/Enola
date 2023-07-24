@@ -22,11 +22,16 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\test_ns.uvprojx
-Project File Date:  04/05/2023
+Project File Date:  07/17/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build Project 'test_ns' - Target 'Target 1'
+Rebuild Project 'test_ns' - Target 'Target 1'
+compiling main.c...
+compiling uart_cmsdk_drv.c...
+compiling Driver_SPI.c...
+compiling device_definition.c...
+compiling emulated_flash_drv.c...
 C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(29): warning: In file included from...
 C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
     SAU_INIT_REGION(0);
@@ -77,24 +82,14 @@ C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Sou
 C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(593): error: use of undeclared identifier 'SAU_CTRL_ALLNS_Msk'
                 ((SAU_INIT_CTRL_ALLNS  << SAU_CTRL_ALLNS_Pos)  & SAU_CTRL_ALLNS_Msk)   ;
                                                                  ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(123): warning: unused variable 'get_block_size' [-Wunused-variable]
-                enum mpc_sie_error_t get_block_size = mpc_sie_get_block_size(&dev_test, &blk_size_holder);
-                                     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(130): warning: unused variable 'mpc_config_ret' [-Wunused-variable]
-          enum mpc_sie_error_t mpc_config_ret = mpc_sie_config_region(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, mpc_attr);
-                               ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(127): warning: variable 'mpc_current_config_ret' set but not used [-Wunused-but-set-variable]
-                enum mpc_sie_error_t mpc_current_config_ret = mpc_sie_get_region_config(&dev_test, FPGA_MPC_ADDRESS_BASE, FPGA_MPC_ADDRESS_LIMIT, &mpc_get_config_holder);
-                                     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(114): warning: unused variable 'init_mpc_dev' [-Wunused-variable]
-                enum mpc_sie_error_t init_mpc_dev = mpc_sie_init(&dev_test); /*Initialization correct*/
-                                     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(118): warning: unused variable 'get_ctrl' [-Wunused-variable]
-                enum mpc_sie_error_t get_ctrl = mpc_sie_get_ctrl(&dev_test, &ctrl_holder);
-                                     ^
-5 warnings and 13 errors generated.
+13 errors generated.
 compiling system_SSE310MPS3.c...
-".\Objects\test_ns.axf" - 13 Error(s), 5 Warning(s).
+compiling ppc_corstone310_drv.c...
+compiling Driver_MPC.c...
+compiling spi_pl022_drv.c...
+compiling mpc_sie_drv.c...
+compiling startup_SSE310MPS3.c...
+".\Objects\test_ns.axf" - 13 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -152,37 +147,37 @@ Package Vendor: ARM
       Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:MPC:1.1.0
-      Include file:  CMSIS_Driver/Driver_MPC.h
       Source file:   CMSIS_Driver/Driver_MPC.c
+      Include file:  CMSIS_Driver/Driver_MPC.h
 
    * Component: ARM::CMSIS Driver:SPI:1.0.1
       Source file:   CMSIS_Driver/Driver_SPI.c
 
    * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
-      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
       Include file:  CMSIS/Driver/Include/Driver_USART.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
       Include file:  Board/Platform/platform_description.h
+      Include file:  Board/Platform/platform_base_address.h
       Include file:  Board/Device_Definition/device_definition.h
       Source file:   Board/Device_Definition/device_definition.c
-      Include file:  Board/Platform/platform_base_address.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
-      Include file:  Device/Include/region_defs.h
-      Include file:  Device/Include/region_limits.h
       Source file:   Device/Source/startup_SSE310MPS3.c
-      Include file:  Device/Include/system_SSE310MPS3.h
-      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
-      Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  Device/Include/region_limits.h
+      Include file:  Device/Include/region_defs.h
       Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
 
    * Component: ARM::Native Driver:Flash:1.1.0
-      Source file:   Native_Driver/emulated_flash_drv.c
       Include file:  Native_Driver/emulated_flash_drv.h
+      Source file:   Native_Driver/emulated_flash_drv.c
 
    * Component: ARM::Native Driver:MPC:1.1.0
       Source file:   Native_Driver/mpc_sie_drv.c
@@ -191,13 +186,13 @@ Package Vendor: ARM
 
    * Component: ARM::Native Driver:PPC:1.1.0
       Source file:   Native_Driver/ppc_corstone310_drv.c
-      Include file:  Native_Driver/ppc_corstone310_reg_map.h
       Include file:  Native_Driver/ppc_corstone310_drv.h
+      Include file:  Native_Driver/ppc_corstone310_reg_map.h
 
    * Component: ARM::Native Driver:SPI:1.0.0
-      Include file:  Native_Driver/spi_pl022_reg_map.h
       Source file:   Native_Driver/spi_pl022_drv.c
       Include file:  Native_Driver/spi_pl022_drv.h
+      Include file:  Native_Driver/spi_pl022_reg_map.h
 
    * Component: ARM::Native Driver:UART:1.1.0
       Include file:  Native_Driver/uart_cmsdk_drv.h

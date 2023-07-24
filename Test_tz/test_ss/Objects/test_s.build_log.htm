@@ -22,18 +22,67 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ss\test_s.uvprojx
-Project File Date:  07/06/2023
+Project File Date:  07/17/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build Project 'test_s' - Target 'Target 1'
+Rebuild Project 'test_s' - Target 'Target 1'
+compiling BayesFunctions.c...
+compiling instrumented.c...
+compiling user_func.c...
+compiling BayesFunctionsF16.c...
+compiling DistanceFunctions.c...
+compiling ComplexMathFunctionsF16.c...
+compiling BasicMathFunctionsF16.c...
+compiling main.c...
+compiling ComplexMathFunctions.c...
+compiling DistanceFunctionsF16.c...
+compiling ControllerFunctions.c...
+compiling BasicMathFunctions.c...
+compiling FastMathFunctions.c...
+compiling CommonTablesF16.c...
+compiling InterpolationFunctionsF16.c...
+compiling FastMathFunctionsF16.c...
+compiling FilteringFunctionsF16.c...
+compiling InterpolationFunctions.c...
+compiling MatrixFunctionsF16.c...
+compiling QuaternionMathFunctions.c...
+compiling SVMFunctions.c...
+compiling SVMFunctionsF16.c...
+compiling MatrixFunctions.c...
+compiling StatisticsFunctionsF16.c...
+compiling StatisticsFunctions.c...
+compiling SupportFunctionsF16.c...
+compiling SupportFunctions.c...
+compiling rtx_lib.c...
+compiling RTX_Config.c...
+compiling Driver_I2C.c...
+compiling FilteringFunctions.c...
+compiling TransformFunctionsF16.c...
+compiling Driver_MPC.c...
+compiling CommonTables.c...
+compiling Driver_USART.c...
+compiling device_definition.c...
+compiling Driver_PPC.c...
+compiling emulated_flash_drv.c...
+compiling system_SSE310MPS3.c...
+compiling startup_SSE310MPS3.c...
+compiling TransformFunctions.c...
+compiling i2c_sbcon_drv.c...
+compiling mpc_sie_drv.c...
+compiling ppc_corstone310_drv.c...
+compiling syscounter_armv8-m_cntrl_drv.c...
+compiling syscounter_armv8-m_read_drv.c...
+compiling systimer_armv8-m_drv.c...
+compiling systimer_armv8-m_timeout.c...
+compiling uart_cmsdk_drv.c...
 linking...
-.\Objects\test_s.axf: warning: Your license for feature Keil will expire in 14 days [-Wlicense-management]
+.\Objects\test_s.axf: warning: Your license for feature Keil will expire in 11 days [-Wlicense-management]
 .\Objects\test_s.axf: Warning: L6848E: No CMSE symbols written in import library ..\test_ss\Objects\test_s_CMSE_Lib.o.
 Program Size: Code=8652 RO-data=912 RW-data=172 ZI-data=36184  
 Finished: 0 information, 1 warning and 0 error messages.
 FromELF: creating hex file...
-.\Objects\test_s.hex: Warning: Q9931W: Your license for feature Keil will expire in 14 days
+.\Objects\test_s.hex: Warning: Q9931W: Your license for feature Keil will expire in 11 days
 Finished: 0 information, 1 warning and 0 error messages.
 ".\Objects\test_s.axf" - 0 Error(s), 2 Warning(s).
 
@@ -108,27 +157,27 @@ Package Vendor: ARM
       Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:MPC:1.1.0
-      Include file:  CMSIS_Driver/Driver_MPC.h
       Source file:   CMSIS_Driver/Driver_MPC.c
+      Include file:  CMSIS_Driver/Driver_MPC.h
 
    * Component: ARM::CMSIS Driver:PPC:1.1.0
-      Source file:   CMSIS_Driver/Driver_PPC.c
-      Include file:  CMSIS_Driver/Driver_PPC_Common.h
       Include file:  CMSIS_Driver/Driver_PPC.h
+      Include file:  CMSIS_Driver/Driver_PPC_Common.h
+      Source file:   CMSIS_Driver/Driver_PPC.c
 
    * Component: ARM::CMSIS Driver:USART:1.1.0
       Include file:  CMSIS_Driver/Driver_USART_Common.h
-      Source file:   CMSIS_Driver/Driver_USART.c
       Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
+      Source file:   CMSIS_Driver/Driver_USART.c
 
    * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
-      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
       Include file:  CMSIS/Driver/Include/Driver_USART.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
 
    * Component: ARM::CMSIS:CORE:5.6.0
-      Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
       Include file:  CMSIS/Core/Include/tz_context.h
       Source file:   CMSIS/Core/Template/ARMv8-M/tz_context.c
+      Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
 
    * Component: ARM::CMSIS:DSP:Source:1.10.0
       Include file:  CMSIS/DSP/Include/arm_math.h
@@ -136,75 +185,75 @@ Package Vendor: ARM
       Include file:  CMSIS/DSP/Include/arm_common_tables.h
       Include file:  CMSIS/DSP/Include/arm_common_tables_f16.h
       Include file:  CMSIS/DSP/Include/arm_const_structs.h
-      Include file:  CMSIS/DSP/Include/arm_const_structs_f16.h
-      Source file:   CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctions.c
-      Source file:   CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctions.c
-      Source file:   CMSIS/DSP/Source/BayesFunctions/BayesFunctions.c
-      Source file:   CMSIS/DSP/Source/TransformFunctions/TransformFunctions.c
-      Source file:   CMSIS/DSP/Source/SupportFunctions/SupportFunctions.c
-      Source file:   CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctions.c
       Source file:   CMSIS/DSP/Source/TransformFunctions/TransformFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/SVMFunctions/SVMFunctions.c
-      Source file:   CMSIS/DSP/Source/FilteringFunctions/FilteringFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/DistanceFunctions/DistanceFunctions.c
       Source file:   CMSIS/DSP/Source/FastMathFunctions/FastMathFunctions.c
-      Source file:   CMSIS/DSP/Source/MatrixFunctions/MatrixFunctionsF16.c
       Source file:   CMSIS/DSP/Source/CommonTables/CommonTables.c
-      Source file:   CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctions.c
-      Source file:   CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/CommonTables/CommonTablesF16.c
-      Source file:   CMSIS/DSP/Source/ControllerFunctions/ControllerFunctions.c
+      Source file:   CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctions.c
       Source file:   CMSIS/DSP/Source/MatrixFunctions/MatrixFunctions.c
+      Source file:   CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctions.c
+      Source file:   CMSIS/DSP/Source/SupportFunctions/SupportFunctions.c
+      Source file:   CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctions.c
       Source file:   CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/QuaternionMathFunctions/QuaternionMathFunctions.c
-      Source file:   CMSIS/DSP/Source/FilteringFunctions/FilteringFunctions.c
-      Source file:   CMSIS/DSP/Source/SupportFunctions/SupportFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/SVMFunctions/SVMFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/FastMathFunctions/FastMathFunctionsF16.c
       Source file:   CMSIS/DSP/Source/StatisticsFunctions/StatisticsFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/SupportFunctions/SupportFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/FastMathFunctions/FastMathFunctionsF16.c
       Source file:   CMSIS/DSP/Source/DistanceFunctions/DistanceFunctionsF16.c
-      Source file:   CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctionsF16.c
       Source file:   CMSIS/DSP/Source/BayesFunctions/BayesFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/CommonTables/CommonTablesF16.c
+      Source file:   CMSIS/DSP/Source/MatrixFunctions/MatrixFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/SVMFunctions/SVMFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/SVMFunctions/SVMFunctions.c
+      Source file:   CMSIS/DSP/Source/QuaternionMathFunctions/QuaternionMathFunctions.c
+      Source file:   CMSIS/DSP/Source/ControllerFunctions/ControllerFunctions.c
+      Source file:   CMSIS/DSP/Source/BasicMathFunctions/BasicMathFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/ComplexMathFunctions/ComplexMathFunctionsF16.c
+      Source file:   CMSIS/DSP/Source/BayesFunctions/BayesFunctions.c
+      Source file:   CMSIS/DSP/Source/InterpolationFunctions/InterpolationFunctions.c
+      Source file:   CMSIS/DSP/Source/FilteringFunctions/FilteringFunctionsF16.c
+      Include file:  CMSIS/DSP/Include/arm_const_structs_f16.h
+      Source file:   CMSIS/DSP/Source/DistanceFunctions/DistanceFunctions.c
+      Source file:   CMSIS/DSP/Source/FilteringFunctions/FilteringFunctions.c
+      Source file:   CMSIS/DSP/Source/TransformFunctions/TransformFunctions.c
 
    * Component: ARM::CMSIS:RTOS2:Keil RTX5:Library:5.5.4
-      Include file:  CMSIS/RTOS2/RTX/Config/RTX_Config.h
+      Include file:  CMSIS/RTOS2/RTX/Include/rtx_os.h
       Source file:   CMSIS/RTOS2/RTX/Template/MemPool.c
-      Source file:   CMSIS/RTOS2/RTX/Config/RTX_Config.c
-      Source file:   CMSIS/RTOS2/RTX/Template/MsgQueue.c
+      Source file:   CMSIS/RTOS2/RTX/Template/main.c
+      Source file:   CMSIS/RTOS2/RTX/Source/rtx_lib.c
+      Source file:   CMSIS/RTOS2/RTX/Template/svc_user.c
       Source file:   CMSIS/RTOS2/RTX/Template/Semaphore.c
-      Source file:   CMSIS/RTOS2/RTX/Template/Mutex.c
       Source file:   CMSIS/RTOS2/RTX/Template/Thread.c
       Source file:   CMSIS/RTOS2/RTX/Template/Timer.c
-      Source file:   CMSIS/RTOS2/RTX/Template/svc_user.c
-      Source file:   CMSIS/RTOS2/RTX/Template/Events.c
-      Source file:   CMSIS/RTOS2/RTX/Source/rtx_lib.c
-      Source file:   CMSIS/RTOS2/RTX/Template/main.c
-      Include file:  CMSIS/RTOS2/RTX/Include/rtx_os.h
+      Include file:  CMSIS/RTOS2/RTX/Config/RTX_Config.h
+      Source file:   CMSIS/RTOS2/RTX/Template/Mutex.c
       Library file:  CMSIS/RTOS2/RTX/Library/ARM/RTX_V8MMF.lib
+      Source file:   CMSIS/RTOS2/RTX/Template/Events.c
+      Source file:   CMSIS/RTOS2/RTX/Config/RTX_Config.c
+      Source file:   CMSIS/RTOS2/RTX/Template/MsgQueue.c
 
    * Component: ARM::Device:Definition:1.2.0
       Include file:  Board/Platform/platform_description.h
+      Include file:  Board/Platform/platform_base_address.h
       Include file:  Board/Device_Definition/device_definition.h
       Source file:   Board/Device_Definition/device_definition.c
-      Include file:  Board/Platform/platform_base_address.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
-      Include file:  Device/Include/region_defs.h
-      Include file:  Device/Include/region_limits.h
       Source file:   Device/Source/startup_SSE310MPS3.c
-      Include file:  Device/Include/system_SSE310MPS3.h
-      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
-      Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  Device/Include/region_limits.h
+      Include file:  Device/Include/region_defs.h
       Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
 
    * Component: ARM::Native Driver:Flash:1.1.0
-      Source file:   Native_Driver/emulated_flash_drv.c
       Include file:  Native_Driver/emulated_flash_drv.h
+      Source file:   Native_Driver/emulated_flash_drv.c
 
    * Component: ARM::Native Driver:I2C SBCon:1.0.0
-      Include file:  Native_Driver/i2c_sbcon_drv.h
-      Include file:  Native_Driver/i2c_sbcon_reg_map.h
       Source file:   Native_Driver/i2c_sbcon_drv.c
+      Include file:  Native_Driver/i2c_sbcon_reg_map.h
+      Include file:  Native_Driver/i2c_sbcon_drv.h
 
    * Component: ARM::Native Driver:MPC:1.1.0
       Source file:   Native_Driver/mpc_sie_drv.c
@@ -213,21 +262,21 @@ Package Vendor: ARM
 
    * Component: ARM::Native Driver:PPC:1.1.0
       Source file:   Native_Driver/ppc_corstone310_drv.c
-      Include file:  Native_Driver/ppc_corstone310_reg_map.h
       Include file:  Native_Driver/ppc_corstone310_drv.h
+      Include file:  Native_Driver/ppc_corstone310_reg_map.h
 
    * Component: ARM::Native Driver:SysCounter:1.0.1
-      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
-      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
-      Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
       Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
       Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
       Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
+      Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
+      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
 
    * Component: ARM::Native Driver:SysTimer:1.0.0
-      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
-      Include file:  Native_Driver/systimer_armv8-m_drv.h
       Source file:   Native_Driver/systimer_armv8-m_drv.c
+      Include file:  Native_Driver/systimer_armv8-m_drv.h
+      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
 
    * Component: ARM::Native Driver:Timeout:1.0.1
       Source file:   Native_Driver/systimer_armv8-m_timeout.c
@@ -237,7 +286,7 @@ Package Vendor: ARM
       Include file:  Native_Driver/uart_cmsdk_drv.h
       Source file:   Native_Driver/uart_cmsdk_drv.c
       Include file:  Native_Driver/uart_cmsdk_reg_map.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
