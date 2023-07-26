@@ -22,74 +22,15 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\test_ns.uvprojx
-Project File Date:  07/17/2023
+Project File Date:  07/26/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild Project 'test_ns' - Target 'Target 1'
-compiling main.c...
-compiling uart_cmsdk_drv.c...
-compiling Driver_SPI.c...
-compiling device_definition.c...
-compiling emulated_flash_drv.c...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\system_SSE310MPS3.c(29): warning: In file included from...
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
-    SAU_INIT_REGION(0);
-    ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(539): note: expanded from macro 'SAU_INIT_REGION'
-    SAU->RNR  =  (n                                     & SAU_RNR_REGION_Msk); \
-    ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RNR_REGION_Msk'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(539): note: expanded from macro 'SAU_INIT_REGION'
-    SAU->RNR  =  (n                                     & SAU_RNR_REGION_Msk); \
-                                                          ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(540): note: expanded from macro 'SAU_INIT_REGION'
-    SAU->RBAR =  (SAU_INIT_START##n                     & SAU_RBAR_BADDR_Msk); \
-    ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RBAR_BADDR_Msk'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(540): note: expanded from macro 'SAU_INIT_REGION'
-    SAU->RBAR =  (SAU_INIT_START##n                     & SAU_RBAR_BADDR_Msk); \
-                                                          ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(541): note: expanded from macro 'SAU_INIT_REGION'
-    SAU->RLAR =  (SAU_INIT_END##n                       & SAU_RLAR_LADDR_Msk) | \
-    ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RLAR_LADDR_Msk'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(541): note: expanded from macro 'SAU_INIT_REGION'
-    SAU->RLAR =  (SAU_INIT_END##n                       & SAU_RLAR_LADDR_Msk) | \
-                                                          ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RLAR_NSC_Pos'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(542): note: expanded from macro 'SAU_INIT_REGION'
-                ((SAU_INIT_NSC##n << SAU_RLAR_NSC_Pos)  & SAU_RLAR_NSC_Msk)   | 1U
-                                     ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(555): error: use of undeclared identifier 'SAU_RLAR_NSC_Msk'
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(542): note: expanded from macro 'SAU_INIT_REGION'
-                ((SAU_INIT_NSC##n << SAU_RLAR_NSC_Pos)  & SAU_RLAR_NSC_Msk)   | 1U
-                                                          ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(592): error: use of undeclared identifier 'SAU'
-    SAU->CTRL = ((SAU_INIT_CTRL_ENABLE << SAU_CTRL_ENABLE_Pos) & SAU_CTRL_ENABLE_Msk) |
-    ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(592): error: use of undeclared identifier 'SAU_CTRL_ENABLE_Pos'
-    SAU->CTRL = ((SAU_INIT_CTRL_ENABLE << SAU_CTRL_ENABLE_Pos) & SAU_CTRL_ENABLE_Msk) |
-                                          ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(592): error: use of undeclared identifier 'SAU_CTRL_ENABLE_Msk'
-    SAU->CTRL = ((SAU_INIT_CTRL_ENABLE << SAU_CTRL_ENABLE_Pos) & SAU_CTRL_ENABLE_Msk) |
-                                                                 ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(593): error: use of undeclared identifier 'SAU_CTRL_ALLNS_Pos'
-                ((SAU_INIT_CTRL_ALLNS  << SAU_CTRL_ALLNS_Pos)  & SAU_CTRL_ALLNS_Msk)   ;
-                                          ^
-C:\Users\dakum\AppData\Local\Arm\Packs\ARM\V2M_MPS3_SSE_310_BSP\1.2.0\Device\Source\partition_SSE310MPS3.h(593): error: use of undeclared identifier 'SAU_CTRL_ALLNS_Msk'
-                ((SAU_INIT_CTRL_ALLNS  << SAU_CTRL_ALLNS_Pos)  & SAU_CTRL_ALLNS_Msk)   ;
-                                                                 ^
-13 errors generated.
-compiling system_SSE310MPS3.c...
-compiling ppc_corstone310_drv.c...
-compiling Driver_MPC.c...
-compiling spi_pl022_drv.c...
-compiling mpc_sie_drv.c...
-compiling startup_SSE310MPS3.c...
-".\Objects\test_ns.axf" - 13 Error(s), 0 Warning(s).
+Build Project 'test_ns' - Target 'Target 1'
+linking...
+.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 2 days [-Wlicense-management]
+Program Size: Code=1312 RO-data=592 RW-data=8 ZI-data=3072  
+".\Objects\test_ns.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -112,11 +53,11 @@ Package Vendor: ARM
    * Component: SPI Version: 1.0.1
    * Component: Definition Version: 1.2.0
    * Component: Startup Variant: Baremetal Version: 1.2.0
-   * Component: Flash Version: 1.1.0
    * Component: MPC Version: 1.1.0
-   * Component: PPC Version: 1.1.0
    * Component: SPI Version: 1.0.0
-   * Component: UART Version: 1.1.0
+   * Component: SysCounter Version: 1.0.1
+   * Component: SysTimer Version: 1.0.0
+   * Component: Timeout Version: 1.0.1
 
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/SSE-310-MPS3_AN555
@@ -147,8 +88,8 @@ Package Vendor: ARM
       Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:MPC:1.1.0
-      Source file:   CMSIS_Driver/Driver_MPC.c
       Include file:  CMSIS_Driver/Driver_MPC.h
+      Source file:   CMSIS_Driver/Driver_MPC.c
 
    * Component: ARM::CMSIS Driver:SPI:1.0.1
       Source file:   CMSIS_Driver/Driver_SPI.c
@@ -161,45 +102,47 @@ Package Vendor: ARM
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
+      Include file:  Board/Device_Definition/device_definition.h
       Include file:  Board/Platform/platform_description.h
       Include file:  Board/Platform/platform_base_address.h
-      Include file:  Board/Device_Definition/device_definition.h
       Source file:   Board/Device_Definition/device_definition.c
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
-      Source file:   Device/Source/startup_SSE310MPS3.c
-      Include file:  Device/Include/region_limits.h
-      Include file:  Device/Include/region_defs.h
       Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  Device/Include/region_defs.h
+      Source file:   Device/Source/startup_SSE310MPS3.c
       Include file:  Device/Include/system_SSE310MPS3.h
       Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  Device/Include/region_limits.h
       Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
-
-   * Component: ARM::Native Driver:Flash:1.1.0
-      Include file:  Native_Driver/emulated_flash_drv.h
-      Source file:   Native_Driver/emulated_flash_drv.c
 
    * Component: ARM::Native Driver:MPC:1.1.0
       Source file:   Native_Driver/mpc_sie_drv.c
       Include file:  Native_Driver/mpc_sie_drv.h
       Include file:  Native_Driver/mpc_sie_reg_map.h
 
-   * Component: ARM::Native Driver:PPC:1.1.0
-      Source file:   Native_Driver/ppc_corstone310_drv.c
-      Include file:  Native_Driver/ppc_corstone310_drv.h
-      Include file:  Native_Driver/ppc_corstone310_reg_map.h
-
    * Component: ARM::Native Driver:SPI:1.0.0
       Source file:   Native_Driver/spi_pl022_drv.c
       Include file:  Native_Driver/spi_pl022_drv.h
       Include file:  Native_Driver/spi_pl022_reg_map.h
 
-   * Component: ARM::Native Driver:UART:1.1.0
-      Include file:  Native_Driver/uart_cmsdk_drv.h
-      Source file:   Native_Driver/uart_cmsdk_drv.c
-      Include file:  Native_Driver/uart_cmsdk_reg_map.h
-Target not created.
-Build Time Elapsed:  00:00:01
+   * Component: ARM::Native Driver:SysCounter:1.0.1
+      Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
+      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
+
+   * Component: ARM::Native Driver:SysTimer:1.0.0
+      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
+      Source file:   Native_Driver/systimer_armv8-m_drv.c
+      Include file:  Native_Driver/systimer_armv8-m_drv.h
+
+   * Component: ARM::Native Driver:Timeout:1.0.1
+      Source file:   Native_Driver/systimer_armv8-m_timeout.c
+      Include file:  Native_Driver/timeout.h
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

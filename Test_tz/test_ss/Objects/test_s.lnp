@@ -1,7 +1,7 @@
 --cpu=Cortex-M85.no_mve --fpu=FPv5_D16
-".\objects\main.o"
 ".\objects\user_func.o"
 ".\objects\instrumented.o"
+".\objects\main_s.o"
 ".\objects\basicmathfunctions.o"
 ".\objects\basicmathfunctionsf16.o"
 ".\objects\bayesfunctions.o"

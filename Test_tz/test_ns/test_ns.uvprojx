@@ -385,9 +385,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>main_ns.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
+              <FilePath>.\main_ns.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -481,19 +481,7 @@
           <targetInfo name="Target 1"/>
         </targetInfos>
       </component>
-      <component Cclass="Native Driver" Cgroup="Flash" Cvendor="ARM" Cversion="1.1.0" condition="SSE-310-MPS3 Device">
-        <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
-        <targetInfos>
-          <targetInfo name="Target 1"/>
-        </targetInfos>
-      </component>
       <component Cclass="Native Driver" Cgroup="MPC" Cvendor="ARM" Cversion="1.1.0" condition="SSE-310-MPS3 Device">
-        <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
-        <targetInfos>
-          <targetInfo name="Target 1"/>
-        </targetInfos>
-      </component>
-      <component Cclass="Native Driver" Cgroup="PPC" Cvendor="ARM" Cversion="1.1.0" condition="SSE-310-MPS3 Device">
         <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
@@ -505,7 +493,19 @@
           <targetInfo name="Target 1"/>
         </targetInfos>
       </component>
-      <component Cclass="Native Driver" Cgroup="UART" Cvendor="ARM" Cversion="1.1.0" condition="SSE-310-MPS3 Device">
+      <component Cclass="Native Driver" Cgroup="SysCounter" Cvendor="ARM" Cversion="1.0.1" condition="SSE-310-MPS3 Device">
+        <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Native Driver" Cgroup="SysTimer" Cvendor="ARM" Cversion="1.0.0" condition="SSE-310-MPS3 Device">
+        <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Native Driver" Cgroup="Timeout" Cvendor="ARM" Cversion="1.0.1" condition="SSE-310-MPS3 Systimer Syscounter">
         <package name="V2M_MPS3_SSE_310_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="Target 1"/>

@@ -385,11 +385,6 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
-            </File>
-            <File>
               <FileName>user_func.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_func.h</FilePath>
@@ -408,6 +403,11 @@
               <FileName>instrumented.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\instrumented.c</FilePath>
+            </File>
+            <File>
+              <FileName>main_s.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main_s.c</FilePath>
             </File>
           </Files>
         </Group>

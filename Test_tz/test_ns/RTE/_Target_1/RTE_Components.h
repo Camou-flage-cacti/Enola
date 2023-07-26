@@ -29,6 +29,10 @@
 /* ARM::CMSIS Driver:SPI:1.0.1 */
 #define RTE_SPI0      0
 
+/* ARM::Native Driver:SysCounter:1.0.1 */
+#define RTE_SYSCOUNTER      1
+/* ARM::Native Driver:Timeout:1.0.1 */
+#define RTE_TIMEOUT      1
 
 
 #endif /* RTE_COMPONENTS_H */
