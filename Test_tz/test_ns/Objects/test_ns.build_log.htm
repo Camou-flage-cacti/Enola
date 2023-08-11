@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.37.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: MD Armanuzzaman, University at Buffalo, LIC=BL20Y-2AVGN-09RPY-1JKP6-EABNQ-K7D06
+License Information: MD Armanuzzaman, University at Buffalo, LIC=0VR53-UREWB-548IR-3HMMG-14VUR-YESX7
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
@@ -28,12 +28,8 @@ Project File Date:  07/26/2023
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'test_ns' - Target 'Target 1'
 linking...
-.\Objects\test_ns.axf: Warning: L9931W: Your license for feature Keil will expire in 2 days
-.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 2 days [-Wlicense-management]
-.\Objects\test_ns.axf: Warning: L9931W: Your license for feature Keil will expire in 2 days
 Program Size: Code=1312 RO-data=592 RW-data=8 ZI-data=2048  
-Finished: 0 information, 2 warning and 0 error messages.
-".\Objects\test_ns.axf" - 0 Error(s), 3 Warning(s).
+".\Objects\test_ns.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -87,12 +83,12 @@ Package Vendor: ARM
       Include file:  CMSIS/Driver/Include/Driver_USART.h
 
    * Component: ARM::CMSIS Driver:I2C:Custom:1.0.0
-      Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
       Include file:  CMSIS/Driver/Include/Driver_I2C.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:MPC:1.1.0
-      Source file:   CMSIS_Driver/Driver_MPC.c
       Include file:  CMSIS_Driver/Driver_MPC.h
+      Source file:   CMSIS_Driver/Driver_MPC.c
 
    * Component: ARM::CMSIS Driver:SPI:1.0.1
       Source file:   CMSIS_Driver/Driver_SPI.c
@@ -105,47 +101,47 @@ Package Vendor: ARM
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
-      Include file:  Board/Platform/platform_description.h
       Include file:  Board/Platform/platform_base_address.h
-      Source file:   Board/Device_Definition/device_definition.c
       Include file:  Board/Device_Definition/device_definition.h
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Platform/platform_description.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
-      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
+      Include file:  Device/Config/Baremetal/device_cfg.h
+      Include file:  Device/Include/region_defs.h
+      Include file:  Device/Include/region_limits.h
       Source file:   Device/Source/startup_SSE310MPS3.c
       Source file:   Device/Source/system_SSE310MPS3.c
-      Include file:  Device/Include/region_defs.h
       Include file:  Device/Include/system_SSE310MPS3.h
-      Include file:  Device/Config/Baremetal/device_cfg.h
-      Include file:  Device/Include/region_limits.h
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
 
    * Component: ARM::Native Driver:MPC:1.1.0
-      Include file:  Native_Driver/mpc_sie_reg_map.h
       Source file:   Native_Driver/mpc_sie_drv.c
       Include file:  Native_Driver/mpc_sie_drv.h
+      Include file:  Native_Driver/mpc_sie_reg_map.h
 
    * Component: ARM::Native Driver:SPI:1.0.0
       Source file:   Native_Driver/spi_pl022_drv.c
-      Include file:  Native_Driver/spi_pl022_reg_map.h
       Include file:  Native_Driver/spi_pl022_drv.h
+      Include file:  Native_Driver/spi_pl022_reg_map.h
 
    * Component: ARM::Native Driver:SysCounter:1.0.1
-      Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
-      Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
-      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
       Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
       Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
       Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
+      Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
 
    * Component: ARM::Native Driver:SysTimer:1.0.0
-      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
-      Include file:  Native_Driver/systimer_armv8-m_drv.h
       Source file:   Native_Driver/systimer_armv8-m_drv.c
+      Include file:  Native_Driver/systimer_armv8-m_drv.h
+      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
 
    * Component: ARM::Native Driver:Timeout:1.0.1
       Source file:   Native_Driver/systimer_armv8-m_timeout.c
       Include file:  Native_Driver/timeout.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

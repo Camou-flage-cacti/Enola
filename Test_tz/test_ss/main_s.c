@@ -123,7 +123,7 @@ int main()
 	int r = cond_function(5, 5);*/
 	//setup_MPC();
 	setup_NS_PAC_Keys();
-	set_MSP_NS();
+	//set_MSP_NS();
 	switch_to_NS ();
 	
 	return 0;
