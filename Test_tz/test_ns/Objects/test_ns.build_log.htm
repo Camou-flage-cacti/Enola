@@ -28,12 +28,9 @@ Project File Date:  07/26/2023
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'test_ns' - Target 'Target 1'
 linking...
-.\Objects\test_ns.axf: Warning: L9931W: Your license for feature Keil will expire in 29 days
-.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 29 days [-Wlicense-management]
-.\Objects\test_ns.axf: Warning: L9931W: Your license for feature Keil will expire in 29 days
+.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 19 days [-Wlicense-management]
 Program Size: Code=1312 RO-data=592 RW-data=8 ZI-data=2048  
-Finished: 0 information, 2 warning and 0 error messages.
-".\Objects\test_ns.axf" - 0 Error(s), 3 Warning(s).
+".\Objects\test_ns.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -91,8 +88,8 @@ Package Vendor: ARM
       Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
    * Component: ARM::CMSIS Driver:MPC:1.1.0
-      Source file:   CMSIS_Driver/Driver_MPC.c
       Include file:  CMSIS_Driver/Driver_MPC.h
+      Source file:   CMSIS_Driver/Driver_MPC.c
 
    * Component: ARM::CMSIS Driver:SPI:1.0.1
       Source file:   CMSIS_Driver/Driver_SPI.c
@@ -105,47 +102,47 @@ Package Vendor: ARM
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:1.2.0
-      Include file:  Board/Platform/platform_base_address.h
       Include file:  Board/Platform/platform_description.h
-      Include file:  Board/Device_Definition/device_definition.h
+      Include file:  Board/Platform/platform_base_address.h
       Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Device_Definition/device_definition.h
 
    * Component: ARM::Device:Startup:Baremetal:1.2.0
+      Source file:   Device/Source/startup_SSE310MPS3.c
       Source file:   Device/Source/system_SSE310MPS3.c
       Include file:  Device/Include/system_SSE310MPS3.h
-      Source file:   Device/Source/startup_SSE310MPS3.c
       Include file:  Device/Config/Baremetal/device_cfg.h
-      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
       Include file:  Device/Include/region_limits.h
       Include file:  Device/Include/region_defs.h
+      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
 
    * Component: ARM::Native Driver:MPC:1.1.0
       Source file:   Native_Driver/mpc_sie_drv.c
-      Include file:  Native_Driver/mpc_sie_reg_map.h
       Include file:  Native_Driver/mpc_sie_drv.h
+      Include file:  Native_Driver/mpc_sie_reg_map.h
 
    * Component: ARM::Native Driver:SPI:1.0.0
-      Include file:  Native_Driver/spi_pl022_drv.h
       Include file:  Native_Driver/spi_pl022_reg_map.h
+      Include file:  Native_Driver/spi_pl022_drv.h
       Source file:   Native_Driver/spi_pl022_drv.c
 
    * Component: ARM::Native Driver:SysCounter:1.0.1
-      Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
-      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
       Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
+      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
       Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
       Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
-      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
+      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
 
    * Component: ARM::Native Driver:SysTimer:1.0.0
-      Include file:  Native_Driver/systimer_armv8-m_drv.h
       Source file:   Native_Driver/systimer_armv8-m_drv.c
       Include file:  Native_Driver/systimer_armv8-m_reg_map.h
+      Include file:  Native_Driver/systimer_armv8-m_drv.h
 
    * Component: ARM::Native Driver:Timeout:1.0.1
       Source file:   Native_Driver/systimer_armv8-m_timeout.c
       Include file:  Native_Driver/timeout.h
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
