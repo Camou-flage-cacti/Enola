@@ -13,25 +13,61 @@
 
 #include "llvm/ADT/Statistic.h"
 #include "llvm/IR/Function.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/IR/Module.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
+#include "llvm/Transforms/Utils/BasicBlockUtils.h"
 #include "llvm/Pass.h"
 #include "llvm/Support/raw_ostream.h"
-using namespace llvm;
+#include <iostream>
+#include <string>
 
+using namespace llvm;
+using namespace std;
 #define DEBUG_TYPE "EnolaPass"
 
-STATISTIC(HelloCounter, "Counts number of functions greeted");
+//STATISTIC(HelloCounter, "Counts number of functions greeted");
 
 namespace {
-  // Hello - The first implementation, without getAnalysisUsage.
+
   struct EnolaPass : public FunctionPass {
-    static char ID; // Pass identification, replacement for typeid
+    static char ID; 
     EnolaPass() : FunctionPass(ID) {}
 
     bool runOnFunction(Function &F) override {
-      ++HelloCounter;
-      errs() << "Hello from Enola on functions: ";
-      errs().write_escaped(F.getName()) << '\n';
-      return false;
+	    LLVMContext &context = F.getContext();
+	    auto module = F.getParent();
+
+	    FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
+	    FunctionCallee printfFunction = module->getOrInsertFunction("printf", printfType);
+
+		string functionName = F.getName().str();
+		string functionCallVarName = functionName + "_callCount";
+		GlobalVariable *functionCallCount = module->getGlobalVariable(functionCallVarName);
+
+		if(!functionCallCount)
+		{
+			functionCallCount = new GlobalVariable(*module, Type::getInt32Ty(context), false, GlobalValue::CommonLinkage, 0, functionCallVarName);
+			functionCallCount->setInitializer(ConstantInt::get(Type::getInt32Ty(context), 0));
+		}
+
+		Instruction *firstInsruction = &F.front().front();
+		IRBuilder<> builder(firstInsruction);
+		
+		Value *loadedCallCount = builder.CreateLoad(Type::getInt32Ty(context), functionCallCount, "loadvalue");
+		Value *addedCallCount = builder.CreateAdd(loadedCallCount, builder.getInt32(1));
+		builder.CreateStore(addedCallCount, functionCallCount);
+
+		string printLog = functionName + " %d\n";
+		Value *functionNamePtr = builder.CreateGlobalStringPtr(printLog);
+		builder.CreateCall(printfFunction, {functionNamePtr, addedCallCount});
+
+
+	  //  ++HelloCounter;
+	   // errs() << "Hello from Enola on functions: ";
+	    //errs().write_escaped(F.getName()) << '\n';
+	    return true;;
     }
   };
 }
