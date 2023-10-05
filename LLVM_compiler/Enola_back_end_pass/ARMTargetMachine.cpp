@@ -537,6 +537,7 @@ void ARMPassConfig::addPreRegAlloc() {
     if (!DisableA15SDOptimization)
       addPass(createA15SDOptimizerPass());
   }
+  addPass(createARMEnolaCFAPass());
 }
 
 void ARMPassConfig::addPreSched2() {

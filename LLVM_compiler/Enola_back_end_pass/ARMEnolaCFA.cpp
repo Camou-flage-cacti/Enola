@@ -20,7 +20,7 @@ using namespace llvm;
 
 char ARMEnolaCFA::ID = 0;
 
-INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, false, false)
+INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, true, true)
 
 
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
@@ -39,8 +39,18 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 
     }
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
+    
+    for (auto &MBB : MF) {
+        outs() << "Contents of MachineBasicBlock:\n";
+        outs() << MBB << "\n";
+        const BasicBlock *BB = MBB.getBasicBlock();
+        outs() << "Contents of BasicBlock corresponding to MachineBasicBlock:\n";
+        outs() << BB << "\n";
+    }
 
-    for (MachineFunction::iterator FI = MF.begin(); FI != MF.end(); ++FI) {
+    return false;
+
+    /*for (MachineFunction::iterator FI = MF.begin(); FI != MF.end(); ++FI) {
         MachineBasicBlock& MBB = *FI;
 
         for (MachineBasicBlock::iterator I = MBB.begin(); I!=MBB.end(); ++I) {
@@ -57,6 +67,10 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 printf("Encountered other instruction %d", MI.getOpcode());
             }
         }
-    }
+    }*/
 
+}
+
+FunctionPass *llvm::createARMEnolaCFAPass() {
+  return new ARMEnolaCFA();
 }

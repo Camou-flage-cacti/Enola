@@ -25,3 +25,5 @@
 - **llc** static compiler will be used to run the passs after development
 - https://chat.openai.com/share/34ef3a27-679e-425a-9548-546e6b97aaf8
 - need to update cmake file as well for target specific back-end
+- helpful link for backend pass development: https://www.kharghoshal.xyz/blog/writing-machinefunctionpass
+- We can add our funtion createARMEnolaCFAPass on ARMTargetMachine.cpp, and the postion of addPass() denotes at what stage our MachineFunctionPass will be executed

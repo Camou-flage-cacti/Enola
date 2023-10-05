@@ -7,7 +7,7 @@
 namespace llvm {
     class ARMEnolaCFA : public MachineFunctionPass {
 
-        void initializeARMEnolaCFAPass(PassRegistry&);
+        
        /* bool instrumentIndirectCall (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
@@ -33,7 +33,8 @@ namespace llvm {
                            const char *sym);*/
         public:
             static char ID;
-            ARMEnolaCFA() : MachineFunctionPass(ID) {}
+            ARMEnolaCFA() : MachineFunctionPass(ID) {initializeARMEnolaCFAPass(*PassRegistry::getPassRegistry());}
+    
 
             bool runOnMachineFunction(MachineFunction &MF) override;
 

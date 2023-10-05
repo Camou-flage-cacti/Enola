@@ -58,6 +58,7 @@ FunctionPass *createARMSLSHardeningPass();
 FunctionPass *createARMIndirectThunks();
 Pass *createMVELaneInterleavingPass();
 FunctionPass *createARMFixCortexA57AES1742098Pass();
+FunctionPass *createARMEnolaCFAPass();
 
 void LowerARMMachineInstrToMCInst(const MachineInstr *MI, MCInst &OutMI,
                                   ARMAsmPrinter &AP);
