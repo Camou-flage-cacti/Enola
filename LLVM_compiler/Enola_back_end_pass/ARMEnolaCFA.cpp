@@ -9,6 +9,7 @@
 #include "llvm/Support/Debug.h"
 #include "llvm/Support/Format.h"
 #include "llvm/Support/raw_ostream.h"
+#include "llvm/CodeGen/AsmPrinter.h"
 
 #include "ARMEnolaCFA.h"
 #include <iostream>
@@ -39,13 +40,28 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 
     }
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
-    
+
+
     for (auto &MBB : MF) {
-        outs() << "Contents of MachineBasicBlock:\n";
-        outs() << MBB << "\n";
-        const BasicBlock *BB = MBB.getBasicBlock();
-        outs() << "Contents of BasicBlock corresponding to MachineBasicBlock:\n";
-        outs() << BB << "\n";
+
+        //outs() << "Contents of MachineBasicBlock:\n";
+        //outs() << MBB << "\n";
+        //const BasicBlock *BB = MBB.getBasicBlock();
+        //outs() << "Contents of BasicBlock corresponding to MachineBasicBlock:\n";
+        //outs() << BB << "\n";
+        for(auto &MI:MBB){
+
+            if(MI.getDesc().isCompare())
+            {
+                outs() << " This is a compare instruction: " <<  MI.getOpcode() <<"\n";
+            }
+            if(MI.getDesc().isReturn())
+            {
+                outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
+            }
+            outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
+
+        }
     }
 
     return false;

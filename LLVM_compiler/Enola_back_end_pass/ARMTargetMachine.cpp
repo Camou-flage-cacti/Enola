@@ -537,7 +537,6 @@ void ARMPassConfig::addPreRegAlloc() {
     if (!DisableA15SDOptimization)
       addPass(createA15SDOptimizerPass());
   }
-  addPass(createARMEnolaCFAPass());
 }
 
 void ARMPassConfig::addPreSched2() {
@@ -587,7 +586,7 @@ void ARMPassConfig::addPreEmitPass() {
   addPass(createUnpackMachineBundles([](const MachineFunction &MF) {
     return MF.getSubtarget<ARMSubtarget>().isThumb2();
   }));
-
+  addPass(createARMEnolaCFAPass());
   // Don't optimize barriers or block placement at -O0.
   if (getOptLevel() != CodeGenOpt::None) {
     addPass(createARMBlockPlacementPass());
