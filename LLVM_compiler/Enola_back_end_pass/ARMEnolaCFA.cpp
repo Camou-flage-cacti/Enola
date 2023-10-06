@@ -29,18 +29,29 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
                            const DebugLoc &DL,
                            const TargetInstrInfo *TII,
                            const char *sym) {
-    unsigned targetReg;
+   // unsigned targetReg;
 
 
-    printf("Inside instrumentation of return ");
+    outs () << "Inside instrumentation of return \n";
 
     // get target register xR
-    targetReg = MI.getOperand(0).getReg();
+   // targetReg = MI.getOperand(0).getReg();
+
+    MachineInstr *BMI;
+    outs() << "Building PAC:\n";
+    //BMI = BuildMI(MBB, MI, DL, TII->get(ARM::ADDrr)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
+
+    BMI = BuildMI(MBB, MI, DL, TII->get(ARM::t2PACG)).addReg(ARM::R12).addReg(ARM::PC).addReg(ARM::R12);
+
+    outs() << "Consructed instructions: " << BMI <<"\n";
+
+    return true;
     
 
     }
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
-
+    
+    bool modified = false;
 
     for (auto &MBB : MF) {
 
@@ -49,6 +60,8 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
         //const BasicBlock *BB = MBB.getBasicBlock();
         //outs() << "Contents of BasicBlock corresponding to MachineBasicBlock:\n";
         //outs() << BB << "\n";
+        const TargetInstrInfo *TII = MF.getSubtarget().getInstrInfo();
+
         for(auto &MI:MBB){
 
             if(MI.getDesc().isCompare())
@@ -58,13 +71,14 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             if(MI.getDesc().isReturn())
             {
                 outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
+                modified = instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy");
             }
             outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
 
         }
     }
 
-    return false;
+    return modified;
 
     /*for (MachineFunction::iterator FI = MF.begin(); FI != MF.end(); ++FI) {
         MachineBasicBlock& MBB = *FI;
