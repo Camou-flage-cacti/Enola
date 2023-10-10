@@ -41,8 +41,12 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     MachineInstrBuilder MIB;
     outs() << "Building PAC:\n";
    // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
-
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R12).addReg(ARM::PC).addReg(ARM::R12);
+   // if (TII.getIns)
+    
+    MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R12).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+    
+  //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R1).addReg(ARM::R0).addReg(ARM::R2).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
 
     outs() << "Consructed instructions: " << MIB <<"\n";
 
@@ -57,7 +61,8 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     std::string MFName = MF.getName().str();
     outs() << "Enola Instrumentation: "<<MFName<<"\n";
     const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
-
+   // const TargetInstrInfo *x =  MF.getSubtarget().getInstrInfo();
+  //  x->
     for (auto &MBB : MF) {
 
         //outs() << "Contents of MachineBasicBlock:\n";
