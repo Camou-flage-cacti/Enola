@@ -11,25 +11,25 @@ namespace llvm {
        /* bool instrumentIndirectCall (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
-                           const TargetInstrInfo *TII,
+                           const ARMBaseInstrInfo *TII,
                            const char *sym);
         
         bool instrumentIndirectJump (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
-                           const TargetInstrInfo *TII,
+                           const ARMBaseInstrInfo *TII,
                            const char *sym); */
 
          bool instrumentRet (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
-                           const TargetInstrInfo *TII,
+                           const ARMBaseInstrInfo &TII,
                            const char *sym);
         
         /*bool instrumentRetLR (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
-                           const TargetInstrInfo *TII,
+                           const ARMBaseInstrInfo *TII,
                            const char *sym);*/
         public:
             static char ID;

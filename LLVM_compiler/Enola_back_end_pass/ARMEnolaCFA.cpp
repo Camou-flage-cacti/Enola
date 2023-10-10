@@ -27,7 +27,7 @@ INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, true, true)
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
-                           const TargetInstrInfo *TII,
+                           const ARMBaseInstrInfo &TII,
                            const char *sym) {
    // unsigned targetReg;
 
@@ -37,13 +37,14 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     // get target register xR
    // targetReg = MI.getOperand(0).getReg();
 
-    MachineInstr *BMI;
+    //MachineInstr *BMI;
+    MachineInstrBuilder MIB;
     outs() << "Building PAC:\n";
-    //BMI = BuildMI(MBB, MI, DL, TII->get(ARM::ADDrr)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
+   // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
 
-    BMI = BuildMI(MBB, MI, DL, TII->get(ARM::t2PACG)).addReg(ARM::R12).addReg(ARM::PC).addReg(ARM::R12);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R12).addReg(ARM::PC).addReg(ARM::R12);
 
-    outs() << "Consructed instructions: " << BMI <<"\n";
+    outs() << "Consructed instructions: " << MIB <<"\n";
 
     return true;
     
@@ -53,6 +54,10 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
     bool modified = false;
 
+    std::string MFName = MF.getName().str();
+    outs() << "Enola Instrumentation: "<<MFName<<"\n";
+    const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
+
     for (auto &MBB : MF) {
 
         //outs() << "Contents of MachineBasicBlock:\n";
@@ -60,7 +65,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
         //const BasicBlock *BB = MBB.getBasicBlock();
         //outs() << "Contents of BasicBlock corresponding to MachineBasicBlock:\n";
         //outs() << BB << "\n";
-        const TargetInstrInfo *TII = MF.getSubtarget().getInstrInfo();
+        
 
         for(auto &MI:MBB){
 
