@@ -11,6 +11,7 @@
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/CodeGen/AsmPrinter.h"
 
+
 #include "ARMEnolaCFA.h"
 #include <iostream>
 #include <string>
@@ -28,7 +29,8 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
                            const ARMBaseInstrInfo &TII,
-                           const char *sym) {
+                           const char *sym,
+                           MachineFunction &MF) {
    // unsigned targetReg;
 
 
@@ -53,23 +55,62 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R1).addReg(ARM::R0).addReg(ARM::R2).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R1).addReg(ARM::R0).addReg(ARM::R2)
+    .add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
 
     outs() << "Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
+    const TargetMachine& TM = MF.getTarget();
+    const Triple &TT = TM.getTargetTriple();
+    StringRef CPU = TM.getTargetCPU();
+    StringRef FS = TM.getTargetFeatureString();
+    std::string ArchFS = ARM_MC::ParseARMTriple(TT, CPU);
 
+    const ARMBaseTargetMachine &ATM =
+        static_cast<const ARMBaseTargetMachine &>(TM);
+    const ARMSubtarget STI(TT, std::string(CPU), ArchFS, ATM,
+                            ATM.isLittleEndian());
+    outs()<<ATM.getTargetFeatureString().str()<<"\n";
+   // const MCSubtargetInfo &STI2 = getContext().getSubtargetCopy(getSTI());
+ //   STI2.setFeatureBits(STI.getFeatureBits());
+   // MF.getSubtarget().getmc.setFeatureBits(ARM::FeaturePACBTI);
+    outs() <<"Target CPU : "<<CPU.str()<<"\n";
+
+    if (!STI.hasPACBTI()) {
+        outs() <<"hAS pac BTI feature\n";
+    }
     // Convert the MachineInstr to a string representation.
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     MI2->print(OS);
+    
     outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+
+//    const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
+
+    // Create an InlineAsm object with your inline assembly code.
+    //const char *AssemblyCode = "PACG r12, r14, r12";
+  //  const char *ConstraintString = "";
+   // unsigned NumOperands = 3; // The number of operands your assembly code expects.
+
+  //  std::vector<Type *> AsmArgTypes;
+  //  std::vector<Value *> AsmArgs;
+
+  //  llvm::LLVMContext C;
+   // FunctionType *AsmFTy = FunctionType::get(Type::getVoidTy(C), AsmArgTypes, false);
+
+   // InlineAsm *IA = InlineAsm::get(AsmFTy, AssemblyCode, ConstraintString, NumOperands);
+
+   
+
+    // Create a MachineInstr with the inline assembly code.
+ //   MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG));
+
+    // Add the InlineAsm object as an operand.
+   // MIB.addExternalSymbol(AssemblyCode);
 
     /*
     
-    MachineFunction &MF = ...; // Your MachineFunction
-
-    // Get the MachineBasicBlock where you want to insert the inline assembly code.
-    MachineBasicBlock &MBB = MF.front(); // You can choose a different basic block as needed.
 
     const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
 
@@ -121,7 +162,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             if(MI.getDesc().isReturn())
             {
                 outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
-                modified = instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy");
+                modified = instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
             }
             outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
 
