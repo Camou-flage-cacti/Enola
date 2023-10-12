@@ -10,7 +10,9 @@
 #include "llvm/Support/Format.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/CodeGen/AsmPrinter.h"
-
+#include "llvm/MC/MCSubtargetInfo.h"
+#include "llvm/CodeGen/TargetSubtargetInfo.h"
+#include "llvm/Target/TargetMachine.h"
 
 #include "ARMEnolaCFA.h"
 #include <iostream>
@@ -45,14 +47,14 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
    // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
    // if (TII.getIns)
     
-    MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R12).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+   // MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R12).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
 
-    MachineInstr *MI3 = MIB;
+   /* MachineInstr *MI3 = MIB;
 
     std::string instructionString2;
     llvm::raw_string_ostream OS2(instructionString2);
     MI3->print(OS2);
-    outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
+    outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";*/
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R1).addReg(ARM::R0).addReg(ARM::R2)
@@ -70,13 +72,16 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
         static_cast<const ARMBaseTargetMachine &>(TM);
     const ARMSubtarget STI(TT, std::string(CPU), ArchFS, ATM,
                             ATM.isLittleEndian());
-    outs()<<ATM.getTargetFeatureString().str()<<"\n";
-   // const MCSubtargetInfo &STI2 = getContext().getSubtargetCopy(getSTI());
- //   STI2.setFeatureBits(STI.getFeatureBits());
+
+   // outs()<<ATM.getTargetFeatureString().str()<<"\n";
+// Retrieve the MCSubtargetInfo from the TargetSubtargetInfo.
+    //const MCSubtargetInfo *MCSTI = TM.getMCSubtargetInfo();
+    // Enable a specific feature.
+    //STI2.setFeatureBits(STI.getFeatureBits() | ARM::FeatureMyFeature);
    // MF.getSubtarget().getmc.setFeatureBits(ARM::FeaturePACBTI);
     outs() <<"Target CPU : "<<CPU.str()<<"\n";
 
-    if (!STI.hasPACBTI()) {
+   /* if (!STI.hasPACBTI()) {
         outs() <<"hAS pac BTI feature\n";
     }
     // Convert the MachineInstr to a string representation.
