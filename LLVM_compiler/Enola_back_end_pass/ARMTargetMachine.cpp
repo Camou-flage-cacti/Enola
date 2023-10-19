@@ -586,7 +586,7 @@ void ARMPassConfig::addPreEmitPass() {
   addPass(createUnpackMachineBundles([](const MachineFunction &MF) {
     return MF.getSubtarget<ARMSubtarget>().isThumb2();
   }));
-  addPass(createARMEnolaCFAPass());
+
   // Don't optimize barriers or block placement at -O0.
   if (getOptLevel() != CodeGenOpt::None) {
     addPass(createARMBlockPlacementPass());
@@ -610,6 +610,7 @@ void ARMPassConfig::addPreEmitPass2() {
   // instructions, but the pseudos all have conservative sizes so that block
   // sizes will only be decreased by this pass.
   addPass(createARMLowOverheadLoopsPass());
+  addPass(createARMEnolaCFAPass());
 
   if (TM->getTargetTriple().isOSWindows()) {
     // Identify valid longjmp targets for Windows Control Flow Guard.

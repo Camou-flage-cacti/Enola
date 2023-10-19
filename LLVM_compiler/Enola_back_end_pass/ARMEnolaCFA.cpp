@@ -46,19 +46,20 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     outs() << "Building PAC:\n";
    // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
    // if (TII.getIns)
-    
+ 
    // MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R12).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+   //MIB = BuildMI(MBB, MI, DL,TII.get(ARM::t2ADDri)).addReg(ARM::R0).addReg(ARM::R1).addImm(8).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
 
-   /* MachineInstr *MI3 = MIB;
+    MachineInstr *MI3 = MIB;
 
     std::string instructionString2;
     llvm::raw_string_ostream OS2(instructionString2);
     MI3->print(OS2);
-    outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";*/
+    outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG)).addReg(ARM::R1).addReg(ARM::R0).addReg(ARM::R2)
-    .add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R1).addReg(ARM::R0).addReg(ARM::R2)
+    .addImm(ARMCC::AL).setMIFlag(MachineInstr::NoFlags);
 
     outs() << "Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
