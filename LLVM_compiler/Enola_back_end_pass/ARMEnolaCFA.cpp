@@ -38,10 +38,6 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 
     outs () << "Inside instrumentation of return \n";
 
-    // get target register xR
-   // targetReg = MI.getOperand(0).getReg();
-
-    //MachineInstr *BMI;
     MachineInstrBuilder MIB;
     outs() << "Building PAC:\n";
    // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
@@ -50,16 +46,16 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
    // MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R12).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
    //MIB = BuildMI(MBB, MI, DL,TII.get(ARM::t2ADDri)).addReg(ARM::R0).addReg(ARM::R1).addImm(8).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
 
-    MachineInstr *MI3 = MIB;
+  //  MachineInstr *MI3 = MIB;
 
-    std::string instructionString2;
-    llvm::raw_string_ostream OS2(instructionString2);
-    MI3->print(OS2);
-    outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
+  //  std::string instructionString2;
+  //  llvm::raw_string_ostream OS2(instructionString2);
+  //  MI3->print(OS2);
+   // outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R1).addReg(ARM::R0).addReg(ARM::R2)
-    .addImm(ARMCC::AL).setMIFlag(MachineInstr::NoFlags);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R12).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R12)
+    .setMIFlag(MachineInstr::NoFlags);
 
     outs() << "Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
@@ -84,7 +80,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 
    /* if (!STI.hasPACBTI()) {
         outs() <<"hAS pac BTI feature\n";
-    }
+    }*/
     // Convert the MachineInstr to a string representation.
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
