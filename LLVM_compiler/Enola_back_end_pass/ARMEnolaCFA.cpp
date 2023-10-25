@@ -168,43 +168,50 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
 
  
         for(auto &MI:MBB){
+
+            //Handle all condition instructions
             if(MI.isConditionalBranch())
             {
                 outs() << " This is a compare instruction: " <<  MI.getOpcode() <<"\n";
+                MachineBasicBlock::iterator itr;
+                MachineBasicBlock *currentBB;
+                MachineFunction *currentMF;
+
                 //Instrument true branch
-                MachineBasicBlock *trueBB = MI.getOperand(0).getMBB();
-                outs() << "Got MIB\n";
-                MachineBasicBlock::iterator itr = trueBB->begin();
-                MachineInstr &trueBB_Ins = *itr;
-                outs() << "Got first instrucion\n";
-                std::string instructionString;
-                llvm::raw_string_ostream OS(instructionString);
-                trueBB_Ins.print(OS);
-                outs() << MI.getNumOperands() <<"\n";
-                outs()<<"first instruction in string : "<<instructionString<<"\n";
-
-                instrumentCond(*trueBB, trueBB_Ins, trueBB_Ins.getDebugLoc(), TII, "cmp", MF);
-
-                //Instrument false branch
-              /*  MachineBasicBlock *falseBB= MI.getOperand(1).getMBB();
-                outs() << "Got MIB2\n";
-                itr = falseBB->begin();
-                MachineInstr &falseBB_Ins = *itr;
-                 outs() << "Got first instrucion2\n";*/
-              //  instrumentCond(*falseBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", MF);
-            }
-
-            if(MI.getDesc().isCompare())
-            {
+                if (MI.getOperand(0).isMBB())
+                {
+                    currentBB = MI.getOperand(0).getMBB();
+                    itr = currentBB->begin();
+                    MachineInstr &trueBB_Ins = *itr;
+                    currentMF = currentBB->getParent();
+                    instrumentCond(*currentBB, trueBB_Ins, trueBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
+                }
+                if (MI.getOperand(1).isMBB())
+                {
+                    //Instrument false branch
+                    currentBB = MI.getOperand(1).getMBB();
+                    itr = currentBB->begin();
+                    MachineInstr &falseBB_Ins = *itr;
+                    currentMF = currentBB->getParent();
+                    instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
+                }
+                //when the second operand is not a basic block, thus the immediate next MBB should be the other poosible target of the conditional insturction
+                else if ((currentBB = MBB.getNextNode()) != NULL)
+                {
+                    itr = currentBB->begin();
+                    MachineInstr &falseBB_Ins = *itr;
+                    currentMF = currentBB->getParent();
+                    instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
+                }
                
             }
+            //Handle return instructions
             if(MI.getDesc().isReturn())
             {
                 outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
                 modified = instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
             }
             outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
-
         }
     }
 
