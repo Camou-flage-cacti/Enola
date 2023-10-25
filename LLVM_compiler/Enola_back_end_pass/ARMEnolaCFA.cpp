@@ -26,6 +26,25 @@ char ARMEnolaCFA::ID = 0;
 
 INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, true, true)
 
+bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
+                           MachineInstr &MI,
+                           const DebugLoc &DL,
+                           const ARMBaseInstrInfo &TII,
+                           const char *sym,
+                           MachineFunction &MF) {
+    outs() << "Building PAC for condition branch:\n";
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R12).add(predOps(ARMCC::AL)).addReg(ARM::PC).addReg(ARM::R12)
+    .setMIFlag(MachineInstr::NoFlags);
+    outs() << "Consructed instructions: " << MIB <<"\n";
+    MachineInstr *MI2 = MIB;
+    std::string instructionString;
+    llvm::raw_string_ostream OS(instructionString);
+    MI2->print(OS);
+    
+    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+
+
+}
 
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
                            MachineInstr &MI,
@@ -149,10 +168,35 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
 
  
         for(auto &MI:MBB){
+            if(MI.isConditionalBranch())
+            {
+                outs() << " This is a compare instruction: " <<  MI.getOpcode() <<"\n";
+                //Instrument true branch
+                MachineBasicBlock *trueBB = MI.getOperand(0).getMBB();
+                outs() << "Got MIB\n";
+                MachineBasicBlock::iterator itr = trueBB->begin();
+                MachineInstr &trueBB_Ins = *itr;
+                outs() << "Got first instrucion\n";
+                std::string instructionString;
+                llvm::raw_string_ostream OS(instructionString);
+                trueBB_Ins.print(OS);
+                outs() << MI.getNumOperands() <<"\n";
+                outs()<<"first instruction in string : "<<instructionString<<"\n";
+
+                instrumentCond(*trueBB, trueBB_Ins, trueBB_Ins.getDebugLoc(), TII, "cmp", MF);
+
+                //Instrument false branch
+              /*  MachineBasicBlock *falseBB= MI.getOperand(1).getMBB();
+                outs() << "Got MIB2\n";
+                itr = falseBB->begin();
+                MachineInstr &falseBB_Ins = *itr;
+                 outs() << "Got first instrucion2\n";*/
+              //  instrumentCond(*falseBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", MF);
+            }
 
             if(MI.getDesc().isCompare())
             {
-                outs() << " This is a compare instruction: " <<  MI.getOpcode() <<"\n";
+               
             }
             if(MI.getDesc().isReturn())
             {

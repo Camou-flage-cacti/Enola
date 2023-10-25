@@ -54,8 +54,9 @@ namespace {
 						}
 						else
 						{
-							bi->getNextNode();
+							
 							errs() <<"Conditional branch instruction: condition vlaue = " << bi->getCondition()<< " : " << *bi<<"\n";
+
 						}
 						break;
 					}
