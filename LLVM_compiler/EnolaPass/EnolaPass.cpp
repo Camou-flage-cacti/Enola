@@ -38,8 +38,36 @@ namespace {
     bool runOnFunction(Function &F) override {
 	    LLVMContext &context = F.getContext();
 	    auto module = F.getParent();
+		string functionName = F.getName().str();
 
-	    FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
+		for(BasicBlock &BB: F)
+		{
+			for (Instruction &I : BB)
+			{
+				switch(I.getOpcode()) {
+
+					case Instruction::Br: {
+						BranchInst *bi = cast<BranchInst> (&I);
+						if(bi->isUnconditional())
+						{
+							errs() << "Unconditional branch: "<< *bi <<"\n";
+						}
+						else
+						{
+							bi->getNextNode();
+							errs() <<"Conditional branch instruction: condition vlaue = " << bi->getCondition()<< " : " << *bi<<"\n";
+						}
+						break;
+					}
+					default:
+					errs() << I << "\n";
+					break;
+				}
+			}
+		}
+
+
+	    /*FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
 	    FunctionCallee printfFunction = module->getOrInsertFunction("printf", printfType);
 
 		string functionName = F.getName().str();
@@ -61,13 +89,10 @@ namespace {
 
 		string printLog = functionName + " %d\n";
 		Value *functionNamePtr = builder.CreateGlobalStringPtr(printLog);
-		builder.CreateCall(printfFunction, {functionNamePtr, addedCallCount});
+		builder.CreateCall(printfFunction, {functionNamePtr, addedCallCount});*/
 
 
-	  //  ++HelloCounter;
-	   // errs() << "Hello from Enola on functions: ";
-	    //errs().write_escaped(F.getName()) << '\n';
-	    return true;;
+	    return false;
     }
   };
 }

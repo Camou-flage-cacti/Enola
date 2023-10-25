@@ -144,16 +144,9 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     }
     outs() << "Enola Instrumentation: "<<MFName<<"\n";
     const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
-   // const TargetInstrInfo *x =  MF.getSubtarget().getInstrInfo();
-  //  x->
+ 
     for (auto &MBB : MF) {
 
-        //outs() << "Contents of MachineBasicBlock:\n";
-        //outs() << MBB << "\n";
-        //const BasicBlock *BB = MBB.getBasicBlock();
-        //outs() << "Contents of BasicBlock corresponding to MachineBasicBlock:\n";
-        //outs() << BB << "\n";
-        
  
         for(auto &MI:MBB){
 
