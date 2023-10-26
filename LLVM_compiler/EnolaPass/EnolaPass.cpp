@@ -50,12 +50,23 @@ namespace {
 						BranchInst *bi = cast<BranchInst> (&I);
 						if(bi->isUnconditional())
 						{
-							errs() << "Unconditional branch: "<< *bi <<"\n";
+							errs() << "Unconditional branch(static): no action from Enola"<< *bi <<"\n";
 						}
 						else
 						{
-							
-							errs() <<"Conditional branch instruction: condition vlaue = " << bi->getCondition()<< " : " << *bi<<"\n";
+							errs() <<"Conditional branch instruction: condition vlaue= " << bi->getCondition()<< " : " << *bi<<"\n";
+
+							Value* condition = bi->getCondition();
+							errs() << "Value is : " << condition <<"\n";
+							BasicBlock* trueTarget = bi->getSuccessor(0);
+							BasicBlock* falseTarget = bi->getSuccessor(1);
+
+							// Print information about the conditional bi
+							errs() << "Conditional Branch: " << *condition << "\n";
+							errs() << "True Target: " << trueTarget->getName() << "\n";
+							errs() << "False Target: " << falseTarget->getName() << "\n";
+							insertSecureTraceTrampoline(trueTarget);
+							insertSecureTraceTrampoline(falseTarget);
 
 						}
 						break;
@@ -68,7 +79,7 @@ namespace {
 		}
 
 
-	    /*FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
+	   /* FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
 	    FunctionCallee printfFunction = module->getOrInsertFunction("printf", printfType);
 
 		string functionName = F.getName().str();
@@ -95,6 +106,20 @@ namespace {
 
 	    return false;
     }
+
+	void insertSecureTraceTrampoline(BasicBlock *BB)
+	{
+
+		LLVMContext &Context = BB->getContext();
+		IRBuilder<> builder(&BB->front());
+		auto module = BB->getModule();
+
+		// Create the function call
+		FunctionType *FT = FunctionType::get(builder.getVoidTy(), false);
+		FunctionCallee Callee = module->getOrInsertFunction("secure_trace_storage", FT);
+		builder.CreateCall(Callee);
+	}
+
   };
 }
 

@@ -26,6 +26,23 @@ char ARMEnolaCFA::ID = 0;
 
 INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, true, true)
 
+std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
+    std::string functionName;
+
+    const MachineOperand &MO = MI.getOperand(0); // Assuming the function name is in operand 0.
+    //Function names are global or external
+    if (MO.isGlobal()) {
+
+        functionName = MO.getGlobal()->getName().str();
+    }
+    else
+    {
+        outs() << "Not a global symbol\n";
+    }
+
+    return functionName;
+  }
+
 bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
@@ -42,8 +59,24 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     MI2->print(OS);
     
     outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+}
 
-
+bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
+                           MachineInstr &MI,
+                           const DebugLoc &DL,
+                           const ARMBaseInstrInfo &TII,
+                           const char *sym,
+                           MachineFunction &MF) {
+    outs() << "Moding PC to r0:\n";
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2MOVr), ARM::R0).add(predOps(ARMCC::AL)).addReg(ARM::PC)
+    .setMIFlag(MachineInstr::NoFlags);
+    outs() << "Consructed instructions: " << MIB <<"\n";
+    MachineInstr *MI2 = MIB;
+    std::string instructionString;
+    llvm::raw_string_ostream OS(instructionString);
+    MI2->print(OS);
+    
+    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
 }
 
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
@@ -154,7 +187,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
     bool modified = false;
-
+    //StringRef trampoline_function("secure_trace_storage");
     std::string MFName = MF.getName().str();
 
     if (MF.getSubtarget().getFeatureBits()[ARM::FeaturePACBTI])
@@ -206,10 +239,21 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                
             }
             //Handle return instructions
-            if(MI.getDesc().isReturn())
+            else if(MI.getDesc().isReturn())
             {
                 outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
                 modified = instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+            }
+            //add parameter to the secure_trace_storage trampoline function call
+            else if(MI.isCall())
+            {
+                std::string target_function_name = extractFunctionName(MI);
+                if (target_function_name == "secure_trace_storage")
+                {
+                    outs() << "secure_trace_storage function call found"<<"\n";
+                  //  instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                }
+                   
             }
             outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
         }

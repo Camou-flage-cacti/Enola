@@ -33,6 +33,14 @@ namespace llvm {
                         const ARMBaseInstrInfo &TII,
                         const char *sym,
                         MachineFunction &MF);
+        std::string extractFunctionName(const MachineInstr &MI);
+
+        bool instrumentTrampolineParameter (MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF);
         
         /*bool instrumentRetLR (MachineBasicBlock &MBB,
                            MachineInstr &MI,
