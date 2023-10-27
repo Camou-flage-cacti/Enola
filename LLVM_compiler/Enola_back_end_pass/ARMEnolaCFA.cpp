@@ -68,7 +68,8 @@ bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
                            const char *sym,
                            MachineFunction &MF) {
     outs() << "Moding PC to r0:\n";
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2MOVr), ARM::R0).add(predOps(ARMCC::AL)).addReg(ARM::PC)
+    
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::MOVr), ARM::R0).addReg(ARM::PC).add(predOps(ARMCC::AL)).add(condCodeOp())
     .setMIFlag(MachineInstr::NoFlags);
     outs() << "Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
@@ -251,7 +252,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 if (target_function_name == "secure_trace_storage")
                 {
                     outs() << "secure_trace_storage function call found"<<"\n";
-                  //  instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                    instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
                    
             }
