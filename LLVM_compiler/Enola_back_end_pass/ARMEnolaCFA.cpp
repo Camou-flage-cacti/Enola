@@ -198,6 +198,12 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     const ARMBaseRegisterInfo *ARMBRI = static_cast<const ARMBaseRegisterInfo *>(TRI);
 
     const MCPhysReg* callee_saved = ARMBRI->getCalleeSavedRegs(&MF);
+
+   /* while (callee_saved != NULL)
+    {
+        outs() << "current pointer value : "<<*callee_saved<<"\n";
+        callee_saved++;
+    }*/
     
     outs() << "callee_saved value : "<<*callee_saved<<"\n";
 
