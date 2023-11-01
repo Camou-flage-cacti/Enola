@@ -67,7 +67,7 @@ bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
                            const ARMBaseInstrInfo &TII,
                            const char *sym,
                            MachineFunction &MF) {
-    outs() << "Moding PC to r0:\n";
+    outs() << "Moving PC to r0:\n";
     
     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::MOVr), ARM::R0).addReg(ARM::PC).add(predOps(ARMCC::AL)).add(condCodeOp())
     .setMIFlag(MachineInstr::NoFlags);
@@ -191,6 +191,17 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     //StringRef trampoline_function("secure_trace_storage");
     std::string MFName = MF.getName().str();
 
+    const TargetSubtargetInfo &STI = MF.getSubtarget();
+    const TargetRegisterInfo *TRI = STI.getRegisterInfo();
+
+    // Now, you have access to the ARMBaseRegisterInfo
+    const ARMBaseRegisterInfo *ARMBRI = static_cast<const ARMBaseRegisterInfo *>(TRI);
+
+    const MCPhysReg* callee_saved = ARMBRI->getCalleeSavedRegs(&MF);
+    
+    outs() << "callee_saved value : "<<*callee_saved<<"\n";
+
+
     if (MF.getSubtarget().getFeatureBits()[ARM::FeaturePACBTI])
     {
         outs() <<"PAC bit feature exists\n";
@@ -218,7 +229,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     itr = currentBB->begin();
                     MachineInstr &trueBB_Ins = *itr;
                     currentMF = currentBB->getParent();
-                    instrumentCond(*currentBB, trueBB_Ins, trueBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
+                    modified |= instrumentCond(*currentBB, trueBB_Ins, trueBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
                 }
                 if (MI.getOperand(1).isMBB())
                 {
@@ -227,7 +238,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     itr = currentBB->begin();
                     MachineInstr &falseBB_Ins = *itr;
                     currentMF = currentBB->getParent();
-                    instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
+                    modified |= instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
                 }
                 //when the second operand is not a basic block, thus the immediate next MBB should be the other poosible target of the conditional insturction
                 else if ((currentBB = MBB.getNextNode()) != NULL)
@@ -235,7 +246,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     itr = currentBB->begin();
                     MachineInstr &falseBB_Ins = *itr;
                     currentMF = currentBB->getParent();
-                    instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
+                    modified |= instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
                 }
                
             }
@@ -243,7 +254,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             else if(MI.getDesc().isReturn())
             {
                 outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
-                modified = instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
             }
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
@@ -252,9 +263,26 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 if (target_function_name == "secure_trace_storage")
                 {
                     outs() << "secure_trace_storage function call found"<<"\n";
-                    instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                    modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
                    
+            }
+            if(MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX)
+            {
+               // ARM::MOV_pc
+                //&& MI.getNumOperands()>1 && MI.getOperand(0).isReg() && MI.getOperand(1).isReg()
+                outs() << "Mov to register instruction with the following operands: \n";
+                for (int i = 0; i < MI.getNumOperands(); i++)
+                {
+                    if(MI.getOperand(i).isReg()){
+                        StringRef targetReg = TRI->getRegAsmName(MI.getOperand(i).getReg());
+                        outs() << targetReg.str()<<" , ";
+                    }
+                    outs() << MI.getOperand(i).getType()<<" , ";
+                }
+                outs() <<"\n";
+               // if (TRI->getRegAsmName( MI.getOperand(0).getReg() == ARM::PC))
+                 //   outs() << "Indirect Branch:\n";
             }
             outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
         }
