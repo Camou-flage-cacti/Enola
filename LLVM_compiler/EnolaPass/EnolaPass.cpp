@@ -78,6 +78,121 @@ namespace {
 			}
 		}
 
+		int count = 0;
+		int numOfConnections = 0;
+		for(BasicBlock &BB: F)
+		{
+			outs()<<"runOnfunction for idirect call analysis: " << BB.getName() <<"\n";
+
+			if (IndirectBrInst *IBI = dyn_cast<IndirectBrInst> (BB.getTerminator()))
+			{
+				Value *target;
+				if (auto *indirectBranchInst = dyn_cast <IndirectBrInst>(IBI))
+				{
+					target = indirectBranchInst->getAddress();
+				}
+				else
+				{
+					outs()<< __func__ << "ERROR: unknown indirect branch inst: " << *IBI << "\n";
+					continue;
+				}
+				assert(target != nullptr);
+				outs() << numOfConnections++ << "Type : IBranch, Target : "<<target<<"\n";
+
+			}
+			for (Instruction &I : BB)
+			{
+				if (auto *cb = dyn_cast<CallBase>(&I)) {
+					if (cb) 
+					{
+						Function *callee = cb->getCalledFunction();
+						if (callee) 
+						{
+							std::string callee_name = callee->getName().str();
+							// Do not analyze llvm functions
+
+							if ((callee_name).find("llvm") != std::string::npos)
+							{
+								continue;
+							}
+							else if (cb->isTailCall())
+							{
+
+								outs() << numOfConnections++ << "Type : Tail Call Callee_name"<< callee_name << "\n";   
+							// continue;
+							}
+
+							// exclude instrinsic functions
+							else if (callee->isIntrinsic()) 
+							{
+								outs() << numOfConnections++ << "Type : Instrinsic Function : Callee_name: "  << callee_name << "\n";   
+							// std::string callee_name = callee->getName().str();
+							// OutputJson << "\"" << NumOfConnections++ << "\" : {\"Type\"
+							// :
+							// \"Callee\", " << "\"Callee_name\": \"" << callee_name <<
+							// "\"},\n";
+							}
+							else 
+							{
+								outs() << numOfConnections++ << "Type : Direct Call : Callee_name: "  << callee_name << "\n";
+							}
+					}
+					else if (InlineAsm *IA = dyn_cast_or_null<InlineAsm>(cb->getCalledOperand()))
+					{
+						outs() << numOfConnections++ << "Type : InlineAsm : operand: "  << "\n";
+						/*InlineAsm::ConstraintInfoVector Constraints = IA->ParseConstraints();
+						for (const InlineAsm::ConstraintInfo &Info : Constraints) 
+						{
+							if (Info.isIndirect) 
+							{
+								OutputJson << " [+] Indirect operand: "
+										<< IA->getAsmString().c_str();
+							}
+						}*/
+
+					}
+					else if (ConstantExpr *ConstEx = dyn_cast_or_null<ConstantExpr>(cb->getCalledOperand())) 
+					{
+						Instruction *Inst = ConstEx->getAsInstruction();
+
+						if (CastInst *CI = dyn_cast_or_null<CastInst>(Inst)) 
+						{
+							if (Function *c = dyn_cast<Function>(Inst->getOperand(0))) 
+							{
+								// add connection
+								// OutputJson << "\"" << NumOfConnections++ << "\" :
+								// {\"Type\" :
+								// \"Callee\", " << "\"Callee_name\": \"" <<
+								// c->getName().str()
+								// << "\"},\n";
+							}
+							else 
+							{
+								assert(false && "Unhandled Cast");
+							}
+						}
+						else 
+						{
+							assert(false && "Unhandled Constant");
+						}
+						// delete Inst;
+					}
+					else if (cb->isIndirectCall())
+					{
+						string str;
+            			raw_string_ostream rso_callee(str);
+						int icall_num = 0;
+
+						cb->print(rso_callee);
+						outs() << "\nIndirect call: " << rso_callee.str() << "\n";
+						outs() << rso_callee.str()<< "{Connections : Parent : " << F.getName().str() << "Function\" : {";
+
+					}
+				}
+			}
+		}
+	}
+
 
 	   /* FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
 	    FunctionCallee printfFunction = module->getOrInsertFunction("printf", printfType);
