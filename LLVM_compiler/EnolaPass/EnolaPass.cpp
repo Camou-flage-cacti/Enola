@@ -133,7 +133,7 @@ namespace {
 							{
 								errs() << numOfConnections++ << "Type : Instrinsic Function : Callee_name: "  << callee_name << "\n";   
 							// std::string callee_name = callee->getName().str();
-							// OutputJson << "\"" << NumOfConnections++ << "\" : {\"Type\"
+							// OutputJson << "\"" << numOfConnections++ << "\" : {\"Type\"
 							// :
 							// \"Callee\", " << "\"Callee_name\": \"" << callee_name <<
 							// "\"},\n";

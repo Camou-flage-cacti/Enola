@@ -50,7 +50,7 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            const char *sym,
                            MachineFunction &MF) {
     outs() << "Building PAC for condition branch:\n";
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R12).add(predOps(ARMCC::AL)).addReg(ARM::PC).addReg(ARM::R12)
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::PC).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
     outs() << "Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
