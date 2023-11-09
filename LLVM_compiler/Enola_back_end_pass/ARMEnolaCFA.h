@@ -19,6 +19,12 @@ namespace llvm {
                            const DebugLoc &DL,
                            const ARMBaseInstrInfo *TII,
                            const char *sym); */
+        Register getParameterOfindrect(MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF);
 
         bool instrumentRet (MachineBasicBlock &MBB,
                         MachineInstr &MI,
@@ -34,6 +40,13 @@ namespace llvm {
                         const char *sym,
                         MachineFunction &MF);
         std::string extractFunctionName(const MachineInstr &MI);
+
+        bool instrumentIndirectParameter (MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF, Register indirectTarget);
 
         bool instrumentTrampolineParameter (MachineBasicBlock &MBB,
                         MachineInstr &MI,

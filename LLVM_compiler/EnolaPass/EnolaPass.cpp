@@ -40,6 +40,8 @@ namespace {
   struct EnolaPass : public FunctionPass {
     static char ID; 
     EnolaPass() : FunctionPass(ID) {}
+	Function *indirectStorageFunction;
+	bool indirectTraceFlag = true;
 
     bool runOnFunction(Function &F) override {
 	    LLVMContext &context = F.getContext();
@@ -80,20 +82,16 @@ namespace {
 						break;
 					}
 					default:
-					errs() << I << "\n";
-					break;
+						errs() << I << "\n";
+						break;
 				}
-				auto *cb = dyn_cast<CallBase>(&I);
-				if(cb->isIndirectCall())
-				{
-					//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
-				}
+				//auto *cb = dyn_cast<CallBase>(&I);
 			}
 		}
 
-		//int count = 0;
-		//int numOfConnections = 0;
-		/*for(BasicBlock &BB: F)
+		int count = 0;
+		int numOfConnections = 0;
+		for(BasicBlock &BB: F)
 		{
 			errs()<<"runOnfunction for idirect call analysis: " << BB.getName() <<"\n";
 
@@ -163,7 +161,7 @@ namespace {
 							}
 						}*/
 
-				/*	}
+					}
 					else if (ConstantExpr *ConstEx = dyn_cast_or_null<ConstantExpr>(cb->getCalledOperand())) 
 					{
 						Instruction *Inst = ConstEx->getAsInstruction();
@@ -238,9 +236,13 @@ namespace {
 						}
 						errs() << "\n------------ indirect_analysis: END------------\n";
 						errs() << "}}},\n";
+
+						/*Instrument indirect calls*/
+						modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+
 					}
 					 /*-------------- indirect_analysis: END --------*/
-				/*}
+				}
 				switch (I.getOpcode())
 				{
 					/*case Instruction::Br: {
@@ -261,18 +263,22 @@ namespace {
 					/*-------------------------------------------------------------------------------
 					check indirect branch instructions
 					---------------------------------------------------------------------------------*/
-				/*	case Instruction::IndirectBr: {
+					case Instruction::IndirectBr: {
 						IndirectBrInst *ibi = cast<IndirectBrInst>(&I);
 						Value *target = ibi->getAddress();
 						assert(target != nullptr);
 						numOfConnections++;
 						errs() << "<IndirectBrInst>: " << *ibi << "\n";
-
 						errs() <<numOfConnections++<<"Type : IBranch , target: " << target<< "\n";
+						
+						modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
 					} break;
 					case Instruction::CallBr: {
+						
 						CallBrInst *cbi = cast<CallBrInst>(&I);
 						errs() << "<CallBrInst>: " << *cbi << "\n";
+
+						modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
 					} break;
 				//	case Instruction::Ret: {
 						// ReturnInst *ret = cast<ReturnInst>(&I);
@@ -342,7 +348,7 @@ namespace {
 			}
 		}
 		numOfConnections = 0;
-	}*/
+	}
 
 
 	   /* FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
@@ -401,7 +407,11 @@ namespace {
 
 		// Create the function call
 		FunctionType *FT = FunctionType::get(builder.getVoidTy(), false);
-		Function *indirectStorageFunction = Function::Create(FT, Function::ExternalLinkage, "indirect_secure_trace_storage", module);
+		if(indirectTraceFlag)
+		{
+			indirectStorageFunction = Function::Create(FT, Function::ExternalLinkage, "indirect_secure_trace_storage", module);
+			indirectTraceFlag = false;
+		}
 
 	//	auto targetIter = std::find(BB->begin(), BB->end(), &I);
 

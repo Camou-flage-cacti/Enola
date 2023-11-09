@@ -79,6 +79,24 @@ bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
     
     outs()<<"constructed instruction in string : "<<instructionString<<"\n";
 }
+bool ARMEnolaCFA::instrumentIndirectParameter (MachineBasicBlock &MBB,
+                           MachineInstr &MI,
+                           const DebugLoc &DL,
+                           const ARMBaseInstrInfo &TII,
+                           const char *sym,
+                           MachineFunction &MF, Register indirectTarget) {
+    outs() << "Moving indirect target to r0:\n";
+    
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::MOVr), ARM::R0).addReg(indirectTarget).add(predOps(ARMCC::AL)).add(condCodeOp())
+    .setMIFlag(MachineInstr::NoFlags);
+    outs() << "Consructed instructions: " << MIB <<"\n";
+    MachineInstr *MI2 = MIB;
+    std::string instructionString;
+    llvm::raw_string_ostream OS(instructionString);
+    MI2->print(OS);
+    
+    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+}
 
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
                            MachineInstr &MI,
@@ -185,6 +203,54 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     
 
     }
+
+Register ARMEnolaCFA::getParameterOfindrect (MachineBasicBlock &MBB,
+                           MachineInstr &MI,
+                           const DebugLoc &DL,
+                           const ARMBaseInstrInfo &TII,
+                           const char *sym,
+                           MachineFunction &MF) {
+    Register indirectTarger;
+    //MachineInstr *deepCopiedInst = (MachineInstr *)malloc(sizeof(MachineInstr));
+    //memcpy(deepCopiedInst, &MI, sizeof(MachineInstr)); 
+    MachineBasicBlock::iterator MBIIterator =  MI.getIterator();
+    const TargetSubtargetInfo &STI = MF.getSubtarget();
+    const TargetRegisterInfo *TRI = STI.getRegisterInfo();
+    outs() <<"Inside getParameterOfindrect\n";
+
+    while(MBIIterator != MBB.end())
+    {
+        MachineInstr &tempMI = *MBIIterator;
+        
+        if(tempMI.getOpcode() == ARM::BMOVPCRX_CALL || tempMI.getDesc().getOpcode() == ARM::BLX || tempMI.getDesc().getOpcode() == ARM::BX)
+        {
+            // ARM::MOV_pc
+            //&& MI.getNumOperands()>1 && MI.getOperand(0).isReg() && MI.getOperand(1).isReg()
+            outs() << "Mov to register instruction with the following operands: \n";
+            if (tempMI.getNumOperands() >= 1)
+                indirectTarger = tempMI.getOperand(0).getReg();
+            for (int i = 0; i < tempMI.getNumOperands(); i++)
+            {
+                if(tempMI.getOperand(i).isReg()){
+                    StringRef targetReg = TRI->getRegAsmName(tempMI.getOperand(i).getReg());
+                    outs() << targetReg.str()<<" , ";
+                }
+                outs() << tempMI.getOperand(i).getType()<<" , ";
+            }
+            outs() <<"\n";
+            // if (TRI->getRegAsmName( tempMI.getOperand(0).getReg() == ARM::PC))
+                //   outs() << "Indirect Branch:\n";
+            break;
+        }
+
+        MBIIterator++;
+
+    }
+
+    
+    return indirectTarger;
+
+    }
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
     bool modified = false;
@@ -271,25 +337,17 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     outs() << "secure_trace_storage function call found"<<"\n";
                     modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
+
+                else if (target_function_name == "indirect_secure_trace_storage")
+                {
+                    outs() << "indirect_secure_trace_storage function call found"<<"\n";
+                    Register indirectTarget = getParameterOfindrect(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameter", MF);
+                    if (indirectTarget.isValid())
+                        modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
+                }
                    
             }
-            if(MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX)
-            {
-               // ARM::MOV_pc
-                //&& MI.getNumOperands()>1 && MI.getOperand(0).isReg() && MI.getOperand(1).isReg()
-                outs() << "Mov to register instruction with the following operands: \n";
-                for (int i = 0; i < MI.getNumOperands(); i++)
-                {
-                    if(MI.getOperand(i).isReg()){
-                        StringRef targetReg = TRI->getRegAsmName(MI.getOperand(i).getReg());
-                        outs() << targetReg.str()<<" , ";
-                    }
-                    outs() << MI.getOperand(i).getType()<<" , ";
-                }
-                outs() <<"\n";
-               // if (TRI->getRegAsmName( MI.getOperand(0).getReg() == ARM::PC))
-                 //   outs() << "Indirect Branch:\n";
-            }
+            
             outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
         }
     }
