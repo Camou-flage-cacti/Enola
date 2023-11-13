@@ -49,7 +49,12 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            const ARMBaseInstrInfo &TII,
                            const char *sym,
                            MachineFunction &MF) {
+    
     outs() << "Building PAC for condition branch:\n";
+    /*no need to instrument if already instrumented*/
+    if(MI.getOpcode() == ARM::t2PACG)
+        return false;
+
     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::PC).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
     outs() << "Consructed instructions: " << MIB <<"\n";
@@ -59,6 +64,7 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     MI2->print(OS);
     
     outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    return true;
 }
 
 bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
@@ -78,6 +84,7 @@ bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
     MI2->print(OS);
     
     outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    return true;
 }
 bool ARMEnolaCFA::instrumentIndirectParameter (MachineBasicBlock &MBB,
                            MachineInstr &MI,
@@ -96,6 +103,7 @@ bool ARMEnolaCFA::instrumentIndirectParameter (MachineBasicBlock &MBB,
     MI2->print(OS);
     
     outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    return true;
 }
 
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
