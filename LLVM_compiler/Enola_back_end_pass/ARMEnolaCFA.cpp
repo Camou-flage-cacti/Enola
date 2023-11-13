@@ -24,6 +24,8 @@ using namespace llvm;
 
 char ARMEnolaCFA::ID = 0;
 
+
+
 INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, true, true)
 
 std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
@@ -254,11 +256,51 @@ Register ARMEnolaCFA::getParameterOfindrect (MachineBasicBlock &MBB,
         MBIIterator++;
 
     }
-
     
     return indirectTarger;
 
     }
+
+bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF, Register &indirectReg) {
+
+    MachineBasicBlock::iterator MBIIterator =  MI.getIterator();
+    const TargetSubtargetInfo &STI = MF.getSubtarget();
+    const TargetRegisterInfo *TRI = STI.getRegisterInfo();
+    while(MBIIterator != MBB.end())
+    {
+        MachineInstr &tempMI = *MBIIterator;
+       // outs()<< "opcodes: "<<tempMI.getOpcode()<<"\n";
+        
+        if(tempMI.getOpcode() == ARM::LDRi12 && tempMI.getNumOperands() > 0 && tempMI.getOperand(0).isReg() && tempMI.getOperand(0).getReg() == indirectReg)
+        {
+            outs()<<"Need to instrument the instruction\n";
+            break;
+        }
+        MBIIterator++;
+    }
+    
+    MachineInstr &toBeInstrmented = *MBIIterator;
+
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, MI.getDebugLoc(), TII.get(ARM::LDRi12), ARM::R0);
+
+     /*for (const MachineOperand &MO : toBeInstrmented.operands()) {
+        MO.print(outs());
+        MIB.add(MO);
+    }*/
+    for (unsigned i = 1; i < toBeInstrmented.getNumOperands(); ++i) {
+        MIB.add(toBeInstrmented.getOperand(i));
+    }
+    
+    outs()<<"it should be the ldr insturction: "<<toBeInstrmented.getOpcode()<<"\n";
+
+    return true;
+
+}
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
     bool modified = false;
@@ -351,7 +393,8 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     outs() << "indirect_secure_trace_storage function call found"<<"\n";
                     Register indirectTarget = getParameterOfindrect(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameter", MF);
                     if (indirectTarget.isValid())
-                        modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
+                        //modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
+                        modified |= instrumentIndirectParameterSetInst(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameterSetInst", MF, indirectTarget);
                 }
                    
             }
