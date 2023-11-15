@@ -56,6 +56,17 @@ namespace {
 			{
 				switch(I.getOpcode()) {
 
+					/*case Instruction::Switch: {
+						errs() << "Found a switch statement\n";
+						Instruction &Inst = I;
+						const SwitchInst *Switch = dyn_cast<SwitchInst>(&Inst);
+						for (auto &Case : Switch->cases()) {
+							//const BasicBlock *caseSuccessor =  *Case.getCaseSuccessor();
+						
+							outs() << "Case " << *Case.getCaseValue() << " to block " << *Case.getCaseSuccessor() << "\n";
+						}
+						break;
+					}*/
 					case Instruction::Br: {
 						BranchInst *bi = cast<BranchInst> (&I);
 						if(bi->isUnconditional())
