@@ -56,17 +56,26 @@ namespace {
 			{
 				switch(I.getOpcode()) {
 
-					/*case Instruction::Switch: {
+					case Instruction::Switch: {
 						errs() << "Found a switch statement\n";
 						Instruction &Inst = I;
-						const SwitchInst *Switch = dyn_cast<SwitchInst>(&Inst);
-						for (auto &Case : Switch->cases()) {
-							//const BasicBlock *caseSuccessor =  *Case.getCaseSuccessor();
+						SwitchInst *Switch = dyn_cast<SwitchInst>(&Inst);
+						if(Switch == NULL)
+							errs() << "Switch case object is NULL\n";
 						
-							outs() << "Case " << *Case.getCaseValue() << " to block " << *Case.getCaseSuccessor() << "\n";
+						auto numOf = Switch->getNumCases();
+						errs()<<"Number of cases: "<< numOf <<"\n";
+				
+						for (const SwitchInst::CaseHandle &Case : Switch->cases()) {
+							errs() << "Case " << Case.getCaseValue() << " to block " << Case.getCaseSuccessor() << "\n";
+							//const BasicBlock *caseSuccessor =  *Case.getCaseSuccessor();
+							BasicBlock *CaseBB = Case.getCaseSuccessor();
+							modifid |= insertSecureTraceTrampoline(CaseBB);
 						}
+						BasicBlock *CaseBB = Switch->getDefaultDest(); //default branch
+						modifid |= insertSecureTraceTrampoline(CaseBB);
 						break;
-					}*/
+					}
 					case Instruction::Br: {
 						BranchInst *bi = cast<BranchInst> (&I);
 						if(bi->isUnconditional())
