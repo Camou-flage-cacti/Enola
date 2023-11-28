@@ -130,7 +130,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGTARM</Key>
-          <Name>(6010=-1,-1,-1,-1,0)(6018=423,226,612,590,0)(6019=-1,-1,-1,-1,0)(6008=-1,-1,-1,-1,0)(6009=-1,-1,-1,-1,0)(6014=-1,-1,-1,-1,0)(6015=-1,-1,-1,-1,0)(6003=-1,-1,-1,-1,0)(6000=1467,-3,1920,329,0)(6020=-1,-1,-1,-1,0)</Name>
+          <Name>(6010=-1,-1,-1,-1,0)(6018=423,226,612,590,0)(6019=-1,-1,-1,-1,0)(6008=-1,-1,-1,-1,0)(6009=-1,-1,-1,-1,0)(6014=-1,-1,-1,-1,0)(6015=-1,-1,-1,-1,0)(6003=-1,-1,-1,-1,0)(6000=1467,0,1920,332,0)(6020=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -157,18 +157,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>1</LineNumber>
+          <LineNumber>127</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>285216366</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>&lt;1&gt;.\main_s.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\test_s\main_s.c\127</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
@@ -214,7 +214,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>&lt;1&gt;.\user_func.c</Filename>
+          <Filename>&lt;1&gt;.\main_s.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
@@ -230,14 +230,14 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>&lt;1&gt;.\user_func.h</Filename>
+          <Filename>&lt;1&gt;.\user_func.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
         <Bp>
           <Number>5</Number>
           <Type>0</Type>
-          <LineNumber>127</LineNumber>
+          <LineNumber>1</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -246,25 +246,9 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>&lt;1&gt;.\main_s.c</Filename>
+          <Filename>&lt;1&gt;.\user_func.h</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>6</Number>
-          <Type>0</Type>
-          <LineNumber>0</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>285221810</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename></Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>0x110023B2</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -312,6 +296,30 @@
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
+      <MemoryWindow2>
+        <Mm>
+          <WinNumber>2</WinNumber>
+          <SubType>2</SubType>
+          <ItemText>0x00200000</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow2>
+      <MemoryWindow3>
+        <Mm>
+          <WinNumber>3</WinNumber>
+          <SubType>2</SubType>
+          <ItemText>0x38000000</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow3>
+      <MemoryWindow4>
+        <Mm>
+          <WinNumber>4</WinNumber>
+          <SubType>2</SubType>
+          <ItemText>0x28200000</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow4>
       <ScvdPack>
         <Filename>C:\Users\dakum\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\RTOS2\RTX\RTX5.scvd</Filename>
         <Type>ARM.CMSIS.5.9.0</Type>
@@ -323,7 +331,7 @@
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>

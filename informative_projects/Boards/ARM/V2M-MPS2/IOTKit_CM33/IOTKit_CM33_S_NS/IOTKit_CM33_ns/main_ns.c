@@ -102,5 +102,6 @@ int main (void)
 		
 		
     Secure_printf(text);
+		x = x +2;
   }
 }

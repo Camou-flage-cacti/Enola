@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.37.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: MD Armanuzzaman, University at Buffalo, LIC=0VR53-UREWB-548IR-3HMMG-14VUR-YESX7
+License Information: MD Armanuzzaman, University at Buffalo, LIC=R4HVB-LGPAE-JJI3D-RQTGE-WVZY4-PR1SU
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
@@ -22,15 +22,19 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\test_ns.uvprojx
-Project File Date:  07/26/2023
+Project File Date:  11/20/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build Project 'test_ns' - Target 'Target 1'
-linking...
-.\Objects\test_ns.axf: warning: Your license for feature Keil will expire in 19 days [-Wlicense-management]
-Program Size: Code=1312 RO-data=592 RW-data=8 ZI-data=2048  
-".\Objects\test_ns.axf" - 0 Error(s), 1 Warning(s).
+Error instantiating RTE components
+Error #540: 'ARM::CMSIS Driver:MPC:1.1.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Device:Startup:Baremetal:1.2.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:MPC:1.1.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:SPI:1.0.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:SysCounter:1.0.1' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:SysTimer:1.0.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:Timeout:1.0.1' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
 
 <h2>Software Packages used:</h2>
 
@@ -46,31 +50,25 @@ Package Vendor: ARM
    * Component: CORE Version: 5.6.0
 
 Package Vendor: ARM
+                http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.3.0.pack
+                ARM.V2M_MPS3_SSE_310_BSP.1.3.0
+                ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
+   * Component: SPI Version: 1.0.1
+   * Component: Definition Version: 2.0.0
+
+Package Vendor: ARM
                 http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.2.0.pack
                 ARM.V2M_MPS3_SSE_310_BSP.1.2.0
                 ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
-   * Component: MPC Version: 1.1.0
-   * Component: SPI Version: 1.0.1
-   * Component: Definition Version: 1.2.0
-   * Component: Startup Variant: Baremetal Version: 1.2.0
-   * Component: MPC Version: 1.1.0
-   * Component: SPI Version: 1.0.0
-   * Component: SysCounter Version: 1.0.1
-   * Component: SysTimer Version: 1.0.0
-   * Component: Timeout Version: 1.0.1
 
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/SSE-310-MPS3_AN555
   ./RTE/_Target_1
   C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
   C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Board/Device_Definition
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Board/Platform
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/CMSIS_Driver
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/CMSIS_Driver/Config
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/CMSIS_Driver/Include
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Device/Include
-  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.2.0/Native_Driver
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Board/Device_Definition
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Board/Platform
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -87,61 +85,23 @@ Package Vendor: ARM
       Include file:  CMSIS/Driver/Include/Driver_I2C.h
       Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
 
-   * Component: ARM::CMSIS Driver:MPC:1.1.0
-      Include file:  CMSIS_Driver/Driver_MPC.h
-      Source file:   CMSIS_Driver/Driver_MPC.c
-
    * Component: ARM::CMSIS Driver:SPI:1.0.1
       Source file:   CMSIS_Driver/Driver_SPI.c
 
    * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
-      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
       Include file:  CMSIS/Driver/Include/Driver_USART.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
-   * Component: ARM::Device:Definition:1.2.0
-      Include file:  Board/Platform/platform_description.h
+   * Component: ARM::Device:Definition:2.0.0
+      Include file:  Device/Config/device_cfg.h
+      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
       Include file:  Board/Platform/platform_base_address.h
-      Source file:   Board/Device_Definition/device_definition.c
       Include file:  Board/Device_Definition/device_definition.h
-
-   * Component: ARM::Device:Startup:Baremetal:1.2.0
-      Source file:   Device/Source/startup_SSE310MPS3.c
-      Source file:   Device/Source/system_SSE310MPS3.c
-      Include file:  Device/Include/system_SSE310MPS3.h
-      Include file:  Device/Config/Baremetal/device_cfg.h
-      Include file:  Device/Include/region_limits.h
-      Include file:  Device/Include/region_defs.h
-      Include file:  CMSIS_Driver/Config/Baremetal/cmsis_driver_config.h
-
-   * Component: ARM::Native Driver:MPC:1.1.0
-      Source file:   Native_Driver/mpc_sie_drv.c
-      Include file:  Native_Driver/mpc_sie_drv.h
-      Include file:  Native_Driver/mpc_sie_reg_map.h
-
-   * Component: ARM::Native Driver:SPI:1.0.0
-      Include file:  Native_Driver/spi_pl022_reg_map.h
-      Include file:  Native_Driver/spi_pl022_drv.h
-      Source file:   Native_Driver/spi_pl022_drv.c
-
-   * Component: ARM::Native Driver:SysCounter:1.0.1
-      Source file:   Native_Driver/syscounter_armv8-m_cntrl_drv.c
-      Include file:  Native_Driver/syscounter_armv8-m_cntrl_drv.h
-      Source file:   Native_Driver/syscounter_armv8-m_read_drv.c
-      Include file:  Native_Driver/syscounter_armv8-m_read_drv.h
-      Include file:  Native_Driver/syscounter_armv8-m_read_reg_map.h
-      Include file:  Native_Driver/syscounter_armv8-m_cntrl_reg_map.h
-
-   * Component: ARM::Native Driver:SysTimer:1.0.0
-      Source file:   Native_Driver/systimer_armv8-m_drv.c
-      Include file:  Native_Driver/systimer_armv8-m_reg_map.h
-      Include file:  Native_Driver/systimer_armv8-m_drv.h
-
-   * Component: ARM::Native Driver:Timeout:1.0.1
-      Source file:   Native_Driver/systimer_armv8-m_timeout.c
-      Include file:  Native_Driver/timeout.h
+      Source file:   Board/Device_Definition/device_definition.c
+Target not created.
 Build Time Elapsed:  00:00:00
 </pre>
 </body>
