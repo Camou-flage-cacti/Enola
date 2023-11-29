@@ -1,0 +1,20 @@
+--cpu=Cortex-M85 --fpu=FPv5_D16
+".\objects\blinky.o"
+".\objects\main.o"
+".\objects\led_port.o"
+".\objects\driver_usart.o"
+".\objects\retarget_io.o"
+".\objects\device_definition.o"
+".\objects\arm_mps3_io_drv.o"
+".\objects\stdout_usart.o"
+".\objects\syscounter_armv8-m_cntrl_drv.o"
+".\objects\syscounter_armv8-m_read_drv.o"
+".\objects\systimer_armv8-m_drv.o"
+".\objects\systimer_armv8-m_timeout.o"
+".\objects\uart_cmsdk_drv.o"
+".\objects\startup_sse310mps3.o"
+".\objects\system_sse310mps3.o"
+--strict --scatter ".\RTE\Device\SSE-310-MPS3_FVP\linker_SSE310MPS3_secure.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Blinky.map" -o .\Objects\Blinky.axf
