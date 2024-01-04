@@ -23,6 +23,7 @@
 
 #include "SSE310MPS3.h"
 #include "system_SSE310MPS3.h"
+//#include "cmsis_armclang.h"
 
 /*----------------------------------------------------------------------------
   External References
@@ -481,8 +482,10 @@ void Reset_Handler(void)
 {
     __set_PSP((uint32_t)(&__INITIAL_SP));
 
-    __set_MSPLIM((uint32_t)(&__STACK_LIMIT));
-    __set_PSPLIM((uint32_t)(&__STACK_LIMIT));
+    //__set_MSPLIM((uint32_t)(&__STACK_LIMIT));
+    __ASM volatile ("MSR msplim, %0" : : "r" (&__STACK_LIMIT));
+    __ASM volatile ("MSR psplim, %0" : : "r" (&__STACK_LIMIT));
+    //__set_PSPLIM((uint32_t)(&__STACK_LIMIT));
 
 #if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
     __TZ_set_STACKSEAL_S((uint32_t *)(&__STACK_SEAL));
