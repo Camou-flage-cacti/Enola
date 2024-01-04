@@ -27,12 +27,12 @@ Project File Date:  01/04/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'ARMCLANG'
+compiling uart_cmsdk_drv.c...
 compiling main.c...
-compiling stdout_USART.c...
 compiling device_definition.c...
 compiling retarget_io.c...
+compiling stdout_USART.c...
 compiling system_SSE310MPS3.c...
-compiling uart_cmsdk_drv.c...
 compiling Driver_USART.c...
 compiling startup_SSE310MPS3.c...
 linking...
@@ -85,29 +85,29 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS Driver:USART:1.1.0
       Include file:  CMSIS_Driver/Driver_USART_Common.h
-      Source file:   CMSIS_Driver/Driver_USART.c
       Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
+      Source file:   CMSIS_Driver/Driver_USART.c
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:2.0.0
-      Include file:  Board/Platform/platform_base_address.h
-      Include file:  Device/Config/device_cfg.h
-      Include file:  Board/Device_Definition/device_definition.h
-      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
       Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Device/Config/device_cfg.h
+      Include file:  Board/Platform/platform_base_address.h
+      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
+      Include file:  Board/Device_Definition/device_definition.h
 
    * Component: ARM::Device:Native Driver:UART:1.1.0
       Source file:   Device/Source/uart_cmsdk_drv.c
       Include file:  Device/Include/uart_cmsdk_drv.h
 
    * Component: ARM::Device:Startup:C Startup:2.0.0
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Source file:   Device/Source/startup_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
       Include file:  Device/Include/region_defs.h
       Include file:  Device/Include/region_limits.h
-      Include file:  Device/Include/system_SSE310MPS3.h
-      Source file:   Device/Source/startup_SSE310MPS3.c
-      Source file:   Device/Source/system_SSE310MPS3.c
       Source file:   Examples/templates/empty_main.c
 
    * Component: ARM::Device:UART STDOUT:1.0.0
@@ -115,10 +115,10 @@ Package Vendor: Keil
       Source file:   Device/Source/stdout_USART.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
-      Source file:   Template/stdout_user.c
-      Source file:   Template/stdout_USART.c
-      Source file:   Source/retarget_io.c
       Source file:   Template/stdout_display.c
+      Source file:   Source/retarget_io.c
+      Source file:   Template/stdout_USART.c
+      Source file:   Template/stdout_user.c
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
