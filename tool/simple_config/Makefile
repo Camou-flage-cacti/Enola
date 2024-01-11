@@ -5,41 +5,35 @@
 
 # outs
 #BIN := Blinky.elf
-BIN := Blinky1.axf
+BIN := Blinky.axf
 #BIN2 := Blinky2.axf
 #BIN_BC := Blinky_all.bc
 #BIN_S := Blinky_all.s
 BUILD_DIR := build
 
 # libs
-ROOT_REL := ../Running/1.3.0
+ROOT_REL := ../../Running/1.3.0
 ROOT_DIR := $(abspath $(ROOT_REL))
 BOARD_DIR := $(ROOT_DIR)/Board
 CMSIS_DIR := $(ROOT_DIR)/CMSIS_Driver
 DEVICE_DIR := $(ROOT_DIR)/Device
-APP_REL := ../Running/Examples/Blinky
+APP_REL := ../../Running/Simple/Examples/Blinky
 APP_DIR := $(abspath $(APP_REL))
-MISC_REL := ./misc_header
+MISC_REL := ../misc_header
 MISC_HEADER := $(abspath $(MISC_REL))
-
+RET_IO := ../
+RET_IOT_DIR := $(RET_IO)
 #ARM_COMPILER_DIR := $(ARM_DIR)/Keil/ARM_Compiler/1.6.3/Source
 #RET_DIR_REL := ./RTE/Device/IOTKit_CM33_FP
 #RET_DIR := $(abspath $(RET_DIR_REL))
 
 #############   source files    ##############
 #  Can get from the .uvprojx <Component> label
-SRCS += $(APP_DIR)/Blinky.c
 SRCS += $(APP_DIR)/main.c
-SRCS += $(APP_DIR)/API/Source/led_port.c
 SRCS += $(CMSIS_DIR)/Driver_USART.c
-SRCS += retarget_io.c
+SRCS += $(RET_IOT_DIR)/retarget_io.c
 SRCS += $(BOARD_DIR)/Device_Definition/device_definition.c
-SRCS += $(DEVICE_DIR)/Source/arm_mps3_io_drv.c
 SRCS += $(DEVICE_DIR)/Source/stdout_USART.c
-SRCS += $(DEVICE_DIR)/Source/syscounter_armv8-m_cntrl_drv.c
-SRCS += $(DEVICE_DIR)/Source/syscounter_armv8-m_read_drv.c
-SRCS += $(DEVICE_DIR)/Source/systimer_armv8-m_drv.c
-SRCS += $(DEVICE_DIR)/Source/systimer_armv8-m_timeout.c
 SRCS += $(DEVICE_DIR)/Source/uart_cmsdk_drv.c
 SRCS += $(APP_DIR)/ARM/RTE/Device/SSE-310-MPS3_FVP/startup_SSE310MPS3.c
 SRCS += $(APP_DIR)/ARM/RTE/Device/SSE-310-MPS3_FVP/system_SSE310MPS3.c
@@ -71,6 +65,7 @@ ARCH_FLAGS = -mthumb -mfloat-abi=hard
 # get from the .dep file
 DEFINES += -D__UVISION_VERSION="537" -D_RTE_ -DCORSTONE310_FVP -D_RTE_
 
+
 #ifneq '' '$(findstring clang,$(COMPILER))'
 #$(info ===Clang Compiler Detected===)
 CROSS_COMPILE	=/home/tomal/llvm_all/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/bin
@@ -90,7 +85,7 @@ STRIP			= $(CROSS_COMPILE_LLVM)/llvm-strip
 
 #COMIPLER_CONTROL_STRING += -xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -mlittle-endian -gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-padded -Wno-covered-switch-default $(DEFINES) -MD
 
-COMIPLER_CONTROL_STRING += -xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar
+COMIPLER_CONTROL_STRING += -xc -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar
 
 MISC_CONTROL += -Wno-padded -Wno-covered-switch-default
 #COMPILER_SPECIFIC_LDFLAGS += 
@@ -149,4 +144,4 @@ LINKER_FLAG += --cpu=Cortex-M85 --fpu=FPv5_D16 *.o --summary_stderr --info summa
 
 
 clean:
-	-rm -rf build *.bc *.i *.s	
+	-rm -rf build *.o *.bc *.i *.s	
