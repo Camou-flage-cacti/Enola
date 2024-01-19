@@ -16,8 +16,43 @@
 
 /* Linker script to configure memory regions. */
 /* This file will be run trough the pre-processor. */
+#include "region_defs.h"
 
-/*#include "region_defs.h"*/
+/*
+;-------- <<< Use Configuration Wizard in Context Menu >>> -------------------
+*/
+
+/*--------------------- Flash Configuration ----------------------------------
+; <h> Flash Configuration
+;   <o0> Flash Base Address <0x0-0xFFFFFFFF:8>
+;   <o1> Flash Size (in Bytes) <0x0-0xFFFFFFFF:8>
+; </h>
+ *----------------------------------------------------------------------------*/
+S_CODE_START = 0x11000000;
+S_CODE_SIZE = 0x00020000;
+
+/*--------------------- Embedded RAM Configuration ---------------------------
+; <h> RAM Configuration
+;   <o0> RAM Base Address    <0x0-0xFFFFFFFF:8>
+;   <o1> RAM Size (in Bytes) <0x0-0xFFFFFFFF:8>
+; </h>
+ *----------------------------------------------------------------------------*/
+S_DATA_START = 0x31000000;
+S_DATA_SIZE = 0x00040000;
+
+/*--------------------- Stack / Heap Configuration ---------------------------
+; <h> Stack / Heap Configuration
+;   <o0> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+;   <o1> Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+; </h>
+ *----------------------------------------------------------------------------*/
+HEAP_SIZE = 0x00000400; /* 1 KiB */
+STACK_SIZE = 0x00000400; /* 1 KiB */
+
+/*
+;------------- <<< end of configuration section >>> ---------------------------
+*/
+
 
 MEMORY
 {
@@ -29,7 +64,8 @@ __heap_size__  = HEAP_SIZE;
 __stack_size__ = STACK_SIZE;
 
 /* Library configurations */
-GROUP(libgcc.a libc.a libm.a libnosys.a)
+/* GROUP(libgcc.a libc.a libm.a libnosys.a) */
+GROUP(libc.a libm.a)
 
 /* Linker script to place sections and symbol values. Should be used together
  * with other linker script that defines memory regions FLASH and RAM.
