@@ -85,16 +85,16 @@ STRIP			= $(CROSS_COMPILE_LLVM)/llvm-strip
 
 #COMIPLER_CONTROL_STRING += -xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -mlittle-endian -gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-padded -Wno-covered-switch-default $(DEFINES) -MD
 
-COMIPLER_CONTROL_STRING += -xc -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar
-
-MISC_CONTROL += -Wno-padded -Wno-covered-switch-default
+#COMIPLER_CONTROL_STRING += -xc -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -mcpu=cortex-m85+pacbti -mfloat-abi=hard -fno-rtti -funsigned-char -fshort-enums -fshort-wchar
+COMIPLER_CONTROL_STRING += -mthumb -gdwarf-2 -MD -pedantic -Os --specs=nano.specs --target=thumbv8.1m.main-none-unknown-eabih
+MISC_CONTROL += -Wno-padded -Wno-covered-switch-default -H
 #COMPILER_SPECIFIC_LDFLAGS += 
 
 ASM_FLAGS += -Wa,-defsym,__UVISION_VERSION=537 -Wa,-defsym,_RTE_=1 -Wa,-defsym,CORSTONE310_FVP=1 -Wa,-defsym,_RTE_=1
 
-LDSCRIPT = linker_SSE310MPS3_secure.ld
-
-LINKER_FLAG += --cpu=Cortex-M85 --fpu=FPv5_D16 *.o --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers --list ".\Listings\Blinky.map" -o Blinky.axf
+LDSCRIPT = ../linker_SSE310MPS3_secure.ld
+#COMPILER_DEFINES += -D__ARMCC_VERSION=6010050
+LINKER_FLAG += -o Blinky.axf -T ../linker_SSE310MPS3_secure.ld
 # --import=".\Out\Blinky_CMSE_Lib.o" \
 # 							--summary_stderr --info summarysizes --map --load_addr_map_info \
 # 							--xref --callgraph --symbols \
@@ -102,7 +102,7 @@ LINKER_FLAG += --cpu=Cortex-M85 --fpu=FPv5_D16 *.o --summary_stderr --info summa
 #endif
 
 ../build/object: $(SRCS)
-	$(CC) $(COMIPLER_CONTROL_STRING) $(MISC_CONTROL) $(INCLUDE_DIRS) $(SRCS)
+	$(CC) $(COMIPLER_CONTROL_STRING) $(COMPILER_DEFINES) $(MISC_CONTROL) $(LINKER_FLAG) $(INCLUDE_DIRS) $(SRCS)
 
 #link: *.o
 #$(LINK) $(LINKER_FLAG) -o $(BIN)
