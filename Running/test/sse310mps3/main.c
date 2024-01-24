@@ -11,5 +11,5 @@ __strong_reference(stdin, stderr);
 int main(void)
 {
 		stdout_init();
-		printf("\r\n= Hello World =\r\n");
+		printf("\r\n= Hello World LLVM2=\r\n");
 }
