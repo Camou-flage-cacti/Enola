@@ -16,10 +16,10 @@
  */
 #define CMSIS_device_header "SSE310MPS3.h"
 
-/* ARM::CMSIS Driver:USART@1.1.0 */
+/* ARM::CMSIS Driver:USART:1.1.0 */
 #define RTE_USART0      1
 
-/* Keil::Compiler&ARM Compiler:I/O:STDOUT&User@1.2.0 */
+/* Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0 */
 #define RTE_Compiler_IO_STDOUT          /* Compiler I/O: STDOUT */
           #define RTE_Compiler_IO_STDOUT_User     /* Compiler I/O: STDOUT User */
 

@@ -22,24 +22,24 @@ Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Running\Simple\Examples\Blinky\ARM\Blinky.uvprojx
-Project File Date:  01/04/2024
+Project File Date:  01/24/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'ARMCLANG'
-compiling uart_cmsdk_drv.c...
-compiling main.c...
 compiling device_definition.c...
+compiling main.c...
+compiling system_SSE310MPS3.c...
 compiling retarget_io.c...
 compiling stdout_USART.c...
-compiling system_SSE310MPS3.c...
-compiling Driver_USART.c...
+compiling uart_cmsdk_drv.c...
 compiling startup_SSE310MPS3.c...
+compiling Driver_USART.c...
 linking...
-.\Objects\Blinky.axf: warning: Your license for feature Keil will expire in 30 days [-Wlicense-management]
+.\Objects\Blinky.axf: warning: Your license for feature Keil will expire in 10 days [-Wlicense-management]
 Program Size: Code=6088 RO-data=1112 RW-data=28 ZI-data=2444  
 FromELF: creating hex file...
-.\Objects\Blinky.hex: Warning: Q9931W: Your license for feature Keil will expire in 30 days
+.\Objects\Blinky.hex: Warning: Q9931W: Your license for feature Keil will expire in 10 days
 Finished: 0 information, 1 warning and 0 error messages.
 ".\Objects\Blinky.axf" - 0 Error(s), 1 Warning(s).
 
@@ -85,40 +85,40 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS Driver:USART:1.1.0
       Include file:  CMSIS_Driver/Driver_USART_Common.h
-      Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
       Source file:   CMSIS_Driver/Driver_USART.c
+      Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
 
    * Component: ARM::CMSIS:CORE:5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:2.0.0
       Source file:   Board/Device_Definition/device_definition.c
-      Include file:  Device/Config/device_cfg.h
       Include file:  Board/Platform/platform_base_address.h
-      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
       Include file:  Board/Device_Definition/device_definition.h
+      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
+      Include file:  Device/Config/device_cfg.h
 
    * Component: ARM::Device:Native Driver:UART:1.1.0
       Source file:   Device/Source/uart_cmsdk_drv.c
       Include file:  Device/Include/uart_cmsdk_drv.h
 
    * Component: ARM::Device:Startup:C Startup:2.0.0
-      Source file:   Device/Source/system_SSE310MPS3.c
-      Source file:   Device/Source/startup_SSE310MPS3.c
-      Include file:  Device/Include/system_SSE310MPS3.h
-      Include file:  Device/Include/region_defs.h
-      Include file:  Device/Include/region_limits.h
       Source file:   Examples/templates/empty_main.c
+      Source file:   Device/Source/startup_SSE310MPS3.c
+      Include file:  Device/Include/region_defs.h
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  Device/Include/region_limits.h
 
    * Component: ARM::Device:UART STDOUT:1.0.0
-      Include file:  Device/Include/stdout_USART.h
       Source file:   Device/Source/stdout_USART.c
+      Include file:  Device/Include/stdout_USART.h
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
-      Source file:   Template/stdout_display.c
       Source file:   Source/retarget_io.c
-      Source file:   Template/stdout_USART.c
       Source file:   Template/stdout_user.c
+      Source file:   Template/stdout_USART.c
+      Source file:   Template/stdout_display.c
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
