@@ -93,7 +93,7 @@ MISC_CONTROL += -Wno-padded -Wno-covered-switch-default -H
 ASM_FLAGS += -Wa,-defsym,__UVISION_VERSION=537 -Wa,-defsym,_RTE_=1 -Wa,-defsym,CORSTONE310_FVP=1 -Wa,-defsym,_RTE_=1
 
 LDSCRIPT = ../linker_SSE310MPS3_secure.ld
-#COMPILER_DEFINES += -D__ARMCC_VERSION=6010050
+COMPILER_DEFINES += -D__ARMCC_VERSION=6010050
 LINKER_FLAG += -o Blinky.axf -T ../linker_SSE310MPS3_secure.ld
 # --import=".\Out\Blinky_CMSE_Lib.o" \
 # 							--summary_stderr --info summarysizes --map --load_addr_map_info \

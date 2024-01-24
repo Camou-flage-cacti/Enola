@@ -1,0 +1,8 @@
+BOARD: HBI0309
+TITLE: Motherboard configuration file
+
+[MCCS]
+MBBIOS: mbb_v220.ebf            ;MB BIOS IMAGE
+
+[APPLICATION NOTE]              ;Please select the required processor
+APPFILE: AN555\an555_v2.txt     ;AN555 Arm® Corstone™ SSE-310 with Cortex®-M85 and Ethos™-U55 Example Subsystem for MPS3

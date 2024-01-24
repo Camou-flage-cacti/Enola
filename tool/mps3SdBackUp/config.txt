@@ -1,0 +1,23 @@
+TITLE: Arm MPS3 FPGA prototyping board configuration file
+
+[CONFIGURATION]
+AUTORUN: FALSE              ;Auto Run from power on
+AUTORUNDELAY: 3             ;Delay in seconds to wait for key press to stop boot up
+RTC: FALSE                  ;TRUE = Enable RTC, False = Disable RTC
+
+UARTMODE: 0                 ;0-MCC:FPGA0, 1-MCC:FPGA1, 2-MCC/FPGA0:FPGA1
+REMAP: BRAM                 ;Boot device BRAM/DDR/QSPI
+FPGA_SMB: TRUE              ;FPGA image supports the MCC SMB interface
+FPGA_SCC: TRUE              ;FPGA image supports the MCC SCC interface
+FMC_FORCE: FALSE            ;Force FMC power ON
+
+DVIMODE: VGA                ;VGA/SVGA/XGA/SXGA/UXGA or HD1080 (MCC sets OSCCLK5)
+
+USERSWITCH: 00000000        ;Userswitch[7:0] in binary
+CONFSWITCH: 00000000        ;Configuration Switch[7:0] in binary
+ASSERTNPOR: TRUE            ;External resets assert nPOR
+WDOGRST: TRUE               ;Watchdog reset options NONE/RESETMB/RESETDB
+
+USB_REMOTE: FALSE           ;Selects remote command via USB
+
+MACADDRESS: 0xFFFFFFFFFFFF  ;MAC Address
