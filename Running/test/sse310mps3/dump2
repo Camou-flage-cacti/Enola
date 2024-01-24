@@ -1,0 +1,1497 @@
+
+output.elf:	file format elf32-littlearm
+
+Disassembly of section .text:
+
+11000000 <__Vectors>:
+11000000: 48 04 00 31 63 0b 00 11         H..1c...
+11000008: 71 0a 00 11 73 0a 00 11         q...s...
+11000010: 75 0a 00 11 77 0a 00 11         u...w...
+11000018: 79 0a 00 11 7b 0a 00 11         y...{...
+11000020: 00 00 00 00 00 00 00 00         ........
+11000028: 00 00 00 00 7d 0a 00 11         ....}...
+11000030: 7f 0a 00 11 00 00 00 00         ........
+11000038: 81 0a 00 11 83 0a 00 11         ........
+11000040: 85 0a 00 11 87 0a 00 11         ........
+11000048: 89 0a 00 11 8b 0a 00 11         ........
+11000050: 8d 0a 00 11 8f 0a 00 11         ........
+11000058: 00 00 00 00 00 00 00 00         ........
+11000060: 00 00 00 00 91 0a 00 11         ........
+11000068: 93 0a 00 11 95 0a 00 11         ........
+11000070: 97 0a 00 11 00 00 00 00         ........
+11000078: 99 0a 00 11 00 00 00 00         ........
+11000080: eb 0a 00 11 00 00 00 00         ........
+11000088: 00 00 00 00 00 00 00 00         ........
+11000090: 00 00 00 00 00 00 00 00         ........
+11000098: 00 00 00 00 00 00 00 00         ........
+110000a0: 00 00 00 00 00 00 00 00         ........
+110000a8: 00 00 00 00 9d 0a 00 11         ........
+110000b0: 9f 0a 00 11 a1 0a 00 11         ........
+110000b8: 00 00 00 00 00 00 00 00         ........
+110000c0: a3 0a 00 11 59 02 00 11         ....Y...
+110000c8: d3 02 00 11 a9 0a 00 11         ........
+110000d0: ab 0a 00 11 ad 0a 00 11         ........
+110000d8: af 0a 00 11 b1 0a 00 11         ........
+110000e0: b3 0a 00 11 b5 0a 00 11         ........
+110000e8: b7 0a 00 11 b9 0a 00 11         ........
+110000f0: bb 0a 00 11 bd 0a 00 11         ........
+110000f8: bf 0a 00 11 c1 0a 00 11         ........
+11000100: c3 0a 00 11 c5 0a 00 11         ........
+11000108: c7 0a 00 11 c9 0a 00 11         ........
+11000110: cb 0a 00 11 cd 0a 00 11         ........
+11000118: cf 0a 00 11 d1 0a 00 11         ........
+11000120: 00 00 00 00 d3 0a 00 11         ........
+11000128: d5 0a 00 11 d7 0a 00 11         ........
+11000130: d9 0a 00 11 db 0a 00 11         ........
+11000138: dd 0a 00 11 df 0a 00 11         ........
+11000140: e1 0a 00 11 e3 0a 00 11         ........
+11000148: e5 0a 00 11 e7 0a 00 11         ........
+11000150: e9 0a 00 11 ed 0a 00 11         ........
+11000158: ef 0a 00 11 f1 0a 00 11         ........
+11000160: f3 0a 00 11 f5 0a 00 11         ........
+11000168: f7 0a 00 11 f9 0a 00 11         ........
+11000170: fb 0a 00 11 fd 0a 00 11         ........
+11000178: ff 0a 00 11 01 0b 00 11         ........
+11000180: 03 0b 00 11 05 0b 00 11         ........
+11000188: 07 0b 00 11 09 0b 00 11         ........
+11000190: 0b 0b 00 11 0d 0b 00 11         ........
+11000198: 0f 0b 00 11 11 0b 00 11         ........
+110001a0: 13 0b 00 11 15 0b 00 11         ........
+110001a8: 17 0b 00 11 19 0b 00 11         ........
+110001b0: 1b 0b 00 11 1d 0b 00 11         ........
+110001b8: 1f 0b 00 11 21 0b 00 11         ....!...
+110001c0: 23 0b 00 11 25 0b 00 11         #...%...
+110001c8: 27 0b 00 11 29 0b 00 11         '...)...
+110001d0: 2b 0b 00 11 2d 0b 00 11         +...-...
+110001d8: 2f 0b 00 11 31 0b 00 11         /...1...
+110001e0: 33 0b 00 11 35 0b 00 11         3...5...
+110001e8: 37 0b 00 11 39 0b 00 11         7...9...
+110001f0: 3b 0b 00 11 3d 0b 00 11         ;...=...
+110001f8: 3f 0b 00 11 41 0b 00 11         ?...A...
+11000200: 43 0b 00 11 45 0b 00 11         C...E...
+11000208: 47 0b 00 11 49 0b 00 11         G...I...
+11000210: 4b 0b 00 11 4d 0b 00 11         K...M...
+11000218: 4f 0b 00 11 51 0b 00 11         O...Q...
+11000220: 53 0b 00 11 55 0b 00 11         S...U...
+11000228: 57 0b 00 11 59 0b 00 11         W...Y...
+11000230: 5b 0b 00 11 5d 0b 00 11         [...]...
+11000238: 5f 0b 00 11 61 0b 00 11         _...a...
+
+11000240 <main>:
+11000240: b580         	push	{r7, lr}
+11000242: 466f         	mov	r7, sp
+11000244: f000 fad2    	bl	0x110007ec <stdout_init> @ imm = #0x5a4
+11000248: f640 40f4    	movw	r0, #0xcf4
+1100024c: f2c1 1000    	movt	r0, #0x1100
+11000250: f000 fd10    	bl	0x11000c74 <puts>       @ imm = #0xa20
+11000254: 2000         	movs	r0, #0x0
+11000256: bd80         	pop	{r7, pc}
+
+11000258 <UARTRX0_Handler>:
+11000258: b5b0         	push	{r4, r5, r7, lr}
+1100025a: af02         	add	r7, sp, #0x8
+1100025c: b082         	sub	sp, #0x8
+1100025e: f240 0018    	movw	r0, #0x18
+11000262: 2100         	movs	r1, #0x0
+11000264: f2c3 1000    	movt	r0, #0x3100
+11000268: f000 fbb4    	bl	0x110009d4 <uart_cmsdk_clear_interrupt> @ imm = #0x768
+1100026c: f240 0438    	movw	r4, #0x38
+11000270: f2c3 1400    	movt	r4, #0x3100
+11000274: 6820         	ldr	r0, [r4]
+11000276: b310         	cbz	r0, 0x110002be <UARTRX0_Handler+0x66> @ imm = #0x44
+11000278: f240 0540    	movw	r5, #0x40
+1100027c: f2c3 1500    	movt	r5, #0x3100
+11000280: 6829         	ldr	r1, [r5]
+11000282: 4401         	add	r1, r0
+11000284: f240 0018    	movw	r0, #0x18
+11000288: f2c3 1000    	movt	r0, #0x3100
+1100028c: f000 fb5a    	bl	0x11000944 <uart_cmsdk_read> @ imm = #0x6b4
+11000290: f240 013c    	movw	r1, #0x3c
+11000294: 6828         	ldr	r0, [r5]
+11000296: f2c3 1100    	movt	r1, #0x3100
+1100029a: 6809         	ldr	r1, [r1]
+1100029c: 3001         	adds	r0, #0x1
+1100029e: 6028         	str	r0, [r5]
+110002a0: 4288         	cmp	r0, r1
+110002a2: d114         	bne	0x110002ce <UARTRX0_Handler+0x76> @ imm = #0x28
+110002a4: 2000         	movs	r0, #0x0
+110002a6: 6020         	str	r0, [r4]
+110002a8: f240 0020    	movw	r0, #0x20
+110002ac: f2c3 1000    	movt	r0, #0x3100
+110002b0: 6801         	ldr	r1, [r0]
+110002b2: b161         	cbz	r1, 0x110002ce <UARTRX0_Handler+0x76> @ imm = #0x18
+110002b4: 2002         	movs	r0, #0x2
+110002b6: b002         	add	sp, #0x8
+110002b8: e8bd 40b0    	pop.w	{r4, r5, r7, lr}
+110002bc: 4708         	bx	r1
+110002be: f240 0018    	movw	r0, #0x18
+110002c2: f1a7 0109    	sub.w	r1, r7, #0x9
+110002c6: f2c3 1000    	movt	r0, #0x3100
+110002ca: f000 fb3b    	bl	0x11000944 <uart_cmsdk_read> @ imm = #0x676
+110002ce: b002         	add	sp, #0x8
+110002d0: bdb0         	pop	{r4, r5, r7, pc}
+
+110002d2 <UARTTX0_Handler>:
+110002d2: b580         	push	{r7, lr}
+110002d4: 466f         	mov	r7, sp
+110002d6: f240 0018    	movw	r0, #0x18
+110002da: 2101         	movs	r1, #0x1
+110002dc: f2c3 1000    	movt	r0, #0x3100
+110002e0: f000 fb78    	bl	0x110009d4 <uart_cmsdk_clear_interrupt> @ imm = #0x6f0
+110002e4: f240 002c    	movw	r0, #0x2c
+110002e8: f2c3 1000    	movt	r0, #0x3100
+110002ec: 6801         	ldr	r1, [r0]
+110002ee: b1c9         	cbz	r1, 0x11000324 <UARTTX0_Handler+0x52> @ imm = #0x32
+110002f0: f240 0334    	movw	r3, #0x34
+110002f4: f2c3 1300    	movt	r3, #0x3100
+110002f8: 681a         	ldr	r2, [r3]
+110002fa: 3201         	adds	r2, #0x1
+110002fc: 601a         	str	r2, [r3]
+110002fe: f240 0330    	movw	r3, #0x30
+11000302: f2c3 1300    	movt	r3, #0x3100
+11000306: 681b         	ldr	r3, [r3]
+11000308: 429a         	cmp	r2, r3
+1100030a: d10c         	bne	0x11000326 <UARTTX0_Handler+0x54> @ imm = #0x18
+1100030c: 2100         	movs	r1, #0x0
+1100030e: 6001         	str	r1, [r0]
+11000310: f240 0020    	movw	r0, #0x20
+11000314: f2c3 1000    	movt	r0, #0x3100
+11000318: 6801         	ldr	r1, [r0]
+1100031a: b119         	cbz	r1, 0x11000324 <UARTTX0_Handler+0x52> @ imm = #0x6
+1100031c: 2001         	movs	r0, #0x1
+1100031e: e8bd 4080    	pop.w	{r7, lr}
+11000322: 4708         	bx	r1
+11000324: bd80         	pop	{r7, pc}
+11000326: f240 0018    	movw	r0, #0x18
+1100032a: 5c89         	ldrb	r1, [r1, r2]
+1100032c: f2c3 1000    	movt	r0, #0x3100
+11000330: e8bd 4080    	pop.w	{r7, lr}
+11000334: f000 bb10    	b.w	0x11000958 <uart_cmsdk_write> @ imm = #0x620
+
+11000338 <ARM_USART_GetVersion>:
+11000338: f240 2004    	movw	r0, #0x204
+1100033c: f2c0 3000    	movt	r0, #0x300
+11000340: 4770         	bx	lr
+
+11000342 <ARM_USART_GetCapabilities>:
+11000342: 2001         	movs	r0, #0x1
+11000344: 4770         	bx	lr
+
+11000346 <Driver_USART0_Initialize>:
+11000346: f240 0128    	movw	r1, #0x28
+1100034a: 2201         	movs	r2, #0x1
+1100034c: f2c3 1100    	movt	r1, #0x3100
+11000350: 700a         	strb	r2, [r1]
+11000352: f240 0120    	movw	r1, #0x20
+11000356: f2c3 1100    	movt	r1, #0x3100
+1100035a: 6008         	str	r0, [r1]
+1100035c: 2000         	movs	r0, #0x0
+1100035e: 4770         	bx	lr
+
+11000360 <Driver_USART0_Uninitialize>:
+11000360: b5b0         	push	{r4, r5, r7, lr}
+11000362: af02         	add	r7, sp, #0x8
+11000364: f240 0528    	movw	r5, #0x28
+11000368: f2c3 1500    	movt	r5, #0x3100
+1100036c: 7828         	ldrb	r0, [r5]
+1100036e: 2801         	cmp	r0, #0x1
+11000370: d125         	bne	0x110003be <Driver_USART0_Uninitialize+0x5e> @ imm = #0x4a
+11000372: f240 0418    	movw	r4, #0x18
+11000376: f2c3 1400    	movt	r4, #0x3100
+1100037a: 4620         	mov	r0, r4
+1100037c: f000 faa1    	bl	0x110008c2 <uart_cmsdk_irq_rx_disable> @ imm = #0x542
+11000380: 4620         	mov	r0, r4
+11000382: f000 faaa    	bl	0x110008da <uart_cmsdk_irq_tx_disable> @ imm = #0x554
+11000386: 4620         	mov	r0, r4
+11000388: f000 fb5d    	bl	0x11000a46 <uart_cmsdk_rx_disable> @ imm = #0x6ba
+1100038c: 4620         	mov	r0, r4
+1100038e: f000 fb40    	bl	0x11000a12 <uart_cmsdk_tx_disable> @ imm = #0x680
+11000392: f24e 1084    	movw	r0, #0xe184
+11000396: 2102         	movs	r1, #0x2
+11000398: f2ce 0000    	movt	r0, #0xe000
+1100039c: 6001         	str	r1, [r0]
+1100039e: 2104         	movs	r1, #0x4
+110003a0: f3bf 8f4f    	dsb	sy
+110003a4: f3bf 8f6f    	isb	sy
+110003a8: 6001         	str	r1, [r0]
+110003aa: f240 0024    	movw	r0, #0x24
+110003ae: f3bf 8f4f    	dsb	sy
+110003b2: f2c3 1000    	movt	r0, #0x3100
+110003b6: 2100         	movs	r1, #0x0
+110003b8: f3bf 8f6f    	isb	sy
+110003bc: 7001         	strb	r1, [r0]
+110003be: f240 0120    	movw	r1, #0x20
+110003c2: 2000         	movs	r0, #0x0
+110003c4: f2c3 1100    	movt	r1, #0x3100
+110003c8: 7028         	strb	r0, [r5]
+110003ca: 6008         	str	r0, [r1]
+110003cc: bdb0         	pop	{r4, r5, r7, pc}
+
+110003ce <Driver_USART0_PowerControl>:
+110003ce: e140         	b	0x11000652 <ARM_USARTx_PowerControl> @ imm = #0x280
+
+110003d0 <Driver_USART0_Send>:
+110003d0: f240 0228    	movw	r2, #0x28
+110003d4: f2c3 1200    	movt	r2, #0x3100
+110003d8: 7813         	ldrb	r3, [r2]
+110003da: f04f 32ff    	mov.w	r2, #0xffffffff
+110003de: 2b01         	cmp	r3, #0x1
+110003e0: d127         	bne	0x11000432 <Driver_USART0_Send+0x62> @ imm = #0x4e
+110003e2: f240 0324    	movw	r3, #0x24
+110003e6: f2c3 1300    	movt	r3, #0x3100
+110003ea: 781b         	ldrb	r3, [r3]
+110003ec: b30b         	cbz	r3, 0x11000432 <Driver_USART0_Send+0x62> @ imm = #0x42
+110003ee: f06f 0204    	mvn	r2, #0x4
+110003f2: b1f0         	cbz	r0, 0x11000432 <Driver_USART0_Send+0x62> @ imm = #0x3c
+110003f4: b1e9         	cbz	r1, 0x11000432 <Driver_USART0_Send+0x62> @ imm = #0x3a
+110003f6: b580         	push	{r7, lr}
+110003f8: 466f         	mov	r7, sp
+110003fa: f240 0230    	movw	r2, #0x30
+110003fe: f2c3 1200    	movt	r2, #0x3100
+11000402: 6011         	str	r1, [r2]
+11000404: f240 012c    	movw	r1, #0x2c
+11000408: f2c3 1100    	movt	r1, #0x3100
+1100040c: 2200         	movs	r2, #0x0
+1100040e: 6008         	str	r0, [r1]
+11000410: f240 0134    	movw	r1, #0x34
+11000414: f2c3 1100    	movt	r1, #0x3100
+11000418: 600a         	str	r2, [r1]
+1100041a: 7801         	ldrb	r1, [r0]
+1100041c: f240 0018    	movw	r0, #0x18
+11000420: f2c3 1000    	movt	r0, #0x3100
+11000424: f000 fa98    	bl	0x11000958 <uart_cmsdk_write> @ imm = #0x530
+11000428: 2800         	cmp	r0, #0x0
+1100042a: ea5f a20f    	csetm	r2, ne
+1100042e: e8bd 4080    	pop.w	{r7, lr}
+11000432: 4610         	mov	r0, r2
+11000434: 4770         	bx	lr
+
+11000436 <Driver_USART0_Receive>:
+11000436: b5f0         	push	{r4, r5, r6, r7, lr}
+11000438: af03         	add	r7, sp, #0xc
+1100043a: e92d 0b00    	push.w	{r8, r9, r11}
+1100043e: b082         	sub	sp, #0x8
+11000440: 4681         	mov	r9, r0
+11000442: f240 0028    	movw	r0, #0x28
+11000446: f2c3 1000    	movt	r0, #0x3100
+1100044a: f04f 34ff    	mov.w	r4, #0xffffffff
+1100044e: 7800         	ldrb	r0, [r0]
+11000450: 2801         	cmp	r0, #0x1
+11000452: d138         	bne	0x110004c6 <Driver_USART0_Receive+0x90> @ imm = #0x70
+11000454: f240 0024    	movw	r0, #0x24
+11000458: f2c3 1000    	movt	r0, #0x3100
+1100045c: 7800         	ldrb	r0, [r0]
+1100045e: b390         	cbz	r0, 0x110004c6 <Driver_USART0_Receive+0x90> @ imm = #0x64
+11000460: f1b9 0f00    	cmp.w	r9, #0x0
+11000464: f06f 0404    	mvn	r4, #0x4
+11000468: bf1c         	itt	ne
+1100046a: 4688         	movne	r8, r1
+1100046c: 2900         	cmpne	r1, #0x0
+1100046e: d02a         	beq	0x110004c6 <Driver_USART0_Receive+0x90> @ imm = #0x54
+11000470: f240 0018    	movw	r0, #0x18
+11000474: 2400         	movs	r4, #0x0
+11000476: f2c3 1000    	movt	r0, #0x3100
+1100047a: f807 4c19    	strb	r4, [r7, #-25]
+1100047e: f000 fa9d    	bl	0x110009bc <uart_cmsdk_rx_ready> @ imm = #0x53a
+11000482: 2801         	cmp	r0, #0x1
+11000484: d10e         	bne	0x110004a4 <Driver_USART0_Receive+0x6e> @ imm = #0x1c
+11000486: f240 0618    	movw	r6, #0x18
+1100048a: f1a7 0519    	sub.w	r5, r7, #0x19
+1100048e: f2c3 1600    	movt	r6, #0x3100
+11000492: 4630         	mov	r0, r6
+11000494: 4629         	mov	r1, r5
+11000496: f000 fa55    	bl	0x11000944 <uart_cmsdk_read> @ imm = #0x4aa
+1100049a: 4630         	mov	r0, r6
+1100049c: f000 fa8e    	bl	0x110009bc <uart_cmsdk_rx_ready> @ imm = #0x51c
+110004a0: 2801         	cmp	r0, #0x1
+110004a2: d0f6         	beq	0x11000492 <Driver_USART0_Receive+0x5c> @ imm = #-0x14
+110004a4: f240 003c    	movw	r0, #0x3c
+110004a8: f2c3 1000    	movt	r0, #0x3100
+110004ac: f8c0 8000    	str.w	r8, [r0]
+110004b0: f240 0038    	movw	r0, #0x38
+110004b4: f2c3 1000    	movt	r0, #0x3100
+110004b8: f8c0 9000    	str.w	r9, [r0]
+110004bc: f240 0040    	movw	r0, #0x40
+110004c0: f2c3 1000    	movt	r0, #0x3100
+110004c4: 6004         	str	r4, [r0]
+110004c6: 4620         	mov	r0, r4
+110004c8: b002         	add	sp, #0x8
+110004ca: e8bd 0b00    	pop.w	{r8, r9, r11}
+110004ce: bdf0         	pop	{r4, r5, r6, r7, pc}
+
+110004d0 <Driver_USART0_Transfer>:
+110004d0: f240 0024    	movw	r0, #0x24
+110004d4: f240 0228    	movw	r2, #0x28
+110004d8: f2c3 1000    	movt	r0, #0x3100
+110004dc: f2c3 1200    	movt	r2, #0x3100
+110004e0: 7800         	ldrb	r0, [r0]
+110004e2: f04f 31ff    	mov.w	r1, #0xffffffff
+110004e6: 2800         	cmp	r0, #0x0
+110004e8: f04f 30ff    	mov.w	r0, #0xffffffff
+110004ec: bf18         	it	ne
+110004ee: f06f 0003    	mvnne	r0, #0x3
+110004f2: 7812         	ldrb	r2, [r2]
+110004f4: 2a00         	cmp	r2, #0x0
+110004f6: ea50 8011    	csel	r0, r0, r1, ne
+110004fa: 4770         	bx	lr
+
+110004fc <Driver_USART0_GetTxCount>:
+110004fc: f240 0034    	movw	r0, #0x34
+11000500: f2c3 1000    	movt	r0, #0x3100
+11000504: 6800         	ldr	r0, [r0]
+11000506: 4770         	bx	lr
+
+11000508 <Driver_USART0_GetRxCount>:
+11000508: f240 0040    	movw	r0, #0x40
+1100050c: f2c3 1000    	movt	r0, #0x3100
+11000510: 6800         	ldr	r0, [r0]
+11000512: 4770         	bx	lr
+
+11000514 <Driver_USART0_Control>:
+11000514: b5d0         	push	{r4, r6, r7, lr}
+11000516: af02         	add	r7, sp, #0x8
+11000518: 4604         	mov	r4, r0
+1100051a: f240 0028    	movw	r0, #0x28
+1100051e: f2c3 1000    	movt	r0, #0x3100
+11000522: 7802         	ldrb	r2, [r0]
+11000524: f04f 30ff    	mov.w	r0, #0xffffffff
+11000528: 2a01         	cmp	r2, #0x1
+1100052a: d166         	bne	0x110005fa <Driver_USART0_Control+0xe6> @ imm = #0xcc
+1100052c: f240 0224    	movw	r2, #0x24
+11000530: f2c3 1200    	movt	r2, #0x3100
+11000534: 7812         	ldrb	r2, [r2]
+11000536: 2a00         	cmp	r2, #0x0
+11000538: d05f         	beq	0x110005fa <Driver_USART0_Control+0xe6> @ imm = #0xbe
+1100053a: f06f 0014    	mvn	r0, #0x14
+1100053e: fa50 f284    	uxtab	r2, r0, r4
+11000542: f06f 0003    	mvn	r0, #0x3
+11000546: 2a04         	cmp	r2, #0x4
+11000548: d80f         	bhi	0x1100056a <Driver_USART0_Control+0x56> @ imm = #0x1e
+1100054a: e8df f002    	tbb	[pc, r2]
+
+1100054e <$d.1>:
+1100054e: 03 2b 56 1b  	.word	0x1b562b03
+11000552: 35 00        	.short	0x0035
+
+11000554 <$t.2>:
+11000554: 2901         	cmp	r1, #0x1
+11000556: d054         	beq	0x11000602 <Driver_USART0_Control+0xee> @ imm = #0xa8
+11000558: 2900         	cmp	r1, #0x0
+1100055a: d14f         	bne	0x110005fc <Driver_USART0_Control+0xe8> @ imm = #0x9e
+1100055c: f240 0018    	movw	r0, #0x18
+11000560: f2c3 1000    	movt	r0, #0x3100
+11000564: f000 fa55    	bl	0x11000a12 <uart_cmsdk_tx_disable> @ imm = #0x4aa
+11000568: e036         	b	0x110005d8 <Driver_USART0_Control+0xc4> @ imm = #0x6c
+1100056a: b2e2         	uxtb	r2, r4
+1100056c: 2a01         	cmp	r2, #0x1
+1100056e: d144         	bne	0x110005fa <Driver_USART0_Control+0xe6> @ imm = #0x88
+11000570: f240 0018    	movw	r0, #0x18
+11000574: f2c3 1000    	movt	r0, #0x3100
+11000578: f000 f9bb    	bl	0x110008f2 <uart_cmsdk_set_baudrate> @ imm = #0x376
+1100057c: b360         	cbz	r0, 0x110005d8 <Driver_USART0_Control+0xc4> @ imm = #0x58
+1100057e: f06f 0007    	mvn	r0, #0x7
+11000582: bdd0         	pop	{r4, r6, r7, pc}
+11000584: f240 0034    	movw	r0, #0x34
+11000588: 2100         	movs	r1, #0x0
+1100058a: f2c3 1000    	movt	r0, #0x3100
+1100058e: 6001         	str	r1, [r0]
+11000590: f240 002c    	movw	r0, #0x2c
+11000594: f2c3 1000    	movt	r0, #0x3100
+11000598: 6001         	str	r1, [r0]
+1100059a: f240 0030    	movw	r0, #0x30
+1100059e: f2c3 1000    	movt	r0, #0x3100
+110005a2: e018         	b	0x110005d6 <Driver_USART0_Control+0xc2> @ imm = #0x30
+110005a4: 2901         	cmp	r1, #0x1
+110005a6: d033         	beq	0x11000610 <Driver_USART0_Control+0xfc> @ imm = #0x66
+110005a8: bb41         	cbnz	r1, 0x110005fc <Driver_USART0_Control+0xe8> @ imm = #0x50
+110005aa: f240 0018    	movw	r0, #0x18
+110005ae: f2c3 1000    	movt	r0, #0x3100
+110005b2: f000 fa48    	bl	0x11000a46 <uart_cmsdk_rx_disable> @ imm = #0x490
+110005b6: e00f         	b	0x110005d8 <Driver_USART0_Control+0xc4> @ imm = #0x1e
+110005b8: f240 0040    	movw	r0, #0x40
+110005bc: 2100         	movs	r1, #0x0
+110005be: f2c3 1000    	movt	r0, #0x3100
+110005c2: 6001         	str	r1, [r0]
+110005c4: f240 0038    	movw	r0, #0x38
+110005c8: f2c3 1000    	movt	r0, #0x3100
+110005cc: 6001         	str	r1, [r0]
+110005ce: f240 003c    	movw	r0, #0x3c
+110005d2: f2c3 1000    	movt	r0, #0x3100
+110005d6: 6001         	str	r1, [r0]
+110005d8: f414 6fe0    	tst.w	r4, #0x700
+110005dc: bf1c         	itt	ne
+110005de: f06f 0003    	mvnne	r0, #0x3
+110005e2: bdd0         	popne	{r4, r6, r7, pc}
+110005e4: f414 5f40    	tst.w	r4, #0x3000
+110005e8: bf1c         	itt	ne
+110005ea: f06f 0009    	mvnne	r0, #0x9
+110005ee: bdd0         	popne	{r4, r6, r7, pc}
+110005f0: f414 4040    	ands	r0, r4, #0xc000
+110005f4: bf18         	it	ne
+110005f6: f06f 000a    	mvnne	r0, #0xa
+110005fa: bdd0         	pop	{r4, r6, r7, pc}
+110005fc: f06f 0004    	mvn	r0, #0x4
+11000600: bdd0         	pop	{r4, r6, r7, pc}
+11000602: f240 0018    	movw	r0, #0x18
+11000606: f2c3 1000    	movt	r0, #0x3100
+1100060a: f000 f9f4    	bl	0x110009f6 <uart_cmsdk_tx_enable> @ imm = #0x3e8
+1100060e: e005         	b	0x1100061c <Driver_USART0_Control+0x108> @ imm = #0xa
+11000610: f240 0018    	movw	r0, #0x18
+11000614: f2c3 1000    	movt	r0, #0x3100
+11000618: f000 fa07    	bl	0x11000a2a <uart_cmsdk_rx_enable> @ imm = #0x40e
+1100061c: 2800         	cmp	r0, #0x0
+1100061e: d0db         	beq	0x110005d8 <Driver_USART0_Control+0xc4> @ imm = #-0x4a
+11000620: f04f 30ff    	mov.w	r0, #0xffffffff
+11000624: bdd0         	pop	{r4, r6, r7, pc}
+
+11000626 <Driver_USART0_GetStatus>:
+11000626: f240 0038    	movw	r0, #0x38
+1100062a: f2c3 1000    	movt	r0, #0x3100
+1100062e: 6801         	ldr	r1, [r0]
+11000630: f240 002c    	movw	r0, #0x2c
+11000634: f2c3 1000    	movt	r0, #0x3100
+11000638: 6800         	ldr	r0, [r0]
+1100063a: 2800         	cmp	r0, #0x0
+1100063c: ea5f 900f    	cset	r0, ne
+11000640: 2900         	cmp	r1, #0x0
+11000642: bf18         	it	ne
+11000644: 3002         	addne	r0, #0x2
+11000646: 4770         	bx	lr
+
+11000648 <Driver_USART0_SetModemControl>:
+11000648: f06f 0003    	mvn	r0, #0x3
+1100064c: 4770         	bx	lr
+
+1100064e <Driver_USART0_GetModemStatus>:
+1100064e: 2000         	movs	r0, #0x0
+11000650: 4770         	bx	lr
+
+11000652 <ARM_USARTx_PowerControl>:
+11000652: b5b0         	push	{r4, r5, r7, lr}
+11000654: af02         	add	r7, sp, #0x8
+11000656: f240 0128    	movw	r1, #0x28
+1100065a: f2c3 1100    	movt	r1, #0x3100
+1100065e: 7809         	ldrb	r1, [r1]
+11000660: 2901         	cmp	r1, #0x1
+11000662: d12d         	bne	0x110006c0 <ARM_USARTx_PowerControl+0x6e> @ imm = #0x5a
+11000664: 2802         	cmp	r0, #0x2
+11000666: d031         	beq	0x110006cc <ARM_USARTx_PowerControl+0x7a> @ imm = #0x62
+11000668: 2801         	cmp	r0, #0x1
+1100066a: d02c         	beq	0x110006c6 <ARM_USARTx_PowerControl+0x74> @ imm = #0x58
+1100066c: bb40         	cbnz	r0, 0x110006c0 <ARM_USARTx_PowerControl+0x6e> @ imm = #0x50
+1100066e: f240 0418    	movw	r4, #0x18
+11000672: f2c3 1400    	movt	r4, #0x3100
+11000676: 4620         	mov	r0, r4
+11000678: f000 f923    	bl	0x110008c2 <uart_cmsdk_irq_rx_disable> @ imm = #0x246
+1100067c: 4620         	mov	r0, r4
+1100067e: f000 f92c    	bl	0x110008da <uart_cmsdk_irq_tx_disable> @ imm = #0x258
+11000682: 4620         	mov	r0, r4
+11000684: f000 f9df    	bl	0x11000a46 <uart_cmsdk_rx_disable> @ imm = #0x3be
+11000688: 4620         	mov	r0, r4
+1100068a: f000 f9c2    	bl	0x11000a12 <uart_cmsdk_tx_disable> @ imm = #0x384
+1100068e: f24e 1004    	movw	r0, #0xe104
+11000692: 2102         	movs	r1, #0x2
+11000694: f2ce 0000    	movt	r0, #0xe000
+11000698: f8c0 1080    	str.w	r1, [r0, #0x80]
+1100069c: 2104         	movs	r1, #0x4
+1100069e: f3bf 8f4f    	dsb	sy
+110006a2: f3bf 8f6f    	isb	sy
+110006a6: f8c0 1080    	str.w	r1, [r0, #0x80]
+110006aa: f240 0124    	movw	r1, #0x24
+110006ae: f3bf 8f4f    	dsb	sy
+110006b2: 2000         	movs	r0, #0x0
+110006b4: f2c3 1100    	movt	r1, #0x3100
+110006b8: f3bf 8f6f    	isb	sy
+110006bc: 7008         	strb	r0, [r1]
+110006be: bdb0         	pop	{r4, r5, r7, pc}
+110006c0: f04f 30ff    	mov.w	r0, #0xffffffff
+110006c4: bdb0         	pop	{r4, r5, r7, pc}
+110006c6: f06f 0003    	mvn	r0, #0x3
+110006ca: bdb0         	pop	{r4, r5, r7, pc}
+110006cc: f240 0524    	movw	r5, #0x24
+110006d0: f2c3 1500    	movt	r5, #0x3100
+110006d4: 7828         	ldrb	r0, [r5]
+110006d6: b9f8         	cbnz	r0, 0x11000718 <ARM_USARTx_PowerControl+0xc6> @ imm = #0x3e
+110006d8: f240 0014    	movw	r0, #0x14
+110006dc: f240 0418    	movw	r4, #0x18
+110006e0: f2c3 1000    	movt	r0, #0x3100
+110006e4: f2c3 1400    	movt	r4, #0x3100
+110006e8: 6801         	ldr	r1, [r0]
+110006ea: 4620         	mov	r0, r4
+110006ec: f000 f8b6    	bl	0x1100085c <uart_cmsdk_init> @ imm = #0x16c
+110006f0: f24e 1004    	movw	r0, #0xe104
+110006f4: 2102         	movs	r1, #0x2
+110006f6: f2ce 0000    	movt	r0, #0xe000
+110006fa: 2204         	movs	r2, #0x4
+110006fc: f8c0 1180    	str.w	r1, [r0, #0x180]
+11000700: f8c0 2180    	str.w	r2, [r0, #0x180]
+11000704: 6001         	str	r1, [r0]
+11000706: 6002         	str	r2, [r0]
+11000708: 4620         	mov	r0, r4
+1100070a: f000 f949    	bl	0x110009a0 <uart_cmsdk_irq_rx_enable> @ imm = #0x292
+1100070e: 4620         	mov	r0, r4
+11000710: f000 f92b    	bl	0x1100096a <uart_cmsdk_irq_tx_enable> @ imm = #0x256
+11000714: 2001         	movs	r0, #0x1
+11000716: 7028         	strb	r0, [r5]
+11000718: 2000         	movs	r0, #0x0
+1100071a: bdb0         	pop	{r4, r5, r7, pc}
+
+1100071c <_sys_open>:
+1100071c: b320         	cbz	r0, 0x11000768 <_sys_open+0x4c> @ imm = #0x48
+1100071e: b5d0         	push	{r4, r6, r7, lr}
+11000720: af02         	add	r7, sp, #0x8
+11000722: 4604         	mov	r4, r0
+11000724: 7800         	ldrb	r0, [r0]
+11000726: 283a         	cmp	r0, #0x3a
+11000728: d121         	bne	0x1100076e <_sys_open+0x52> @ imm = #0x42
+1100072a: f640 5140    	movw	r1, #0xd40
+1100072e: 4620         	mov	r0, r4
+11000730: f2c1 1100    	movt	r1, #0x1100
+11000734: f000 fac6    	bl	0x11000cc4 <strcmp>     @ imm = #0x58c
+11000738: b1e0         	cbz	r0, 0x11000774 <_sys_open+0x58> @ imm = #0x38
+1100073a: f640 5147    	movw	r1, #0xd47
+1100073e: 4620         	mov	r0, r4
+11000740: f2c1 1100    	movt	r1, #0x1100
+11000744: f000 fabe    	bl	0x11000cc4 <strcmp>     @ imm = #0x57c
+11000748: b1b8         	cbz	r0, 0x1100077a <_sys_open+0x5e> @ imm = #0x2e
+1100074a: f640 514f    	movw	r1, #0xd4f
+1100074e: 4620         	mov	r0, r4
+11000750: f2c1 1100    	movt	r1, #0x1100
+11000754: f000 fab6    	bl	0x11000cc4 <strcmp>     @ imm = #0x56c
+11000758: 4601         	mov	r1, r0
+1100075a: f04f 30ff    	mov.w	r0, #0xffffffff
+1100075e: 2900         	cmp	r1, #0x0
+11000760: bf08         	it	eq
+11000762: f248 0003    	movweq	r0, #0x8003
+11000766: bdd0         	pop	{r4, r6, r7, pc}
+11000768: f04f 30ff    	mov.w	r0, #0xffffffff
+1100076c: 4770         	bx	lr
+1100076e: f04f 30ff    	mov.w	r0, #0xffffffff
+11000772: bdd0         	pop	{r4, r6, r7, pc}
+11000774: f248 0001    	movw	r0, #0x8001
+11000778: bdd0         	pop	{r4, r6, r7, pc}
+1100077a: f248 0002    	movw	r0, #0x8002
+1100077e: bdd0         	pop	{r4, r6, r7, pc}
+
+11000780 <_sys_close>:
+11000780: f248 0104    	movw	r1, #0x8004
+11000784: 1a40         	subs	r0, r0, r1
+11000786: f110 0f03    	cmn.w	r0, #0x3
+1100078a: ea5f a02f    	csetm	r0, lo
+1100078e: 4770         	bx	lr
+
+11000790 <_sys_write>:
+11000790: b5b0         	push	{r4, r5, r7, lr}
+11000792: af02         	add	r7, sp, #0x8
+11000794: 460d         	mov	r5, r1
+11000796: f248 0103    	movw	r1, #0x8003
+1100079a: 4288         	cmp	r0, r1
+1100079c: d00b         	beq	0x110007b6 <_sys_write+0x26> @ imm = #0x16
+1100079e: f248 0102    	movw	r1, #0x8002
+110007a2: 4288         	cmp	r0, r1
+110007a4: d109         	bne	0x110007ba <_sys_write+0x2a> @ imm = #0x12
+110007a6: 4614         	mov	r4, r2
+110007a8: b12a         	cbz	r2, 0x110007b6 <_sys_write+0x26> @ imm = #0xa
+110007aa: f815 0b01    	ldrb	r0, [r5], #1
+110007ae: f000 f83b    	bl	0x11000828 <stdout_putchar> @ imm = #0x76
+110007b2: 3c01         	subs	r4, #0x1
+110007b4: d1f9         	bne	0x110007aa <_sys_write+0x1a> @ imm = #-0xe
+110007b6: 2000         	movs	r0, #0x0
+110007b8: bdb0         	pop	{r4, r5, r7, pc}
+110007ba: f04f 30ff    	mov.w	r0, #0xffffffff
+110007be: bdb0         	pop	{r4, r5, r7, pc}
+
+110007c0 <_sys_read>:
+110007c0: f04f 31ff    	mov.w	r1, #0xffffffff
+110007c4: f248 0301    	movw	r3, #0x8001
+110007c8: 4298         	cmp	r0, r3
+110007ca: bf08         	it	eq
+110007cc: f042 4100    	orreq	r1, r2, #0x80000000
+110007d0: 4608         	mov	r0, r1
+110007d2: 4770         	bx	lr
+
+110007d4 <_sys_istty>:
+110007d4: f248 0101    	movw	r1, #0x8001
+110007d8: 1a40         	subs	r0, r0, r1
+110007da: 2803         	cmp	r0, #0x3
+110007dc: ea5f 902f    	cset	r0, lo
+110007e0: 4770         	bx	lr
+
+110007e2 <_sys_seek>:
+110007e2: f04f 30ff    	mov.w	r0, #0xffffffff
+110007e6: 4770         	bx	lr
+
+110007e8 <_sys_flen>:
+110007e8: 2000         	movs	r0, #0x0
+110007ea: 4770         	bx	lr
+
+110007ec <stdout_init>:
+110007ec: b5d0         	push	{r4, r6, r7, lr}
+110007ee: af02         	add	r7, sp, #0x8
+110007f0: f640 5408    	movw	r4, #0xd08
+110007f4: 2000         	movs	r0, #0x0
+110007f6: f2c1 1400    	movt	r4, #0x1100
+110007fa: 68a1         	ldr	r1, [r4, #0x8]
+110007fc: 4788         	blx	r1
+110007fe: b948         	cbnz	r0, 0x11000814 <stdout_init+0x28> @ imm = #0x12
+11000800: 6921         	ldr	r1, [r4, #0x10]
+11000802: 2002         	movs	r0, #0x2
+11000804: 4788         	blx	r1
+11000806: b928         	cbnz	r0, 0x11000814 <stdout_init+0x28> @ imm = #0xa
+11000808: 6aa4         	ldr	r4, [r4, #0x28]
+1100080a: 2001         	movs	r0, #0x1
+1100080c: f44f 31e1    	mov.w	r1, #0x1c200
+11000810: 47a0         	blx	r4
+11000812: b110         	cbz	r0, 0x1100081a <stdout_init+0x2e> @ imm = #0x4
+11000814: f04f 30ff    	mov.w	r0, #0xffffffff
+11000818: bdd0         	pop	{r4, r6, r7, pc}
+1100081a: 2015         	movs	r0, #0x15
+1100081c: 2101         	movs	r1, #0x1
+1100081e: 47a0         	blx	r4
+11000820: 2800         	cmp	r0, #0x0
+11000822: ea5f a00f    	csetm	r0, ne
+11000826: bdd0         	pop	{r4, r6, r7, pc}
+
+11000828 <stdout_putchar>:
+11000828: b5b0         	push	{r4, r5, r7, lr}
+1100082a: af02         	add	r7, sp, #0x8
+1100082c: b082         	sub	sp, #0x8
+1100082e: f640 5508    	movw	r5, #0xd08
+11000832: 4604         	mov	r4, r0
+11000834: f2c1 1500    	movt	r5, #0x1100
+11000838: f807 0c09    	strb	r0, [r7, #-9]
+1100083c: 696a         	ldr	r2, [r5, #0x14]
+1100083e: f1a7 0009    	sub.w	r0, r7, #0x9
+11000842: 2101         	movs	r1, #0x1
+11000844: 4790         	blx	r2
+11000846: b110         	cbz	r0, 0x1100084e <stdout_putchar+0x26> @ imm = #0x4
+11000848: f04f 34ff    	mov.w	r4, #0xffffffff
+1100084c: e003         	b	0x11000856 <stdout_putchar+0x2e> @ imm = #0x6
+1100084e: 6a2d         	ldr	r5, [r5, #0x20]
+11000850: 47a8         	blx	r5
+11000852: 2801         	cmp	r0, #0x1
+11000854: d1fc         	bne	0x11000850 <stdout_putchar+0x28> @ imm = #-0x8
+11000856: 4620         	mov	r0, r4
+11000858: b002         	add	sp, #0x8
+1100085a: bdb0         	pop	{r4, r5, r7, pc}
+
+1100085c <uart_cmsdk_init>:
+1100085c: b5d0         	push	{r4, r6, r7, lr}
+1100085e: af02         	add	r7, sp, #0x8
+11000860: 4686         	mov	lr, r0
+11000862: 2001         	movs	r0, #0x1
+11000864: b191         	cbz	r1, 0x1100088c <uart_cmsdk_init+0x30> @ imm = #0x24
+11000866: e9de 3c00    	ldrd	r3, r12, [lr]
+1100086a: e9d3 3200    	ldrd	r3, r2, [r3]
+1100086e: fbb1 f4f2    	udiv	r4, r1, r2
+11000872: 611c         	str	r4, [r3, #0x10]
+11000874: e9cc 1201    	strd	r1, r2, [r12, #4]
+11000878: 6899         	ldr	r1, [r3, #0x8]
+1100087a: f021 0103    	bic	r1, r1, #0x3
+1100087e: 6099         	str	r1, [r3, #0x8]
+11000880: 2103         	movs	r1, #0x3
+11000882: 60d9         	str	r1, [r3, #0xc]
+11000884: f8de 1004    	ldr.w	r1, [lr, #0x4]
+11000888: 6008         	str	r0, [r1]
+1100088a: 2000         	movs	r0, #0x0
+1100088c: bdd0         	pop	{r4, r6, r7, pc}
+
+1100088e <uart_cmsdk_uninit>:
+1100088e: 6841         	ldr	r1, [r0, #0x4]
+11000890: 7809         	ldrb	r1, [r1]
+11000892: 07c9         	lsls	r1, r1, #0x1f
+11000894: bf08         	it	eq
+11000896: 4770         	bxeq	lr
+11000898: 6800         	ldr	r0, [r0]
+1100089a: 6800         	ldr	r0, [r0]
+1100089c: 6881         	ldr	r1, [r0, #0x8]
+1100089e: f021 0108    	bic	r1, r1, #0x8
+110008a2: 6081         	str	r1, [r0, #0x8]
+110008a4: 6881         	ldr	r1, [r0, #0x8]
+110008a6: f021 0104    	bic	r1, r1, #0x4
+110008aa: 6081         	str	r1, [r0, #0x8]
+110008ac: 2103         	movs	r1, #0x3
+110008ae: 60c1         	str	r1, [r0, #0xc]
+110008b0: 6881         	ldr	r1, [r0, #0x8]
+110008b2: f021 0103    	bic	r1, r1, #0x3
+110008b6: 6081         	str	r1, [r0, #0x8]
+110008b8: 6841         	ldr	r1, [r0, #0x4]
+110008ba: f041 010c    	orr	r1, r1, #0xc
+110008be: 6041         	str	r1, [r0, #0x4]
+110008c0: 4770         	bx	lr
+
+110008c2 <uart_cmsdk_irq_rx_disable>:
+110008c2: 6841         	ldr	r1, [r0, #0x4]
+110008c4: 7809         	ldrb	r1, [r1]
+110008c6: 07c9         	lsls	r1, r1, #0x1f
+110008c8: bf08         	it	eq
+110008ca: 4770         	bxeq	lr
+110008cc: 6800         	ldr	r0, [r0]
+110008ce: 6800         	ldr	r0, [r0]
+110008d0: 6881         	ldr	r1, [r0, #0x8]
+110008d2: f021 0108    	bic	r1, r1, #0x8
+110008d6: 6081         	str	r1, [r0, #0x8]
+110008d8: 4770         	bx	lr
+
+110008da <uart_cmsdk_irq_tx_disable>:
+110008da: 6841         	ldr	r1, [r0, #0x4]
+110008dc: 7809         	ldrb	r1, [r1]
+110008de: 07c9         	lsls	r1, r1, #0x1f
+110008e0: bf08         	it	eq
+110008e2: 4770         	bxeq	lr
+110008e4: 6800         	ldr	r0, [r0]
+110008e6: 6800         	ldr	r0, [r0]
+110008e8: 6881         	ldr	r1, [r0, #0x8]
+110008ea: f021 0104    	bic	r1, r1, #0x4
+110008ee: 6081         	str	r1, [r0, #0x8]
+110008f0: 4770         	bx	lr
+
+110008f2 <uart_cmsdk_set_baudrate>:
+110008f2: b151         	cbz	r1, 0x1100090a <uart_cmsdk_set_baudrate+0x18> @ imm = #0x14
+110008f4: 6842         	ldr	r2, [r0, #0x4]
+110008f6: 7813         	ldrb	r3, [r2]
+110008f8: 07db         	lsls	r3, r3, #0x1f
+110008fa: bf04         	itt	eq
+110008fc: 2003         	moveq	r0, #0x3
+110008fe: 4770         	bxeq	lr
+11000900: 6853         	ldr	r3, [r2, #0x4]
+11000902: fbb3 f3f1    	udiv	r3, r3, r1
+11000906: 2b10         	cmp	r3, #0x10
+11000908: d201         	bhs	0x1100090e <uart_cmsdk_set_baudrate+0x1c> @ imm = #0x2
+1100090a: 2002         	movs	r0, #0x2
+1100090c: 4770         	bx	lr
+1100090e: 6800         	ldr	r0, [r0]
+11000910: 6800         	ldr	r0, [r0]
+11000912: 6103         	str	r3, [r0, #0x10]
+11000914: 2000         	movs	r0, #0x0
+11000916: 6091         	str	r1, [r2, #0x8]
+11000918: 4770         	bx	lr
+
+1100091a <uart_cmsdk_get_baudrate>:
+1100091a: 6840         	ldr	r0, [r0, #0x4]
+1100091c: 6880         	ldr	r0, [r0, #0x8]
+1100091e: 4770         	bx	lr
+
+11000920 <uart_cmsdk_set_clock>:
+11000920: b171         	cbz	r1, 0x11000940 <uart_cmsdk_set_clock+0x20> @ imm = #0x1c
+11000922: 6842         	ldr	r2, [r0, #0x4]
+11000924: 7813         	ldrb	r3, [r2]
+11000926: 07db         	lsls	r3, r3, #0x1f
+11000928: bf04         	itt	eq
+1100092a: 2003         	moveq	r0, #0x3
+1100092c: 4770         	bxeq	lr
+1100092e: 6800         	ldr	r0, [r0]
+11000930: 6051         	str	r1, [r2, #0x4]
+11000932: 6892         	ldr	r2, [r2, #0x8]
+11000934: 6800         	ldr	r0, [r0]
+11000936: fbb1 f1f2    	udiv	r1, r1, r2
+1100093a: 6101         	str	r1, [r0, #0x10]
+1100093c: 2000         	movs	r0, #0x0
+1100093e: 4770         	bx	lr
+11000940: 2001         	movs	r0, #0x1
+11000942: 4770         	bx	lr
+
+11000944 <uart_cmsdk_read>:
+11000944: 6800         	ldr	r0, [r0]
+11000946: 6800         	ldr	r0, [r0]
+11000948: 6842         	ldr	r2, [r0, #0x4]
+1100094a: 0792         	lsls	r2, r2, #0x1e
+1100094c: bf51         	iteee	pl
+1100094e: 2004         	movpl	r0, #0x4
+11000950: 6800         	ldrmi	r0, [r0]
+11000952: 7008         	strbmi	r0, [r1]
+11000954: 2000         	movmi	r0, #0x0
+11000956: 4770         	bx	lr
+
+11000958 <uart_cmsdk_write>:
+11000958: 6800         	ldr	r0, [r0]
+1100095a: 6800         	ldr	r0, [r0]
+1100095c: 6842         	ldr	r2, [r0, #0x4]
+1100095e: 07d2         	lsls	r2, r2, #0x1f
+11000960: bf12         	itee	ne
+11000962: 2004         	movne	r0, #0x4
+11000964: 6001         	streq	r1, [r0]
+11000966: 2000         	moveq	r0, #0x0
+11000968: 4770         	bx	lr
+
+1100096a <uart_cmsdk_irq_tx_enable>:
+1100096a: 6841         	ldr	r1, [r0, #0x4]
+1100096c: 7809         	ldrb	r1, [r1]
+1100096e: 07c9         	lsls	r1, r1, #0x1f
+11000970: bf04         	itt	eq
+11000972: 2003         	moveq	r0, #0x3
+11000974: 4770         	bxeq	lr
+11000976: 6800         	ldr	r0, [r0]
+11000978: 6800         	ldr	r0, [r0]
+1100097a: 6881         	ldr	r1, [r0, #0x8]
+1100097c: f041 0104    	orr	r1, r1, #0x4
+11000980: 6081         	str	r1, [r0, #0x8]
+11000982: 2000         	movs	r0, #0x0
+11000984: 4770         	bx	lr
+
+11000986 <uart_cmsdk_tx_ready>:
+11000986: 6841         	ldr	r1, [r0, #0x4]
+11000988: 7809         	ldrb	r1, [r1]
+1100098a: 07c9         	lsls	r1, r1, #0x1f
+1100098c: bf04         	itt	eq
+1100098e: 2000         	moveq	r0, #0x0
+11000990: 4770         	bxeq	lr
+11000992: 6800         	ldr	r0, [r0]
+11000994: 2101         	movs	r1, #0x1
+11000996: 6800         	ldr	r0, [r0]
+11000998: 6840         	ldr	r0, [r0, #0x4]
+1100099a: ea21 0000    	bic.w	r0, r1, r0
+1100099e: 4770         	bx	lr
+
+110009a0 <uart_cmsdk_irq_rx_enable>:
+110009a0: 6841         	ldr	r1, [r0, #0x4]
+110009a2: 7809         	ldrb	r1, [r1]
+110009a4: 07c9         	lsls	r1, r1, #0x1f
+110009a6: bf04         	itt	eq
+110009a8: 2003         	moveq	r0, #0x3
+110009aa: 4770         	bxeq	lr
+110009ac: 6800         	ldr	r0, [r0]
+110009ae: 6800         	ldr	r0, [r0]
+110009b0: 6881         	ldr	r1, [r0, #0x8]
+110009b2: f041 0108    	orr	r1, r1, #0x8
+110009b6: 6081         	str	r1, [r0, #0x8]
+110009b8: 2000         	movs	r0, #0x0
+110009ba: 4770         	bx	lr
+
+110009bc <uart_cmsdk_rx_ready>:
+110009bc: 6841         	ldr	r1, [r0, #0x4]
+110009be: 7809         	ldrb	r1, [r1]
+110009c0: 07c9         	lsls	r1, r1, #0x1f
+110009c2: bf04         	itt	eq
+110009c4: 2000         	moveq	r0, #0x0
+110009c6: 4770         	bxeq	lr
+110009c8: 6800         	ldr	r0, [r0]
+110009ca: 6800         	ldr	r0, [r0]
+110009cc: 6840         	ldr	r0, [r0, #0x4]
+110009ce: f000 0002    	and	r0, r0, #0x2
+110009d2: 4770         	bx	lr
+
+110009d4 <uart_cmsdk_clear_interrupt>:
+110009d4: 6842         	ldr	r2, [r0, #0x4]
+110009d6: 7812         	ldrb	r2, [r2]
+110009d8: 07d2         	lsls	r2, r2, #0x1f
+110009da: d00b         	beq	0x110009f4 <uart_cmsdk_clear_interrupt+0x20> @ imm = #0x16
+110009dc: 2902         	cmp	r1, #0x2
+110009de: bf88         	it	hi
+110009e0: 4770         	bxhi	lr
+110009e2: 6800         	ldr	r0, [r0]
+110009e4: f640 5258    	movw	r2, #0xd58
+110009e8: f2c1 1200    	movt	r2, #0x1100
+110009ec: f852 1021    	ldr.w	r1, [r2, r1, lsl #2]
+110009f0: 6800         	ldr	r0, [r0]
+110009f2: 60c1         	str	r1, [r0, #0xc]
+110009f4: 4770         	bx	lr
+
+110009f6 <uart_cmsdk_tx_enable>:
+110009f6: 6841         	ldr	r1, [r0, #0x4]
+110009f8: 7809         	ldrb	r1, [r1]
+110009fa: 07c9         	lsls	r1, r1, #0x1f
+110009fc: bf04         	itt	eq
+110009fe: 2003         	moveq	r0, #0x3
+11000a00: 4770         	bxeq	lr
+11000a02: 6800         	ldr	r0, [r0]
+11000a04: 6800         	ldr	r0, [r0]
+11000a06: 6881         	ldr	r1, [r0, #0x8]
+11000a08: f041 0101    	orr	r1, r1, #0x1
+11000a0c: 6081         	str	r1, [r0, #0x8]
+11000a0e: 2000         	movs	r0, #0x0
+11000a10: 4770         	bx	lr
+
+11000a12 <uart_cmsdk_tx_disable>:
+11000a12: 6841         	ldr	r1, [r0, #0x4]
+11000a14: 7809         	ldrb	r1, [r1]
+11000a16: 07c9         	lsls	r1, r1, #0x1f
+11000a18: bf08         	it	eq
+11000a1a: 4770         	bxeq	lr
+11000a1c: 6800         	ldr	r0, [r0]
+11000a1e: 6800         	ldr	r0, [r0]
+11000a20: 6881         	ldr	r1, [r0, #0x8]
+11000a22: f021 0101    	bic	r1, r1, #0x1
+11000a26: 6081         	str	r1, [r0, #0x8]
+11000a28: 4770         	bx	lr
+
+11000a2a <uart_cmsdk_rx_enable>:
+11000a2a: 6841         	ldr	r1, [r0, #0x4]
+11000a2c: 7809         	ldrb	r1, [r1]
+11000a2e: 07c9         	lsls	r1, r1, #0x1f
+11000a30: bf04         	itt	eq
+11000a32: 2003         	moveq	r0, #0x3
+11000a34: 4770         	bxeq	lr
+11000a36: 6800         	ldr	r0, [r0]
+11000a38: 6800         	ldr	r0, [r0]
+11000a3a: 6881         	ldr	r1, [r0, #0x8]
+11000a3c: f041 0102    	orr	r1, r1, #0x2
+11000a40: 6081         	str	r1, [r0, #0x8]
+11000a42: 2000         	movs	r0, #0x0
+11000a44: 4770         	bx	lr
+
+11000a46 <uart_cmsdk_rx_disable>:
+11000a46: 6841         	ldr	r1, [r0, #0x4]
+11000a48: 7809         	ldrb	r1, [r1]
+11000a4a: 07c9         	lsls	r1, r1, #0x1f
+11000a4c: bf08         	it	eq
+11000a4e: 4770         	bxeq	lr
+11000a50: 6800         	ldr	r0, [r0]
+11000a52: 6800         	ldr	r0, [r0]
+11000a54: 6881         	ldr	r1, [r0, #0x8]
+11000a56: f021 0102    	bic	r1, r1, #0x2
+11000a5a: 6081         	str	r1, [r0, #0x8]
+11000a5c: 4770         	bx	lr
+
+11000a5e <uart_cmsdk_rx_overrun_clear>:
+11000a5e: 6841         	ldr	r1, [r0, #0x4]
+11000a60: 7809         	ldrb	r1, [r1]
+11000a62: 07c9         	lsls	r1, r1, #0x1f
+11000a64: bf1f         	itttt	ne
+11000a66: 6800         	ldrne	r0, [r0]
+11000a68: 6800         	ldrne	r0, [r0]
+11000a6a: 2108         	movne	r1, #0x8
+11000a6c: 6041         	strne	r1, [r0, #0x4]
+11000a6e: 4770         	bx	lr
+
+11000a70 <NMI_Handler>:
+11000a70: e7fe         	b	0x11000a70 <NMI_Handler> @ imm = #-0x4
+
+11000a72 <HardFault_Handler>:
+11000a72: e7fe         	b	0x11000a72 <HardFault_Handler> @ imm = #-0x4
+
+11000a74 <MemManage_Handler>:
+11000a74: e7fe         	b	0x11000a74 <MemManage_Handler> @ imm = #-0x4
+
+11000a76 <BusFault_Handler>:
+11000a76: e7fe         	b	0x11000a76 <BusFault_Handler> @ imm = #-0x4
+
+11000a78 <UsageFault_Handler>:
+11000a78: e7fe         	b	0x11000a78 <UsageFault_Handler> @ imm = #-0x4
+
+11000a7a <SecureFault_Handler>:
+11000a7a: e7fe         	b	0x11000a7a <SecureFault_Handler> @ imm = #-0x4
+
+11000a7c <SVC_Handler>:
+11000a7c: e7fe         	b	0x11000a7c <SVC_Handler> @ imm = #-0x4
+
+11000a7e <DebugMon_Handler>:
+11000a7e: e7fe         	b	0x11000a7e <DebugMon_Handler> @ imm = #-0x4
+
+11000a80 <PendSV_Handler>:
+11000a80: e7fe         	b	0x11000a80 <PendSV_Handler> @ imm = #-0x4
+
+11000a82 <SysTick_Handler>:
+11000a82: e7fe         	b	0x11000a82 <SysTick_Handler> @ imm = #-0x4
+
+11000a84 <NONSEC_WATCHDOG_RESET_REQ_Handler>:
+11000a84: e7fe         	b	0x11000a84 <NONSEC_WATCHDOG_RESET_REQ_Handler> @ imm = #-0x4
+
+11000a86 <NONSEC_WATCHDOG_Handler>:
+11000a86: e7fe         	b	0x11000a86 <NONSEC_WATCHDOG_Handler> @ imm = #-0x4
+
+11000a88 <SLOWCLK_Timer_Handler>:
+11000a88: e7fe         	b	0x11000a88 <SLOWCLK_Timer_Handler> @ imm = #-0x4
+
+11000a8a <TFM_TIMER0_IRQ_Handler>:
+11000a8a: e7fe         	b	0x11000a8a <TFM_TIMER0_IRQ_Handler> @ imm = #-0x4
+
+11000a8c <TIMER1_Handler>:
+11000a8c: e7fe         	b	0x11000a8c <TIMER1_Handler> @ imm = #-0x4
+
+11000a8e <TIMER2_Handler>:
+11000a8e: e7fe         	b	0x11000a8e <TIMER2_Handler> @ imm = #-0x4
+
+11000a90 <MPC_Handler>:
+11000a90: e7fe         	b	0x11000a90 <MPC_Handler> @ imm = #-0x4
+
+11000a92 <PPC_Handler>:
+11000a92: e7fe         	b	0x11000a92 <PPC_Handler> @ imm = #-0x4
+
+11000a94 <MSC_Handler>:
+11000a94: e7fe         	b	0x11000a94 <MSC_Handler> @ imm = #-0x4
+
+11000a96 <BRIDGE_ERROR_Handler>:
+11000a96: e7fe         	b	0x11000a96 <BRIDGE_ERROR_Handler> @ imm = #-0x4
+
+11000a98 <COMBINED_PPU_Handler>:
+11000a98: e7fe         	b	0x11000a98 <COMBINED_PPU_Handler> @ imm = #-0x4
+
+11000a9a <DEBUG_PPU_Handler>:
+11000a9a: e7fe         	b	0x11000a9a <DEBUG_PPU_Handler> @ imm = #-0x4
+
+11000a9c <TIMER3_AON_Handler>:
+11000a9c: e7fe         	b	0x11000a9c <TIMER3_AON_Handler> @ imm = #-0x4
+
+11000a9e <CPU0_CTI_0_Handler>:
+11000a9e: e7fe         	b	0x11000a9e <CPU0_CTI_0_Handler> @ imm = #-0x4
+
+11000aa0 <CPU0_CTI_1_Handler>:
+11000aa0: e7fe         	b	0x11000aa0 <CPU0_CTI_1_Handler> @ imm = #-0x4
+
+11000aa2 <System_Timestamp_Counter_Handler>:
+11000aa2: e7fe         	b	0x11000aa2 <System_Timestamp_Counter_Handler> @ imm = #-0x4
+11000aa4: e7fe         	b	0x11000aa4 <System_Timestamp_Counter_Handler+0x2> @ imm = #-0x4
+11000aa6: e7fe         	b	0x11000aa6 <System_Timestamp_Counter_Handler+0x4> @ imm = #-0x4
+
+11000aa8 <UARTRX1_Handler>:
+11000aa8: e7fe         	b	0x11000aa8 <UARTRX1_Handler> @ imm = #-0x4
+
+11000aaa <UARTTX1_Handler>:
+11000aaa: e7fe         	b	0x11000aaa <UARTTX1_Handler> @ imm = #-0x4
+
+11000aac <UARTRX2_Handler>:
+11000aac: e7fe         	b	0x11000aac <UARTRX2_Handler> @ imm = #-0x4
+
+11000aae <UARTTX2_Handler>:
+11000aae: e7fe         	b	0x11000aae <UARTTX2_Handler> @ imm = #-0x4
+
+11000ab0 <UARTRX3_Handler>:
+11000ab0: e7fe         	b	0x11000ab0 <UARTRX3_Handler> @ imm = #-0x4
+
+11000ab2 <UARTTX3_Handler>:
+11000ab2: e7fe         	b	0x11000ab2 <UARTTX3_Handler> @ imm = #-0x4
+
+11000ab4 <UARTRX4_Handler>:
+11000ab4: e7fe         	b	0x11000ab4 <UARTRX4_Handler> @ imm = #-0x4
+
+11000ab6 <UARTTX4_Handler>:
+11000ab6: e7fe         	b	0x11000ab6 <UARTTX4_Handler> @ imm = #-0x4
+
+11000ab8 <UART0_Combined_Handler>:
+11000ab8: e7fe         	b	0x11000ab8 <UART0_Combined_Handler> @ imm = #-0x4
+
+11000aba <UART1_Combined_Handler>:
+11000aba: e7fe         	b	0x11000aba <UART1_Combined_Handler> @ imm = #-0x4
+
+11000abc <UART2_Combined_Handler>:
+11000abc: e7fe         	b	0x11000abc <UART2_Combined_Handler> @ imm = #-0x4
+
+11000abe <UART3_Combined_Handler>:
+11000abe: e7fe         	b	0x11000abe <UART3_Combined_Handler> @ imm = #-0x4
+
+11000ac0 <UART4_Combined_Handler>:
+11000ac0: e7fe         	b	0x11000ac0 <UART4_Combined_Handler> @ imm = #-0x4
+
+11000ac2 <UARTOVF_Handler>:
+11000ac2: e7fe         	b	0x11000ac2 <UARTOVF_Handler> @ imm = #-0x4
+
+11000ac4 <ETHERNET_Handler>:
+11000ac4: e7fe         	b	0x11000ac4 <ETHERNET_Handler> @ imm = #-0x4
+
+11000ac6 <I2S_Handler>:
+11000ac6: e7fe         	b	0x11000ac6 <I2S_Handler> @ imm = #-0x4
+
+11000ac8 <TOUCH_SCREEN_Handler>:
+11000ac8: e7fe         	b	0x11000ac8 <TOUCH_SCREEN_Handler> @ imm = #-0x4
+
+11000aca <USB_Handler>:
+11000aca: e7fe         	b	0x11000aca <USB_Handler> @ imm = #-0x4
+
+11000acc <SPI_ADC_Handler>:
+11000acc: e7fe         	b	0x11000acc <SPI_ADC_Handler> @ imm = #-0x4
+
+11000ace <SPI_SHIELD0_Handler>:
+11000ace: e7fe         	b	0x11000ace <SPI_SHIELD0_Handler> @ imm = #-0x4
+
+11000ad0 <SPI_SHIELD1_Handler>:
+11000ad0: e7fe         	b	0x11000ad0 <SPI_SHIELD1_Handler> @ imm = #-0x4
+
+11000ad2 <DMA_Ch_0_Error_Handler>:
+11000ad2: e7fe         	b	0x11000ad2 <DMA_Ch_0_Error_Handler> @ imm = #-0x4
+
+11000ad4 <DMA_Ch_0_Terminal_Count_Handler>:
+11000ad4: e7fe         	b	0x11000ad4 <DMA_Ch_0_Terminal_Count_Handler> @ imm = #-0x4
+
+11000ad6 <DMA_Ch_0_Combined_Handler>:
+11000ad6: e7fe         	b	0x11000ad6 <DMA_Ch_0_Combined_Handler> @ imm = #-0x4
+
+11000ad8 <DMA_Ch_1_Error_Handler>:
+11000ad8: e7fe         	b	0x11000ad8 <DMA_Ch_1_Error_Handler> @ imm = #-0x4
+
+11000ada <DMA_Ch_1_Terminal_Count_Handler>:
+11000ada: e7fe         	b	0x11000ada <DMA_Ch_1_Terminal_Count_Handler> @ imm = #-0x4
+
+11000adc <DMA_Ch_1_Combined_Handler>:
+11000adc: e7fe         	b	0x11000adc <DMA_Ch_1_Combined_Handler> @ imm = #-0x4
+
+11000ade <DMA_Ch_2_Error_Handler>:
+11000ade: e7fe         	b	0x11000ade <DMA_Ch_2_Error_Handler> @ imm = #-0x4
+
+11000ae0 <DMA_Ch_2_Terminal_Count_Handler>:
+11000ae0: e7fe         	b	0x11000ae0 <DMA_Ch_2_Terminal_Count_Handler> @ imm = #-0x4
+
+11000ae2 <DMA_Ch_2_Combined_Handler>:
+11000ae2: e7fe         	b	0x11000ae2 <DMA_Ch_2_Combined_Handler> @ imm = #-0x4
+
+11000ae4 <DMA_Ch_3_Error_Handler>:
+11000ae4: e7fe         	b	0x11000ae4 <DMA_Ch_3_Error_Handler> @ imm = #-0x4
+
+11000ae6 <DMA_Ch_3_Terminal_Count_Handler>:
+11000ae6: e7fe         	b	0x11000ae6 <DMA_Ch_3_Terminal_Count_Handler> @ imm = #-0x4
+
+11000ae8 <DMA_Ch_3_Combined_Handler>:
+11000ae8: e7fe         	b	0x11000ae8 <DMA_Ch_3_Combined_Handler> @ imm = #-0x4
+
+11000aea <ETHOS_U55_Handler>:
+11000aea: e7fe         	b	0x11000aea <ETHOS_U55_Handler> @ imm = #-0x4
+
+11000aec <GPIO0_Combined_Handler>:
+11000aec: e7fe         	b	0x11000aec <GPIO0_Combined_Handler> @ imm = #-0x4
+
+11000aee <GPIO1_Combined_Handler>:
+11000aee: e7fe         	b	0x11000aee <GPIO1_Combined_Handler> @ imm = #-0x4
+
+11000af0 <GPIO2_Combined_Handler>:
+11000af0: e7fe         	b	0x11000af0 <GPIO2_Combined_Handler> @ imm = #-0x4
+
+11000af2 <GPIO3_Combined_Handler>:
+11000af2: e7fe         	b	0x11000af2 <GPIO3_Combined_Handler> @ imm = #-0x4
+
+11000af4 <GPIO0_0_Handler>:
+11000af4: e7fe         	b	0x11000af4 <GPIO0_0_Handler> @ imm = #-0x4
+
+11000af6 <GPIO0_1_Handler>:
+11000af6: e7fe         	b	0x11000af6 <GPIO0_1_Handler> @ imm = #-0x4
+
+11000af8 <GPIO0_2_Handler>:
+11000af8: e7fe         	b	0x11000af8 <GPIO0_2_Handler> @ imm = #-0x4
+
+11000afa <GPIO0_3_Handler>:
+11000afa: e7fe         	b	0x11000afa <GPIO0_3_Handler> @ imm = #-0x4
+
+11000afc <GPIO0_4_Handler>:
+11000afc: e7fe         	b	0x11000afc <GPIO0_4_Handler> @ imm = #-0x4
+
+11000afe <GPIO0_5_Handler>:
+11000afe: e7fe         	b	0x11000afe <GPIO0_5_Handler> @ imm = #-0x4
+
+11000b00 <GPIO0_6_Handler>:
+11000b00: e7fe         	b	0x11000b00 <GPIO0_6_Handler> @ imm = #-0x4
+
+11000b02 <GPIO0_7_Handler>:
+11000b02: e7fe         	b	0x11000b02 <GPIO0_7_Handler> @ imm = #-0x4
+
+11000b04 <GPIO0_8_Handler>:
+11000b04: e7fe         	b	0x11000b04 <GPIO0_8_Handler> @ imm = #-0x4
+
+11000b06 <GPIO0_9_Handler>:
+11000b06: e7fe         	b	0x11000b06 <GPIO0_9_Handler> @ imm = #-0x4
+
+11000b08 <GPIO0_10_Handler>:
+11000b08: e7fe         	b	0x11000b08 <GPIO0_10_Handler> @ imm = #-0x4
+
+11000b0a <GPIO0_11_Handler>:
+11000b0a: e7fe         	b	0x11000b0a <GPIO0_11_Handler> @ imm = #-0x4
+
+11000b0c <GPIO0_12_Handler>:
+11000b0c: e7fe         	b	0x11000b0c <GPIO0_12_Handler> @ imm = #-0x4
+
+11000b0e <GPIO0_13_Handler>:
+11000b0e: e7fe         	b	0x11000b0e <GPIO0_13_Handler> @ imm = #-0x4
+
+11000b10 <GPIO0_14_Handler>:
+11000b10: e7fe         	b	0x11000b10 <GPIO0_14_Handler> @ imm = #-0x4
+
+11000b12 <GPIO0_15_Handler>:
+11000b12: e7fe         	b	0x11000b12 <GPIO0_15_Handler> @ imm = #-0x4
+
+11000b14 <GPIO1_0_Handler>:
+11000b14: e7fe         	b	0x11000b14 <GPIO1_0_Handler> @ imm = #-0x4
+
+11000b16 <GPIO1_1_Handler>:
+11000b16: e7fe         	b	0x11000b16 <GPIO1_1_Handler> @ imm = #-0x4
+
+11000b18 <GPIO1_2_Handler>:
+11000b18: e7fe         	b	0x11000b18 <GPIO1_2_Handler> @ imm = #-0x4
+
+11000b1a <GPIO1_3_Handler>:
+11000b1a: e7fe         	b	0x11000b1a <GPIO1_3_Handler> @ imm = #-0x4
+
+11000b1c <GPIO1_4_Handler>:
+11000b1c: e7fe         	b	0x11000b1c <GPIO1_4_Handler> @ imm = #-0x4
+
+11000b1e <GPIO1_5_Handler>:
+11000b1e: e7fe         	b	0x11000b1e <GPIO1_5_Handler> @ imm = #-0x4
+
+11000b20 <GPIO1_6_Handler>:
+11000b20: e7fe         	b	0x11000b20 <GPIO1_6_Handler> @ imm = #-0x4
+
+11000b22 <GPIO1_7_Handler>:
+11000b22: e7fe         	b	0x11000b22 <GPIO1_7_Handler> @ imm = #-0x4
+
+11000b24 <GPIO1_8_Handler>:
+11000b24: e7fe         	b	0x11000b24 <GPIO1_8_Handler> @ imm = #-0x4
+
+11000b26 <GPIO1_9_Handler>:
+11000b26: e7fe         	b	0x11000b26 <GPIO1_9_Handler> @ imm = #-0x4
+
+11000b28 <GPIO1_10_Handler>:
+11000b28: e7fe         	b	0x11000b28 <GPIO1_10_Handler> @ imm = #-0x4
+
+11000b2a <GPIO1_11_Handler>:
+11000b2a: e7fe         	b	0x11000b2a <GPIO1_11_Handler> @ imm = #-0x4
+
+11000b2c <GPIO1_12_Handler>:
+11000b2c: e7fe         	b	0x11000b2c <GPIO1_12_Handler> @ imm = #-0x4
+
+11000b2e <GPIO1_13_Handler>:
+11000b2e: e7fe         	b	0x11000b2e <GPIO1_13_Handler> @ imm = #-0x4
+
+11000b30 <GPIO1_14_Handler>:
+11000b30: e7fe         	b	0x11000b30 <GPIO1_14_Handler> @ imm = #-0x4
+
+11000b32 <GPIO1_15_Handler>:
+11000b32: e7fe         	b	0x11000b32 <GPIO1_15_Handler> @ imm = #-0x4
+
+11000b34 <GPIO2_0_Handler>:
+11000b34: e7fe         	b	0x11000b34 <GPIO2_0_Handler> @ imm = #-0x4
+
+11000b36 <GPIO2_1_Handler>:
+11000b36: e7fe         	b	0x11000b36 <GPIO2_1_Handler> @ imm = #-0x4
+
+11000b38 <GPIO2_2_Handler>:
+11000b38: e7fe         	b	0x11000b38 <GPIO2_2_Handler> @ imm = #-0x4
+
+11000b3a <GPIO2_3_Handler>:
+11000b3a: e7fe         	b	0x11000b3a <GPIO2_3_Handler> @ imm = #-0x4
+
+11000b3c <GPIO2_4_Handler>:
+11000b3c: e7fe         	b	0x11000b3c <GPIO2_4_Handler> @ imm = #-0x4
+
+11000b3e <GPIO2_5_Handler>:
+11000b3e: e7fe         	b	0x11000b3e <GPIO2_5_Handler> @ imm = #-0x4
+
+11000b40 <GPIO2_6_Handler>:
+11000b40: e7fe         	b	0x11000b40 <GPIO2_6_Handler> @ imm = #-0x4
+
+11000b42 <GPIO2_7_Handler>:
+11000b42: e7fe         	b	0x11000b42 <GPIO2_7_Handler> @ imm = #-0x4
+
+11000b44 <GPIO2_8_Handler>:
+11000b44: e7fe         	b	0x11000b44 <GPIO2_8_Handler> @ imm = #-0x4
+
+11000b46 <GPIO2_9_Handler>:
+11000b46: e7fe         	b	0x11000b46 <GPIO2_9_Handler> @ imm = #-0x4
+
+11000b48 <GPIO2_10_Handler>:
+11000b48: e7fe         	b	0x11000b48 <GPIO2_10_Handler> @ imm = #-0x4
+
+11000b4a <GPIO2_11_Handler>:
+11000b4a: e7fe         	b	0x11000b4a <GPIO2_11_Handler> @ imm = #-0x4
+
+11000b4c <GPIO2_12_Handler>:
+11000b4c: e7fe         	b	0x11000b4c <GPIO2_12_Handler> @ imm = #-0x4
+
+11000b4e <GPIO2_13_Handler>:
+11000b4e: e7fe         	b	0x11000b4e <GPIO2_13_Handler> @ imm = #-0x4
+
+11000b50 <GPIO2_14_Handler>:
+11000b50: e7fe         	b	0x11000b50 <GPIO2_14_Handler> @ imm = #-0x4
+
+11000b52 <GPIO2_15_Handler>:
+11000b52: e7fe         	b	0x11000b52 <GPIO2_15_Handler> @ imm = #-0x4
+
+11000b54 <GPIO3_0_Handler>:
+11000b54: e7fe         	b	0x11000b54 <GPIO3_0_Handler> @ imm = #-0x4
+
+11000b56 <GPIO3_1_Handler>:
+11000b56: e7fe         	b	0x11000b56 <GPIO3_1_Handler> @ imm = #-0x4
+
+11000b58 <GPIO3_2_Handler>:
+11000b58: e7fe         	b	0x11000b58 <GPIO3_2_Handler> @ imm = #-0x4
+
+11000b5a <GPIO3_3_Handler>:
+11000b5a: e7fe         	b	0x11000b5a <GPIO3_3_Handler> @ imm = #-0x4
+
+11000b5c <UARTRX5_Handler>:
+11000b5c: e7fe         	b	0x11000b5c <UARTRX5_Handler> @ imm = #-0x4
+
+11000b5e <UARTTX5_Handler>:
+11000b5e: e7fe         	b	0x11000b5e <UARTTX5_Handler> @ imm = #-0x4
+
+11000b60 <UART5_Combined_Handler>:
+11000b60: e7fe         	b	0x11000b60 <UART5_Combined_Handler> @ imm = #-0x4
+
+11000b62 <Reset_Handler>:
+11000b62: b580         	push	{r7, lr}
+11000b64: 466f         	mov	r7, sp
+11000b66: f240 4048    	movw	r0, #0x448
+11000b6a: f2c3 1000    	movt	r0, #0x3100
+11000b6e: f380 8809    	msr	psp, r0
+11000b72: f240 0050    	movw	r0, #0x50
+11000b76: f2c3 1000    	movt	r0, #0x3100
+11000b7a: f380 880a    	msr	msplim, r0
+11000b7e: f380 880b    	msr	psplim, r0
+11000b82: f000 f840    	bl	0x11000c06 <SystemInit> @ imm = #0x80
+11000b86: f640 50a8    	movw	r0, #0xda8
+11000b8a: f640 5190    	movw	r1, #0xd90
+11000b8e: f2c1 1000    	movt	r0, #0x1100
+11000b92: f2c1 1100    	movt	r1, #0x1100
+11000b96: 4281         	cmp	r1, r0
+11000b98: d20c         	bhs	0x11000bb4 <Reset_Handler+0x52> @ imm = #0x18
+11000b9a: 688a         	ldr	r2, [r1, #0x8]
+11000b9c: f042 c009    	wls	lr, r2, 0x11000bb0 <Reset_Handler+0x4e> @ imm = #0x10
+11000ba0: e9d1 2300    	ldrd	r2, r3, [r1]
+11000ba4: f852 5b04    	ldr	r5, [r2], #4
+11000ba8: f843 5b04    	str	r5, [r3], #4
+11000bac: f00f c007    	le	lr, 0x11000ba4 <Reset_Handler+0x42> @ imm = #-0xc
+11000bb0: 310c         	adds	r1, #0xc
+11000bb2: e7f0         	b	0x11000b96 <Reset_Handler+0x34> @ imm = #-0x20
+11000bb4: f640 54b8    	movw	r4, #0xdb8
+11000bb8: f640 50a8    	movw	r0, #0xda8
+11000bbc: f2c1 1400    	movt	r4, #0x1100
+11000bc0: f2c1 1000    	movt	r0, #0x1100
+11000bc4: 42a0         	cmp	r0, r4
+11000bc6: d20c         	bhs	0x11000be2 <Reset_Handler+0x80> @ imm = #0x18
+11000bc8: f640 55a8    	movw	r5, #0xda8
+11000bcc: f2c1 1500    	movt	r5, #0x1100
+11000bd0: 6869         	ldr	r1, [r5, #0x4]
+11000bd2: b119         	cbz	r1, 0x11000bdc <Reset_Handler+0x7a> @ imm = #0x6
+11000bd4: 6828         	ldr	r0, [r5]
+11000bd6: 0089         	lsls	r1, r1, #0x2
+11000bd8: f000 f87e    	bl	0x11000cd8 <bzero>      @ imm = #0xfc
+11000bdc: 3508         	adds	r5, #0x8
+11000bde: 42a5         	cmp	r5, r4
+11000be0: d3f6         	blo	0x11000bd0 <Reset_Handler+0x6e> @ imm = #-0x14
+11000be2: f7ff fb2d    	bl	0x11000240 <main>       @ imm = #-0x9a6
+11000be6: d4d4         	bmi	0x11000b92 <Reset_Handler+0x30> @ imm = #-0x58
+
+11000be8 <SystemCoreClockUpdate>:
+11000be8: f240 0014    	movw	r0, #0x14
+11000bec: f647 0140    	movw	r1, #0x7840
+11000bf0: f2c3 1000    	movt	r0, #0x3100
+11000bf4: f2c0 117d    	movt	r1, #0x17d
+11000bf8: 6001         	str	r1, [r0]
+11000bfa: f240 0010    	movw	r0, #0x10
+11000bfe: f2c3 1000    	movt	r0, #0x3100
+11000c02: 6001         	str	r1, [r0]
+11000c04: 4770         	bx	lr
+
+11000c06 <SystemInit>:
+11000c06: f64e 5014    	movw	r0, #0xed14
+11000c0a: f240 0100    	movw	r1, #0x0
+11000c0e: f2ce 0000    	movt	r0, #0xe000
+11000c12: f2c1 1100    	movt	r1, #0x1100
+11000c16: f840 1c0c    	str	r1, [r0, #-12]
+11000c1a: f24e 3100    	movw	r1, #0xe300
+11000c1e: f2ce 0101    	movt	r1, #0xe001
+11000c22: f240 3333    	movw	r3, #0x333
+11000c26: 680a         	ldr	r2, [r1]
+11000c28: 439a         	bics	r2, r3
+11000c2a: 600a         	str	r2, [r1]
+11000c2c: 6f42         	ldr	r2, [r0, #0x74]
+11000c2e: f442 0270    	orr	r2, r2, #0xf00000
+11000c32: 6742         	str	r2, [r0, #0x74]
+11000c34: 680a         	ldr	r2, [r1]
+11000c36: f042 0210    	orr	r2, r2, #0x10
+11000c3a: 600a         	str	r2, [r1]
+11000c3c: 6801         	ldr	r1, [r0]
+11000c3e: f441 2100    	orr	r1, r1, #0x80000
+11000c42: 6001         	str	r1, [r0]
+11000c44: 6801         	ldr	r1, [r0]
+11000c46: f441 2180    	orr	r1, r1, #0x40000
+11000c4a: 6001         	str	r1, [r0]
+11000c4c: f240 0014    	movw	r0, #0x14
+11000c50: f647 0140    	movw	r1, #0x7840
+11000c54: f3bf 8f4f    	dsb	sy
+11000c58: f2c3 1000    	movt	r0, #0x3100
+11000c5c: f2c0 117d    	movt	r1, #0x17d
+11000c60: f3bf 8f6f    	isb	sy
+11000c64: 6001         	str	r1, [r0]
+11000c66: f240 0010    	movw	r0, #0x10
+11000c6a: f2c3 1000    	movt	r0, #0x3100
+11000c6e: 6001         	str	r1, [r0]
+11000c70: 4770         	bx	lr
+11000c72: d4d4         	bmi	0x11000c1e <SystemInit+0x18> @ imm = #-0x58
+
+11000c74 <puts>:
+11000c74: b5f0         	push	{r4, r5, r6, r7, lr}
+11000c76: af03         	add	r7, sp, #0xc
+11000c78: f84d 8d04    	str	r8, [sp, #-4]!
+11000c7c: 4605         	mov	r5, r0
+11000c7e: 4810         	ldr	r0, [pc, #0x40]         @ 0x11000cc0 <puts+0x4c>
+11000c80: f04f 38ff    	mov.w	r8, #0xffffffff
+11000c84: 6804         	ldr	r4, [r0]
+11000c86: 78a0         	ldrb	r0, [r4, #0x2]
+11000c88: 0780         	lsls	r0, r0, #0x1e
+11000c8a: d515         	bpl	0x11000cb8 <puts+0x44>  @ imm = #0x2a
+11000c8c: 2600         	movs	r6, #0x0
+11000c8e: 7828         	ldrb	r0, [r5]
+11000c90: b140         	cbz	r0, 0x11000ca4 <puts+0x30> @ imm = #0x10
+11000c92: 6862         	ldr	r2, [r4, #0x4]
+11000c94: 4621         	mov	r1, r4
+11000c96: 4790         	blx	r2
+11000c98: f1b0 3fff    	cmp.w	r0, #0xffffffff
+11000c9c: ea56 86c8    	csel	r6, r6, r8, gt
+11000ca0: 3501         	adds	r5, #0x1
+11000ca2: e7f4         	b	0x11000c8e <puts+0x1a>  @ imm = #-0x18
+11000ca4: 6862         	ldr	r2, [r4, #0x4]
+11000ca6: 200a         	movs	r0, #0xa
+11000ca8: 4621         	mov	r1, r4
+11000caa: 4790         	blx	r2
+11000cac: f1b0 3fff    	cmp.w	r0, #0xffffffff
+11000cb0: bfd8         	it	le
+11000cb2: f04f 36ff    	movle.w	r6, #0xffffffff
+11000cb6: 46b0         	mov	r8, r6
+11000cb8: 4640         	mov	r0, r8
+11000cba: f85d 8b04    	ldr	r8, [sp], #4
+11000cbe: bdf0         	pop	{r4, r5, r6, r7, pc}
+
+11000cc0 <$d.1>:
+11000cc0: f0 0c 00 11  	.word	0x11000cf0
+
+11000cc4 <strcmp>:
+11000cc4: f810 2b01    	ldrb	r2, [r0], #1
+11000cc8: f811 3b01    	ldrb	r3, [r1], #1
+11000ccc: 2a01         	cmp	r2, #0x1
+11000cce: bf28         	it	hs
+11000cd0: 429a         	cmphs	r2, r3
+11000cd2: d0f7         	beq	0x11000cc4 <strcmp>     @ imm = #-0x12
+11000cd4: 1ad0         	subs	r0, r2, r3
+11000cd6: 4770         	bx	lr
+
+11000cd8 <bzero>:
+11000cd8: 460a         	mov	r2, r1
+11000cda: 2100         	movs	r1, #0x0
+11000cdc: f000 b800    	b.w	0x11000ce0 <memset>     @ imm = #0x0
+
+11000ce0 <memset>:
+11000ce0: 4603         	mov	r3, r0
+11000ce2: b11a         	cbz	r2, 0x11000cec <memset+0xc> @ imm = #0x6
+11000ce4: f803 1b01    	strb	r1, [r3], #1
+11000ce8: 3a01         	subs	r2, #0x1
+11000cea: e7fa         	b	0x11000ce2 <memset+0x2> @ imm = #-0xc
+11000cec: 4770         	bx	lr
+11000cee: d4d4         	bmi	0x11000c9a <puts+0x26>  @ imm = #-0x58
+
+11000cf0 <stdout>:
+11000cf0: 00 00 00 31 0d 0a 3d 20         ...1..= 
+11000cf8: 48 65 6c 6c 6f 20 57 6f         Hello Wo
+11000d00: 72 6c 64 20 3d 0d 00 d4         rld =...
+
+11000d08 <Driver_USART0>:
+11000d08: 39 03 00 11 43 03 00 11         9...C...
+11000d10: 47 03 00 11 61 03 00 11         G...a...
+11000d18: cf 03 00 11 d1 03 00 11         ........
+11000d20: 37 04 00 11 d1 04 00 11         7.......
+11000d28: fd 04 00 11 09 05 00 11         ........
+11000d30: 15 05 00 11 27 06 00 11         ....'...
+11000d38: 49 06 00 11 4f 06 00 11         I...O...
+
+11000d40 <__stdin_name>:
+11000d40: 3a 53 54 44 49 4e 00            :STDIN.
+
+11000d47 <__stdout_name>:
+11000d47: 3a 53 54 44 4f 55 54 00         :STDOUT.
+
+11000d4f <__stderr_name>:
+11000d4f: 3a 53 54 44 45 52 52 00         :STDERR.
+11000d57: d4                              .
+
+11000d58 <.Lswitch.table.uart_cmsdk_clear_interrupt>:
+11000d58: 02 00 00 00 01 00 00 00         ........
+11000d60: 03 00 00 00                     ....
+
+11000d64 <UART0_CMSDK_DEV_CFG_S>:
+11000d64: 00 30 30 59 00 c2 01 00         .00Y....
