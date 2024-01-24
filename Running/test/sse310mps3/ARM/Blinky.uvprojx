@@ -10,7 +10,7 @@
       <TargetName>ARMCLANG</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
+      <pCCUsed>6210000::V6.21::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -340,7 +340,7 @@
               <MiscControls>-Wno-padded -Wno-covered-switch-default</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\API\Include</IncludePath>
+              <IncludePath>..\API\Include;..\..\..\..\..\..\App\llvmforembedded;..\..\..\..\..\..\App\llvmforembedded\include;..\..\..\..\..\..\App\llvmforembedded\lib\clang-runtimes\arm-none-eabi\armv8.1m.main_hard_nofp_mve\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
