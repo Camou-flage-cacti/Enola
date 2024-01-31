@@ -2,7 +2,7 @@
 BUILD_DIR := build
 
 #BIN_PATH=/home/tancy/Documents/LLVM-embedded-toolchain-for-Arm/build/llvm/bin
-BIN_PATH=/home/tomal/llvm_all/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/bin
+BIN_PATH=/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/bin
 vpath %.c ./ ../../1.3.0/CMSIS_Driver ../../1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP ../../1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
@@ -15,6 +15,7 @@ INCLUDES += -I../../1.3.0/Board/Device_Definition
 INCLUDES += -I../../1.3.0/Board/Platform
 INCLUDES += -I../../1.3.0/CMSIS_Driver
 INCLUDES += -I../../1.3.0/Device/Include
+INCLUDES += -I/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/include
 
 # Source files (converted to Unix-style paths)
 SOURCES = main.c
@@ -28,13 +29,15 @@ SOURCES += device_definition.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
-CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
+#CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
+CFLAGS = -std=c99 --sysroot=/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
+
 
 CFLAGS += $(INCLUDES)
 # LDFLAGS = -T ../../../tool/linker_SSE310MPS3_secure.ld
 LDFLAGS = -T ./ARM/RTE/Device/SSE-310-MPS3_FVP/linker_SSE310MPS3_secure.ld
 LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -Os
-
+LIB_PATH += -L/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/lib
 # Object files
 OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 
