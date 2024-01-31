@@ -2,7 +2,7 @@
 BUILD_DIR := build
 
 #BIN_PATH=/home/tancy/Documents/LLVM-embedded-toolchain-for-Arm/build/llvm/bin
-BIN_PATH=/home/tomal/llvm_all/llvm-arm-org/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/bin
+BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
 vpath %.c ./ ../../1.3.0/CMSIS_Driver ../../1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP ../../1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
