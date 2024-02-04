@@ -26,6 +26,7 @@ SOURCES += stdout.c
 SOURCES += uart_cmsdk_drv.c
 SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c 
 SOURCES += device_definition.c
+SOURCES += application.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
