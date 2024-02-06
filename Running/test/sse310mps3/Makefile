@@ -26,7 +26,8 @@ SOURCES += stdout.c
 SOURCES += uart_cmsdk_drv.c
 SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c 
 SOURCES += device_definition.c
-SOURCES += application.c
+SOURCES += enolaTrampoline.c
+#SOURCES += application.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
@@ -46,13 +47,22 @@ OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 TARGET = Blinky.axf
 
 # Default target
-all: $(BUILD_DIR) $(TARGET)
+all: $(BUILD_DIR) app $(TARGET)
 
+app:
+	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/clang $(CFLAGS) application.c -S -emit-llvm -o application.ll 
+	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/opt -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
+	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/llc -filetype=obj application_opt.ll -o $(BUILD_DIR)/application.o
+	
+#application.o: Application/application.c:
+#	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
+#	opt $(CFLAGS) -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
+#	llc $(CFLAGS) -filetype=obj application_opt.ll -o application_opt.o
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/application.o $^
 
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
