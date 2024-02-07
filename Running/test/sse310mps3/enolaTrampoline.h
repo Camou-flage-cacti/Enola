@@ -1,6 +1,5 @@
 #ifndef ENOLA_TEE_TRAMPOLINE_LIB
 #define ENOLA_TEE_TRAMPOLINE_LIB
-#endif
 
 #include<stdio.h>
 #include <stdbool.h>
@@ -15,11 +14,13 @@ struct occurrence_trace
     bool arbitrary_cf;
     unsigned int arbitrary_cf_addresses[arbitrary_max];
 
-}__attribute((packed)) __;
+};
 
-
-struct occurrence_trace To;
 /*library functions*/
 void init_trampoline();
+void init_registers();
+void enable_PAC();
+void setup_S_PAC_Keys();
 void secure_trace_storage();
 void indirect_secure_trace_storage();
+#endif
