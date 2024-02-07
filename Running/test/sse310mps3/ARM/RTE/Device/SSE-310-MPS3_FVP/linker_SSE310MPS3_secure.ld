@@ -114,6 +114,8 @@ SECTIONS
         __end__ = .;
 
         _start = .;
+        *main.o(.text*)
+        *main.o(.text)
         *(.text*)
 
         KEEP(*(.init))

@@ -48,6 +48,7 @@ TARGET = Blinky.axf
 
 # Default target
 all: $(BUILD_DIR) app $(TARGET)
+#all: $(BUILD_DIR) $(TARGET)
 
 app:
 	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/clang $(CFLAGS) application.c -S -emit-llvm -o application.ll 
@@ -62,6 +63,7 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(TARGET): $(OBJECTS)
+#	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $^
 	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/application.o $^
 
 # Rule to compile .c files to .o files
