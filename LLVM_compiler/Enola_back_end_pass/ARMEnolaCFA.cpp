@@ -304,6 +304,14 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
     bool modified = false;
+
+    /*verify that we intend to include Enola instrumentation for this function*/
+    Function &F = MF.getFunction();
+    
+    if (!F.hasMetadata("Enola-back-end-flag")) {
+        outs() << "EnolaDebug: Function " << F.getName() << " has not metadata for Enola instrumentation!\n";
+        return modified;
+    }
     //StringRef trampoline_function("secure_trace_storage");
     std::string MFName = MF.getName().str();
 
@@ -376,7 +384,16 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             else if(MI.getDesc().isReturn())
             {
                 outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
-                modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+
+              //  Function &F = MF.getFunction();
+                /*verify that we intend to instrument returns of this function*/
+               // if (F.hasMetadata("Enola-back-end-flag")) {
+                //    outs() << "EnolaDebug: Function " << F.getName() << " has Enola metadata to instrument returns!\n";
+                    modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                //}
+                //else {
+                 //   outs() << "EnolaDebug: Function " << F.getName() << " no metadata to instrument returns!\n";
+                //}
             }
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
