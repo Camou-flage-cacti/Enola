@@ -29,3 +29,7 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
 
 # LLVM tool chain info
 1. front end pass library directory after build: /home/tomal/llvm_all/llvm-arm-org/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib
+
+
+# LLVM Tool commands
+*LLVM object dump form cortex-m85 with pacbti:* `llvm-objdump --arch-name=arm --mcpu=cortex-m85 --mattr=+pacbti -d outm_passARM16.o`

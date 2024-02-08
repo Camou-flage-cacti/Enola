@@ -1,8 +1,10 @@
 # Define the build directory
 BUILD_DIR := build
 
-#BIN_PATH=/home/tancy/Documents/LLVM-embedded-toolchain-for-Arm/build/llvm/bin
+#BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
 BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
+ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
+
 vpath %.c ./ ../../1.3.0/CMSIS_Driver ../../1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP ../../1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
@@ -31,6 +33,8 @@ SOURCES += enolaTrampoline.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
+OPT = $(BIN_PATH)/opt
+LLC = $(BIN_PATH)/llc
 CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
 #CFLAGS = -std=c99 --sysroot=/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
 
@@ -39,7 +43,7 @@ CFLAGS += $(INCLUDES)
 # LDFLAGS = -T ../../../tool/linker_SSE310MPS3_secure.ld
 LDFLAGS = -T ./ARM/RTE/Device/SSE-310-MPS3_FVP/linker_SSE310MPS3_secure.ld
 LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -O0
-LIB_PATH += -L/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/lib
+
 # Object files
 OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 
@@ -51,9 +55,9 @@ all: $(BUILD_DIR) app $(TARGET)
 #all: $(BUILD_DIR) $(TARGET)
 
 app:
-	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/clang $(CFLAGS) application.c -S -emit-llvm -o application.ll 
-	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/opt -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
-	/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin/llc -filetype=obj application_opt.ll -o $(BUILD_DIR)/application.o
+	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
+	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
+	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 -mattr=+pacbti application_opt.ll -o $(BUILD_DIR)/application.o
 	
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll

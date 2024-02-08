@@ -27,7 +27,7 @@ int main(void)
 	int x = 32;
 	x = x << 2;
 	int result = mod2(x);
-	printf("\r\n= mod2 %d=\r\n", result);
+	printf("\r\n= mod2 function call result %d=\r\n", result);
 	result = loopOver(x);
 	printf("\r\n= loopOver %d=\r\n", result);
 	result = switchcase(x);
