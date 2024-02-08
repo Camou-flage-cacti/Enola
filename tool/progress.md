@@ -36,7 +36,8 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
 
 # Back-end runtime test results:
 - [x] pacg instructions are present in the binary
-- [x] We can run and execute the binary and execute the pacg instruction
+- [x] We can run the binary and execute the pacg instruction for the application function
 - [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12`
+- []  Need to verify all instrumentations Mb and Mf
 - [] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime.
 - [] Need to check library compilation tools to stop using the `r12` registers?

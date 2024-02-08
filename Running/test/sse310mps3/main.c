@@ -25,7 +25,7 @@ int main(void)
 	stdout_init();
 
 	int x = 32;
-	x = x << 2;
+	//x = x << 2;
 	int result = mod2(x);
 	printf("\r\n= mod2 function call result %d=\r\n", result);
 	result = loopOver(x);

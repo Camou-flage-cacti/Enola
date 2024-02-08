@@ -2,9 +2,9 @@
 int mod2(int x)
 {
 	if (x%2 == 0)
-		return 0;
+		return 0 + x;
 	else
-		return 1;
+		return 1 + x;
 }
 int loopOver(int x)
 {
