@@ -49,6 +49,7 @@ void init_registers()
 {
 	__asm volatile(
 		"MOV r12, #0x0\n\t"
+		"MOV r10, #0x0\n\t"
 	);
 }
 

@@ -33,3 +33,10 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
 
 # LLVM Tool commands
 *LLVM object dump form cortex-m85 with pacbti:* `llvm-objdump --arch-name=arm --mcpu=cortex-m85 --mattr=+pacbti -d outm_passARM16.o`
+
+# Back-end runtime test results:
+- [x] pacg instructions are present in the binary
+- [x] We can run and execute the binary and execute the pacg instruction
+- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12`
+- [] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime.
+- [] Need to check library compilation tools to stop using the `r12` registers?
