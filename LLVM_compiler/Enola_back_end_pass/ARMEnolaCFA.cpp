@@ -39,7 +39,7 @@ std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
     }
     else
     {
-        outs() << "Not a global symbol\n";
+        outs() << "EnolaDebug-backEnd: EnolaDebug-backEnd: Not a global symbol\n";
     }
 
     return functionName;
@@ -52,20 +52,20 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            const char *sym,
                            MachineFunction &MF) {
     
-    outs() << "Building PAC for condition branch:\n";
+    outs() << "EnolaDebug-backEnd: Building PAC for condition branch:\n";
     /*no need to instrument if already instrumented*/
     if(MI.getOpcode() == ARM::t2PACG)
         return false;
 
     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::PC).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
-    outs() << "Consructed instructions: " << MIB <<"\n";
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     MI2->print(OS);
     
-    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
     return true;
 }
 
@@ -75,17 +75,17 @@ bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
                            const ARMBaseInstrInfo &TII,
                            const char *sym,
                            MachineFunction &MF) {
-    outs() << "Moving PC to r0:\n";
+    outs() << "EnolaDebug-backEnd: Moving PC to r0:\n";
     
     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::MOVr), ARM::R0).addReg(ARM::PC).add(predOps(ARMCC::AL)).add(condCodeOp())
     .setMIFlag(MachineInstr::NoFlags);
-    outs() << "Consructed instructions: " << MIB <<"\n";
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     MI2->print(OS);
     
-    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
     return true;
 }
 bool ARMEnolaCFA::instrumentIndirectParameter (MachineBasicBlock &MBB,
@@ -94,17 +94,17 @@ bool ARMEnolaCFA::instrumentIndirectParameter (MachineBasicBlock &MBB,
                            const ARMBaseInstrInfo &TII,
                            const char *sym,
                            MachineFunction &MF, Register indirectTarget) {
-    outs() << "Moving indirect target to r0:\n";
+    outs() << "EnolaDebug-backEnd: Moving indirect target to r0:\n";
     
     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::MOVr), ARM::R0).addReg(indirectTarget).add(predOps(ARMCC::AL)).add(condCodeOp())
     .setMIFlag(MachineInstr::NoFlags);
-    outs() << "Consructed instructions: " << MIB <<"\n";
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     MI2->print(OS);
     
-    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
     return true;
 }
 
@@ -117,10 +117,10 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
    // unsigned targetReg;
 
 
-    outs () << "Inside instrumentation of return \n";
+    outs () << "EnolaDebug-backEnd: Inside instrumentation of return \n";
 
     MachineInstrBuilder MIB;
-    outs() << "Building PAC:\n";
+    outs() << "EnolaDebug-backEnd: Building PAC:\n";
    // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
    // if (TII.getIns)
  
@@ -138,7 +138,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R12).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R12)
     .setMIFlag(MachineInstr::NoFlags);
 
-    outs() << "Consructed instructions: " << MIB <<"\n";
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
     const TargetMachine& TM = MF.getTarget();
     const Triple &TT = TM.getTargetTriple();
@@ -157,7 +157,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     // Enable a specific feature.
     //STI2.setFeatureBits(STI.getFeatureBits() | ARM::FeatureMyFeature);
    // MF.getSubtarget().getmc.setFeatureBits(ARM::FeaturePACBTI);
-    outs() <<"Target CPU : "<<CPU.str()<<"\n";
+    outs() <<"EnolaDebug-backEnd: Target CPU : "<<CPU.str()<<"\n";
 
    /* if (!STI.hasPACBTI()) {
         outs() <<"hAS pac BTI feature\n";
@@ -167,7 +167,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
     llvm::raw_string_ostream OS(instructionString);
     MI2->print(OS);
     
-    outs()<<"constructed instruction in string : "<<instructionString<<"\n";
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
 
 //    const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
 
@@ -226,7 +226,7 @@ Register ARMEnolaCFA::getParameterOfindrect (MachineBasicBlock &MBB,
     MachineBasicBlock::iterator MBIIterator =  MI.getIterator();
     const TargetSubtargetInfo &STI = MF.getSubtarget();
     const TargetRegisterInfo *TRI = STI.getRegisterInfo();
-    outs() <<"Inside getParameterOfindrect\n";
+    outs() <<"EnolaDebug-backEnd: Inside getParameterOfindrect\n";
 
     while(MBIIterator != MBB.end())
     {
@@ -236,7 +236,7 @@ Register ARMEnolaCFA::getParameterOfindrect (MachineBasicBlock &MBB,
         {
             // ARM::MOV_pc
             //&& MI.getNumOperands()>1 && MI.getOperand(0).isReg() && MI.getOperand(1).isReg()
-            outs() << "Mov to register instruction with the following operands: \n";
+            outs() << "EnolaDebug-backEnd: Mov to register instruction with the following operands: \n";
             if (tempMI.getNumOperands() >= 1)
                 indirectTarger = tempMI.getOperand(0).getReg();
             for (int i = 0; i < tempMI.getNumOperands(); i++)
@@ -278,7 +278,7 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
         
         if(tempMI.getOpcode() == ARM::LDRi12 && tempMI.getNumOperands() > 0 && tempMI.getOperand(0).isReg() && tempMI.getOperand(0).getReg() == indirectReg)
         {
-            outs()<<"Need to instrument the instruction\n";
+            outs()<<"EnolaDebug-backEnd: Need to instrument the instruction\n";
             break;
         }
         MBIIterator++;
@@ -296,7 +296,7 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
         MIB.add(toBeInstrmented.getOperand(i));
     }
     
-    outs()<<"it should be the ldr insturction: "<<toBeInstrmented.getOpcode()<<"\n";
+    outs()<<"EnolaDebug-backEnd: it should be the ldr insturction: "<<toBeInstrmented.getOpcode()<<"\n";
 
     return true;
 
@@ -305,13 +305,15 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
     bool modified = false;
 
-    /*verify that we intend to include Enola instrumentation for this function*/
+    /*Begin: verify that we intend to include Enola instrumentation for this function*/
     Function &F = MF.getFunction();
     
     if (!F.hasMetadata("Enola-back-end-flag")) {
-        outs() << "EnolaDebug: Function " << F.getName() << " has not metadata for Enola instrumentation!\n";
+        outs() << "EnolaDebug-backEnd: Function " << F.getName() << " has not metadata for Enola instrumentation!\n";
         return modified;
     }
+    /*End: verify that we intend to include Enola instrumentation for this function*/
+
     //StringRef trampoline_function("secure_trace_storage");
     std::string MFName = MF.getName().str();
 
@@ -329,14 +331,14 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
         callee_saved++;
     }*/
     
-    outs() << "callee_saved value : "<<*callee_saved<<"\n";
+    outs() << "EnolaDebug-backEnd: callee_saved value : "<<*callee_saved<<"\n";
 
 
     if (MF.getSubtarget().getFeatureBits()[ARM::FeaturePACBTI])
     {
-        outs() <<"PAC bit feature exists\n";
+        outs() <<"EnolaDebug-backEnd: PAC bit feature exists\n";
     }
-    outs() << "Enola Instrumentation: "<<MFName<<"\n";
+    outs() << "EnolaDebug-backEnd: Enola Instrumentation: "<<MFName<<"\n";
     const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
  
     for (auto &MBB : MF) {
@@ -347,7 +349,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             //Handle all condition instructions
             if(MI.isConditionalBranch())
             {
-                outs() << " This is a compare instruction: " <<  MI.getOpcode() <<"\n";
+                outs() << "EnolaDebug-backEnd: This is a compare instruction: " <<  MI.getOpcode() <<"\n";
                 MachineBasicBlock::iterator itr;
                 MachineBasicBlock *currentBB;
                 MachineFunction *currentMF;
@@ -383,17 +385,8 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             //Handle return instructions
             else if(MI.getDesc().isReturn())
             {
-                outs() << " This is a return instruction: " <<  MI.getOpcode() <<"\n";
-
-              //  Function &F = MF.getFunction();
-                /*verify that we intend to instrument returns of this function*/
-               // if (F.hasMetadata("Enola-back-end-flag")) {
-                //    outs() << "EnolaDebug: Function " << F.getName() << " has Enola metadata to instrument returns!\n";
-                    modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
-                //}
-                //else {
-                 //   outs() << "EnolaDebug: Function " << F.getName() << " no metadata to instrument returns!\n";
-                //}
+                outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
+                modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
             }
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
@@ -401,13 +394,13 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 std::string target_function_name = extractFunctionName(MI);
                 if (target_function_name == "secure_trace_storage")
                 {
-                    outs() << "secure_trace_storage function call found"<<"\n";
+                    outs() << "EnolaDebug-backEnd: secure_trace_storage function call found"<<"\n";
                     modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
 
                 else if (target_function_name == "indirect_secure_trace_storage")
                 {
-                    outs() << "indirect_secure_trace_storage function call found"<<"\n";
+                    outs() << "EnolaDebug-backEnd: indirect_secure_trace_storage function call found"<<"\n";
                     Register indirectTarget = getParameterOfindrect(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameter", MF);
                     if (indirectTarget.isValid())
                         //modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
@@ -416,7 +409,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                    
             }
             
-            outs() << "The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
+            outs() << "EnolaDebug-backEnd: The instruction belongs to: " << MI.getMF()->getName() << " Op-code " << MI.getOpcode() << " operand " << MI.getNumOperands() << "\n";
         }
     }
 

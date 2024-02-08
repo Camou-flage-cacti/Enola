@@ -49,10 +49,11 @@ namespace {
 		string functionName = F.getName().str();
 
 		bool modifid = false;
-		/*Set metadata for enola backend*/
+		/*Begin : Set metadata for enola backend*/
 		MDNode *MyMetadata = MDNode::get(context, MDString::get(context, functionName));
 		F.setMetadata("Enola-back-end-flag", MyMetadata);
-
+		/*End : Set metadata for enola backend*/
+		
 		for(BasicBlock &BB: F)
 		{
 			for (Instruction &I : BB)
