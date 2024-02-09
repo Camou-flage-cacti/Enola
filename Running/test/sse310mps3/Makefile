@@ -42,7 +42,7 @@ CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m
 CFLAGS += $(INCLUDES)
 # LDFLAGS = -T ../../../tool/linker_SSE310MPS3_secure.ld
 LDFLAGS = -T ./ARM/RTE/Device/SSE-310-MPS3_FVP/linker_SSE310MPS3_secure.ld
-LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -O0
+LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
 
 # Object files
 OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
@@ -57,7 +57,7 @@ all: $(BUILD_DIR) app $(TARGET)
 app:
 	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
-	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 -mattr=+pacbti application_opt.ll -o $(BUILD_DIR)/application.o
+	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -o $(BUILD_DIR)/application.o
 	
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
