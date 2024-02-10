@@ -47,10 +47,10 @@ namespace {
 	    LLVMContext &context = F.getContext();
 	    auto module = F.getParent();
 		string functionName = F.getName().str();
-
+		MDNode *MyMetadata = NULL;
 		bool modifid = false;
 		/*Begin : Set metadata for enola backend*/
-		MDNode *MyMetadata = MDNode::get(context, MDString::get(context, functionName));
+		MyMetadata = MDNode::get(context, MDString::get(context, functionName));
 		F.setMetadata("Enola-back-end-flag", MyMetadata);
 		/*End : Set metadata for enola backend*/
 		
@@ -75,6 +75,7 @@ namespace {
 							//const BasicBlock *caseSuccessor =  *Case.getCaseSuccessor();
 							BasicBlock *CaseBB = Case.getCaseSuccessor();
 							modifid |= insertSecureTraceTrampoline(CaseBB);
+
 						}
 						BasicBlock *CaseBB = Switch->getDefaultDest(); //default branch
 						modifid |= insertSecureTraceTrampoline(CaseBB);
@@ -169,7 +170,7 @@ namespace {
 							}
 							else 
 							{
-								errs() << numOfConnections++ << "Type : Direct Call : Callee_name: "  << callee_name << "\n";
+								errs() << numOfConnections++ << " Type : Direct Call : Callee_name: "  << callee_name << "\n";
 							}
 					}
 					else if (InlineAsm *IA = dyn_cast_or_null<InlineAsm>(cb->getCalledOperand()))
@@ -412,9 +413,13 @@ namespace {
 
 		// Create the function call
 		FunctionType *FT = FunctionType::get(builder.getVoidTy(), false);
-		FunctionCallee Callee = module->getOrInsertFunction("secure_trace_storage", FT);
-		builder.CreateCall(Callee);
-
+		//FunctionCallee Callee = module->getOrInsertFunction("secure_trace_storage", FT);
+		Function *ExternalFunction = module->getFunction("secure_trace_storage");
+		if (!ExternalFunction) {
+			// Create the function only if it doesn't exist
+			ExternalFunction = Function::Create(FT, Function::ExternalLinkage, "secure_trace_storage", module);
+		}
+		builder.CreateCall(ExternalFunction);
 		return true;
 	}
 	

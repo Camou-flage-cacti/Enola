@@ -29,19 +29,17 @@ char ARMEnolaCFA::ID = 0;
 INITIALIZE_PASS(ARMEnolaCFA, DEBUG_TYPE, ARM_M85_ARMEnolaCFA_NAME, true, true)
 
 std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
-    std::string functionName;
-
-    const MachineOperand &MO = MI.getOperand(0); // Assuming the function name is in operand 0.
-    //Function names are global or external
-    if (MO.isGlobal()) {
-
-        functionName = MO.getGlobal()->getName().str();
-    }
-    else
+    std::string functionName = "";
+    for(int i = 0; i < MI.getNumOperands(); i++)
     {
-        outs() << "EnolaDebug-backEnd: EnolaDebug-backEnd: Not a global symbol\n";
-    }
+          const MachineOperand &MO = MI.getOperand(i); // Assuming the function name is in operand 0.
+        //Function names are global or external
+        if (MO.isGlobal()) {
 
+            functionName = MO.getGlobal()->getName().str();
+        }
+    }
+    outs() << "EnolaDebug-backEnd: No global symbol\n";
     return functionName;
   }
 
@@ -340,23 +338,25 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     }
     outs() << "EnolaDebug-backEnd: Enola Instrumentation: "<<MFName<<"\n";
     const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
- 
+    
+    MachineBasicBlock::iterator itr;
+    MachineBasicBlock *currentBB;
+    MachineFunction *currentMF;
+    
     for (auto &MBB : MF) {
 
  
         for(auto &MI:MBB){
-
+            
             //Handle all condition instructions
             if(MI.isConditionalBranch())
             {
                 outs() << "EnolaDebug-backEnd: This is a compare instruction: " <<  MI.getOpcode() <<"\n";
-                MachineBasicBlock::iterator itr;
-                MachineBasicBlock *currentBB;
-                MachineFunction *currentMF;
-
+                
                 //Instrument true branch
                 if (MI.getOperand(0).isMBB())
                 {
+                    outs ()<< "EnolaDebug-backEnd: Conditional branch true branch function: " << MF.getFunction().getName().str() <<"\n";
                     currentBB = MI.getOperand(0).getMBB();
                     itr = currentBB->begin();
                     MachineInstr &trueBB_Ins = *itr;
@@ -365,6 +365,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 }
                 if (MI.getOperand(1).isMBB())
                 {
+                    outs ()<< "EnolaDebug-backEnd: Conditional branch false branch function: " << MF.getFunction().getName().str() <<"\n";
                     //Instrument false branch
                     currentBB = MI.getOperand(1).getMBB();
                     itr = currentBB->begin();
@@ -390,12 +391,18 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             }
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
-            {
+            {   
                 std::string target_function_name = extractFunctionName(MI);
+                outs() << "EnolaDebug-backEnd: Call instruction target function name: "<< target_function_name<<"\n";
                 if (target_function_name == "secure_trace_storage")
                 {
-                    outs() << "EnolaDebug-backEnd: secure_trace_storage function call found"<<"\n";
-                    modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                    outs() << "EnolaDebug-backEnd: secure_trace_storage function call found: making instrumentation with pacg r10"<<"\n";
+                    currentBB = MI.getParent();
+                    itr = currentBB->begin();
+                    MachineInstr &BBIns = *itr;
+                    currentMF = currentBB->getParent();
+                    modified |= instrumentCond(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
+                 //   modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
 
                 else if (target_function_name == "indirect_secure_trace_storage")
