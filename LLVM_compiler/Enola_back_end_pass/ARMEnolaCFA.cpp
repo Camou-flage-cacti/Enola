@@ -42,7 +42,30 @@ std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
     outs() << "EnolaDebug-backEnd: No global symbol\n";
     return functionName;
   }
+ /*Testing function: need to be removed later*/
+bool ARMEnolaCFA::temorary (MachineBasicBlock &MBB,
+                           MachineInstr &MI,
+                           const DebugLoc &DL,
+                           const ARMBaseInstrInfo &TII,
+                           const char *sym,
+                           MachineFunction &MF) {
+    
+    outs() << "EnolaDebug-backEnd: Building PAC for condition branch:\n";
+    /*no need to instrument if already instrumented*/
+    if(MI.getOpcode() == ARM::t2PACG)
+        return false;
 
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tLDRr), ARM::R9).add(predOps(ARMCC::AL)).addReg(ARM::R9).addReg(ARM::PC).addImm(0)
+    .setMIFlag(MachineInstr::NoFlags);
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
+    MachineInstr *MI2 = MIB;
+    std::string instructionString;
+    llvm::raw_string_ostream OS(instructionString);
+    MI2->print(OS);
+    
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
+    return true;
+}
 bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
@@ -55,7 +78,7 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     if(MI.getOpcode() == ARM::t2PACG)
         return false;
 
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::PC).addReg(ARM::R10)
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
@@ -401,7 +424,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     itr = currentBB->begin();
                     MachineInstr &BBIns = *itr;
                     currentMF = currentBB->getParent();
-                    modified |= instrumentCond(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
+                    modified |= temorary(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
                  //   modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
 

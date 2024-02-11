@@ -46,6 +46,13 @@ namespace llvm {
                         const char *sym,
                         MachineFunction &MF);
         std::string extractFunctionName(const MachineInstr &MI);
+        /*Testing function: need to be removed later*/
+        bool temorary (MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF);
 
         bool instrumentIndirectParameter (MachineBasicBlock &MBB,
                         MachineInstr &MI,
