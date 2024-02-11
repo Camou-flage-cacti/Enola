@@ -37,8 +37,10 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
 # Back-end runtime test results:
 - [x] pacg instructions are present in the binary
 - [x] We can run the binary and execute the pacg instruction for the application function
-- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12`
-- []  Need to verify all instrumentations Mb and Mf
+- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12` <br/>
+
+*Date: February 9,24*
+
 - [x] Found that the generated object file sometimes miss a pacg instruction. Why? <br/>
     For example: there should be a `pacg	r10, pc, r10` instruction before the marked line in the disassembly code. <br/>
     110002a8 \<mod2\>:<br/>
@@ -107,5 +109,8 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
     * tried making trampline functions as external still can not identify - [x]
     * check clang flags, why adding flags stops identifying function names at back-end -[x]
     * Solution: solved function call name identification issue in back-end: after changing the flangs the architecture is different, thus we need to check all operands of call instruction (Commit message: `solved- missing pacg instrumentation for forward edge`)
+- [] `pacg r10, pc, r10` instruction is treated by keil differently as `DIC.W` instruction : why?
+    * Found that using `pc` in pacg instruction causes the problem, if I change the instruction to `pacg r10, lr, r10` then no issue: we need to find a work around.
+    * The binary seems ok two issues now 1) `pacg` with `pc` and 2) Library using reserved registers.
 - [] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime.
 - [] Need to check library compilation tools to stop using the `r12` registers?
