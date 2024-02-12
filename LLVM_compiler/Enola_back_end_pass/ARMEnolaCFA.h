@@ -49,27 +49,10 @@ namespace llvm {
                         const char *sym,
                         MachineFunction &MF);
         std::string extractFunctionName(const MachineInstr &MI);
-        /*Testing function: need to be removed later*/
-        // bool temporary (MachineBasicBlock &MBB,
-        //                 MachineInstr &MI,
-        //                 const DebugLoc &DL,
-        //                 const ARMBaseInstrInfo &TII,
-        //                 const char *sym,
-        //                 MachineFunction &MF);
+
 
         bool checkIfPcIsOperand(const MachineInstr &MI);
 
-        void insertInstsBefore(MachineInstr & MI,
-                                             ArrayRef<MachineInstr *> Insts);
-
-        MachineInstr * findIT(MachineInstr & MI, unsigned & distance);
-
-        unsigned getITBlockSize(const MachineInstr & IT);
-
-        std::deque<bool> decodeITMask(unsigned Mask);
-
-
-        unsigned encodeITMask(std::deque<bool> DQMask);
 
         bool instrumentIndirectParameter (MachineBasicBlock &MBB,
                         MachineInstr &MI,
