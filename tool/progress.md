@@ -118,5 +118,6 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
         * Result: instrumented push pop instructions, but `push {pc}` is a invalid instructino. It shows unknown at diassembly and in runtime it shows `push {}` 
     - [x] Option 3: execute pacg inslide trampoline library
     - [x] Option 4: use `mov <gp>, pc` instruction with `sub <gp>, #4`: **works**
+        * implemented find free register to use for moving pc
 - [] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime.
 - [] Need to check library compilation tools to stop using the `r12` registers?

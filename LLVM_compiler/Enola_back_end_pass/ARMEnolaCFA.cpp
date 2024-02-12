@@ -13,6 +13,7 @@
 #include "llvm/MC/MCSubtargetInfo.h"
 #include "llvm/CodeGen/TargetSubtargetInfo.h"
 #include "llvm/Target/TargetMachine.h"
+#include "llvm/CodeGen/RegisterScavenging.h"
 
 #include "ARMEnolaCFA.h"
 #include <iostream>
@@ -262,6 +263,16 @@ void ARMEnolaCFA::insertInstsBefore(MachineInstr & MI,
 }
 
 
+bool ARMEnolaCFA::checkIfPcIsOperand(const MachineInstr &MI)
+{
+    for(int i = 0; i < MI.getNumOperands(); i++)
+    {
+        MachineOperand MO = MI.getOperand(i);
+        if(MO.isReg() && MO.getReg() == ARM::PC)
+            return true;
+    }
+    return false;
+}
 
 std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
     std::string functionName = "";
@@ -278,7 +289,7 @@ std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
     return functionName;
   }
  /*Testing function: need to be removed later*/
-bool ARMEnolaCFA::temporary (MachineBasicBlock &MBB,
+bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
                            const ARMBaseInstrInfo &TII,
@@ -287,7 +298,7 @@ bool ARMEnolaCFA::temporary (MachineBasicBlock &MBB,
     
     outs() << "EnolaDebug-backEnd: Building PAC for condition branch:\n";
     /*no need to instrument if already instrumented*/
-    if(MI.getOpcode() == ARM::t2PACG)
+    if(MI.getOpcode() == ARM::tMOVr && checkIfPcIsOperand(MI))
         return false;
     
     // std::vector<MachineInstr *> NewMIs;
@@ -306,51 +317,34 @@ bool ARMEnolaCFA::temporary (MachineBasicBlock &MBB,
     /*PUSH {PC} - does not work covert the instruction to PUSH {} : worng*/
     //MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::PC).setMIFlag(MachineInstr::NoFlags);
 
-
-    /*Find a free register*/
-    // const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
-    // unsigned freeRegister = 0;
-
-    // for (;freeRegister < TRI->getNumRegs();freeRegister++) {
-    //     const TargetRegisterClass *RegClass = TRI->getMinimalPhysRegClass(freeRegister);
-        
-    //     // Check if the register belongs to a general-purpose register class
-    //     if (RegClass && RegClass->contains(MVT::i32)) {
-    //         break;        
-    //     }
-    // }
-
-    /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(ARM::R0).addReg(ARM::PC);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2SUBri)).addReg(ARM::R0).addReg(ARM::R0).addImm(4).add(predOps(ARMCC::AL));
-    
     /*POP {r0} - works but as push does not work no value : worng*/
     //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R0).setMIFlag(MachineInstr::NoFlags);
 
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10)
-    .setMIFlag(MachineInstr::NoFlags);
-    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
-    MachineInstr *MI2 = MIB;
-    std::string instructionString;
-    llvm::raw_string_ostream OS(instructionString);
-    MI2->print(OS);
-    
-    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
-    return true;
-}
-bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
-                           MachineInstr &MI,
-                           const DebugLoc &DL,
-                           const ARMBaseInstrInfo &TII,
-                           const char *sym,
-                           MachineFunction &MF) {
-    
-    outs() << "EnolaDebug-backEnd: Building PAC for condition branch:\n";
-    /*no need to instrument if already instrumented*/
-    if(MI.getOpcode() == ARM::t2PACG)
-        return false;
 
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R10)
+    /*Find a free register*/
+    const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
+    RegScavenger RS;
+    RS.enterBasicBlock(MBB);
+
+    unsigned freeRegister = ARM::R0;
+
+    for (;freeRegister < TRI->getNumRegs();freeRegister++) {
+        if(freeRegister>= ARM::R0 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false))
+        {
+            outs() << "EnolaDebug-backEnd: Found FREE register "<<freeRegister<<"\n";
+            break;
+        }
+    }
+
+    /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
+
+    /*sub gp, 4 instrumentation as reading pc will give +4 */
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2SUBri)).addReg(freeRegister).addReg(freeRegister).addImm(4).add(predOps(ARMCC::AL));
+
+    /*pacg instruction with r10*/
+
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
@@ -361,6 +355,29 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
     return true;
 }
+// bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
+//                            MachineInstr &MI,
+//                            const DebugLoc &DL,
+//                            const ARMBaseInstrInfo &TII,
+//                            const char *sym,
+//                            MachineFunction &MF) {
+    
+//     outs() << "EnolaDebug-backEnd: Building PAC for condition branch:\n";
+//     /*no need to instrument if already instrumented*/
+//     if(MI.getOpcode() == ARM::t2PACG)
+//         return false;
+
+//     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R10)
+//     .setMIFlag(MachineInstr::NoFlags);
+//     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
+//     MachineInstr *MI2 = MIB;
+//     std::string instructionString;
+//     llvm::raw_string_ostream OS(instructionString);
+//     MI2->print(OS);
+    
+//     outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
+//     return true;
+// }
 
 bool ARMEnolaCFA::instrumentTrampolineParameter (MachineBasicBlock &MBB,
                            MachineInstr &MI,
@@ -696,7 +713,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     itr = currentBB->begin();
                     MachineInstr &BBIns = *itr;
                     currentMF = currentBB->getParent();
-                    modified |= temporary(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
+                    modified |= instrumentCond(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
                  //   modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
 

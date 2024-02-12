@@ -50,12 +50,14 @@ namespace llvm {
                         MachineFunction &MF);
         std::string extractFunctionName(const MachineInstr &MI);
         /*Testing function: need to be removed later*/
-        bool temporary (MachineBasicBlock &MBB,
-                        MachineInstr &MI,
-                        const DebugLoc &DL,
-                        const ARMBaseInstrInfo &TII,
-                        const char *sym,
-                        MachineFunction &MF);
+        // bool temporary (MachineBasicBlock &MBB,
+        //                 MachineInstr &MI,
+        //                 const DebugLoc &DL,
+        //                 const ARMBaseInstrInfo &TII,
+        //                 const char *sym,
+        //                 MachineFunction &MF);
+
+        bool checkIfPcIsOperand(const MachineInstr &MI);
 
         void insertInstsBefore(MachineInstr & MI,
                                              ArrayRef<MachineInstr *> Insts);
