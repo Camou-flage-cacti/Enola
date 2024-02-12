@@ -112,7 +112,9 @@ The [generate_version_txt.cmake] (https://github.com/CactiLab/code-CFA-with-pac/
 - [] `pacg r10, pc, r10` instruction is treated by keil differently as `DIC.W` instruction : why?
     * Found that using `pc` in pacg instruction causes the problem, if I change the instruction to `pacg r10, lr, r10` then no issue: we need to find a work around.
     * The binary seems ok two issues now 1) `pacg` with `pc` and 2) Library using reserved registers.
-    - [] Option 1: ldr with pc+0 to a general purpose register and then use pacg with general purpose register
-    - [] Option 2: execute pacg inslide trampoline library
+    - [x] Option 1: ldr with pc+0 to a general purpose register and then use pacg with general purpose register
+        * Result: does not work. Instrumented the `ldr r0, [pc, #0x0]` instruction but during debugging keil shows instruciton such as `ldr r0,0x110006c0` - the immediate value is not correct(actual PC `0x110002c0`) and when loaded to r0 loads a garbage value.
+    - [] option 2: use `push pc` and `pop <Gr>`
+    - [] Option 3: execute pacg inslide trampoline library
 - [] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime.
 - [] Need to check library compilation tools to stop using the `r12` registers?

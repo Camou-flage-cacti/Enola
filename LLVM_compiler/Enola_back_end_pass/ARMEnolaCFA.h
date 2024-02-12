@@ -1,6 +1,9 @@
 #ifndef LLVM_LIB_TARGET_ARM_M85_ARMEnolaCFA_H
 #define LLVM_LIB_TARGET_ARM_M85_ARMEnolaCFA_H
+
 #include "llvm/CodeGen/MachineFunctionPass.h"
+#include <deque>
+#include <vector>
 
 #define ARM_M85_ARMEnolaCFA_NAME "ARM cortex-m85 CFA pass"
 
@@ -47,12 +50,24 @@ namespace llvm {
                         MachineFunction &MF);
         std::string extractFunctionName(const MachineInstr &MI);
         /*Testing function: need to be removed later*/
-        bool temorary (MachineBasicBlock &MBB,
+        bool temporary (MachineBasicBlock &MBB,
                         MachineInstr &MI,
                         const DebugLoc &DL,
                         const ARMBaseInstrInfo &TII,
                         const char *sym,
                         MachineFunction &MF);
+
+        void insertInstsBefore(MachineInstr & MI,
+                                             ArrayRef<MachineInstr *> Insts);
+
+        MachineInstr * findIT(MachineInstr & MI, unsigned & distance);
+
+        unsigned getITBlockSize(const MachineInstr & IT);
+
+        std::deque<bool> decodeITMask(unsigned Mask);
+
+
+        unsigned encodeITMask(std::deque<bool> DQMask);
 
         bool instrumentIndirectParameter (MachineBasicBlock &MBB,
                         MachineInstr &MI,
