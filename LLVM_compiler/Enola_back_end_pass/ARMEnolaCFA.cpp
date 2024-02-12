@@ -300,7 +300,32 @@ bool ARMEnolaCFA::temporary (MachineBasicBlock &MBB,
 
     // insertInstsBefore(MI, NewMIs);
 
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tLDRpci), ARM::R0).addImm(0).addImm(0).setMIFlag(MachineInstr::NoFlags);
+    /*LOAD r0, [pc, #0x0] - loads the value at the local : worng*/
+    // MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tLDRpci), ARM::R0).addImm(0).addImm(0).setMIFlag(MachineInstr::NoFlags);
+
+    /*PUSH {PC} - does not work covert the instruction to PUSH {} : worng*/
+    //MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::PC).setMIFlag(MachineInstr::NoFlags);
+
+
+    /*Find a free register*/
+    // const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
+    // unsigned freeRegister = 0;
+
+    // for (;freeRegister < TRI->getNumRegs();freeRegister++) {
+    //     const TargetRegisterClass *RegClass = TRI->getMinimalPhysRegClass(freeRegister);
+        
+    //     // Check if the register belongs to a general-purpose register class
+    //     if (RegClass && RegClass->contains(MVT::i32)) {
+    //         break;        
+    //     }
+    // }
+
+    /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(ARM::R0).addReg(ARM::PC);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2SUBri)).addReg(ARM::R0).addReg(ARM::R0).addImm(4).add(predOps(ARMCC::AL));
+    
+    /*POP {r0} - works but as push does not work no value : worng*/
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R0).setMIFlag(MachineInstr::NoFlags);
 
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
