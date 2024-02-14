@@ -175,10 +175,10 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 
     MachineInstrBuilder MIB;
     outs() << "EnolaDebug-backEnd: Building PAC:\n";
-   // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R12).addReg(ARM::R0).addImm(8);
+   // BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R9).addReg(ARM::R0).addImm(8);
    // if (TII.getIns)
  
-   // MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R12).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+   // MIB = BuildMI(MBB, MI, DL,TII.get(ARM::tCMPi8)).addReg(ARM::R9).addImm(0).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
    //MIB = BuildMI(MBB, MI, DL,TII.get(ARM::t2ADDri)).addReg(ARM::R0).addReg(ARM::R1).addImm(8).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
 
   //  MachineInstr *MI3 = MIB;
@@ -189,7 +189,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
    // outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R12).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R12)
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R9).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R9)
     .setMIFlag(MachineInstr::NoFlags);
 
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
@@ -226,7 +226,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 //    const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
 
     // Create an InlineAsm object with your inline assembly code.
-    //const char *AssemblyCode = "PACG r12, r14, r12";
+    //const char *AssemblyCode = "PACG r9, r14, r9";
   //  const char *ConstraintString = "";
    // unsigned NumOperands = 3; // The number of operands your assembly code expects.
 
