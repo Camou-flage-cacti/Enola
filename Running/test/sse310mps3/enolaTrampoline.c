@@ -59,11 +59,13 @@ void secure_trace_storage()
 	: "r0"
 	);
 	unsigned int idx = get_idx(current_addr);
-	idx = (idx == basicBlock_max ? To.occurrence_size : idx);
+	idx = (idx == basicBlock_max ? To.occurrence_size++ : idx);
+	printf("\r\n Debugging info: index %u =\r\n",idx);
+	/*Update address and occurrence count*/
 	To.basicBlockStart[idx] = current_addr;
 	To.occurrence_count[idx]++;
 
-	To.occurrence_size++;
+	//To.occurrence_size++;
 
     printf("\r\n Debugging info: in the secure trace storage function =\r\n");
 	print_occurence_trace();

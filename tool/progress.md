@@ -123,8 +123,11 @@ The [generate_version_txt.cmake](../LLVM_compiler/Environment-config/generate_ve
     * libc.a and libm.a ar the two archive files we are using, maybe recompiling them will work.
     * Use `R9` for Mb as `R12` is intra procedure call register we can not gurantee the value will be reserved by the uninstrumented code. 
     * Tested with R9 instrumentation it **works** 
-- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12` <br/> </s>
+- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12` </s>
+ <br/>
 - [] Trampoline library implementation
     - [x] secure_trace_storage function implementation is done and tested on board.
     - [] todo insecure_trace_storage
+- [] Check Loop and switch instrumentation
+
 - [] Indirect branch analysis

@@ -8,9 +8,9 @@ int mod2(int x)
 }
 int loopOver(int x)
 {
-	for(int i = 0; i < x; i++)
+	for(int i = 0; x > 1; i++)
 	{
-		x = x % (x + i);
+		x = x / 2;
 	}
 	return x;
 }

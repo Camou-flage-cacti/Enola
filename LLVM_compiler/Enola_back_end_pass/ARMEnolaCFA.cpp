@@ -405,7 +405,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
         for(auto &MI:MBB){
             
             //Handle all condition instructions
-            if(MI.isConditionalBranch())
+            /*if(MI.isConditionalBranch())
             {
                 outs() << "EnolaDebug-backEnd: This is a compare instruction: " <<  MI.getOpcode() <<"\n";
                 
@@ -438,9 +438,9 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     modified |= instrumentCond(*currentBB, falseBB_Ins, falseBB_Ins.getDebugLoc(), TII, "cmp", *currentMF);
                 }
                
-            }
+            }*/
             //Handle return instructions
-            else if(MI.getDesc().isReturn())
+            if(MI.getDesc().isReturn())
             {
                 outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
                 modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
