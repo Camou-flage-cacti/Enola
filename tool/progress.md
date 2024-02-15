@@ -118,11 +118,13 @@ The [generate_version_txt.cmake](../LLVM_compiler/Environment-config/generate_ve
     - [x] Option 3: execute pacg inslide trampoline library
     - [x] Option 4: use `mov <gp>, pc` instruction with `sub <gp>, #4`: **works**
         * implemented find free register to use for moving pc
-- [x] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime. </s>
+- [x] verify the instrumentation offline first, 1. generate the assembly and compare 2. Debug line by line at runtime. 
 - [x] Need to check library compilation tools to stop using the `r12` and `r10` registers?
     * libc.a and libm.a ar the two archive files we are using, maybe recompiling them will work.
     * Use `R9` for Mb as `R12` is intra procedure call register we can not gurantee the value will be reserved by the uninstrumented code. 
     * Tested with R9 instrumentation it **works** 
-- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12` <br/>
+- [x] `vprintf` function contains `r12` register uses thats why its changing the value of `r12` <br/> </s>
 - [] Trampoline library implementation
+    - [x] secure_trace_storage function implementation is done and tested on board.
+    - [] todo insecure_trace_storage
 - [] Indirect branch analysis

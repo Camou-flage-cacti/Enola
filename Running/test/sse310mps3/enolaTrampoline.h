@@ -13,6 +13,7 @@ struct occurrence_trace
     unsigned int occurrence_count[basicBlock_max];
     bool arbitrary_cf;
     unsigned int arbitrary_cf_addresses[arbitrary_max];
+    unsigned int occurrence_size;
 
 };
 
@@ -23,4 +24,6 @@ void enable_PAC();
 void setup_S_PAC_Keys();
 void secure_trace_storage();
 void indirect_secure_trace_storage();
+unsigned int get_idx(unsigned int addr);
+void print_occurence_trace(); /*Temporary function*/
 #endif

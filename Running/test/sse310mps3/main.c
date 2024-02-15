@@ -23,6 +23,7 @@ int main(void)
 	init_registers();
 	enable_PAC();
 	stdout_init();
+	init_trampoline();
 
 	int x = 32;
 	//x = x << 2;
