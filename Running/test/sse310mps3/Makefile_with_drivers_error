@@ -28,8 +28,8 @@ SOURCES += stdout.c
 SOURCES += uart_cmsdk_drv.c
 SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c 
 SOURCES += device_definition.c
-SOURCES += enolaTrampoline.c
-#SOURCES += application.c
+#SOURCES += enolaTrampoline.c
+SOURCES += application.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
@@ -51,7 +51,7 @@ OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 TARGET = Blinky.axf
 
 # Default target
-all: $(BUILD_DIR) app $(TARGET)
+all: $(BUILD_DIR) enolaME $(TARGET)
 #all: $(BUILD_DIR) $(TARGET)
 
 app:
@@ -59,6 +59,8 @@ app:
 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
 	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
 	
+enolaME:
+	$(CC) $(CFLAGS) -c enolaTrampoline.c -o $(BUILD_DIR)/enolaTrampoline.o
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
 #	opt $(CFLAGS) -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
@@ -68,14 +70,18 @@ $(BUILD_DIR):
 
 $(TARGET): $(OBJECTS)
 #	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $^
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/application.o $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $^
 
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+	$(LLC) -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -O0 -o $@
 
 # To remove generated files
 clean:
 	rm -rf $(BUILD_DIR) $(TARGET) *.ll *.o
 
 .PHONY: all clean
+

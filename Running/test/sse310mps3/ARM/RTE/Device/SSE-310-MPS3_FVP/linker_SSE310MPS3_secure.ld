@@ -116,6 +116,8 @@ SECTIONS
         _start = .;
         *main.o(.text*)
         *main.o(.text)
+        *application.o(.text*)
+        *application.o(.text)
         *(.text*)
 
         KEEP(*(.init))

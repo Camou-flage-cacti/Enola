@@ -131,7 +131,12 @@ The [generate_version_txt.cmake](../LLVM_compiler/Environment-config/generate_ve
 <s> - [x] secure_trace_storage function implementation is done and tested on board. </s>
     - [] todo insecure_trace_storage
 
-Feb 22, 24
+Feb 23, 24
+- [] **Inlcude all source code in the instrumentation**
+    * change make file
+    * test 
+    * **Result:** changed the maked file, it compiles but for some reason its stuck in reset handler at runtime. make file: **Makefile_with_drivers_error**
+    * **Do it later after indirect one is done**
 - [] **Indirect branch analysis**
 - [] understand the sherloc code first.
 - [] test on sherloc binary
