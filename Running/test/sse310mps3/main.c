@@ -33,5 +33,7 @@ int main(void)
 	printf("\r\n= loopOver %d=\r\n", result);
 	result = switchcase(x);
 	printf("\r\n= switchcase %d=\r\n", result);
+	int (*func_ptr)(int) = &func;
+	(*func_ptr)(10);
 	return 0;
 }

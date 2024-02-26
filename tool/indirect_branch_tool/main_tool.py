@@ -20,16 +20,29 @@ from bitarray import bitarray
 import pandas as pd
 
 from ibt_analysis import *
+import angr
 
+out_metadata_path = os.getcwd()+'/'
 
-out_metadata_path = os.getcwd()
+file_path = 'bin/Blinky.axf'
 
-filename = "Blinkey.axf"
+output_ibt_json = out_metadata_path + file_path + ".json"
 
-output_ibt_json = out_metadata_path + filename + ".json"
+# Check if the file exists
+if os.path.exists(file_path):
+    print(f"The file '{file_path}' exists.")
+else:
+    print(f"The file '{file_path}' does not exist.")
 
+#proj = angr.Project(file_path, main_opts={'arch': 'ArchARMCortexM'})
+#arch = archinfo.ArchARM(archinfo.Endness.LE)
+#proj = angr.Project(file_path, arch=arch)
+#proj = angr.Project(file_path, auto_load_libs=False)
+#print("Angr project created")
+##print(proj.arch)
+#print(hex(proj.entry))
 edge_table = analyze_on_target(
-            filename, out_metadata_path).edge_table
+            file_path, out_metadata_path).edge_table
 
-analyze_on_target(filename, out_metadata_path).write_json(
+analyze_on_target(file_path, out_metadata_path).write_json(
             output_ibt_json)

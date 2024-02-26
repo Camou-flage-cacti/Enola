@@ -34,3 +34,8 @@ int switchcase(int x)
 	}
 	return x;
 }
+
+int func(int a)
+{
+        return a*10;
+}

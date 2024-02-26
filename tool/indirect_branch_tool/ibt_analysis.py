@@ -4,35 +4,45 @@ import copy
 import json
 
 import angr
+import archinfo
 from capstone import *
 from elftools.elf.elffile import ELFFile
 
 
 class analyze_on_target():
     def __init__(self, filepath, metadata_path):
+        print('File path' + filepath)
         self.proj, self.cfg, self.code = self.load_cfg(filepath)
         self.edge_table = self.analyze_cfg()
 
     def load_cfg(self, filename):
-        proj = angr.Project(filename, main_opts={'arch': 'ArchARMCortexM'})
+        print("In load CFG")
+        proj = angr.Project(filename, main_opts={'arch': 'ArchARMCortexM'}, auto_load_libs=False)
+        print("Angr project created")
         print(proj.arch)
         print(hex(proj.entry))
 
         try:
             elf = ELFFile(open(filename, 'rb'))
+            print("debug!!!!!!!!!!")
         except IOError as e:
             print(e)
-        code_section = elf.get_section_by_name('ER_ROM')
+        code_section = elf.get_section_by_name('.text')
+
         if code_section:
+            print(type(code_section))
             pass
-        else:  # For FreeRTOS+MPU
-            code_section = elf.get_section_by_name('ER_IROM_NS_PRIVILEGED')
+        # else:  # For FreeRTOS+MPU
+        #     code_section = elf.get_section_by_name('ER_IROM_NS_PRIVILEGED')
 
         code = code_section.data()
-
+        md = Cs(CS_ARCH_ARM, CS_MODE_THUMB + CS_MODE_MCLASS)
+        for instr in md.disasm(code, 0x11000000):
+            print("0x%x:\t%s\t%s" % (instr.address, instr.mnemonic, instr.op_str))
         # static CFG
-        cfg = proj.analyses.CFGFast()
-        # cfg = proj.analyses.CFGEmulated(keep_state=True)
+        print("End of code section")
+        #cfg = proj.analyses.CFGFast(normalize=True)
+        cfg = proj.analyses.CFGEmulated(keep_state=True)
 
         return proj, cfg, code
 

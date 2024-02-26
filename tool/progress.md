@@ -138,6 +138,10 @@ Feb 23, 24
     * **Result:** changed the maked file, it compiles but for some reason its stuck in reset handler at runtime. make file: **Makefile_with_drivers_error**
     * **Do it later after indirect one is done**
 - [] **Indirect branch analysis**
+    * [x] Solve issue of capstone for tags.
+    * [x] CFGFast does not work, CFGEmulated works
+    * [x] The indirect result is not reliable, may miss lot of indirect calls
+    *[] Follow the sherloc procedure to do dynamic training.
 - [] understand the sherloc code first.
 - [] test on sherloc binary
 
