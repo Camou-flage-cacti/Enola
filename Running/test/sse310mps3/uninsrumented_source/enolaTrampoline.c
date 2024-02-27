@@ -2,6 +2,8 @@
 
 struct occurrence_trace To;
 
+unsigned int indirect_target = 0;
+unsigned int indirect_source = 0;
 
 void init_trampoline()
 {
@@ -74,8 +76,28 @@ void secure_trace_storage()
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
 void indirect_secure_trace_storage()
 {
-     printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
-	 return;
+	/*get the target address from r0, the instrumened code will provide it in r0*/
+	__asm volatile(
+	"MOV %0, r0\n\t"
+	: "=r" (indirect_target)
+	:
+	: "r0"
+	);
+	/*get the source address from lr + 2, lr will always be the load from stack instruction*/
+	__asm volatile(
+	"MOV r0, lr\n\t"
+	"MOV %0, r0\n\t"
+	: "=r" (indirect_source)
+	:
+	: "r0"
+	);
+	/*We need to decrease by 1 as in ARM PC will always be -1 */
+	indirect_source += 1;
+	indirect_target--;
+	printf("\r\n The indirect source is 0x%x and the target is at 0x%x address=\r\n", indirect_source, indirect_target);
+	printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
+
+	return;
 }
 
 void setup_S_PAC_Keys()
