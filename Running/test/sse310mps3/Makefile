@@ -1,6 +1,7 @@
 # Define the build directory
 BUILD_DIR := build
 
+UNINSTRUMENTED_DIR := uninsrumented_source
 #BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
 BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
 ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
@@ -17,19 +18,20 @@ INCLUDES += -I../../1.3.0/Board/Device_Definition
 INCLUDES += -I../../1.3.0/Board/Platform
 INCLUDES += -I../../1.3.0/CMSIS_Driver
 INCLUDES += -I../../1.3.0/Device/Include
+INCLUDES += -Iuninsrumented_source
 #INCLUDES += -I/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/include
 
 # Source files (converted to Unix-style paths)
 SOURCES = main.c
-SOURCES += Driver_USART.c
-SOURCES += retarget_io.c
+#SOURCES += Driver_USART.c
+#SOURCES += retarget_io.c
 # SOURCES += stdout_USART.c
-SOURCES += stdout.c
-SOURCES += uart_cmsdk_drv.c
-SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c 
+#SOURCES += stdout.c
+#SOURCES += uart_cmsdk_drv.c
+#SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c 
 SOURCES += device_definition.c
-SOURCES += enolaTrampoline.c
-#SOURCES += application.c
+#SOURCES += enolaTrampoline.c
+SOURCES += application.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
@@ -51,13 +53,22 @@ OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 TARGET = Blinky.axf
 
 # Default target
-all: $(BUILD_DIR) app $(TARGET)
+all: $(BUILD_DIR) enolaME $(TARGET)
 #all: $(BUILD_DIR) $(TARGET)
 
-app:
-	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
-	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
+# app:
+# 	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
+# 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
+# 	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
+	
+enolaME:
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/enolaTrampoline.c -o $(BUILD_DIR)/enolaTrampoline.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/startup_SSE310MPS3.c -o $(BUILD_DIR)/startup_SSE310MPS3.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/system_SSE310MPS3.c -o $(BUILD_DIR)/system_SSE310MPS3.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/stdout.c -o $(BUILD_DIR)/stdout.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/Driver_USART.c -o $(BUILD_DIR)/Driver_USART.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/retarget_io.c -o $(BUILD_DIR)/retarget_io.o 
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/uart_cmsdk_drv.c -o $(BUILD_DIR)/uart_cmsdk_drv.o
 	
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
@@ -68,11 +79,15 @@ $(BUILD_DIR):
 
 $(TARGET): $(OBJECTS)
 #	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $^
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/application.o $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/system_SSE310MPS3.o $(BUILD_DIR)/startup_SSE310MPS3.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/Driver_USART.o  $(BUILD_DIR)/retarget_io.o  $(BUILD_DIR)/uart_cmsdk_drv.o $^
+#	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/system_SSE310MPS3.o $(BUILD_DIR)/startup_SSE310MPS3.o $^
 
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+	$(LLC) -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -O0 -o $@
 
 # To remove generated files
 clean:

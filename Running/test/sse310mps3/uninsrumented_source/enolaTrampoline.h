@@ -4,8 +4,8 @@
 #include<stdio.h>
 #include <stdbool.h>
 
-#define arbitrary_max 5
-#define basicBlock_max 5
+#define arbitrary_max 50
+#define basicBlock_max 50
 /*Structure for occurence trace To*/
 struct occurrence_trace
 {

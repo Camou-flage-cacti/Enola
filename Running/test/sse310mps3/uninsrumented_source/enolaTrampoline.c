@@ -27,7 +27,7 @@ void print_occurence_trace()
 		printf("\r\n Address: 0x%x Count: 0x%x \r\n", To.basicBlockStart[i], To.occurrence_count[i]);
 	}
 	printf("\r\n ----------------Occurence Trace end-------------- \r\n");
-	
+	return;
 }
 /*Get index of Occurece trace */
 unsigned int get_idx(unsigned int addr)
@@ -69,11 +69,13 @@ void secure_trace_storage()
 
     printf("\r\n Debugging info: in the secure trace storage function =\r\n");
 	print_occurence_trace();
+	return;
 }
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
 void indirect_secure_trace_storage()
 {
      printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
+	 return;
 }
 
 void setup_S_PAC_Keys()

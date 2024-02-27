@@ -22,9 +22,10 @@ int main(void)
 	setup_S_PAC_Keys();
 	init_registers();
 	enable_PAC();
-	stdout_init();
 	init_trampoline();
-
+	stdout_init();
+	printf("\r\n= setup done=\r\n");
+	//print_occurence_trace();
 	int x = 32;
 	//x = x << 2;
 	int result = mod2(x);
