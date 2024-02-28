@@ -60,10 +60,10 @@ all: $(BUILD_DIR) enolaME $(TARGET)
 # 	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
 # 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
 # 	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
-test:
-	$(CC) $(CFLAGS) $(INCLUDES) main.c -S -emit-llvm -o main.ll
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass main.ll -S -o main_opt.ll
-	$(LLC) -march=arm -filetype=obj --mattr=+pacbti main_opt.ll -O0 -o main.o
+# test:
+# 	$(CC) $(CFLAGS) $(INCLUDES) main.c -S -emit-llvm -o main.ll
+# 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass main.ll -S -o main_opt.ll
+# 	$(LLC) -march=arm -filetype=obj --mattr=+pacbti main_opt.ll -O0 -o main.o
 enolaME:
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/enolaTrampoline.c -o $(BUILD_DIR)/enolaTrampoline.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/startup_SSE310MPS3.c -o $(BUILD_DIR)/startup_SSE310MPS3.o
