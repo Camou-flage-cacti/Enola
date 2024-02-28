@@ -285,19 +285,25 @@ Register ARMEnolaCFA::getParameterOfindrect (MachineBasicBlock &MBB,
     while(MBIIterator != MBB.end())
     {
         MachineInstr &tempMI = *MBIIterator;
-        
-        if(tempMI.getOpcode() == ARM::BMOVPCRX_CALL || tempMI.getDesc().getOpcode() == ARM::BLX || tempMI.getDesc().getOpcode() == ARM::BX)
+        outs() <<"opcode of the indirect check : " <<tempMI.getDesc().getOpcode()<<"\n";
+        if(tempMI.getOpcode() == ARM::BMOVPCRX_CALL || tempMI.getDesc().getOpcode() == ARM::BLX || tempMI.getDesc().getOpcode() == ARM::BX || tempMI.getDesc().getOpcode() == ARM::tBLXr || tempMI.getDesc().getOpcode() == ARM::tBX)
         {
             // ARM::MOV_pc
             //&& MI.getNumOperands()>1 && MI.getOperand(0).isReg() && MI.getOperand(1).isReg()
             outs() << "EnolaDebug-backEnd: Mov to register instruction with the following operands: \n";
-            if (tempMI.getNumOperands() >= 1)
-                indirectTarger = tempMI.getOperand(0).getReg();
+            for (int i = 0; i < tempMI.getNumOperands(); i++)
+            {
+                if(tempMI.getOperand(i).isReg() && tempMI.getOperand(i).getReg().id() >= ARM::R0 && tempMI.getOperand(i).getReg().id() <= ARM::R11){
+                    indirectTarger = tempMI.getOperand(i).getReg();
+                    break;
+                }
+                
+            }
             for (int i = 0; i < tempMI.getNumOperands(); i++)
             {
                 if(tempMI.getOperand(i).isReg()){
                     StringRef targetReg = TRI->getRegAsmName(tempMI.getOperand(i).getReg());
-                    outs() << targetReg.str()<<" , ";
+                    outs() << targetReg.str()<<" : "<<tempMI.getOperand(i).getReg().id()<<" , ";
                 }
                 outs() << tempMI.getOperand(i).getType()<<" , ";
             }
@@ -328,14 +334,31 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
     while(MBIIterator != MBB.end())
     {
         MachineInstr &tempMI = *MBIIterator;
-       // outs()<< "opcodes: "<<tempMI.getOpcode()<<"\n";
+        outs()<< "opcodes: "<<tempMI.getOpcode()<<"\n";
         
-        if(tempMI.getOpcode() == ARM::LDRi12 && tempMI.getNumOperands() > 0 && tempMI.getOperand(0).isReg() && tempMI.getOperand(0).getReg() == indirectReg)
+        // if(tempMI.getOpcode() == ARM::LDRi12 && tempMI.getNumOperands() > 0 && tempMI.getOperand(0).isReg() && tempMI.getOperand(0).getReg() == indirectReg)
+        // {
+        //     outs()<<"EnolaDebug-backEnd: Need to instrument the instruction\n";
+        //     break;
+        // }
+        if(tempMI.getOpcode() == ARM::LDRi12 || tempMI.getOpcode() == ARM::tLDRspi)
         {
             outs()<<"EnolaDebug-backEnd: Need to instrument the instruction\n";
+            for (int i = 0; i < tempMI.getNumOperands(); i++)
+            {
+                if(tempMI.getOperand(i).isReg() && tempMI.getOperand(i).getReg().id() >= ARM::R0 && tempMI.getOperand(i).getReg().id() <= ARM::R11 && tempMI.getOperand(i).getReg() == indirectReg){
+                    break;
+                }
+                
+            }
             break;
         }
         MBIIterator++;
+    }
+    if(MBIIterator == MBB.end())
+    {
+        outs()<<"EnolaDebug-backEnd: Did not find the desired ldr instruction\n";
+        return false;
     }
     
     MachineInstr &toBeInstrmented = *MBIIterator;
@@ -466,8 +489,17 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                     outs() << "EnolaDebug-backEnd: indirect_secure_trace_storage function call found"<<"\n";
                     Register indirectTarget = getParameterOfindrect(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameter", MF);
                     if (indirectTarget.isValid())
+                    {
+                        outs()<<"EnolaDebug-backEnd: Register ID: " << indirectTarget.id() << "\n"; 
                         //modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
                         modified |= instrumentIndirectParameterSetInst(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameterSetInst", MF, indirectTarget);
+                    }
+
+                    else
+                    {
+                        outs() << "EnolaDebug-backEnd: Got invalid indirect target register: ID: "<<indirectTarget.id()<<" \n"; 
+                    }
+                        
                 }
                    
             }

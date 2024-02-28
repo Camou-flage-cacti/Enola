@@ -60,7 +60,10 @@ all: $(BUILD_DIR) enolaME $(TARGET)
 # 	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
 # 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
 # 	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
-	
+test:
+	$(CC) $(CFLAGS) $(INCLUDES) main.c -S -emit-llvm -o main.ll
+	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass main.ll -S -o main_opt.ll
+	$(LLC) -march=arm -filetype=obj --mattr=+pacbti main_opt.ll -O0 -o main.o
 enolaME:
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/enolaTrampoline.c -o $(BUILD_DIR)/enolaTrampoline.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/startup_SSE310MPS3.c -o $(BUILD_DIR)/startup_SSE310MPS3.o
@@ -87,7 +90,7 @@ $(BUILD_DIR)/%.o: %.c
 #	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-	$(LLC) -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -O0 -o $@
+	$(LLC) -march=arm -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -O0 -o $@
 
 # To remove generated files
 clean:
