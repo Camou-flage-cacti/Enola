@@ -4,18 +4,27 @@
 #include<stdio.h>
 #include <stdbool.h>
 
-#define arbitrary_max 50
-#define basicBlock_max 50
+#define ARBITRARY_MAX 50
+#define BASIC_BlOCK_MAX 50
+
 /*Structure for occurence trace To*/
 struct occurrence_trace
 {
-    unsigned int basicBlockStart[basicBlock_max];
-    unsigned int occurrence_count[basicBlock_max];
+    unsigned int basicBlockStart[BASIC_BlOCK_MAX];
+    unsigned int occurrence_count[BASIC_BlOCK_MAX];
     bool arbitrary_cf;
-    unsigned int arbitrary_cf_addresses[arbitrary_max];
+    unsigned int arbitrary_cf_addresses[ARBITRARY_MAX];
     unsigned int occurrence_size;
 
 };
+
+/*Structure for IBT*/
+struct IBT
+{
+    unsigned int dest;
+    unsigned int src;
+};
+
 
 /*library functions*/
 void init_trampoline();
@@ -26,4 +35,5 @@ void secure_trace_storage();
 void indirect_secure_trace_storage();
 unsigned int get_idx(unsigned int addr);
 void print_occurence_trace(); /*Temporary function*/
+void linear_search(unsigned int);
 #endif

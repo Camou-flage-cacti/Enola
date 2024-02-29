@@ -2,19 +2,22 @@
 
 struct occurrence_trace To;
 
+/*Size of IBT: number of entires*/
+unsigned int IBT_Size = 0;
+
 unsigned int indirect_target = 0;
 unsigned int indirect_source = 0;
 
 void init_trampoline()
 {
     To.arbitrary_cf = false;
-    for(int i = 0; i <basicBlock_max; i++)
+    for(int i = 0; i <BASIC_BlOCK_MAX; i++)
     {
         To.basicBlockStart[i] = -1;
         To.occurrence_count[i] = 0;
     }
 
-    for(int i = 0; i <arbitrary_max; i++)
+    for(int i = 0; i <BASIC_BlOCK_MAX; i++)
     {
         To.arbitrary_cf_addresses[i] = -1;
     }
@@ -41,12 +44,12 @@ unsigned int get_idx(unsigned int addr)
 			return i;
 		}
 	}
-	return basicBlock_max;
+	return BASIC_BlOCK_MAX;
 }
 /*TODO: implement secure trace storage for TA*/
 void secure_trace_storage()
 {	
-	if(To.occurrence_size >= basicBlock_max)
+	if(To.occurrence_size >= BASIC_BlOCK_MAX)
 	{
 		printf("\r\n Error info: Occurence trace buffer full =\r\n");
 		return;
@@ -61,7 +64,7 @@ void secure_trace_storage()
 	: "r0"
 	);
 	unsigned int idx = get_idx(current_addr);
-	idx = (idx == basicBlock_max ? To.occurrence_size++ : idx);
+	idx = (idx == BASIC_BlOCK_MAX ? To.occurrence_size++ : idx);
 	printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/
 	To.basicBlockStart[idx] = current_addr;
@@ -98,6 +101,10 @@ void indirect_secure_trace_storage()
 	printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
 
 	return;
+}
+void linear_search(unsigned int)
+{
+	
 }
 
 void setup_S_PAC_Keys()
