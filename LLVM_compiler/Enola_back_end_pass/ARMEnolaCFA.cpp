@@ -363,7 +363,7 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
     
     MachineInstr &toBeInstrmented = *MBIIterator;
 
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, MI.getDebugLoc(), TII.get(ARM::LDRi12), ARM::R0);
+    MachineInstrBuilder MIB = BuildMI(MBB, MI, MI.getDebugLoc(), TII.get(ARM::tLDRspi), ARM::R0);
 
      /*for (const MachineOperand &MO : toBeInstrmented.operands()) {
         MO.print(outs());
