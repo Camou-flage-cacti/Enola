@@ -3,26 +3,21 @@
 struct occurrence_trace To;
 
 /*Size of IBT: number of entires*/
-unsigned int IBT_Size = 0;
 
-volatile void *TB = (void *)IBT_ADDRESS;
-IBT *IBT_ptr = (IBT *)&TB;
+volatile unsigned int *IBT_size = (unsigned int *)IBT_ADDRESS;
+
+volatile unsigned int * IBT_entry = (unsigned int *) (IBT_ADDRESS + sizeof(unsigned int));
 
 unsigned int indirect_target = 0;
 unsigned int indirect_source = 0;
 
 void intialize_IBT()
 {
-	printf("\r\n ----------------IBT SIZE = %d-------------- \r\n",IBT_ptr->size);
+	printf("\r\n ----------------IBT SIZE = 0x%x-------------- \r\n", *IBT_size);
 
-	/*initialize IBT pairs*/
-	IBT_ptr->dest_entry = (unsigned int *)&TB + sizeof(unsigned int);
-	IBT_ptr->src_entry = (unsigned int *)&TB + sizeof(unsigned int) + sizeof(unsigned int);
-	
-	/*print IBT*/
-	for(int i = 0; i <IBT_ptr->size; i+=2)
+	for(int i = 0; i < (*IBT_size) * 2 ; i+=2)
 	{
-		printf("\r\n-------------Destination: 0x%x || Source: 0x%x ---------------\r\n", IBT_ptr->dest_entry[i], IBT_ptr->src_entry[i]);
+		printf("\r\n-------------Destination: 0x%x || Source: 0x%x ---------------\r\n", IBT_entry[i], IBT_entry[i + 1]);
 	}
 	
 }
@@ -40,7 +35,6 @@ void init_trampoline()
         To.arbitrary_cf_addresses[i] = -1;
     }
 	To.occurrence_size = 0;
-	intialize_IBT();
 }
 
 void print_occurence_trace()

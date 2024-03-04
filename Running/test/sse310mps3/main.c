@@ -19,12 +19,15 @@ __strong_reference(stdin, stderr);
 
 int main(void)
 {
+	stdout_init();
 	setup_S_PAC_Keys();
 	init_registers();
 	enable_PAC();
 	init_trampoline();
-	stdout_init();
 	printf("\r\n= setup done=\r\n");
+	printf("\r\n= INitializing IBT=\r\n");
+	intialize_IBT();
+	printf("\r\n= IBT init done=\r\n");
 	//print_occurence_trace();
 	int x = 32;
 	//x = x << 2;

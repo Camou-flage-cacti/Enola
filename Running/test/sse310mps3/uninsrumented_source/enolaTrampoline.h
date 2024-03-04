@@ -6,7 +6,7 @@
 
 #define ARBITRARY_MAX 50
 #define BASIC_BlOCK_MAX 50
-#define IBT_ADDRESS 0x11040000
+#define IBT_ADDRESS 0x31040000
 
 /*Structure for occurence trace To*/
 struct occurrence_trace
@@ -19,13 +19,6 @@ struct occurrence_trace
 
 };
 
-/*Structure for IBT*/
-typedef struct __attribute__((__packed__))
-{
-    unsigned int size;
-    unsigned int *dest_entry;
-    unsigned int *src_entry;
-} IBT;
 
 
 /*library functions*/
