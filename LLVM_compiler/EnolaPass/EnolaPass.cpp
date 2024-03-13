@@ -44,11 +44,15 @@ namespace {
 	bool indirectTraceFlag = true;
 
     bool runOnFunction(Function &F) override {
+		
 	    LLVMContext &context = F.getContext();
 	    auto module = F.getParent();
 		string functionName = F.getName().str();
 		MDNode *MyMetadata = NULL;
 		bool modifid = false;
+
+		errs()<<"---------------Begin runOnFunction for function # "<< functionName<<" #-------------------\n";
+
 		/*Begin : Set metadata for enola backend*/
 		MyMetadata = MDNode::get(context, MDString::get(context, functionName));
 		F.setMetadata("Enola-back-end-flag", MyMetadata);
@@ -268,6 +272,7 @@ namespace {
 					}
 					 /*-------------- indirect_analysis: END --------*/
 				}
+				errs()<<"\n-------------------here ----------------------\n";
 				switch (I.getOpcode())
 				{
 					/*case Instruction::Br: {
@@ -401,11 +406,39 @@ namespace {
 		builder.CreateCall(printfFunction, {functionNamePtr, addedCallCount});*/
 
 
+		errs()<<"---------------End runOnFunction for function # "<< functionName<<" # Modified value: "<<modifid <<" -------------------\n";
 	    return modifid;
     }
 
 	bool insertSecureTraceTrampoline(BasicBlock *BB)
-	{
+	{	
+		// Instruction *FirstNonPhiInst = nullptr;
+		// for (auto &Inst : *BB) {
+		// 	if (!isa<PHINode>(&Inst)) {
+		// 		// Found the first non-PHI node instruction
+		// 		FirstNonPhiInst = &Inst;
+		// 		break;
+		// 	}
+		// 	else{
+		// 		errs()<<"--------------phi node found at begining---------------\n";
+
+		// 	}
+		// }
+		 Instruction *FirstNonPhiInst = &BB->front();
+		 if (isa<PHINode>(FirstNonPhiInst))
+		 {
+			errs()<<"--------------phi node found at begining---------------\n";
+			return false;
+		 }
+		
+		if (auto *Call = dyn_cast<CallInst>(FirstNonPhiInst)) {
+			if (Function *Callee = Call->getCalledFunction()) {
+				if (Callee->getName() == "secure_trace_storage") {
+					errs()<<"--------------Already instrumented Skipping---------------\n";
+					return false;
+				}
+			}
+		}
 
 		LLVMContext &Context = BB->getContext();
 		IRBuilder<> builder(&BB->front());
@@ -420,6 +453,7 @@ namespace {
 			ExternalFunction = Function::Create(FT, Function::ExternalLinkage, "secure_trace_storage", module);
 		}
 		builder.CreateCall(ExternalFunction);
+		errs()<<"returned from insertSecureTraceTrampoline safely\n";
 		return true;
 	}
 	
