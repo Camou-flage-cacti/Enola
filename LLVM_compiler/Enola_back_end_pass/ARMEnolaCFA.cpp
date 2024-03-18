@@ -189,7 +189,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
    // outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R9).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R9)
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11)
     .setMIFlag(MachineInstr::NoFlags);
 
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";

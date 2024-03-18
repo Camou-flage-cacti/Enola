@@ -208,7 +208,7 @@ getReservedRegs(const MachineFunction &MF) const {
   markSuperRegs(Reserved, ARM::FPSCR);
   markSuperRegs(Reserved, ARM::APSR_NZCV);
    //Enola Reserve register
-  markSuperRegs(Reserved, ARM::R9);
+  markSuperRegs(Reserved, ARM::R11);
   markSuperRegs(Reserved, ARM::R10);
 
   if (TFI->hasFP(MF))

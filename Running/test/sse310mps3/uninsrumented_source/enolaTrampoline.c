@@ -93,20 +93,22 @@ void secure_trace_storage()
 void indirect_secure_trace_storage(int dummy, int dummy2)
 {
 	/*get the target address from r0, the instrumened code will provide it in r0*/
-	__asm volatile(
-	"MOV %0, r0\n\t"
-	: "=r" (indirect_target)
-	:
-	: "r0"
-	);
+	// __asm volatile(
+	// "MOV %0, r0\n\t"
+	// : "=r" (indirect_target)
+	// :
+	// : "r0"
+	// );
 	/*get the source address from lr + 2, lr will always be the load from stack instruction*/
-	__asm volatile(
-	"MOV %0, r1\n\t"
-	: "=r" (indirect_source)
-	:
-	: "r1"
-	);
+	// __asm volatile(
+	// "MOV %0, r1\n\t"
+	// : "=r" (indirect_source)
+	// :
+	// : "r1"
+	// );
+	/*get the target address from r0, the instrumened code will provide it in r0*/
 	indirect_target = dummy;
+	/*get the source address from lr + 2, lr will always be the load from stack instruction*/
 	indirect_source = dummy2;
 	/*We need to decrease by 1 as in ARM PC will always be -1 */
 	//indirect_source += 1;
