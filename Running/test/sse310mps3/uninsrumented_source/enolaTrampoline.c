@@ -90,7 +90,7 @@ void secure_trace_storage()
 	return;
 }
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
-void indirect_secure_trace_storage()
+void indirect_secure_trace_storage(int dummy, int dummy2)
 {
 	/*get the target address from r0, the instrumened code will provide it in r0*/
 	__asm volatile(
@@ -101,14 +101,15 @@ void indirect_secure_trace_storage()
 	);
 	/*get the source address from lr + 2, lr will always be the load from stack instruction*/
 	__asm volatile(
-	"MOV r0, lr\n\t"
-	"MOV %0, r0\n\t"
+	"MOV %0, r1\n\t"
 	: "=r" (indirect_source)
 	:
-	: "r0"
+	: "r1"
 	);
+	indirect_target = dummy;
+	indirect_source = dummy2;
 	/*We need to decrease by 1 as in ARM PC will always be -1 */
-	indirect_source += 1;
+	//indirect_source += 1;
 	indirect_target--;
 	printf("\r\n The indirect source is 0x%x and the target is at 0x%x address=\r\n", indirect_source, indirect_target);
 	printf("\r\n Debugging info: in the insecure trace storage function =\r\n");

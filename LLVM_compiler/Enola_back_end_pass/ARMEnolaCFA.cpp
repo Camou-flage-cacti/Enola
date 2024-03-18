@@ -372,6 +372,34 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
     for (unsigned i = 1; i < toBeInstrmented.getNumOperands(); ++i) {
         MIB.add(toBeInstrmented.getOperand(i));
     }
+    /*Get PC to R1*/
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(ARM::R1).addReg(ARM::PC);
+    
+    
+    /*Get the distance to BLX or BX instruction*/
+    MachineInstr *movPcInstrumentedInstr = MIB.getInstr();
+    outs()<< "Working on function : "<<MF.getName().str() << "\n";
+    MBIIterator =  movPcInstrumentedInstr->getIterator();
+
+    int64_t relativeDistanceToBLX = -2;
+    while(MBIIterator != MBB.end())
+    {
+        MachineInstr &tempMI = *MBIIterator;
+        //if(&*MBIIterator == movPcInstrumentedInstr)
+        outs() <<" Instruction Opcode: "<<STI.getInstrInfo()->getName(tempMI.getOpcode()) << " Size: " << STI.getInstrInfo()->get(tempMI.getOpcode()).getSize()<<"\n";
+        relativeDistanceToBLX += STI.getInstrInfo()->get(tempMI.getOpcode()).getSize();
+        if(tempMI.getOpcode() == ARM::BMOVPCRX_CALL || tempMI.getDesc().getOpcode() == ARM::BLX || tempMI.getDesc().getOpcode() == ARM::BX || tempMI.getDesc().getOpcode() == ARM::tBLXr || tempMI.getDesc().getOpcode() == ARM::tBX)
+        {
+            outs()<<"Found the BLX BX instruction\n";
+            break;
+        }
+        
+        MBIIterator++;
+    }
+    outs() << "Calculated distance: "<<relativeDistanceToBLX<<" \n";
+
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R1).addReg(ARM::R1).addImm(relativeDistanceToBLX + 4).add(predOps(ARMCC::AL));
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10);
     
     outs()<<"EnolaDebug-backEnd: it should be the ldr insturction: "<<toBeInstrmented.getOpcode()<<"\n";
 

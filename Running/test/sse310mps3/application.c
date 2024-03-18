@@ -15,6 +15,22 @@ int loopOver(int x)
 	return x;
 }
 
+void moveZeros(int nums[], int n)
+{
+	 int x = -1, y = 0;
+	for(int i = 0 ; i < n; i++)
+	{
+		if(nums[i] == 0 && x == -1)
+			x = i;
+		else if(nums[i] != 0 && x != -1)
+		{
+			nums[x] = nums[i];
+			nums[i] = 0;
+			x++;
+		}
+	}
+}
+
 int switchcase(int x)
 {
 	switch(x % 3)

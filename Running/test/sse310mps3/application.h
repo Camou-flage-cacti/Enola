@@ -8,4 +8,5 @@ int mod2(int x);
 int loopOver(int x);
 int switchcase(int x);
 int func(int a);
+void moveZeros(int nums[], int n);
 #endif

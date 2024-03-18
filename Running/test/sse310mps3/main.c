@@ -39,5 +39,7 @@ int main(void)
 	printf("\r\n= switchcase %d=\r\n", result);
 	int (*func_ptr)(int) = &func;
 	(*func_ptr)(10);
+	int nums[] = {0,1,0,3,12};
+	moveZeros(nums, 5);
 	return 0;
 }
