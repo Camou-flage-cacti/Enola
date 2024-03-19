@@ -63,6 +63,8 @@ int main(void)
 	(*func_ptr)(10);
 	int nums[] = {0,1,0,3,12};
 	moveZeros(nums, 5);
+	test();
+	
 	display_elapsed_times();
 	return 0;
 }

@@ -23,9 +23,9 @@ struct occurrence_trace
 
 /*library functions*/
 void init_trampoline();
-void init_registers();
-void enable_PAC();
-void setup_S_PAC_Keys();
+void __attribute__((naked)) init_registers();
+void __attribute__((naked)) enable_PAC();
+void __attribute__((naked)) setup_S_PAC_Keys();
 void secure_trace_storage();
 void indirect_secure_trace_storage(int dummy, int dummy2);
 unsigned int get_idx(unsigned int addr);

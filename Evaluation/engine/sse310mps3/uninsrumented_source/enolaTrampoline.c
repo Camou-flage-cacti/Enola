@@ -123,7 +123,7 @@ void linear_search(unsigned int)
 	
 }
 
-void setup_S_PAC_Keys()
+void __attribute__((naked)) setup_S_PAC_Keys()
 {
 	__asm volatile(
 		"MOV r5, #0x1122\n\t"
@@ -134,7 +134,7 @@ void setup_S_PAC_Keys()
 		"MSR PAC_KEY_P_3, r5\n\t"
 	);
 }
-void enable_PAC()
+void __attribute__((naked)) enable_PAC()
 {
 	__asm volatile(
 		"MOV r5, #0x4c\n\t"
@@ -143,7 +143,7 @@ void enable_PAC()
 }
 
 //void __attribute__((naked)) init_r12()
-void init_registers()
+void __attribute__((naked)) init_registers()
 {
 	__asm volatile(
 		"MOV r9, #0x0\n\t"
@@ -294,4 +294,21 @@ void  display_elapsed_times()
 		p_tbl          = &elapsed_time_tbl[i];
 		printf("\r\n Evaluation info: Code snippet: %d || Average CPU cycles used %d  Max used %d Min used %d\r\n", i, p_tbl->avg, p_tbl->max, p_tbl->min);
 	}
+}
+void test()
+{
+	for(int i =0; i< 100; i++)
+	{
+		elapsed_time_start(4);
+		__asm volatile(
+	  	"PACG r10, lr, r10\n\t"
+		);
+		elapsed_time_start(4);
+	}
+}
+__attribute__((naked)) void pacg_exe_time()
+{
+	__asm volatile(
+	  	"PACG r10, lr, r10\n\t"
+	);
 }

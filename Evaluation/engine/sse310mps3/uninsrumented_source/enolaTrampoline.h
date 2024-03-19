@@ -14,7 +14,7 @@
 *                MAXIMUM NUMBER OF ELAPSED TIME MEASUREMENT SECTIONS
 ********************************************************************************
 */
-#define  ELAPSED_TIME_MAX_SECTIONS  4
+#define  ELAPSED_TIME_MAX_SECTIONS  5
 
 /*Structure for occurence trace To*/
 struct occurrence_trace
@@ -47,13 +47,15 @@ void  display_elapsed_times();
 
 /*library functions*/
 void init_trampoline();
-void init_registers();
-void enable_PAC();
-void setup_S_PAC_Keys();
+void __attribute__((naked)) init_registers();
+void __attribute__((naked)) enable_PAC();
+void __attribute__((naked)) setup_S_PAC_Keys();
 void secure_trace_storage();
 void indirect_secure_trace_storage(int dummy, int dummy2);
 unsigned int get_idx(unsigned int addr);
 void print_occurence_trace(); /*Temporary function*/
 void linear_search(unsigned int);
 void intialize_IBT();
+void __attribute__((naked)) pacg_exe_time();
+void test();
 #endif
