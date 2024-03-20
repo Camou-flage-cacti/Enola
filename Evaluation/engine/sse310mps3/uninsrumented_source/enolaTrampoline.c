@@ -218,7 +218,7 @@ void  elapsed_time_init (void)
     
     
     if (ARM_CM_DWT_CTRL != 0) {                  // See if DWT is available
-		printf("\r\n=DWT Available=\r\n");
+		//printf("\r\n=DWT Available=\r\n");
         ARM_CM_DEMCR      |= 1 << 24;            // Set bit 24
         ARM_CM_DWT_CYCCNT  = 0;                
         ARM_CM_DWT_CTRL   |= 1 << 0;             // Set bit 0
@@ -297,7 +297,7 @@ void  display_elapsed_times()
 }
 void test()
 {
-	for(int i =0; i< 100; i++)
+	for(int i =0; i< 10; i++)
 	{
 		elapsed_time_start(4);
 		__asm volatile(
@@ -306,7 +306,7 @@ void test()
 		elapsed_time_start(4);
 	}
 }
-__attribute__((naked)) void pacg_exe_time()
+void __attribute__((naked)) pacg_exe_time()
 {
 	__asm volatile(
 	  	"PACG r10, lr, r10\n\t"

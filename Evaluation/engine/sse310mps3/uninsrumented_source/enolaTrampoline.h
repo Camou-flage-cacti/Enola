@@ -14,7 +14,7 @@
 *                MAXIMUM NUMBER OF ELAPSED TIME MEASUREMENT SECTIONS
 ********************************************************************************
 */
-#define  ELAPSED_TIME_MAX_SECTIONS  5
+#define  ELAPSED_TIME_MAX_SECTIONS  6
 
 /*Structure for occurence trace To*/
 struct occurrence_trace
@@ -47,6 +47,9 @@ void  display_elapsed_times();
 
 /*library functions*/
 void init_trampoline();
+// void  init_registers();
+// void  enable_PAC();
+// void  setup_S_PAC_Keys();
 void __attribute__((naked)) init_registers();
 void __attribute__((naked)) enable_PAC();
 void __attribute__((naked)) setup_S_PAC_Keys();

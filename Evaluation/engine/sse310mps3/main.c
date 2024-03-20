@@ -64,7 +64,10 @@ int main(void)
 	int nums[] = {0,1,0,3,12};
 	moveZeros(nums, 5);
 	test();
-	
+
+	// elapsed_time_start(5);
+	// pacg_exe_time();
+	// elapsed_time_start(5);
 	display_elapsed_times();
 	return 0;
 }
