@@ -1,34 +1,36 @@
 # Define the build directory
 BUILD_DIR := build
 
-#BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
-BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
+UNINSTRUMENTED_DIR := uninsrumented_source
+BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
+#BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
 ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
-vpath %.c ./ ../../1.3.0/CMSIS_Driver ../../1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP ../../1.3.0/Board/Device_Definition
+vpath %.c ./ /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
 
 # Include directories (converted to Unix-style paths)
 
 INCLUDES += -I./ARM/RTE/Device/SSE-310-MPS3_FVP -I./ARM/RTE/_ARMCLANG  
-INCLUDES += -I../../../tool/misc_header
-INCLUDES += -I../../1.3.0/Board/Device_Definition 
-INCLUDES += -I../../1.3.0/Board/Platform
-INCLUDES += -I../../1.3.0/CMSIS_Driver
-INCLUDES += -I../../1.3.0/Device/Include
+INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/tool/misc_header
+INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition 
+INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Platform
+INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver
+INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Include
+#INCLUDES += -Iuninsrumented_source
 #INCLUDES += -I/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/include
 
 # Source files (converted to Unix-style paths)
 SOURCES = main.c
 SOURCES += Driver_USART.c
 SOURCES += retarget_io.c
-# SOURCES += stdout_USART.c
 SOURCES += stdout.c
 SOURCES += uart_cmsdk_drv.c
 SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c 
 SOURCES += device_definition.c
 SOURCES += enolaTrampoline.c
+SOURCES += blake2s.c
 #SOURCES += application.c
 
 # Compiler settings
@@ -51,14 +53,17 @@ OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
 TARGET = Blinky.axf
 
 # Default target
-all: $(BUILD_DIR) app $(TARGET)
+all: $(BUILD_DIR) $(TARGET)
 #all: $(BUILD_DIR) $(TARGET)
 
-app:
-	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
-	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
-	
+# app:
+# 	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
+# 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
+# 	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
+# test:
+# 	$(CC) $(CFLAGS) $(INCLUDES) main.c -S -emit-llvm -o main.ll
+# 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass main.ll -S -o main_opt.ll
+# 	$(LLC) -march=arm -filetype=obj --mattr=+pacbti main_opt.ll -O0 -o main.o
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
 #	opt $(CFLAGS) -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
@@ -67,8 +72,7 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(TARGET): $(OBJECTS)
-#	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $^
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/application.o $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $^
 
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
