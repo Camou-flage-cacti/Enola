@@ -3094,7 +3094,7 @@ static const uint8_t blake2s_keyed_kat[BLAKE2_KAT_LENGTH][32] =
 
 
 
-// static const uint8_t blake2b_kat[BLAKE2_KAT_LENGTH][BLAKE2B_OUTBYTES] = 
+// static const uint8_t blake2b_kat[BLAKE2_KAT_LENGTH][64] = 
 // {
 // 	{
 // 		0x78, 0x6A, 0x02, 0xF7, 0x42, 0x01, 0x59, 0x03,
@@ -5661,7 +5661,7 @@ static const uint8_t blake2s_keyed_kat[BLAKE2_KAT_LENGTH][32] =
 
 
 
-// static const uint8_t blake2b_keyed_kat[BLAKE2_KAT_LENGTH][BLAKE2B_OUTBYTES] = 
+// static const uint8_t blake2b_keyed_kat[BLAKE2_KAT_LENGTH][64] = 
 // {
 // 	{
 // 		0x10, 0xEB, 0xB6, 0x77, 0x00, 0xB1, 0x86, 0x8E,
@@ -8228,7 +8228,7 @@ static const uint8_t blake2s_keyed_kat[BLAKE2_KAT_LENGTH][32] =
 
 
 
-// static const uint8_t blake2sp_kat[BLAKE2_KAT_LENGTH][BLAKE2S_OUTBYTES] = 
+// static const uint8_t blake2sp_kat[BLAKE2_KAT_LENGTH][32] = 
 // {
 // 	{
 // 		0xDD, 0x0E, 0x89, 0x17, 0x76, 0x93, 0x3F, 0x43,
@@ -9771,7 +9771,7 @@ static const uint8_t blake2s_keyed_kat[BLAKE2_KAT_LENGTH][32] =
 
 
 
-// static const uint8_t blake2sp_keyed_kat[BLAKE2_KAT_LENGTH][BLAKE2S_OUTBYTES] = 
+// static const uint8_t blake2sp_keyed_kat[BLAKE2_KAT_LENGTH][32] = 
 // {
 // 	{
 // 		0x71, 0x5C, 0xB1, 0x38, 0x95, 0xAE, 0xB6, 0x78,

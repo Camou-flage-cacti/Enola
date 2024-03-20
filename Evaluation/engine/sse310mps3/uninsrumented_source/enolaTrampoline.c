@@ -234,7 +234,7 @@ void  elapsed_time_init (void)
 ********************************************************************************
 */
 
-void  elapsed_time_start (uint32_t  i)  
+void inline elapsed_time_start (uint32_t  i)  
 {
     elapsed_time_tbl[i].start = ARM_CM_DWT_CYCCNT;
 }
@@ -245,7 +245,7 @@ void  elapsed_time_start (uint32_t  i)
 ********************************************************************************
 */
 
-void  elapsed_time_stop (uint32_t  i)  
+void inline elapsed_time_stop (uint32_t  i)  
 {
     uint32_t       stop; 
     ELAPSED_TIME  *p_tbl;
@@ -292,7 +292,7 @@ void  display_elapsed_times()
 	for (int i = 0; i < ELAPSED_TIME_MAX_SECTIONS; i++) 
 	{
 		p_tbl          = &elapsed_time_tbl[i];
-		printf("\r\n Evaluation info: Code snippet: %d || Average CPU cycles used %d  Max used %d Min used %d\r\n", i, p_tbl->avg, p_tbl->max, p_tbl->min);
+		printf("\r\n Evaluation info: Code snippet: %d || Average CPU cycles used %d || Max used %d || Min used %d || Execution Count %d\r\n", i, p_tbl->avg, p_tbl->max, p_tbl->min,p_tbl->count);
 	}
 }
 void test()
@@ -303,7 +303,7 @@ void test()
 		__asm volatile(
 	  	"PACG r10, lr, r10\n\t"
 		);
-		elapsed_time_start(4);
+		elapsed_time_stop(4);
 	}
 }
 void __attribute__((naked)) pacg_exe_time()

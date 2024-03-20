@@ -67,7 +67,7 @@ int main(void)
 
 	// elapsed_time_start(5);
 	// pacg_exe_time();
-	// elapsed_time_start(5);
+	// elapsed_time_stop(5);
 	display_elapsed_times();
 	return 0;
 }

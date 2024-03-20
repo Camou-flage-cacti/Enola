@@ -303,7 +303,7 @@ void test()
 		__asm volatile(
 	  	"PACG r10, lr, r10\n\t"
 		);
-		elapsed_time_start(4);
+		elapsed_time_stop(4);
 	}
 }
 void __attribute__((naked)) pacg_exe_time()

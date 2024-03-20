@@ -31,6 +31,8 @@ SOURCES += startup_SSE310MPS3.c system_SSE310MPS3.c
 SOURCES += device_definition.c
 SOURCES += enolaTrampoline.c
 SOURCES += blake2s.c
+#SOURCES += blake2b.c
+#SOURCES += blake2sp.c
 #SOURCES += application.c
 
 # Compiler settings
