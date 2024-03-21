@@ -14,7 +14,7 @@
 *                MAXIMUM NUMBER OF ELAPSED TIME MEASUREMENT SECTIONS
 ********************************************************************************
 */
-#define  ELAPSED_TIME_MAX_SECTIONS  1
+#define  ELAPSED_TIME_MAX_SECTIONS  2
 
 /*Structure for occurence trace To*/
 struct occurrence_trace
