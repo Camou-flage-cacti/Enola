@@ -106,8 +106,8 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
     MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
 
-    /*sub gp, 4 instrumentation as reading pc will give +4 */
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2SUBri)).addReg(freeRegister).addReg(freeRegister).addImm(4).add(predOps(ARMCC::AL));
+    /*add gp, 10 instrumentation as reading pc will give +4 */
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(freeRegister).addReg(freeRegister).addImm(10).add(predOps(ARMCC::AL));
 
     /*pacg instruction with r10*/
 
