@@ -312,3 +312,7 @@ void __attribute__((naked)) pacg_exe_time()
 	  	"PACG r10, lr, r10\n\t"
 	);
 }
+int func()
+{
+        test();
+}

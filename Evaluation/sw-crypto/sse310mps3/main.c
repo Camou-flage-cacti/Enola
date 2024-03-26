@@ -24,6 +24,8 @@ int main(void)
 {
 	stdout_init();
 	elapsed_time_init();
+	int (*func_ptr)(void) = &func;
+	(*func_ptr)();
 	/*Blake2s*/
 	// uint8_t key[BLAKE2S_KEYBYTES];
 	// uint8_t buf_blake2[BLAKE2_KAT_LENGTH];

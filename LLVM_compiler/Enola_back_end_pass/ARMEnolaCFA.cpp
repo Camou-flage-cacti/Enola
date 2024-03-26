@@ -405,6 +405,24 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
 
     return true;
 
+
+}
+bool ARMEnolaCFA:: instrumentBlxBased(MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF) {
+
+    MachineBasicBlock::iterator MBIIterator =  MI.getIterator();
+    const TargetSubtargetInfo &STI = MF.getSubtarget();
+    const TargetRegisterInfo *TRI = STI.getRegisterInfo();
+
+    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).addExternalSymbol("indirect_secure_trace_storage");
+    //.add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+    return true;
+
+
 }
 bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     
@@ -418,7 +436,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
         return modified;
     }
     /*End: verify that we intend to include Enola instrumentation for this function*/
-
+    outs() << "\n\n\n--------------------EnolaDebug-backEnd: Working on Function " << F.getName()<<"-----------------\n\n";
     //StringRef trampoline_function("secure_trace_storage");
     std::string MFName = MF.getName().str();
 
@@ -496,6 +514,12 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
                 modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
             }
+            // else if (MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX || MI.getDesc().getOpcode() == ARM::tBLXr || MI.getDesc().getOpcode() == ARM::tBX)
+            // {
+            //     outs() << "EnolaDebug-backEnd:  This is a blx or bx instruction: " <<  MI.getOpcode() <<"\n";
+            //     modified |= instrumentBlxBased(MBB, MI, MI.getDebugLoc(), TII, "blxDummy", MF);
+
+            // }
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
             {   

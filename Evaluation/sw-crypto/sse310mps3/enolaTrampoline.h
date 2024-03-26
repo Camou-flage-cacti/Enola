@@ -61,4 +61,5 @@ void linear_search(unsigned int);
 void intialize_IBT();
 void __attribute__((naked)) pacg_exe_time();
 void test();
+int func();
 #endif

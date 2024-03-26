@@ -68,6 +68,13 @@ namespace llvm {
                         const char *sym,
                         MachineFunction &MF);
         
+        bool instrumentBlxBased(MachineBasicBlock &MBB,
+                        MachineInstr &MI,
+                        const DebugLoc &DL,
+                        const ARMBaseInstrInfo &TII,
+                        const char *sym,
+                        MachineFunction &MF);
+        
         /*bool instrumentRetLR (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
