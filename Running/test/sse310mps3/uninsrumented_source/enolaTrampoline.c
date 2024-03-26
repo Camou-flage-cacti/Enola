@@ -128,7 +128,7 @@ void __attribute__((naked)) setup_S_PAC_Keys()
 	__asm volatile(
 		"MOV r5, #0x1122\n\t"
 		"MOVT r5, #0x3344\n\t"
-		"MSR CONTROL, r5\n\t"
+		"MSR PAC_KEY_P_0, r5\n\t"
 		"MSR PAC_KEY_P_1, r5\n\t"
 		"MSR PAC_KEY_P_2, r5\n\t"
 		"MSR PAC_KEY_P_3, r5\n\t"
