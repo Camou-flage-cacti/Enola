@@ -267,7 +267,7 @@ namespace {
 						errs() << "}}},\n";
 
 						/*Instrument indirect calls*/
-						modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+						//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
 
 					}
 					 /*-------------- indirect_analysis: END --------*/
@@ -301,14 +301,14 @@ namespace {
 						errs() << "<IndirectBrInst>: " << *ibi << "\n";
 						errs() <<numOfConnections++<<"Type : IBranch , target: " << target<< "\n";
 						
-						modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+						//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
 					} break;
 					case Instruction::CallBr: {
 						
 						CallBrInst *cbi = cast<CallBrInst>(&I);
 						errs() << "<CallBrInst>: " << *cbi << "\n";
 
-						modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+						//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
 					} break;
 				//	case Instruction::Ret: {
 						// ReturnInst *ret = cast<ReturnInst>(&I);

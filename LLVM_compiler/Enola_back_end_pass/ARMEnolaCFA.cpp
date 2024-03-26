@@ -418,8 +418,13 @@ bool ARMEnolaCFA:: instrumentBlxBased(MachineBasicBlock &MBB,
     const TargetSubtargetInfo &STI = MF.getSubtarget();
     const TargetRegisterInfo *TRI = STI.getRegisterInfo();
 
-    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).addExternalSymbol("indirect_secure_trace_storage");
-    //.add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
+
+    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
+    std::string instructionString;
+    llvm::raw_string_ostream OS(instructionString);
+    BMI->print(OS);
+    
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string BL: "<<instructionString<<"\n";
     return true;
 
 
@@ -463,6 +468,8 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     }
     outs() << "EnolaDebug-backEnd: Enola Instrumentation: "<<MFName<<"\n";
     const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
+
+    const char *trace_indirect = "indirect_secure_trace_storage";
     
     MachineBasicBlock::iterator itr;
     MachineBasicBlock *currentBB;
@@ -514,12 +521,12 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
                 modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
             }
-            // else if (MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX || MI.getDesc().getOpcode() == ARM::tBLXr || MI.getDesc().getOpcode() == ARM::tBX)
-            // {
-            //     outs() << "EnolaDebug-backEnd:  This is a blx or bx instruction: " <<  MI.getOpcode() <<"\n";
-            //     modified |= instrumentBlxBased(MBB, MI, MI.getDebugLoc(), TII, "blxDummy", MF);
+            else if (MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX || MI.getDesc().getOpcode() == ARM::tBLXr || MI.getDesc().getOpcode() == ARM::tBX)
+            {
+                outs() << "EnolaDebug-backEnd:  This is a blx or bx instruction: " <<  MI.getOpcode() <<"\n";
+                modified |= instrumentBlxBased(MBB, MI, MI.getDebugLoc(), TII, trace_indirect, MF);
 
-            // }
+            }
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
             {   
@@ -527,6 +534,8 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 outs() << "EnolaDebug-backEnd: Call instruction target function name: "<< target_function_name<<"\n";
                 if (target_function_name == "secure_trace_storage")
                 {
+                    MI.print(outs());
+                    outs()<<"\n Example BL instruction\n";
                     outs() << "EnolaDebug-backEnd: secure_trace_storage function call found: making instrumentation with pacg r10"<<"\n";
                     currentBB = MI.getParent();
                     itr = currentBB->begin();
@@ -536,23 +545,23 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                  //   modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
 
-                else if (target_function_name == "indirect_secure_trace_storage")
-                {
-                    outs() << "EnolaDebug-backEnd: indirect_secure_trace_storage function call found"<<"\n";
-                    Register indirectTarget = getParameterOfindrect(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameter", MF);
-                    if (indirectTarget.isValid())
-                    {
-                        outs()<<"EnolaDebug-backEnd: Register ID: " << indirectTarget.id() << "\n"; 
-                        //modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
-                        modified |= instrumentIndirectParameterSetInst(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameterSetInst", MF, indirectTarget);
-                    }
+                // else if (target_function_name == "indirect_secure_trace_storage")
+                // {
+                //     outs() << "EnolaDebug-backEnd: indirect_secure_trace_storage function call found"<<"\n";
+                //     Register indirectTarget = getParameterOfindrect(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameter", MF);
+                //     if (indirectTarget.isValid())
+                //     {
+                //         outs()<<"EnolaDebug-backEnd: Register ID: " << indirectTarget.id() << "\n"; 
+                //         //modified |= instrumentIndirectParameter(MBB, MI, MI.getDebugLoc(), TII, "setIndirectParameter", MF, indirectTarget);
+                //         modified |= instrumentIndirectParameterSetInst(MBB, MI, MI.getDebugLoc(), TII, "getIndirectParameterSetInst", MF, indirectTarget);
+                //     }
 
-                    else
-                    {
-                        outs() << "EnolaDebug-backEnd: Got invalid indirect target register: ID: "<<indirectTarget.id()<<" \n"; 
-                    }
+                //     else
+                //     {
+                //         outs() << "EnolaDebug-backEnd: Got invalid indirect target register: ID: "<<indirectTarget.id()<<" \n"; 
+                //     }
                         
-                }
+                // }
                    
             }
             
