@@ -434,7 +434,7 @@ bool ARMEnolaCFA:: instrumentBlxBased(MachineBasicBlock &MBB,
 
 
     /*push r0 before modifying*/
-    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(indirectTargerRegister).setMIFlag(MachineInstr::NoFlags);
+    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).setMIFlag(MachineInstr::NoFlags);
 
     /*move indirect target to r0 to pass to trampoline*/
 
@@ -449,7 +449,7 @@ bool ARMEnolaCFA:: instrumentBlxBased(MachineBasicBlock &MBB,
     BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
     
     /*pop r0 after trampoline call*/
-    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(indirectTargerRegister).setMIFlag(MachineInstr::NoFlags);
+    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).setMIFlag(MachineInstr::NoFlags);
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     BMI->print(OS);
