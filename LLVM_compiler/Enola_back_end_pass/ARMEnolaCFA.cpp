@@ -418,8 +418,38 @@ bool ARMEnolaCFA:: instrumentBlxBased(MachineBasicBlock &MBB,
     const TargetSubtargetInfo &STI = MF.getSubtarget();
     const TargetRegisterInfo *TRI = STI.getRegisterInfo();
 
+    Register indirectTargerRegister;
 
-    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
+    /*begin: Get indirect target register*/
+
+    for (int i = 0; i < MI.getNumOperands(); i++)
+    {
+        if(MI.getOperand(i).isReg() && MI.getOperand(i).getReg().id() >= ARM::R0 && MI.getOperand(i).getReg().id() <= ARM::R11){
+            indirectTargerRegister = MI.getOperand(i).getReg();
+            break;
+        }
+        
+    }
+    /*end: Get indirect target register*/
+
+
+    /*push r0 before modifying*/
+    MachineInstr *BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(indirectTargerRegister).setMIFlag(MachineInstr::NoFlags);
+
+    /*move indirect target to r0 to pass to trampoline*/
+
+    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(ARM::R0).addReg(indirectTargerRegister).setMIFlag(MachineInstr::NoFlags);
+
+    /*instrument pacg instruction*/
+
+    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10);
+
+    /*call report_indirect trampoline*/
+
+    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
+    
+    /*pop r0 after trampoline call*/
+    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(indirectTargerRegister).setMIFlag(MachineInstr::NoFlags);
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     BMI->print(OS);
