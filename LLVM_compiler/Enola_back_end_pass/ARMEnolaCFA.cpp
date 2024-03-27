@@ -162,6 +162,66 @@ bool ARMEnolaCFA::instrumentIndirectParameter (MachineBasicBlock &MBB,
     return true;
 }
 
+bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
+                           MachineInstr &MI,
+                           const DebugLoc &DL,
+                           const ARMBaseInstrInfo &TII,
+                           const char *sym,
+                           MachineFunction &MF) {
+   // unsigned targetReg;
+
+
+    outs () << "EnolaDebug-backEnd: Inside instrumentation of return from stack \n";
+
+    unsigned int pc_location = 0;
+
+    for(int i = 0; i< MI.getNumOperands(); i++)
+    {
+        if(MI.getOperand(i).isReg() && MI.getOperand(i).getReg().id() >= ARM::R0 && MI.getOperand(i).getReg().id() <= ARM::R12 )
+        {
+            pc_location++;
+        }
+    }
+    pc_location = (pc_location - 1) * 4;
+    
+    outs() << "EnolaDebug-backEnd: Distance from SP: "<<pc_location <<"\n";
+
+    MachineInstrBuilder MIB;
+    MachineInstr *MI2;
+    std::string instructionString;
+
+    outs() << "EnolaDebug-backEnd: Building ldr sp instruction:\n";
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tLDRspi), ARM::R7).addFrameIndex(4).addImm(4);
+    MachineRegisterInfo &MRI = MF.getRegInfo();
+
+   // MRI.clearKillFlags(ARM::R7);
+    MI2 = MIB;
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
+    
+
+    llvm::raw_string_ostream OS(instructionString);
+    MI2->print(OS);
+    
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
+
+    outs() << "EnolaDebug-backEnd: Building PAC:\n";
+
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11)
+    .setMIFlag(MachineInstr::NoFlags);
+    MI2 = MIB;
+    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
+    
+
+    llvm::raw_string_ostream OS2(instructionString);
+    MI2->print(OS2);
+    
+    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
+
+    return true;
+    
+
+}
+
 bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
                            MachineInstr &MI,
                            const DebugLoc &DL,
@@ -549,7 +609,23 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             if(MI.getDesc().isReturn())
             {
                 outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
-                modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                if(MI.getOpcode() == ARM::tPOP_RET)
+                {
+                    outs() << "EnolaDebug-backEnd:  Return from stack.\n";
+                    modified |= instrumentRetFromStack(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+
+                }
+                else
+                {
+                    outs() << "EnolaDebug-backEnd:  Return from LR.\n";
+                    modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                }
+                
+            }
+            else if(MI.getOpcode() == ARM::tLDRspi)
+            {
+                outs()<<"\n Example tLDRSPI instruction\n";
+                MI.print(outs());
             }
             else if (MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX || MI.getDesc().getOpcode() == ARM::tBLXr || MI.getDesc().getOpcode() == ARM::tBX)
             {
