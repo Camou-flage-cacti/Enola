@@ -174,39 +174,56 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
     outs () << "EnolaDebug-backEnd: Inside instrumentation of return from stack \n";
 
     unsigned int pc_location = 0;
+    outs()<<"Opcode : "<<MI.getOpcode()<<"\n"; 
 
     for(int i = 0; i< MI.getNumOperands(); i++)
     {
-        if(MI.getOperand(i).isReg() && MI.getOperand(i).getReg().id() >= ARM::R0 && MI.getOperand(i).getReg().id() <= ARM::R12 )
+        if(MI.getOperand(i).isReg())
         {
-            pc_location++;
+            unsigned int ins_id = MI.getOperand(i).getReg().id();
+            if((ins_id >= ARM::R4 && ins_id <= ARM::R12) || ins_id == ARM::PC)
+                pc_location++;
         }
     }
-    pc_location = (pc_location - 1) * 4;
+    pc_location--;
     
     outs() << "EnolaDebug-backEnd: Distance from SP: "<<pc_location <<"\n";
+
+     /*Find a free register*/
+    const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
+    RegScavenger RS;
+    RS.enterBasicBlock(MBB);
+
+    unsigned freeRegister = ARM::R0;
+
+    for (;freeRegister < TRI->getNumRegs();freeRegister++) {
+        if(freeRegister>= ARM::R0 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false))
+        {
+            outs() << "EnolaDebug-backEnd: Found FREE register "<<freeRegister<<"\n";
+            break;
+        }
+    }
 
     MachineInstrBuilder MIB;
     MachineInstr *MI2;
     std::string instructionString;
 
     outs() << "EnolaDebug-backEnd: Building ldr sp instruction:\n";
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tLDRspi), ARM::R7).addFrameIndex(4).addImm(4);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tLDRspi), freeRegister).addReg(ARM::SP).addImm(pc_location).addImm(14).addReg(0);
+    MIB->setDebugLoc(DL);
     MachineRegisterInfo &MRI = MF.getRegInfo();
 
    // MRI.clearKillFlags(ARM::R7);
     MI2 = MIB;
-    outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
+    
+    outs() << "EnolaDebug-backEnd: Consructed instructions:\n";
+    MI2->print(outs());
     
 
-    llvm::raw_string_ostream OS(instructionString);
-    MI2->print(OS);
-    
-    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
 
     outs() << "EnolaDebug-backEnd: Building PAC:\n";
 
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11)
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R11)
     .setMIFlag(MachineInstr::NoFlags);
     MI2 = MIB;
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
@@ -611,6 +628,35 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
                 if(MI.getOpcode() == ARM::tPOP_RET)
                 {
+                    for (const MachineOperand &MO : MI.operands()) 
+                    {
+                    // Print the type of the operand
+                    switch (MO.getType()) 
+                    {
+                        case MachineOperand::MO_Register:
+                            outs() << "Register: "<<MO.getReg()<<" \n";
+                            break;
+                        case MachineOperand::MO_Immediate:
+                            outs() << "Immediate\n";
+                            break;
+                        case MachineOperand::MO_MachineBasicBlock:
+                            outs() << "MachineBasicBlock\n";
+                            break;
+                        case MachineOperand::MO_FrameIndex:
+                            outs() << "FrameIndex\n";
+                            break;
+                        case MachineOperand::MO_ConstantPoolIndex:
+                            outs() << "ConstantPoolIndex\n";
+                            break;
+                        case MachineOperand::MO_TargetIndex:
+                            outs() << "TargetIndex\n";
+                            break;
+                        // Add cases for other operand types as needed
+                        default:
+                            outs() << "Unknown\n";
+                            break;
+                        }
+                    }
                     outs() << "EnolaDebug-backEnd:  Return from stack.\n";
                     modified |= instrumentRetFromStack(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
 
@@ -624,8 +670,9 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             }
             else if(MI.getOpcode() == ARM::tLDRspi)
             {
-                outs()<<"\n Example tLDRSPI instruction\n";
+                outs()<<"\n Example tLDRSPI instruction:" << MI.getNumOperands()<<"\n";
                 MI.print(outs());
+
             }
             else if (MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX || MI.getDesc().getOpcode() == ARM::tBLXr || MI.getDesc().getOpcode() == ARM::tBX)
             {
