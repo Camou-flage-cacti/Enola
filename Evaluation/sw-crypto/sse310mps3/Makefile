@@ -4,7 +4,7 @@ BUILD_DIR := build
 UNINSTRUMENTED_DIR := uninsrumented_source
 BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
 #BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
+#ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
 vpath %.c ./ /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition
 
@@ -37,14 +37,14 @@ SOURCES += sha256.c
 CC = $(BIN_PATH)/clang
 OPT = $(BIN_PATH)/opt
 LLC = $(BIN_PATH)/llc
-CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
+CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Oz -Wno-keyword-macro -mcpu=cortex-m85
 #CFLAGS = -std=c99 --sysroot=/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
 
 
 CFLAGS += $(INCLUDES)
 # LDFLAGS = -T ../../../tool/linker_SSE310MPS3_secure.ld
 LDFLAGS = -T ./ARM/RTE/Device/SSE-310-MPS3_FVP/linker_SSE310MPS3_secure.ld
-LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
+LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -Oz -Wno-keyword-macro -mcpu=cortex-m85
 
 # Object files
 OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))

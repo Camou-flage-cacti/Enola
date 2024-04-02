@@ -297,14 +297,33 @@ void  display_elapsed_times()
 }
 void test()
 {
-	for(int i =0; i< 10; i++)
+	
+	for(int i =0; i< 8; i++)
 	{
+		// unsigned int value = 0xE0001004, value2;
+    	// int result, r2;
+		// __asm volatile (
+		// 	"ldr %[result], [%[addr]]"  // Load the value from memory address %[addr] into %[result]
+		// 	: [result] "=r" (result)     // Output: result is a variable, read from a register
+		// 	: [addr] "r" (&value)        // Input: addr is the memory address
+		// 	:                             // No clobbered registers
+		// );
 		elapsed_time_start(4);
 		__asm volatile(
+		// "MOV r4, #0x1004\n\t"
+		// "MOVT r4, 0xE000\n\t"
 	  	"PACG r10, lr, r10\n\t"
 		);
 		elapsed_time_stop(4);
+		// 	__asm volatile (
+		// 	"ldr %[r2], [%[addr]]"  // Load the value from memory address %[addr] into %[result]
+		// 	: [r2] "=r" (r2)     // Output: result is a variable, read from a register
+		// 	: [addr] "r" (&value)        // Input: addr is the memory address
+		// 	:                             // No clobbered registers
+		// );
+
 	}
+	
 }
 void __attribute__((naked)) pacg_exe_time()
 {
