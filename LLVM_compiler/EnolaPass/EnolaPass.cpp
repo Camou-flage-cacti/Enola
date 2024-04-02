@@ -42,6 +42,7 @@ namespace {
     EnolaPass() : FunctionPass(ID) {}
 	Function *indirectStorageFunction;
 	bool indirectTraceFlag = true;
+	//const char *targetBB = "targetBB";
 
     bool runOnFunction(Function &F) override {
 		
@@ -78,6 +79,7 @@ namespace {
 							errs() << "Case " << Case.getCaseValue() << " to block " << Case.getCaseSuccessor() << "\n";
 							//const BasicBlock *caseSuccessor =  *Case.getCaseSuccessor();
 							BasicBlock *CaseBB = Case.getCaseSuccessor();
+							//addMetadataToBasicBlock(CaseBB, targetBB,context);
 							modifid |= insertSecureTraceTrampoline(CaseBB);
 
 						}
@@ -104,7 +106,12 @@ namespace {
 							errs() << "Conditional Branch: " << *condition << "\n";
 							errs() << "True Target: " << trueTarget->getName() << "\n";
 							errs() << "False Target: " << falseTarget->getName() << "\n";
+							//addMetadataToBasicBlock(trueTarget, targetBB,context);
+							//Instruction *firtInstruction = &trueTarget->front();
+							//modifid |= inserTraceDirectTrampoline(trueTarget, bi, 0);
+							
 							modifid |= insertSecureTraceTrampoline(trueTarget);
+							//addMetadataToBasicBlock(falseTarget, targetBB,context);
 							modifid |= insertSecureTraceTrampoline(falseTarget);
 
 						}
@@ -123,6 +130,10 @@ namespace {
 		for(BasicBlock &BB: F)
 		{
 			errs()<<"runOnfunction for idirect call analysis: " << BB.getName() <<"\n";
+			if( BB.getName() == "NewBB")
+			{
+				break;
+			}
 
 			if (IndirectBrInst *IBI = dyn_cast<IndirectBrInst> (BB.getTerminator()))
 			{
@@ -409,6 +420,53 @@ namespace {
 		errs()<<"---------------End runOnFunction for function # "<< functionName<<" # Modified value: "<<modifid <<" -------------------\n";
 	    return modifid;
     }
+
+	// void addMetadataToBasicBlock(BasicBlock *BB, const char *MetadataName, LLVMContext &Context) {
+	// 	// Create metadata node
+	// 	MDNode *MD = MDNode::get(Context, MDString::get(Context, MetadataName));
+
+	// 	// Get the terminator instruction of the basic block
+	// 	Instruction *TermInst = BB->getTerminator();
+
+	// 	// Attach metadata to the terminator instruction
+	// 	TermInst->setMetadata(MetadataName, MD);
+	// }
+	bool inserTraceDirectTrampoline(BasicBlock *BB, BranchInst *bi, int idx)
+	{
+		Function *Func = BB->getParent();
+
+		// Create a new basic block
+		BasicBlock *NewBB = BasicBlock::Create(Func->getContext(), "NewBB", Func);
+
+		IRBuilder<> Builder(NewBB);
+
+		// Get the LLVM context
+		LLVMContext &Context = NewBB->getContext();
+
+		// Get the function type of the external function
+		FunctionType *FuncType = FunctionType::get(Type::getVoidTy(Context), false);
+
+		auto module = NewBB->getModule();
+
+		FunctionType *FT = FunctionType::get(Builder.getVoidTy(), false);
+		Function *ExternalFunction = module->getFunction("secure_trace_storage");
+		if (!ExternalFunction) {
+			// Create the function only if it doesn't exist
+			ExternalFunction = Function::Create(FT, Function::ExternalLinkage, "secure_trace_storage", module);
+		}
+		Builder.CreateCall(ExternalFunction);
+		// // Declare the external function
+		// FunctionCallee Callee = NewBB->getParent()->getParent()->getOrInsertFunction("secure_trace_storage", FuncType);
+		// //Function *Callee = Callee.getCallee();
+
+		// // Create a call instruction to call the external function
+		// CallInst *Call = Builder.CreateCall(Callee);
+
+		bi->setSuccessor(idx, NewBB);
+
+
+		return true;
+	}
 
 	bool insertSecureTraceTrampoline(BasicBlock *BB)
 	{	

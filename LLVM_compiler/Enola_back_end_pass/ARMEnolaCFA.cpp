@@ -168,7 +168,6 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
                            const ARMBaseInstrInfo &TII,
                            const char *sym,
                            MachineFunction &MF) {
-   // unsigned targetReg;
 
 
     outs () << "EnolaDebug-backEnd: Inside instrumentation of return from stack \n";
@@ -625,41 +624,11 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             //Handle return instructions
             if(MI.getDesc().isReturn())
             {
-                outs() << "EnolaDebug-backEnd:  This is a return instruction: " <<  MI.getOpcode() <<"\n";
+                outs() << "EnolaDebug-backEnd:  This is a return instruction: \n";
                 if(MI.getOpcode() == ARM::tPOP_RET)
                 {
-                    for (const MachineOperand &MO : MI.operands()) 
-                    {
-                    // Print the type of the operand
-                    switch (MO.getType()) 
-                    {
-                        case MachineOperand::MO_Register:
-                            outs() << "Register: "<<MO.getReg()<<" \n";
-                            break;
-                        case MachineOperand::MO_Immediate:
-                            outs() << "Immediate\n";
-                            break;
-                        case MachineOperand::MO_MachineBasicBlock:
-                            outs() << "MachineBasicBlock\n";
-                            break;
-                        case MachineOperand::MO_FrameIndex:
-                            outs() << "FrameIndex\n";
-                            break;
-                        case MachineOperand::MO_ConstantPoolIndex:
-                            outs() << "ConstantPoolIndex\n";
-                            break;
-                        case MachineOperand::MO_TargetIndex:
-                            outs() << "TargetIndex\n";
-                            break;
-                        // Add cases for other operand types as needed
-                        default:
-                            outs() << "Unknown\n";
-                            break;
-                        }
-                    }
                     outs() << "EnolaDebug-backEnd:  Return from stack.\n";
                     modified |= instrumentRetFromStack(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
-
                 }
                 else
                 {
@@ -683,6 +652,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
             {   
+                MI.isMetaInstruction();
                 std::string target_function_name = extractFunctionName(MI);
                 outs() << "EnolaDebug-backEnd: Call instruction target function name: "<< target_function_name<<"\n";
                 if (target_function_name == "secure_trace_storage")
