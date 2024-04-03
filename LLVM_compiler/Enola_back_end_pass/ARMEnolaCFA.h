@@ -48,6 +48,8 @@ namespace llvm {
                     const ARMBaseInstrInfo &TII,
                     const char *sym,
                     MachineFunction &MF);
+        
+        bool checkIfPcIsOperand(const MachineInstr &MI);
 
         bool instrumentCond (MachineBasicBlock &MBB,
                         MachineInstr &MI,
@@ -55,10 +57,16 @@ namespace llvm {
                         const ARMBaseInstrInfo &TII,
                         const char *sym,
                         MachineFunction &MF);
+    
+        bool instrumentCondWithReportDirect (MachineBasicBlock &MBB,
+                    MachineInstr &MI,
+                    const DebugLoc &DL,
+                    const ARMBaseInstrInfo &TII,
+                    const char *sym,
+                    MachineFunction &MF);
+
         std::string extractFunctionName(const MachineInstr &MI);
 
-
-        bool checkIfPcIsOperand(const MachineInstr &MI);
 
 
         bool instrumentIndirectParameter (MachineBasicBlock &MBB,

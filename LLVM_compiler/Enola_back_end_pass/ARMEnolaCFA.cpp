@@ -55,6 +55,56 @@ std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
     outs() << "EnolaDebug-backEnd: No global symbol\n";
     return functionName;
   }
+
+bool  ARMEnolaCFA::instrumentCondWithReportDirect (MachineBasicBlock &MBB,
+        MachineInstr &MI,
+        const DebugLoc &DL,
+        const ARMBaseInstrInfo &TII,
+        const char *sym,
+        MachineFunction &MF) 
+    {
+        outs() << "EnolaDebug-backEnd: Building PAC & BL for condition branch:\n";
+        /*no need to instrument if already instrumented*/
+        if(MI.getOpcode() == ARM::tMOVr && checkIfPcIsOperand(MI))
+        {
+            outs() << "EnolaDebug-backEnd: already instrumented\n";
+            return false;
+        }
+            
+
+
+        /*Find a free register*/
+        const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
+        RegScavenger RS;
+        RS.enterBasicBlock(MBB);
+
+        unsigned freeRegister = ARM::R0;
+        outs() << "EnolaDebug-backEnd: Finding free registers:\n";
+
+        for (;freeRegister < TRI->getNumRegs();freeRegister++) {
+            if(freeRegister>= ARM::R0 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false))
+            {
+                outs() << "EnolaDebug-backEnd: Found FREE register "<<freeRegister<<"\n";
+                break;
+            }
+        }
+
+        /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
+        MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
+
+        /*add gp, 10 instrumentation as reading pc will give +4 */
+        MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(freeRegister).addReg(freeRegister).addImm(10).add(predOps(ARMCC::AL));
+
+        /*pacg instruction with r10*/
+
+        MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10)
+        .setMIFlag(MachineInstr::NoFlags);
+        
+
+        MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
+        
+        return true;
+    }
  /*Testing function: need to be removed later*/
 bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
                            MachineInstr &MI,
@@ -118,6 +168,7 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     std::string instructionString;
     llvm::raw_string_ostream OS(instructionString);
     MI2->print(OS);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
     
     outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
     return true;
@@ -576,12 +627,22 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
     const ARMBaseInstrInfo &TII = *static_cast<const ARMBaseInstrInfo *>(MF.getSubtarget().getInstrInfo());
 
     const char *trace_indirect = "indirect_secure_trace_storage";
+    const char *report_direct = "secure_trace_storage";
     
     MachineBasicBlock::iterator itr;
     MachineBasicBlock *currentBB;
     MachineFunction *currentMF;
     
     for (auto &MBB : MF) {
+        StringRef BBName = MBB.getName();
+        if(BBName.starts_with("report_direct"))
+        {
+            outs() << "MBB name: " << BBName<<"\n";
+            itr = MBB.begin();
+            MachineInstr &BBIns = *itr;
+            currentMF = MBB.getParent();
+            modified |= instrumentCond(MBB, BBIns, BBIns.getDebugLoc(), TII, report_direct, *currentMF);
+        }
 
  
         for(auto &MI:MBB){
@@ -637,12 +698,20 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 }
                 
             }
-            else if(MI.getOpcode() == ARM::tLDRspi)
-            {
-                outs()<<"\n Example tLDRSPI instruction:" << MI.getNumOperands()<<"\n";
-                MI.print(outs());
+            // else if(MI.getDesc().isBranch())
+            // {
+            //     MachineBasicBlock *TargetBB = MI.getOperand(0).getMBB();
+            //     outs()<<"\n back end target BB conditional instrumentation:" << MI.getNumOperands()<<"\n";
 
-            }
+            //    // modified |= instrumentCondWithReportDirect(*TargetBB, MI, MI.getDebugLoc(), TII, report_direct, MF);
+
+            // }
+            // else if(MI.getOpcode() == ARM::tLDRspi)
+            // {
+            //     outs()<<"\n Example tLDRSPI instruction:" << MI.getNumOperands()<<"\n";
+            //     MI.print(outs());
+
+            // }
             else if (MI.getOpcode() == ARM::BMOVPCRX_CALL || MI.getDesc().getOpcode() == ARM::BLX || MI.getDesc().getOpcode() == ARM::BX || MI.getDesc().getOpcode() == ARM::tBLXr || MI.getDesc().getOpcode() == ARM::tBX)
             {
                 outs() << "EnolaDebug-backEnd:  This is a blx or bx instruction: " <<  MI.getOpcode() <<"\n";
@@ -652,21 +721,21 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
             //add parameter to the secure_trace_storage trampoline function call
             else if(MI.isCall())
             {   
-                MI.isMetaInstruction();
-                std::string target_function_name = extractFunctionName(MI);
-                outs() << "EnolaDebug-backEnd: Call instruction target function name: "<< target_function_name<<"\n";
-                if (target_function_name == "secure_trace_storage")
-                {
-                    MI.print(outs());
-                    outs()<<"\n Example BL instruction\n";
-                    outs() << "EnolaDebug-backEnd: secure_trace_storage function call found: making instrumentation with pacg r10"<<"\n";
-                    currentBB = MI.getParent();
-                    itr = currentBB->begin();
-                    MachineInstr &BBIns = *itr;
-                    currentMF = currentBB->getParent();
-                    modified |= instrumentCond(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
-                 //   modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
-                }
+                // MI.isMetaInstruction();
+                // std::string target_function_name = extractFunctionName(MI);
+                // outs() << "EnolaDebug-backEnd: Call instruction target function name: "<< target_function_name<<"\n";
+                // if (target_function_name == "secure_trace_storage")
+                // {
+                //     MI.print(outs());
+                //     outs()<<"\n Example BL instruction\n";
+                //     outs() << "EnolaDebug-backEnd: secure_trace_storage function call found: making instrumentation with pacg r10"<<"\n";
+                //     currentBB = MI.getParent();
+                //     itr = currentBB->begin();
+                //     MachineInstr &BBIns = *itr;
+                //     currentMF = currentBB->getParent();
+                //     modified |= instrumentCond(*currentBB, BBIns, BBIns.getDebugLoc(), TII, "cmp", *currentMF);
+                //  //   modified |= instrumentTrampolineParameter(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                // }
 
                 // else if (target_function_name == "indirect_secure_trace_storage")
                 // {

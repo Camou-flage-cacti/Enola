@@ -79,12 +79,14 @@ namespace {
 							errs() << "Case " << Case.getCaseValue() << " to block " << Case.getCaseSuccessor() << "\n";
 							//const BasicBlock *caseSuccessor =  *Case.getCaseSuccessor();
 							BasicBlock *CaseBB = Case.getCaseSuccessor();
+							CaseBB->setName("report_direct");
 							//addMetadataToBasicBlock(CaseBB, targetBB,context);
-							modifid |= insertSecureTraceTrampoline(CaseBB);
+							//modifid |= insertSecureTraceTrampoline(CaseBB);
 
 						}
 						BasicBlock *CaseBB = Switch->getDefaultDest(); //default branch
-						modifid |= insertSecureTraceTrampoline(CaseBB);
+						CaseBB->setName("report_direct");
+						//modifid |= insertSecureTraceTrampoline(CaseBB);
 						break;
 					}
 					case Instruction::Br: {
@@ -101,6 +103,8 @@ namespace {
 							errs() << "Value is : " << condition <<"\n";
 							BasicBlock* trueTarget = bi->getSuccessor(0);
 							BasicBlock* falseTarget = bi->getSuccessor(1);
+							trueTarget->setName("report_direct");
+							falseTarget->setName("report_direct");
 
 							// Print information about the conditional bi
 							errs() << "Conditional Branch: " << *condition << "\n";
@@ -110,9 +114,9 @@ namespace {
 							//Instruction *firtInstruction = &trueTarget->front();
 							//modifid |= inserTraceDirectTrampoline(trueTarget, bi, 0);
 							
-							modifid |= insertSecureTraceTrampoline(trueTarget);
+							// modifid |= insertSecureTraceTrampoline(trueTarget);
 							//addMetadataToBasicBlock(falseTarget, targetBB,context);
-							modifid |= insertSecureTraceTrampoline(falseTarget);
+							// modifid |= insertSecureTraceTrampoline(falseTarget);
 
 						}
 						break;
@@ -125,271 +129,267 @@ namespace {
 			}
 		}
 
-		int count = 0;
-		int numOfConnections = 0;
-		for(BasicBlock &BB: F)
-		{
-			errs()<<"runOnfunction for idirect call analysis: " << BB.getName() <<"\n";
-			if( BB.getName() == "NewBB")
-			{
-				break;
-			}
+	// 	int count = 0;
+	// 	int numOfConnections = 0;
+	// 	for(BasicBlock &BB: F)
+	// 	{
+	// 		errs()<<"runOnfunction for idirect call analysis: " << BB.getName() <<"\n";
 
-			if (IndirectBrInst *IBI = dyn_cast<IndirectBrInst> (BB.getTerminator()))
-			{
-				Value *target;
-				if (auto *indirectBranchInst = dyn_cast <IndirectBrInst>(IBI))
-				{
-					target = indirectBranchInst->getAddress();
-				}
-				else
-				{
-					errs()<< __func__ << "ERROR: unknown indirect branch inst: " << *IBI << "\n";
-					continue;
-				}
-				assert(target != nullptr);
-				errs() << numOfConnections++ << "Type : IBranch, Target : "<<target<<"\n";
+	// 		if (IndirectBrInst *IBI = dyn_cast<IndirectBrInst> (BB.getTerminator()))
+	// 		{
+	// 			Value *target;
+	// 			if (auto *indirectBranchInst = dyn_cast <IndirectBrInst>(IBI))
+	// 			{
+	// 				target = indirectBranchInst->getAddress();
+	// 			}
+	// 			else
+	// 			{
+	// 				errs()<< __func__ << "ERROR: unknown indirect branch inst: " << *IBI << "\n";
+	// 				continue;
+	// 			}
+	// 			assert(target != nullptr);
+	// 			errs() << numOfConnections++ << "Type : IBranch, Target : "<<target<<"\n";
 
-			}
-			for (Instruction &I : BB)
-			{
-				if (auto *cb = dyn_cast<CallBase>(&I)) {
-					if (cb) 
-					{
-						Function *callee = cb->getCalledFunction();
-						if (callee) 
-						{
-							std::string callee_name = callee->getName().str();
-							// Do not analyze llvm functions
+	// 		}
+	// 		for (Instruction &I : BB)
+	// 		{
+	// 			if (auto *cb = dyn_cast<CallBase>(&I)) {
+	// 				if (cb) 
+	// 				{
+	// 					Function *callee = cb->getCalledFunction();
+	// 					if (callee) 
+	// 					{
+	// 						std::string callee_name = callee->getName().str();
+	// 						// Do not analyze llvm functions
 
-							if ((callee_name).find("llvm") != std::string::npos)
-							{
-								continue;
-							}
-							else if (cb->isTailCall())
-							{
+	// 						if ((callee_name).find("llvm") != std::string::npos)
+	// 						{
+	// 							continue;
+	// 						}
+	// 						else if (cb->isTailCall())
+	// 						{
 
-								errs() << numOfConnections++ << "Type : Tail Call Callee_name: "<< callee_name << "\n";   
-							// continue;
-							}
+	// 							errs() << numOfConnections++ << "Type : Tail Call Callee_name: "<< callee_name << "\n";   
+	// 						// continue;
+	// 						}
 
-							// exclude instrinsic functions
-							else if (callee->isIntrinsic()) 
-							{
-								errs() << numOfConnections++ << "Type : Instrinsic Function : Callee_name: "  << callee_name << "\n";   
-							// std::string callee_name = callee->getName().str();
-							// OutputJson << "\"" << numOfConnections++ << "\" : {\"Type\"
-							// :
-							// \"Callee\", " << "\"Callee_name\": \"" << callee_name <<
-							// "\"},\n";
-							}
-							else 
-							{
-								errs() << numOfConnections++ << " Type : Direct Call : Callee_name: "  << callee_name << "\n";
-							}
-					}
-					else if (InlineAsm *IA = dyn_cast_or_null<InlineAsm>(cb->getCalledOperand()))
-					{
-						errs() << numOfConnections++ << "Type : InlineAsm : operand: "  << "\n";
-						/*InlineAsm::ConstraintInfoVector Constraints = IA->ParseConstraints();
-						for (const InlineAsm::ConstraintInfo &Info : Constraints) 
-						{
-							if (Info.isIndirect) 
-							{
-								OutputJson << " [+] Indirect operand: "
-										<< IA->getAsmString().c_str();
-							}
-						}*/
+	// 						// exclude instrinsic functions
+	// 						else if (callee->isIntrinsic()) 
+	// 						{
+	// 							errs() << numOfConnections++ << "Type : Instrinsic Function : Callee_name: "  << callee_name << "\n";   
+	// 						// std::string callee_name = callee->getName().str();
+	// 						// OutputJson << "\"" << numOfConnections++ << "\" : {\"Type\"
+	// 						// :
+	// 						// \"Callee\", " << "\"Callee_name\": \"" << callee_name <<
+	// 						// "\"},\n";
+	// 						}
+	// 						else 
+	// 						{
+	// 							errs() << numOfConnections++ << " Type : Direct Call : Callee_name: "  << callee_name << "\n";
+	// 						}
+	// 				}
+	// 				else if (InlineAsm *IA = dyn_cast_or_null<InlineAsm>(cb->getCalledOperand()))
+	// 				{
+	// 					errs() << numOfConnections++ << "Type : InlineAsm : operand: "  << "\n";
+	// 					/*InlineAsm::ConstraintInfoVector Constraints = IA->ParseConstraints();
+	// 					for (const InlineAsm::ConstraintInfo &Info : Constraints) 
+	// 					{
+	// 						if (Info.isIndirect) 
+	// 						{
+	// 							OutputJson << " [+] Indirect operand: "
+	// 									<< IA->getAsmString().c_str();
+	// 						}
+	// 					}*/
 
-					}
-					else if (ConstantExpr *ConstEx = dyn_cast_or_null<ConstantExpr>(cb->getCalledOperand())) 
-					{
-						Instruction *Inst = ConstEx->getAsInstruction();
+	// 				}
+	// 				else if (ConstantExpr *ConstEx = dyn_cast_or_null<ConstantExpr>(cb->getCalledOperand())) 
+	// 				{
+	// 					Instruction *Inst = ConstEx->getAsInstruction();
 
-						if (CastInst *CI = dyn_cast_or_null<CastInst>(Inst)) 
-						{
-							if (Function *c = dyn_cast<Function>(Inst->getOperand(0))) 
-							{
-								// add connection
-								// OutputJson << "\"" << NumOfConnections++ << "\" :
-								// {\"Type\" :
-								// \"Callee\", " << "\"Callee_name\": \"" <<
-								// c->getName().str()
-								// << "\"},\n";
-							}
-							else 
-							{
-								assert(false && "Unhandled Cast");
-							}
-						}
-						else 
-						{
-							assert(false && "Unhandled Constant");
-						}
-						// delete Inst;
-					}
-					else if (cb->isIndirectCall())
-					{
-						string str;
-            			raw_string_ostream rso_callee(str);
-						int icall_num = 0;
+	// 					if (CastInst *CI = dyn_cast_or_null<CastInst>(Inst)) 
+	// 					{
+	// 						if (Function *c = dyn_cast<Function>(Inst->getOperand(0))) 
+	// 						{
+	// 							// add connection
+	// 							// OutputJson << "\"" << NumOfConnections++ << "\" :
+	// 							// {\"Type\" :
+	// 							// \"Callee\", " << "\"Callee_name\": \"" <<
+	// 							// c->getName().str()
+	// 							// << "\"},\n";
+	// 						}
+	// 						else 
+	// 						{
+	// 							assert(false && "Unhandled Cast");
+	// 						}
+	// 					}
+	// 					else 
+	// 					{
+	// 						assert(false && "Unhandled Constant");
+	// 					}
+	// 					// delete Inst;
+	// 				}
+	// 				else if (cb->isIndirectCall())
+	// 				{
+	// 					string str;
+    //         			raw_string_ostream rso_callee(str);
+	// 					int icall_num = 0;
 
-						cb->print(rso_callee);
-						errs() << "\nIndirect call: " << rso_callee.str() << "\n";
-						errs() << rso_callee.str()<< "{Connections : Parent : " << F.getName().str() << " Function\" : {";
-						errs() << numOfConnections++ << "Type : Indirect Call Type Inst "<< rso_callee.str() << "\n";  
-						rso_callee.str().clear();
+	// 					cb->print(rso_callee);
+	// 					errs() << "\nIndirect call: " << rso_callee.str() << "\n";
+	// 					errs() << rso_callee.str()<< "{Connections : Parent : " << F.getName().str() << " Function\" : {";
+	// 					errs() << numOfConnections++ << "Type : Indirect Call Type Inst "<< rso_callee.str() << "\n";  
+	// 					rso_callee.str().clear();
 
-						FunctionType *FuncTy = cb->getFunctionType();
-            			FuncTy->print(rso_callee);
+	// 					FunctionType *FuncTy = cb->getFunctionType();
+    //         			FuncTy->print(rso_callee);
 
-						errs()<< "------------ indirect_analysis: START -----------\n";
-						errs() << "Functype: " << rso_callee.str();
-						rso_callee.str().clear();
+	// 					errs()<< "------------ indirect_analysis: START -----------\n";
+	// 					errs() << "Functype: " << rso_callee.str();
+	// 					rso_callee.str().clear();
 
-						bool isEmptySet = true;
+	// 					bool isEmptySet = true;
 
-						for (Function &Func : F.getParent()->getFunctionList()) 
-						{
-							if (Func.hasAddressTaken() && isTypesEq(Func.getFunctionType(), FuncTy, 0)) 
-							{
-								// print out the indirect callee label to the callees
-								errs() << "<Indirect Call>: " <<  F.getName().str() << ", Callee_name: " << Func.getName().str() << "\n";
-								// add connection (possible target func)
+	// 					for (Function &Func : F.getParent()->getFunctionList()) 
+	// 					{
+	// 						if (Func.hasAddressTaken() && isTypesEq(Func.getFunctionType(), FuncTy, 0)) 
+	// 						{
+	// 							// print out the indirect callee label to the callees
+	// 							errs() << "<Indirect Call>: " <<  F.getName().str() << ", Callee_name: " << Func.getName().str() << "\n";
+	// 							// add connection (possible target func)
 
-								errs() <<icall_num++ << Func.getName().str() << "\n";
-								errs() << "\"" << numOfConnections++ << "Type : Indirect Call , Callee_name: "<< Func.getName().str() << "\n";
-								isEmptySet = false;
-							}
-						}
-						if (isEmptySet) 
-						{
-							errs() << "\n-----------------------------------------\n";
-							errs() << "The violating indirect call: ";
-							cb->print(rso_callee);
-							errs() << rso_callee.str() << "\n";
-							rso_callee.str().clear();
-							errs() << "The violating indirect call TYPE: ";
-							FuncTy->print(rso_callee);
-							errs() << rso_callee.str() << "\n";
-							errs() << "\n-----------------------------------------\n";
-						}
-						errs() << "\n------------ indirect_analysis: END------------\n";
-						errs() << "}}},\n";
+	// 							errs() <<icall_num++ << Func.getName().str() << "\n";
+	// 							errs() << "\"" << numOfConnections++ << "Type : Indirect Call , Callee_name: "<< Func.getName().str() << "\n";
+	// 							isEmptySet = false;
+	// 						}
+	// 					}
+	// 					if (isEmptySet) 
+	// 					{
+	// 						errs() << "\n-----------------------------------------\n";
+	// 						errs() << "The violating indirect call: ";
+	// 						cb->print(rso_callee);
+	// 						errs() << rso_callee.str() << "\n";
+	// 						rso_callee.str().clear();
+	// 						errs() << "The violating indirect call TYPE: ";
+	// 						FuncTy->print(rso_callee);
+	// 						errs() << rso_callee.str() << "\n";
+	// 						errs() << "\n-----------------------------------------\n";
+	// 					}
+	// 					errs() << "\n------------ indirect_analysis: END------------\n";
+	// 					errs() << "}}},\n";
 
-						/*Instrument indirect calls*/
-						//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+	// 					/*Instrument indirect calls*/
+	// 					//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
 
-					}
-					 /*-------------- indirect_analysis: END --------*/
-				}
-				errs()<<"\n-------------------here ----------------------\n";
-				switch (I.getOpcode())
-				{
-					/*case Instruction::Br: {
-						BranchInst *bi = cast<BranchInst>(&I);
-						// check condition branches
-						if (bi->isConditional()) {
-						llvm::errs() << "<CondBranch> operand: " << *bi << ", src: " << bi
-									<< ", parent:" << bi->getParent() << "\n";
+	// 				}
+	// 				 /*-------------- indirect_analysis: END --------*/
+	// 			}
+	// 			errs()<<"\n-------------------here ----------------------\n";
+	// 			switch (I.getOpcode())
+	// 			{
+	// 				/*case Instruction::Br: {
+	// 					BranchInst *bi = cast<BranchInst>(&I);
+	// 					// check condition branches
+	// 					if (bi->isConditional()) {
+	// 					llvm::errs() << "<CondBranch> operand: " << *bi << ", src: " << bi
+	// 								<< ", parent:" << bi->getParent() << "\n";
 
-						NumbOfCondBranches++;
-						} else {
-						NumbOfBranches++;
-						llvm::errs() << "<BranchInst>: " << *bi << ", src: " << bi
-									<< ", parent: " << bi->getParent()
-									<< ", NumbOfBranches: " << NumbOfBranches << "\n";
-						}
-					} break;*/
-					/*-------------------------------------------------------------------------------
-					check indirect branch instructions
-					---------------------------------------------------------------------------------*/
-					case Instruction::IndirectBr: {
-						IndirectBrInst *ibi = cast<IndirectBrInst>(&I);
-						Value *target = ibi->getAddress();
-						assert(target != nullptr);
-						numOfConnections++;
-						errs() << "<IndirectBrInst>: " << *ibi << "\n";
-						errs() <<numOfConnections++<<"Type : IBranch , target: " << target<< "\n";
+	// 					NumbOfCondBranches++;
+	// 					} else {
+	// 					NumbOfBranches++;
+	// 					llvm::errs() << "<BranchInst>: " << *bi << ", src: " << bi
+	// 								<< ", parent: " << bi->getParent()
+	// 								<< ", NumbOfBranches: " << NumbOfBranches << "\n";
+	// 					}
+	// 				} break;*/
+	// 				/*-------------------------------------------------------------------------------
+	// 				check indirect branch instructions
+	// 				---------------------------------------------------------------------------------*/
+	// 				case Instruction::IndirectBr: {
+	// 					IndirectBrInst *ibi = cast<IndirectBrInst>(&I);
+	// 					Value *target = ibi->getAddress();
+	// 					assert(target != nullptr);
+	// 					numOfConnections++;
+	// 					errs() << "<IndirectBrInst>: " << *ibi << "\n";
+	// 					errs() <<numOfConnections++<<"Type : IBranch , target: " << target<< "\n";
 						
-						//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
-					} break;
-					case Instruction::CallBr: {
+	// 					//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+	// 				} break;
+	// 				case Instruction::CallBr: {
 						
-						CallBrInst *cbi = cast<CallBrInst>(&I);
-						errs() << "<CallBrInst>: " << *cbi << "\n";
+	// 					CallBrInst *cbi = cast<CallBrInst>(&I);
+	// 					errs() << "<CallBrInst>: " << *cbi << "\n";
 
-						//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
-					} break;
-				//	case Instruction::Ret: {
-						// ReturnInst *ret = cast<ReturnInst>(&I);
-				//		string str;
-				//		raw_string_ostream ret_inst(str);
-						// std::string parent_str;
-						// raw_string_ostream ret_parent(parent_str);
-				//		I.print(ret_inst);
-				//		errs() << numOfConnections++ << "Type : Ret , Ins : " << ret_inst.str() << "\", \"Parent\" : {";
-				//		for (Function &Func : F.getParent()->getFunctionList()) {
-						// if (Func.getName().equals(F.getName())) {
-						//   errs() << "Ret: Parent is itself.\n";
-						//   continue;
-						// }
-						// print out the indirect callee label to the callees
-						// int ret = isParentFunc(&Func, &F);
-				//		int ParentList[MAX_PARENTS] = {0};
-				//		isParentFuncList(&Func, &F, ParentList);
-				//		if (ParentList[0] == 0)
-				//		{
-							// errs() << "No parent.\t";
-				//			continue;
-				//		}
-						// If we find the parent
-					//	errs() << "Parent: " << Func.getName().str() << "[";
-					//	OutputJson << "\"" << Func.getName().str() << "\" : [";
-					//	for (auto x : ParentList)
-					//	{
-					//		if (x != 0){
-						//	errs() << x << "\t";
-						//	OutputJson << "\"" << x << "\", ";
-						//	}
-						//}   
-						//OutputJson << "],\n";
-						//errs() << "]\n";     
-						// if (ParentList[0] > 0)
-						// {
-						//   errs() << "Parent list:\t";
-						//   for (size_t i = 0; i < sizeof(ParentList)/sizeof(ParentList[0]); i++)
-						//   {
-						//     errs() << ParentList[i] << " ";
-						//   }
-						// }
-						// if (ret > 0) {
-						//   // errs() << Func.getName().str() << " ";
-						//   OutputJson << "\"" << Func.getName().str() << "\" : \"" << ret
-						//              << "\",";
-						// }
-						// }
-					//	}
-						// F.getParent();
-					//	OutputJson << "}},";
-						// ICallJson << "}";
+	// 					//modifid |= insertIndirectSecureTraceTrampoline(&BB, &I);
+	// 				} break;
+	// 			//	case Instruction::Ret: {
+	// 					// ReturnInst *ret = cast<ReturnInst>(&I);
+	// 			//		string str;
+	// 			//		raw_string_ostream ret_inst(str);
+	// 					// std::string parent_str;
+	// 					// raw_string_ostream ret_parent(parent_str);
+	// 			//		I.print(ret_inst);
+	// 			//		errs() << numOfConnections++ << "Type : Ret , Ins : " << ret_inst.str() << "\", \"Parent\" : {";
+	// 			//		for (Function &Func : F.getParent()->getFunctionList()) {
+	// 					// if (Func.getName().equals(F.getName())) {
+	// 					//   errs() << "Ret: Parent is itself.\n";
+	// 					//   continue;
+	// 					// }
+	// 					// print out the indirect callee label to the callees
+	// 					// int ret = isParentFunc(&Func, &F);
+	// 			//		int ParentList[MAX_PARENTS] = {0};
+	// 			//		isParentFuncList(&Func, &F, ParentList);
+	// 			//		if (ParentList[0] == 0)
+	// 			//		{
+	// 						// errs() << "No parent.\t";
+	// 			//			continue;
+	// 			//		}
+	// 					// If we find the parent
+	// 				//	errs() << "Parent: " << Func.getName().str() << "[";
+	// 				//	OutputJson << "\"" << Func.getName().str() << "\" : [";
+	// 				//	for (auto x : ParentList)
+	// 				//	{
+	// 				//		if (x != 0){
+	// 					//	errs() << x << "\t";
+	// 					//	OutputJson << "\"" << x << "\", ";
+	// 					//	}
+	// 					//}   
+	// 					//OutputJson << "],\n";
+	// 					//errs() << "]\n";     
+	// 					// if (ParentList[0] > 0)
+	// 					// {
+	// 					//   errs() << "Parent list:\t";
+	// 					//   for (size_t i = 0; i < sizeof(ParentList)/sizeof(ParentList[0]); i++)
+	// 					//   {
+	// 					//     errs() << ParentList[i] << " ";
+	// 					//   }
+	// 					// }
+	// 					// if (ret > 0) {
+	// 					//   // errs() << Func.getName().str() << " ";
+	// 					//   OutputJson << "\"" << Func.getName().str() << "\" : \"" << ret
+	// 					//              << "\",";
+	// 					// }
+	// 					// }
+	// 				//	}
+	// 					// F.getParent();
+	// 				//	OutputJson << "}},";
+	// 					// ICallJson << "}";
 
-					//	ret_inst.str().clear();
-					//} break;
-						// case Instruction::CatchRet:{
-						//   CatchReturnInst *cret = cast<CatchReturnInst>(&I);
-						//   errs() << "CatchReturnInst: " << *cret << ", src: " <<
-						//   cret
-						//   << "\n";
-						// }
+	// 				//	ret_inst.str().clear();
+	// 				//} break;
+	// 					// case Instruction::CatchRet:{
+	// 					//   CatchReturnInst *cret = cast<CatchReturnInst>(&I);
+	// 					//   errs() << "CatchReturnInst: " << *cret << ", src: " <<
+	// 					//   cret
+	// 					//   << "\n";
+	// 					// }
 
-					default:
-						break;
-				}
-			}
-		}
-		numOfConnections = 0;
-	}
+	// 				default:
+	// 					break;
+	// 			}
+	// 		}
+	// 	}
+	// 	numOfConnections = 0;
+	// }
 
 
 	   /* FunctionType *printfType = FunctionType::get(Type::getInt32Ty(context), {Type::getInt8PtrTy(context)}, true);
