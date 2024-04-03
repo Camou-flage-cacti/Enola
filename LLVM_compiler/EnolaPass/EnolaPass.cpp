@@ -86,6 +86,11 @@ namespace {
 						}
 						BasicBlock *CaseBB = Switch->getDefaultDest(); //default branch
 						CaseBB->setName("report_direct");
+						MyMetadata = MDNode::get(F.getContext(), MDString::get(F.getContext(), functionName));
+						
+						F.setMetadata("Enola-non-leaf", MyMetadata);
+						errs()<<"Metadata set for functoin: "<<functionName<<"\n";
+						modifid |= true;
 						//modifid |= insertSecureTraceTrampoline(CaseBB);
 						break;
 					}
@@ -105,11 +110,15 @@ namespace {
 							BasicBlock* falseTarget = bi->getSuccessor(1);
 							trueTarget->setName("report_direct");
 							falseTarget->setName("report_direct");
+							MyMetadata = MDNode::get(F.getContext(), MDString::get(F.getContext(), functionName));
+							F.setMetadata("Enola-non-leaf", MyMetadata);
+							errs()<<"Metadata set for functoin: "<<functionName<<"\n";
 
 							// Print information about the conditional bi
 							errs() << "Conditional Branch: " << *condition << "\n";
 							errs() << "True Target: " << trueTarget->getName() << "\n";
 							errs() << "False Target: " << falseTarget->getName() << "\n";
+							modifid |= true;
 							//addMetadataToBasicBlock(trueTarget, targetBB,context);
 							//Instruction *firtInstruction = &trueTarget->front();
 							//modifid |= inserTraceDirectTrampoline(trueTarget, bi, 0);
@@ -430,6 +439,10 @@ namespace {
 
 	// 	// Attach metadata to the terminator instruction
 	// 	TermInst->setMetadata(MetadataName, MD);
+	// }
+	// void setLeafFunctionAttribue(BasicBlock *BB)
+	// {
+
 	// }
 	bool inserTraceDirectTrampoline(BasicBlock *BB, BranchInst *bi, int idx)
 	{
