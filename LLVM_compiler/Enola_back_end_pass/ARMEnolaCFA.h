@@ -90,11 +90,10 @@ namespace llvm {
                         const char *sym,
                         MachineFunction &MF);
         
-        /*bool instrumentRetLR (MachineBasicBlock &MBB,
-                           MachineInstr &MI,
-                           const DebugLoc &DL,
-                           const ARMBaseInstrInfo *TII,
-                           const char *sym);*/
+        std::vector<Register> findFreeRegistersBefore(const MachineInstr & MI, bool Thumb);
+        MachineInstr * findIT(MachineInstr & MI, unsigned & distance);
+        const MachineInstr * findIT(const MachineInstr & MI, unsigned & distance);
+        unsigned getITBlockSize(const MachineInstr & IT);
         public:
             static char ID;
             ARMEnolaCFA() : MachineFunctionPass(ID) {initializeARMEnolaCFAPass(*PassRegistry::getPassRegistry());}

@@ -14,6 +14,7 @@
 #include "llvm/CodeGen/TargetSubtargetInfo.h"
 #include "llvm/Target/TargetMachine.h"
 #include "llvm/CodeGen/RegisterScavenging.h"
+#include "llvm/CodeGen/LivePhysRegs.h"
 
 #include "ARMEnolaCFA.h"
 #include <iostream>
@@ -39,6 +40,116 @@ bool ARMEnolaCFA::checkIfPcIsOperand(const MachineInstr &MI)
             return true;
     }
     return false;
+}
+
+unsigned ARMEnolaCFA::getITBlockSize(const MachineInstr & IT) {
+  assert(IT.getOpcode() == ARM::t2IT && "Not an IT instruction!");
+
+  unsigned Mask = IT.getOperand(1).getImm() & 0xf;
+  assert(Mask != 0 && "Invalid IT mask!");
+
+  if (Mask & 0x1) {
+    return 4;
+  } else if (Mask & 0x2) {
+    return 3;
+  } else if (Mask & 0x4) {
+    return 2;
+  } else {
+    return 1;
+  }
+}
+
+MachineInstr * ARMEnolaCFA::findIT(MachineInstr & MI, unsigned & distance) {
+  MachineInstr * Prev = &MI;
+  unsigned dist = 0;
+  while (Prev != nullptr && dist < 5 && Prev->getOpcode() != ARM::t2IT) {
+    // Only count non-meta instructions
+    if (!Prev->isMetaInstruction()) {
+      ++dist;
+    }
+    Prev = Prev->getPrevNode();
+  }
+  if (Prev != nullptr && dist < 5 && Prev->getOpcode() == ARM::t2IT) {
+    if (getITBlockSize(*Prev) >= dist) {
+      distance = dist;
+      return Prev;
+    }
+  }
+  return nullptr;
+}
+const MachineInstr * ARMEnolaCFA::findIT(const MachineInstr & MI, unsigned & distance) {
+  return findIT(const_cast<MachineInstr &>(MI), distance);
+}
+
+std::vector<Register> ARMEnolaCFA::findFreeRegistersBefore(const MachineInstr & MI, bool Thumb=true) {
+  assert(!MI.isMetaInstruction() && "Cannot instrument meta instruction!");
+
+  unsigned distance;
+  const MachineInstr * IT = findIT(MI, distance);
+
+  Register PredReg;
+  ARMCC::CondCodes Pred = getInstrPredicate(MI, PredReg);
+
+  const MachineFunction & MF = *MI.getMF();
+  const MachineBasicBlock & MBB = *MI.getParent();
+  const MachineRegisterInfo & MRI = MF.getRegInfo();
+  const TargetRegisterInfo * TRI = MF.getSubtarget().getRegisterInfo();
+  LivePhysRegs UsedRegs(*TRI);
+
+  // First add live-out registers of MBB; these registers are considered live
+  // at the end of MBB
+  UsedRegs.addLiveOuts(MBB);
+
+  // Then move backward step by step to compute live registers before MI
+  MachineBasicBlock::const_iterator MBBI(MI);
+  MachineBasicBlock::const_iterator I = MBB.end();
+  while (I != MBBI) {
+    unsigned distance2;
+    const MachineInstr * IT2 = findIT(*--I, distance2);
+    Register PredReg2;
+    ARMCC::CondCodes Pred2 = getInstrPredicate(*I, PredReg2);
+
+    if (IT2 != nullptr && IT == IT2) {
+      // Skip instructions in the same IT block but with a different predicate
+      if (Pred != Pred2) {
+        continue;
+      }
+
+      // A return in the same IT block with the same predicate can reset live
+      // registers to the callee-saved registers
+      if (I->isReturn()) {
+        UsedRegs.init(*TRI);
+        for (auto CSR = MRI.getCalleeSavedRegs(); CSR && *CSR; ++CSR) {
+          UsedRegs.addReg(*CSR);
+        }
+      }
+    }
+
+    UsedRegs.stepBackward(*I);
+  }
+
+  // Now add registers that are neither reserved nor live to a free list
+  const auto LoGPRs = {
+    ARM::R0, ARM::R1, ARM::R2, ARM::R3, ARM::R4, ARM::R5, ARM::R6, ARM::R7,
+  };
+  const auto HiGPRs = {
+    ARM::R8, ARM::R9, ARM::R10, ARM::R11, ARM::R12, ARM::LR,
+  };
+  std::vector<Register> FreeRegs;
+  for (Register Reg : LoGPRs) {
+    if (!MRI.isReserved(Reg) && !UsedRegs.contains(Reg)) {
+      FreeRegs.push_back(Reg);
+    }
+  }
+  if (!Thumb) {
+    for (Register Reg : HiGPRs) {
+      if (!MRI.isReserved(Reg) && !UsedRegs.contains(Reg)) {
+        FreeRegs.push_back(Reg);
+      }
+    }
+  }
+
+  return FreeRegs;
 }
 
 std::string ARMEnolaCFA::extractFunctionName(const MachineInstr &MI) {
@@ -137,40 +248,70 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     /*POP {r0} - works but as push does not work no value : worng*/
     //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R0).setMIFlag(MachineInstr::NoFlags);
 
-
+    bool extraPush = false;
+    MachineInstrBuilder MIB;
     /*Find a free register*/
-    const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
-    RegScavenger RS;
-    RS.enterBasicBlock(MBB);
+    // const TargetRegisterInfo *TRI = MF.getSubtarget().getRegisterInfo();
+    // RegScavenger RS;
+    // RS.enterBasicBlock(MBB);
 
-    unsigned freeRegister = ARM::R0;
+    //unsigned freeRegister = 0;
+     Register freeRegister = ARM::R0;
+    // std::vector<Register> FreeRegs = findFreeRegistersBefore(MI);
+    // if (!FreeRegs.empty()) 
+    // {
+    //     outs() << "Enola find a free register in: " << MF.getName() << " for " << MI;
+    //     freeRegister = FreeRegs[0];
+    // } 
+    // else 
+    // {
+    //     outs() << "Enola Unable to find a free register in: " << MF.getName() << " for " << MI;
+    //     freeRegister = ARM::R4;
+    //     extraPush = true;
+    //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
+    // }
 
-    for (;freeRegister < TRI->getNumRegs();freeRegister++) {
-        if(freeRegister>= ARM::R0 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false))
-        {
-            outs() << "EnolaDebug-backEnd: Found FREE register "<<freeRegister<<"\n";
-            break;
-        }
-    }
+    // for (;freeRegister < TRI->getNumRegs();freeRegister++) {
+    //     if((freeRegister>= ARM::R4 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false)) || (freeRegister== ARM::R12 && RS.isRegUsed(freeRegister, false)))
+    //     {
+    //         outs() << "EnolaDebug-backEnd: Found FREE register "<<freeRegister<<"\n";
+    //         break;
+    //     }
+    // }
+    // /*we could not find a free register; need to push*/
+    // if(freeRegister == 0)
+    // {
+    //     outs() << "EnolaDebug-backEnd: No free registers found: needs extra push "<<freeRegister<<"\n";
+    //     extraPush = true;
+    //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
+
+    // }
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
 
     /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
-    MachineInstrBuilder MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
 
     /*add gp, 10 instrumentation as reading pc will give +4 */
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(freeRegister).addReg(freeRegister).addImm(10).add(predOps(ARMCC::AL));
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(freeRegister).addReg(freeRegister).addImm(12).add(predOps(ARMCC::AL));
 
     /*pacg instruction with r10*/
 
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10)
     .setMIFlag(MachineInstr::NoFlags);
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
-    MachineInstr *MI2 = MIB;
-    std::string instructionString;
-    llvm::raw_string_ostream OS(instructionString);
-    MI2->print(OS);
+    // MachineInstr *MI2 = MIB;
+    // std::string instructionString;
+    // llvm::raw_string_ostream OS(instructionString);
+    // MI2->print(OS);
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
-    
-    outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2LDMIA_UPD),ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
+    // if(extraPush)
+    // {
+    //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
+
+    // }
+
+    // outs()<<"EnolaDebug-backEnd: constructed instruction in string : "<<instructionString<<"\n";
     return true;
 }
 
@@ -224,6 +365,9 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
     outs () << "EnolaDebug-backEnd: Inside instrumentation of return from stack \n";
 
     unsigned int pc_location = 0;
+    bool extraPush = false;
+    MachineInstrBuilder MIB;
+
     outs()<<"Opcode : "<<MI.getOpcode()<<"\n"; 
 
     for(int i = 0; i< MI.getNumOperands(); i++)
@@ -244,17 +388,24 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
     RegScavenger RS;
     RS.enterBasicBlock(MBB);
 
-    unsigned freeRegister = ARM::R0;
+    unsigned freeRegister = 0;
 
     for (;freeRegister < TRI->getNumRegs();freeRegister++) {
-        if(freeRegister>= ARM::R0 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false))
+        if((freeRegister>= ARM::R4 && freeRegister <= ARM::R9 && RS.isRegUsed(freeRegister, false)) || (freeRegister== ARM::R12 && RS.isRegUsed(freeRegister, false)))
         {
             outs() << "EnolaDebug-backEnd: Found FREE register "<<freeRegister<<"\n";
             break;
         }
     }
+    /*we could not find a free register; need to push*/
+    if(freeRegister == 0)
+    {
+        outs() << "EnolaDebug-backEnd: No free registers found: needs extra push "<<freeRegister<<"\n";
+        extraPush = true;
+        MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
 
-    MachineInstrBuilder MIB;
+    }
+
     MachineInstr *MI2;
     std::string instructionString;
 
@@ -277,6 +428,12 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
     .setMIFlag(MachineInstr::NoFlags);
     MI2 = MIB;
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
+
+    if(extraPush)
+    {
+        MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
+
+    }
     
 
     llvm::raw_string_ostream OS2(instructionString);
@@ -637,7 +794,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
         StringRef BBName = MBB.getName();
         if(BBName.starts_with("report_direct"))
         {
-            outs() << "MBB name: " << BBName<<"\n";
+            outs() << "MBB name: " << BBName<<" function "<<F.getName()<<"\n";
             itr = MBB.begin();
             MachineInstr &BBIns = *itr;
             currentMF = MBB.getParent();

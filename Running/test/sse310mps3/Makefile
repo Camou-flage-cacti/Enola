@@ -37,14 +37,14 @@ SOURCES += application.c
 CC = $(BIN_PATH)/clang
 OPT = $(BIN_PATH)/opt
 LLC = $(BIN_PATH)/llc
-CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
+CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O3 -Wno-keyword-macro -mcpu=cortex-m85
 #CFLAGS = -std=c99 --sysroot=/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
 
 
 CFLAGS += $(INCLUDES)
 # LDFLAGS = -T ../../../tool/linker_SSE310MPS3_secure.ld
 LDFLAGS = -T ./ARM/RTE/Device/SSE-310-MPS3_FVP/linker_SSE310MPS3_secure.ld
-LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
+LDFLAGS += -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -mthumb -gdwarf-2 -pedantic -O3 -Wno-keyword-macro -mcpu=cortex-m85
 
 # Object files
 OBJECTS = $(patsubst %.c,$(BUILD_DIR)/%.o,$(notdir $(SOURCES)))
@@ -90,7 +90,7 @@ $(BUILD_DIR)/%.o: %.c
 #	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-	$(LLC) -march=arm -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -O0 -o $@
+	$(LLC) -march=arm -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:

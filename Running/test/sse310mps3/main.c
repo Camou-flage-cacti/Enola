@@ -38,8 +38,13 @@ int main(void)
 	result = switchcase(x);
 	printf("\r\n= switchcase %d=\r\n", result);
 	int (*func_ptr)(int) = &func;
-	(*func_ptr)(10);
+	result = (*func_ptr)(10);
+	printf("\r\n= func_ptr %d=\r\n", result);
 	int nums[] = {0,1,0,3,12};
 	moveZeros(nums, 5);
+	for(int i = 0; i < 5; i++)
+	{
+		printf("\r\n %d=\r\n", nums[i]);
+	}
 	return 0;
 }

@@ -62,9 +62,12 @@ unsigned int get_idx(unsigned int addr)
 /*TODO: implement secure trace storage for TA*/
 void secure_trace_storage()
 {	
+	// __asm volatile(
+	// "PUSH {r12}\n\t"
+	// );
 	if(To.occurrence_size >= BASIC_BlOCK_MAX)
 	{
-		printf("\r\n Error info: Occurence trace buffer full =\r\n");
+		//printf("\r\n Error info: Occurence trace buffer full =\r\n");
 		return;
 	}
 
@@ -78,15 +81,15 @@ void secure_trace_storage()
 	);
 	unsigned int idx = get_idx(current_addr);
 	idx = (idx == BASIC_BlOCK_MAX ? To.occurrence_size++ : idx);
-	printf("\r\n Debugging info: index %u =\r\n",idx);
+	//printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/
 	To.basicBlockStart[idx] = current_addr;
 	To.occurrence_count[idx]++;
 
 	//To.occurrence_size++;
 
-    printf("\r\n Debugging info: in the secure trace storage function =\r\n");
-	print_occurence_trace();
+    //printf("\r\n Debugging info: in the secure trace storage function =\r\n");
+	//print_occurence_trace();
 	return;
 }
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
