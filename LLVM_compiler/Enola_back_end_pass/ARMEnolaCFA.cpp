@@ -286,7 +286,7 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
 
     // }
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2STMIA_UPD), ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR).addReg(ARM::R12);
 
     /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
@@ -304,7 +304,7 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     // llvm::raw_string_ostream OS(instructionString);
     // MI2->print(OS);
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2LDMIA_UPD),ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2LDMIA_UPD),ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR).addReg(ARM::R12);
     // if(extraPush)
     // {
     //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
