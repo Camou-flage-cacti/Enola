@@ -2,7 +2,7 @@
 BUILD_DIR := build
 
 # BIN_PATH=../../../build/llvm/bin
-BIN_PATH = ~/Documents/GitHub/LLVM-embedded-toolchain-for-Arm/build/llvm/bin
+BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
 
 # include ../../Makefile.conf
 
