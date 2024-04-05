@@ -1,0 +1,17 @@
+--cpu=Cortex-M33
+".\out\blinky.o"
+".\out\stdout_usart.o"
+".\out\buttons_v2m-mps2.o"
+".\out\glcd_fonts.o"
+".\out\glcd_v2m-mps2.o"
+".\out\led_v2m-mps2.o"
+".\out\touch_v2m-mps2.o"
+".\out\usart_v2m-mps2.o"
+".\out\retarget_io.o"
+".\out\startup_iotkit_cm33.o"
+".\out\system_iotkit_cm33.o"
+--strict --scatter ".\RTE\Device\IOTKit_CM33_FP\ac6_arm.sct"
+--import-cmse-lib-out=".\Out\Blinky_CMSE_Lib.o"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Out\Blinky.map" -o .\Out\Blinky.axf
