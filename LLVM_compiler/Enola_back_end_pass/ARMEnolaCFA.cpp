@@ -208,8 +208,7 @@ bool  ARMEnolaCFA::instrumentCondWithReportDirect (MachineBasicBlock &MBB,
 
         /*pacg instruction with r10*/
 
-        MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10)
-        .setMIFlag(MachineInstr::NoFlags);
+        //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10).setMIFlag(MachineInstr::NoFlags);
         
 
         MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
@@ -286,25 +285,25 @@ bool ARMEnolaCFA::instrumentCond (MachineBasicBlock &MBB,
     //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
 
     // }
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2STMIA_UPD), ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR).addReg(ARM::R12);
-
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2STMIA_UPD), ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR).addReg(ARM::R12);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPUSH)).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
     /*mov r0,pc: we need to use thumb instruction set for this one t2 and arm instruction does not work */
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tMOVr)).addReg(freeRegister).addReg(ARM::PC);
 
     /*add gp, 10 instrumentation as reading pc will give +4 */
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(freeRegister).addReg(freeRegister).addImm(12).add(predOps(ARMCC::AL));
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(freeRegister).addReg(freeRegister).addImm(10).add(predOps(ARMCC::AL));
 
     /*pacg instruction with r10*/
 
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10)
-    .setMIFlag(MachineInstr::NoFlags);
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R10).setMIFlag(MachineInstr::NoFlags);
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     // MachineInstr *MI2 = MIB;
     // std::string instructionString;
     // llvm::raw_string_ostream OS(instructionString);
     // MI2->print(OS);
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tBL)).add(predOps(ARMCC::AL)).addExternalSymbol(sym).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2LDMIA_UPD),ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR).addReg(ARM::R12);
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2LDMIA_UPD),ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2LDMIA_UPD),ARM::SP).addReg(ARM::SP).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R1).addReg(ARM::R2).addReg(ARM::R3).addReg(ARM::LR);
     // if(extraPush)
     // {
     //     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::tPOP)).add(predOps(ARMCC::AL)).addReg(ARM::R4).setMIFlag(MachineInstr::NoFlags);
@@ -424,8 +423,7 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
 
     outs() << "EnolaDebug-backEnd: Building PAC:\n";
 
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R11)
-    .setMIFlag(MachineInstr::NoFlags);
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(freeRegister).addReg(ARM::R11).setMIFlag(MachineInstr::NoFlags);
     MI2 = MIB;
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
 
@@ -473,8 +471,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
    // outs()<<"constructed instruction in string cmp: "<<instructionString2<<"\n";
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11)
-    .setMIFlag(MachineInstr::NoFlags);
+    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11).setMIFlag(MachineInstr::NoFlags);
 
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
@@ -683,7 +680,7 @@ bool ARMEnolaCFA:: instrumentIndirectParameterSetInst(MachineBasicBlock &MBB,
     outs() << "Calculated distance: "<<relativeDistanceToBLX<<" \n";
 
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2ADDri)).addReg(ARM::R1).addReg(ARM::R1).addImm(relativeDistanceToBLX + 4).add(predOps(ARMCC::AL));
-    MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10);
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10);
     
     outs()<<"EnolaDebug-backEnd: it should be the ldr insturction: "<<toBeInstrmented.getOpcode()<<"\n";
 
@@ -726,7 +723,7 @@ bool ARMEnolaCFA:: instrumentBlxBased(MachineBasicBlock &MBB,
 
     /*instrument pacg instruction*/
 
-    BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10);
+    //BMI = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R10).add(predOps(ARMCC::AL)).addReg(ARM::R0).addReg(ARM::R10);
 
     /*call report_indirect trampoline*/
 
@@ -851,7 +848,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 else
                 {
                     outs() << "EnolaDebug-backEnd:  Return from LR.\n";
-                    modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                    //modified |= instrumentRet(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
                 
             }

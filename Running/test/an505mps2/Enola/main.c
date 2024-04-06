@@ -20,11 +20,13 @@ __strong_reference(stdin, stderr);
 
 int main(void)
 {
+	#ifdef ENOLA_DEBUG
 	stdout_init();
+	#endif
 	//setup_S_PAC_Keys();
 	//init_registers();
 	//enable_PAC();
-	//init_trampoline();
+	init_trampoline();
 	// printf("\r\n= setup done=\r\n");
 	// printf("\r\n= INitializing IBT=\r\n");
 	 //intialize_IBT();
@@ -33,19 +35,33 @@ int main(void)
 	int x = 32;
 	//x = x << 2;
 	int result = mod2(x);
+	#ifdef ENOLA_DEBUG
 	printf("\r\n= mod2 function call result %d=\r\n", result);
+	#endif
 	result = loopOver(x);
-	//printf("\r\n= loopOver %d=\r\n", result);
+	
+	#ifdef ENOLA_DEBUG
+	printf("\r\n= loopOver %d=\r\n", result);
+	#endif
 	result = switchcase(x);
-	//printf("\r\n= switchcase %d=\r\n", result);
+	#ifdef ENOLA_DEBUG
+	printf("\r\n= switchcase %d=\r\n", result);
+	#endif
 	int (*func_ptr)(int) = &func;
 	result = (*func_ptr)(10);
-	//printf("\r\n= func_ptr %d=\r\n", result);
+	#ifdef ENOLA_DEBUG
+	printf("\r\n= func_ptr %d=\r\n", result);
+	#endif
 	int nums[] = {0,1,0,3,12};
 	moveZeros(nums, 5);
-	// for(int i = 0; i < 5; i++)
-	// {
-	// 	printf("\r\n %d\r\n", nums[i]);
-	// }
+	#ifdef ENOLA_DEBUG
+	for(int i = 0; i < 5; i++)
+	{
+	 	printf("\r\n %d\r\n", nums[i]);
+	}
+	#endif
+	#ifdef ENOLA_DEBUG
+	//print_occurence_trace();
+	#endif
 	return 0;
 }

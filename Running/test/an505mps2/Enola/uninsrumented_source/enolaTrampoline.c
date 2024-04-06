@@ -13,12 +13,14 @@ unsigned int indirect_source = 0;
 
 void intialize_IBT()
 {
+	#ifdef ENOLA_TRACE_DEBUG
 	printf("\r\n ----------------IBT SIZE = 0x%x-------------- \r\n", *IBT_size);
 
 	for(int i = 0; i < (*IBT_size) * 2 ; i+=2)
 	{
 		printf("\r\n-------------Destination: 0x%x || Source: 0x%x ---------------\r\n", IBT_entry[i], IBT_entry[i + 1]);
 	}
+	#endif
 	
 }
 void init_trampoline()
@@ -39,12 +41,14 @@ void init_trampoline()
 
 void print_occurence_trace()
 {
+	#ifdef ENOLA_TRACE_DEBUG
 	printf("\r\n ----------------Occurence Trace start-------------- \r\n");
 	for (int i = 0; i < To.occurrence_size; i ++)
 	{
 		printf("\r\n Address: 0x%x Count: 0x%x \r\n", To.basicBlockStart[i], To.occurrence_count[i]);
 	}
 	printf("\r\n ----------------Occurence Trace end-------------- \r\n");
+	#endif
 	return;
 }
 /*Get index of Occurece trace */
@@ -67,7 +71,9 @@ void secure_trace_storage()
 	// );
 	if(To.occurrence_size >= BASIC_BlOCK_MAX)
 	{
-		//printf("\r\n Error info: Occurence trace buffer full =\r\n");
+		#ifdef ENOLA_TRACE_DEBUG
+		printf("\r\n Error info: Occurence trace buffer full =\r\n");
+		#endif
 		return;
 	}
 
@@ -87,9 +93,10 @@ void secure_trace_storage()
 	To.occurrence_count[idx]++;
 
 	//To.occurrence_size++;
-
-    //printf("\r\n Debugging info: in the secure trace storage function =\r\n");
-	//print_occurence_trace();
+	#ifdef ENOLA_TRACE_DEBUG
+    printf("\r\n Debugging info: in the secure trace storage function =\r\n");
+	print_occurence_trace();
+	#endif
 	return;
 }
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
@@ -116,8 +123,10 @@ void indirect_secure_trace_storage(int dummy, int dummy2)
 	/*We need to decrease by 1 as in ARM PC will always be -1 */
 	//indirect_source += 1;
 	indirect_target--;
+	#ifdef ENOLA_TRACE_DEBUG
 	printf("\r\n The indirect source is 0x%x and the target is at 0x%x address=\r\n", indirect_source, indirect_target);
 	printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
+	#endif
 
 	return;
 }

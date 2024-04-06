@@ -47,11 +47,15 @@ SOURCES += application.c
 
 # Compiler settings
 CC = $(BIN_PATH)/clang
+OPT = $(BIN_PATH)/opt
+LLC = $(BIN_PATH)/llc
 # -std=gnu99 enables GNU extensions such as asm, while still keeping the language C99-like.
 CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -H -pedantic -O2 -Wno-keyword-macro
 # CFLAGS += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/Device/IOTKit_CM33/Include/system_IOTKit_CM33.h
 
 
+#CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_DEBUG
+#CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_DEBUG -DENOLA_TRACE_DEBUG
 CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE
 
 CFLAGS += $(INCLUDES)
@@ -88,10 +92,10 @@ $(TARGET): $(OBJECTS)
 	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-#	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
-#	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-#	$(LLC) -march=arm -filetype=obj --mattr=+pacbti $(BUILD_DIR)/$*_opt.ll -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:
