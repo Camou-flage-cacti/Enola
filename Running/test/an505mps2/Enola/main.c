@@ -45,7 +45,7 @@ int main(void)
 	moveZeros(nums, 5);
 	for(int i = 0; i < 5; i++)
 	{
-		printf("\r\n %d=\r\n", nums[i]);
+		printf("\r\n %d\r\n", nums[i]);
 	}
 	return 0;
 }

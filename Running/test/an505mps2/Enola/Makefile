@@ -2,6 +2,7 @@
 BUILD_DIR := build
 
 UNINSTRUMENTED_DIR := uninsrumented_source
+CLANG_LIB_PATH := /home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/lib/clang-runtimes/arm-none-eabi/armv8m.main_hard_fp
 
 # BIN_PATH=../../../build/llvm/bin
 BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
@@ -51,7 +52,7 @@ SOURCES += ./RTE/Device/IOTKit_CM33_FP/startup_IOTKit_CM33.c ./RTE/Device/IOTKit
 CC = $(BIN_PATH)/clang
 # -std=gnu99 enables GNU extensions such as asm, while still keeping the language C99-like.
 # CFLAGS = -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mcmse -c -fno-rtti -O3 -fno-function-sections
-CFLAGS = -std=gnu99 --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -gdwarf-2 -H -pedantic -O0 -Wno-keyword-macro
+CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -gdwarf-2 -H -pedantic -O1 -Wno-keyword-macro
 # CFLAGS += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/Device/IOTKit_CM33/Include/system_IOTKit_CM33.h
 
 
@@ -62,7 +63,7 @@ LDFLAGS = -T ./gcc_arm.ld
 LDFLAGS += -g -L./inc/lib
 # LDFLAGS += -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mcmse -fno-rtti -O3 -fno-function-sections
 # LDFLAGS = -std=c99 --target=thumbv8m.main-none-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O3 -Wno-keyword-macro 
-LDFLAGS += -std=gnu99 --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -mthumb -gdwarf-2 -H -pedantic -O0 -Wno-keyword-macro
+LDFLAGS += -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -mthumb -gdwarf-2 -H -pedantic -O1 -Wno-keyword-macro
 
 # Object files
 # OBJECTS = $(SOURCES:.c=.o)

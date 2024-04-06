@@ -5,6 +5,10 @@ MEMORY
   RAM (rwx) : ORIGIN = 0x38000000, LENGTH = 0x00200000
 }
 
+/* Library configurations */
+/* GROUP(libgcc.a libc.a libm.a libnosys.a) */
+/*GROUP(libc.a libm.a)*/
+
 ENTRY(Reset_Handler)
 
 ENTRY(_start)
