@@ -413,7 +413,6 @@ bool ARMEnolaCFA::instrumentRetFromStack (MachineBasicBlock &MBB,
     MIB->setDebugLoc(DL);
     MachineRegisterInfo &MRI = MF.getRegInfo();
 
-   // MRI.clearKillFlags(ARM::R7);
     MI2 = MIB;
     
     outs() << "EnolaDebug-backEnd: Consructed instructions:\n";
@@ -472,6 +471,7 @@ bool ARMEnolaCFA::instrumentRet (MachineBasicBlock &MBB,
 
   //  MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PAC)).add(predOps(ARMCC::AL)).setMIFlag(MachineInstr::NoFlags);
     MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11).setMIFlag(MachineInstr::NoFlags);
+    //MIB = BuildMI(MBB, MI, DL, TII.get(ARM::t2PACG), ARM::R11).add(predOps(ARMCC::AL)).addReg(ARM::LR).addReg(ARM::R11).setMIFlag(MachineInstr::NoFlags);
 
     outs() << "EnolaDebug-backEnd: Consructed instructions: " << MIB <<"\n";
     MachineInstr *MI2 = MIB;
@@ -843,7 +843,7 @@ bool ARMEnolaCFA::runOnMachineFunction(MachineFunction &MF) {
                 if(MI.getOpcode() == ARM::tPOP_RET)
                 {
                     outs() << "EnolaDebug-backEnd:  Return from stack.\n";
-                    modified |= instrumentRetFromStack(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
+                    //modified |= instrumentRetFromStack(MBB, MI, MI.getDebugLoc(), TII, "dummy", MF);
                 }
                 else
                 {
