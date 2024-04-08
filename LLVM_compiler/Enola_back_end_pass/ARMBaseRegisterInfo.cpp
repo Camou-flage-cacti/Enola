@@ -210,6 +210,7 @@ getReservedRegs(const MachineFunction &MF) const {
    //Enola Reserve register
   markSuperRegs(Reserved, ARM::R11);
   markSuperRegs(Reserved, ARM::R10);
+  markSuperRegs(Reserved, ARM::R12);
 
   if (TFI->hasFP(MF))
     markSuperRegs(Reserved, STI.getFramePointerReg());
