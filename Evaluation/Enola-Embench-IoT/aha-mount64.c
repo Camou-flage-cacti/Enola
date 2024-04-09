@@ -212,7 +212,7 @@ xbinGCD (uint64 a, uint64 b, volatile uint64 * pu, volatile uint64 * pv)
 }
 
 /* ------------------------------ main ------------------------------ */
-static uint64 in_a, in_b, in_m;
+static uint64 in_a = 0x0549372187237fefLL, in_b = 0x14736defb9330573LL, in_m = 0xfae849273928f89fLL;
 
 static int benchmark_body (int  rpt);
 
