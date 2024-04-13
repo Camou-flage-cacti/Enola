@@ -69,6 +69,7 @@ add_llvm_target(ARMCodeGen
   Thumb2InstrInfo.cpp
   Thumb2SizeReduction.cpp
   ARMEnolaCFA.cpp
+  ARMEnolaCFARET.cpp
 
   LINK_COMPONENTS
   ARMDesc

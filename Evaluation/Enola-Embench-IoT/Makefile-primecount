@@ -4,8 +4,8 @@ BUILD_DIR := build
 UNINSTRUMENTED_DIR := uninsrumented_source
 CLANG_LIB_PATH := /home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/lib/clang-runtimes/arm-none-eabi/armv8m.main_hard_fp
 UNINSTRUMENTED_START_UP := ./RTE/Device/IOTKit_CM33_FP
-BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-#BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
+#BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
+BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
 ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
 # include ../../Makefile.conf
@@ -97,10 +97,10 @@ $(TARGET): $(OBJECTS)
 #	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+#	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+#	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:

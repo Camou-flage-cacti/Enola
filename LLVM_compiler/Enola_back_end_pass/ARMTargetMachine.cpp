@@ -605,13 +605,13 @@ void ARMPassConfig::addPreEmitPass2() {
   // Inserts Constant Islands. Block sizes cannot be increased after this point,
   // as this may push the branch ranges and load offsets of accessing constant
   // pools out of range..
+  addPass(createARMEnolaCFAPass());
   addPass(createARMConstantIslandPass());
   // Finalises Low-Overhead Loops. This replaces pseudo instructions with real
   // instructions, but the pseudos all have conservative sizes so that block
   // sizes will only be decreased by this pass.
   addPass(createARMLowOverheadLoopsPass());
-  addPass(createARMEnolaCFAPass());
-
+  addPass(createARMEnolaCFARETPass());
   if (TM->getTargetTriple().isOSWindows()) {
     // Identify valid longjmp targets for Windows Control Flow Guard.
     addPass(createCFGuardLongjmpPass());

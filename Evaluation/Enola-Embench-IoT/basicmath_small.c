@@ -65,9 +65,7 @@ benchmark (void)
 static int
 benchmark_body (int rpt)
 {
-  int  i;
-
-  for (i = 0; i < rpt; i++)
+  for (int i = 0; i < rpt; i++)
     {
       double  a1 = 1.0, b1 = -10.5, c1 = 32.0, d1 = -30.0;
       double  a2 = 1.0, b2 = -4.5, c2 = 17.0, d2 = -30.0;
@@ -81,23 +79,23 @@ benchmark_body (int rpt)
       /* solve some cubic functions */
       /* should get 3 solutions: 2, 6 & 2.5   */
       SolveCubic(a1, b1, c1, d1, &solutions, output);
-      soln_cnt0 = solutions;
-      memcpy(res0,output,3*sizeof(res0[0]));
+      //soln_cnt0 = solutions;
+     // memcpy(res0,output,3*sizeof(res0[0]));
       /* should get 1 solution: 2.5           */
       SolveCubic(a2, b2, c2, d2, &solutions, output);
-      soln_cnt1 = solutions;
-      res1 = output[0];
+      //soln_cnt1 = solutions;
+      //res1 = output[0];
       SolveCubic(a3, b3, c3, d3, &solutions, output);
       SolveCubic(a4, b4, c4, d4, &solutions, output);
       /* Now solve some random equations */
       for(a1=1;a1<3;a1++) {
-	for(b1=10;b1>8;b1--) {
-	  for(c1=5;c1<6;c1+=0.5) {
-            for(d1=-1;d1>-3;d1--) {
-	      SolveCubic(a1, b1, c1, d1, &solutions, output_pos);
-            }
-	  }
-	}
+        for(b1=10;b1>8;b1--) {
+          for(c1=5;c1<6;c1+=0.5) {
+                for(d1=-1;d1>-3;d1--) {
+                  SolveCubic(a1, b1, c1, d1, &solutions, output_pos);
+                }
+          }
+        }
       }
     }
 
