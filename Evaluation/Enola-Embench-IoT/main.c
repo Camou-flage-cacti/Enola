@@ -40,18 +40,20 @@ main (int argc __attribute__ ((unused)),
 	#ifdef ENOLA_TRACE_DISPLAY
 	init_trampoline();
 	#endif
-	//elapsed_time_init();
-	//elapsed_time_start(0);
+	#ifdef ENOLA_DEBUG
+	elapsed_time_init();
+	elapsed_time_start(0);
+	#endif
 	result = benchmark ();
-	//elapsed_time_stop(0);
+	#ifdef ENOLA_DEBUG
+	elapsed_time_stop(0);
+	#endif
 	#ifdef ENOLA_DEBUG
 	display_elapsed_times();
 	#endif
-
-	//correct = verify_benchmark (result);
-
+	correct = verify_benchmark (result);
 	#ifdef ENOLA_TRACE_DISPLAY
-	print_occurence_trace();
+	//print_occurence_trace();
 	#endif
 	return (!correct);
 

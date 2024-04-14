@@ -13,11 +13,11 @@
 /*Structure for occurence trace To*/
 struct occurrence_trace
 {
+    //unsigned int occurrence_size;
     unsigned int basicBlockStart[BASIC_BlOCK_MAX];
     unsigned int occurrence_count[BASIC_BlOCK_MAX];
     bool arbitrary_cf;
     unsigned int arbitrary_cf_addresses[ARBITRARY_MAX];
-    unsigned int occurrence_size;
 
 };
 

@@ -10,6 +10,7 @@ volatile unsigned int * IBT_entry = (unsigned int *) (IBT_ADDRESS + sizeof(unsig
 
 unsigned int indirect_target = 0;
 unsigned int indirect_source = 0;
+unsigned int occurrence_trace_size = 0;
 void intialize_IBT()
 {
 	#ifdef ENOLA_TRACE_DEBUG
@@ -35,14 +36,15 @@ void init_trampoline()
     {
         To.arbitrary_cf_addresses[i] = -1;
     }
-	To.occurrence_size = 0;
+	//To.occurrence_size = 0;
+	occurrence_trace_size = 0;
 }
 
 void print_occurence_trace()
 {
 	printf("\r\n ----------------Occurence Trace start-------------- \r\n");
-	printf("\r\n ----------------Total vi %d----------------\r\n",To.occurrence_size);
-	for (int i = 0; i < To.occurrence_size; i ++)
+	printf("\r\n ----------------Total vi %d----------------\r\n",occurrence_trace_size);
+	for (int i = 0; i < occurrence_trace_size; i ++)
 	{
 		printf("\r\n Address: 0x%x Count: 0x%x \r\n", To.basicBlockStart[i], To.occurrence_count[i]);
 	}
@@ -52,7 +54,7 @@ void print_occurence_trace()
 /*Get index of Occurece trace */
 unsigned int get_idx(unsigned int addr)
 {
-	for(unsigned int i = 0; i <To.occurrence_size; i++)
+	for(unsigned int i = 0; i <occurrence_trace_size; i++)
 	{
 		if(To.basicBlockStart[i] == addr)
 		{
@@ -67,7 +69,7 @@ void secure_trace_storage()
 	// __asm volatile(
 	// "PUSH {r12}\n\t"
 	// );
-	if(To.occurrence_size >= BASIC_BlOCK_MAX)
+	if(occurrence_trace_size >= BASIC_BlOCK_MAX)
 	{
 		#ifdef ENOLA_TRACE_DEBUG
 		printf("\r\n Error info: Occurence trace buffer full =\r\n");
@@ -84,11 +86,12 @@ void secure_trace_storage()
 	: "r0"
 	);
 	unsigned int idx = get_idx(current_addr);
-	idx = (idx == BASIC_BlOCK_MAX ? To.occurrence_size++ : idx);
+	idx = (idx == BASIC_BlOCK_MAX ? occurrence_trace_size++ : idx);
 	//printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/
 	To.basicBlockStart[idx] = current_addr;
 	To.occurrence_count[idx]++;
+	
 
 	//To.occurrence_size++;
 	#ifdef ENOLA_TRACE_DEBUG
@@ -122,7 +125,7 @@ void indirect_secure_trace_storage(int dummy, int dummy2)
 	//indirect_source += 1;
 	//printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
 	unsigned int idx = get_idx(indirect_target);
-	idx = (idx == BASIC_BlOCK_MAX ? To.occurrence_size++ : idx);
+	idx = (idx == BASIC_BlOCK_MAX ? occurrence_trace_size++ : idx);
 	//printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/
 	To.basicBlockStart[idx] = indirect_target;
