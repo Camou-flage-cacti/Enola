@@ -54,7 +54,7 @@ void print_occurence_trace()
 /*Get index of Occurece trace */
 unsigned int get_idx(unsigned int addr)
 {
-	for(unsigned int i = 0; i <occurrence_trace_size; i++)
+	for(unsigned int i = 0; i < occurrence_trace_size; i++)
 	{
 		if(To.basicBlockStart[i] == addr)
 		{
@@ -103,6 +103,13 @@ void secure_trace_storage()
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
 void indirect_secure_trace_storage(int dummy, int dummy2)
 {
+	if(occurrence_trace_size >= BASIC_BlOCK_MAX)
+	{
+		#ifdef ENOLA_TRACE_DEBUG
+		printf("\r\n Error info: Occurence trace buffer full =\r\n");
+		#endif
+		return;
+	}
 	/*get the target address from r0, the instrumened code will provide it in r0*/
 	// __asm volatile(
 	// "MOV %0, r0\n\t"
