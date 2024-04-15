@@ -5,8 +5,8 @@
 #include<stdint.h>
 #include <stdbool.h>
 
-#define ARBITRARY_MAX 50
-#define BASIC_BlOCK_MAX 50
+#define ARBITRARY_MAX 1
+#define BASIC_BlOCK_MAX 256
 #define IBT_ADDRESS 0x31040000
 
 #define  ELAPSED_TIME_MAX_SECTIONS  1
@@ -29,12 +29,12 @@ void  display_elapsed_times();
 
 
 /*library functions*/
-void init_trampoline();
+__attribute__((optnone)) void init_trampoline();
 void __attribute__((naked)) init_registers();
 void __attribute__((naked)) enable_PAC();
 void __attribute__((naked)) setup_S_PAC_Keys();
-extern void secure_trace_storage();
-extern void indirect_secure_trace_storage(int dummy, int dummy2);
+extern void secure_trace_storage(int current_addr);
+extern void indirect_secure_trace_storage(int indirect_target);
 unsigned int get_idx(unsigned int addr);
 void print_occurence_trace(); /*Temporary function*/
 int linear_ITL_search(unsigned int);

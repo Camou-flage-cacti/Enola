@@ -7,7 +7,7 @@ MEMORY
 
 /* Library configurations */
 /* GROUP(libgcc.a libc.a libm.a libnosys.a) */
-/*GROUP(libc.a libm.a)*/
+GROUP(libc.a libm.a)
 
 ENTRY(Reset_Handler)
 
@@ -22,8 +22,14 @@ SECTIONS
     _start = .; /* Define the entry point at the beginning of the .text section */
     *main.o(.text*)
     *main.o(.text)
+    *md5sum.o(.text*)
+    *md5sum.o(.text) 
+    *crc_32.o(.text*)
+    *crc_32.o(.text)
     *libcubic.o(.text*)
     *libcubic.o(.text)
+    *libedn.o(.text*)
+    *libedn.o(.text)
     *basicmath_small.o(.text*)
     *basicmath_small.o(.text)
     *tarfind.o(.text*)
