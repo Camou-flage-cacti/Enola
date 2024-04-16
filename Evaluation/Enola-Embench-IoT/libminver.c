@@ -63,6 +63,7 @@
    benchmarks. */
 #define LOCAL_SCALE_FACTOR 555
 #define CPU_MHZ 25
+
 int minver (int row, int col, float eps);
 int mmul (int row_a, int col_a, int row_b, int col_b);
 
@@ -207,11 +208,12 @@ minver (int row, int col, float eps)
 
   det = w1;
 
-  return 0;
+  return (0);
 }
 
-/*
-int verify_benchmark (int res __attribute ((unused)))
+
+int
+verify_benchmark (int res __attribute ((unused)))
 {
   int i, j;
   float eps = 1.0e-6;
@@ -228,7 +230,7 @@ int verify_benchmark (int res __attribute ((unused)))
     {0.479999840, -0.359999895, 0.0399999917}
   };
 
-
+  /* Allow small errors in floating point */
 
   for (i = 0; i < 3; i++)
     for (j = 0; j < 3; j++)
@@ -237,7 +239,7 @@ int verify_benchmark (int res __attribute ((unused)))
 
   return float_eq_beebs(det, -16.6666718);
 }
-*/
+
 
 void
 initialise_benchmark (void)

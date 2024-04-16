@@ -11,6 +11,7 @@ volatile unsigned int * IBT_entry = (unsigned int *) (IBT_ADDRESS + sizeof(unsig
 
 unsigned int occurrence_trace_size = 0;
 #define vi_range 4000
+#define app_base 0x420
 unsigned short int index_map[vi_range];
 
 void intialize_IBT()
@@ -145,7 +146,7 @@ void indirect_secure_trace_storage(int indirect_target)
 	//printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
 	// unsigned int idx = get_idx(indirect_target);
 	// idx = (idx == BASIC_BlOCK_MAX ? occurrence_trace_size++ : idx);
-	unsigned int map_idx = (indirect_target & 0xffff) - 0x420;
+	unsigned int map_idx = (indirect_target & 0xffff) - app_base;
 	unsigned int idx = index_map [map_idx];
 	if(idx == 0xffff)
 	{
