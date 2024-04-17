@@ -4,8 +4,8 @@ BUILD_DIR := build
 UNINSTRUMENTED_DIR := uninsrumented_source
 CLANG_LIB_PATH := /home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/lib/clang-runtimes/arm-none-eabi/armv8m.main_hard_fp
 UNINSTRUMENTED_START_UP := ./RTE/Device/IOTKit_CM33_FP
-BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-#BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
+#BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
+BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
 ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
 # include ../../Makefile.conf
@@ -26,24 +26,10 @@ INCLUDES += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/Boards/ARM/V2M-MPS2/Common
 INCLUDES += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/CMSIS/Driver
 INCLUDES += -I./uninsrumented_source
 
-# Source files (converted to Unix-style paths)
-#SOURCES = Blinky.c
-#SOURCES += Buttons_V2M-MPS2.c
-#SOURCES += GLCD_Fonts.c
-#SOURCES += GLCD_V2M-MPS2.c
-#SOURCES += LED_V2M-MPS2.c
-#SOURCES += Touch_V2M-MPS2.c
 
 SOURCES = main.c
-SOURCES += libud.c
-#SOURCES += beebsc.c
-
-#SOURCES += USART_V2M-MPS2.c
-#SOURCES += retarget_io.c
-
-# SOURCES += Driver_USART.c
-#SOURCES += stdout.c
-#SOURCES += $(UNINSTRUMENTED_START_UP)/startup_IOTKit_CM33.c $(UNINSTRUMENTED_START_UP)/system_IOTKit_CM33.c
+SOURCES += sha256.c
+SOURCES += blake2s.c
 
 
 # Compiler settings
@@ -55,10 +41,10 @@ CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabi
 # CFLAGS += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/Device/IOTKit_CM33/Include/system_IOTKit_CM33.h
 
 
-CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_TRACE_DISPLAY
+#CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_TRACE_DISPLAY
 #CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_DEBUG
 #CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_DEBUG -DENOLA_TRACE_DEBUG
-#CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE
+CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE
 
 CFLAGS += $(INCLUDES)
 LDFLAGS = -T ./gcc_arm.ld
@@ -85,22 +71,18 @@ enolaAE:
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/stdout.c -o $(BUILD_DIR)/stdout.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/USART_V2M-MPS2.c -o $(BUILD_DIR)/USART_V2M-MPS2.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/retarget_io.c -o $(BUILD_DIR)/retarget_io.o
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-crt0.c -o $(BUILD_DIR)/dummy-crt0.o
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libc.c -o $(BUILD_DIR)/dummy-libc.o
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libgcc.c -o $(BUILD_DIR)/dummy-libgcc.o
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libm.c -o $(BUILD_DIR)/dummy-libm.o
+#	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-crt0.c -o $(BUILD_DIR)/dummy-crt0.o
+#	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libc.c -o $(BUILD_DIR)/dummy-libc.o
+#	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libgcc.c -o $(BUILD_DIR)/dummy-libgcc.o
+#	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libm.c -o $(BUILD_DIR)/dummy-libm.o
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-crt0.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $^
-#	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # To remove generated files
 clean:
