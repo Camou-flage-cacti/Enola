@@ -51,7 +51,7 @@ CC = $(BIN_PATH)/clang
 OPT = $(BIN_PATH)/opt
 LLC = $(BIN_PATH)/llc
 # -std=gnu99 enables GNU extensions such as asm, while still keeping the language C99-like.
-CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -H -pedantic -O2 -Wno-keyword-macro
+CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -H -pedantic -Oz -Wno-keyword-macro
 # CFLAGS += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/Device/IOTKit_CM33/Include/system_IOTKit_CM33.h
 
 
@@ -65,7 +65,7 @@ LDFLAGS = -T ./gcc_arm.ld
 LDFLAGS += -g -L./inc/lib
 # LDFLAGS += -std=gnu99 --target=arm-arm-none-eabi -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mcmse -fno-rtti -O3 -fno-function-sections
 # LDFLAGS = -std=c99 --target=thumbv8m.main-none-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O3 -Wno-keyword-macro 
-LDFLAGS += -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -mthumb -H -pedantic -O2 -Wno-keyword-macro
+LDFLAGS += -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -mthumb -H -pedantic -Oz -Wno-keyword-macro
 
 # Object files
 # OBJECTS = $(SOURCES:.c=.o)
@@ -97,10 +97,10 @@ $(TARGET): $(OBJECTS)
 #	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+#	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+#	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:

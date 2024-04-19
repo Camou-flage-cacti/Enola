@@ -28,22 +28,29 @@ INCLUDES += -I./uninsrumented_source
 
 
 SOURCES = main.c
-SOURCES += dh.c
+SOURCES += md5.c
+SOURCES += hash.c
+SOURCES += sha.c
+#SOURCES += dsa.c
 #SOURCES += aes.c
 #SOURCES += misc.c
+# SOURCES += dh.c
+#SOURCES += sp_int.c
+#SOURCES += random.c
+SOURCES += sha256.c
+#SOURCES += memory.c
 # Compiler settings
 CC = $(BIN_PATH)/clang
 OPT = $(BIN_PATH)/opt
 LLC = $(BIN_PATH)/llc
 # -std=gnu99 enables GNU extensions such as asm, while still keeping the language C99-like.
-CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -H -pedantic -O2 -Wno-keyword-macro
+CFLAGS = -std=gnu99 --sysroot=$(CLANG_LIB_PATH) --target=thumbv8m.main-none-eabihf -mcpu=cortex-m33 -mfloat-abi=hard -march=thumbv8m.main -mfpu=fpv5-sp-d16 -mcmse -c -mthumb -H -pedantic -O2 -Wno-keyword-macro -enable-fastmath -disable-shared
 # CFLAGS += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/Device/IOTKit_CM33/Include/system_IOTKit_CM33.h
-
 
 #CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_TRACE_DISPLAY
 #CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_DEBUG
 #CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DENOLA_DEBUG -DENOLA_TRACE_DEBUG
-CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DSINGLE_THREADED -DNO_WOLFSSL_DIR -DWOLFSSL_AES_DIRECT -DCRYPTO_EXAMPLE=1 -DHAVE_PK_CALLBACKS -DWOLFSSL_USER_IO -DNO_WRITEV -DTIME_T_NOT_64BIT -DWOLFSSL_NO_MALLOC
+CFLAGS += -D_RTE_ -DIOTKit_CM33_FP -D__USE_SECURE -DSINGLE_THREADED -DNO_WOLFSSL_DIR -DWOLFSSL_AES_DIRECT -DCRYPTO_EXAMPLE=1 -DHAVE_PK_CALLBACKS -DWOLFSSL_USER_IO -DNO_WRITEV -DTIME_T_NOT_64BIT -DWOLFSSL_NO_MALLOC -DNO_DEV_URANDOM -DNO_FILESYSTEM -DNO_ASN
 
 CFLAGS += $(INCLUDES)
 LDFLAGS = -T ./gcc_arm.ld
