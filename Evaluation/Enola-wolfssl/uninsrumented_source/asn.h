@@ -34,7 +34,7 @@ that can be serialized and deserialized in a cross-platform way.
 #ifndef WOLF_CRYPT_ASN_H
 #define WOLF_CRYPT_ASN_H
 
-#include <wolfssl/wolfcrypt/types.h>
+#include "types.h"
 
 #ifndef NO_ASN
 
@@ -43,25 +43,25 @@ that can be serialized and deserialized in a cross-platform way.
     #define NO_ASN_TIME /* backwards compatibility with NO_TIME_H */
 #endif
 
-#include <wolfssl/wolfcrypt/wolfmath.h>
+#include "wolfmath.h"
 
 #ifndef NO_DH
-    #include <wolfssl/wolfcrypt/dh.h>
+    #include "dh.h"
 #endif
 #ifndef NO_DSA
-    #include <wolfssl/wolfcrypt/dsa.h>
+    #include "dsa.h"
 #endif
 #ifndef NO_SHA
-    #include <wolfssl/wolfcrypt/sha.h>
+    #include "sha.h"
 #endif
 #ifndef NO_MD5
-    #include <wolfssl/wolfcrypt/md5.h>
+    #include "md5.h"
 #endif
-#include <wolfssl/wolfcrypt/sha256.h>
+#include "sha256.h"
 #ifdef WOLFSSL_SM3
-    #include <wolfssl/wolfcrypt/sm3.h>
+    #include "sm3.h"
 #endif
-#include <wolfssl/wolfcrypt/asn_public.h>   /* public interface */
+#include "asn_public.h"   /* public interface */
 
 #if defined(NO_SHA) && defined(NO_SHA256)
     #define WC_SHA256_DIGEST_SIZE 32

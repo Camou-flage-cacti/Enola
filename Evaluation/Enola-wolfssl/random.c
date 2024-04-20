@@ -3940,86 +3940,86 @@ int wc_GenerateSeed(OS_Seed* os, byte* output, word32 sz)
             return BAD_FUNC_ARG;
         }
 
-    #ifdef WOLF_CRYPTO_CB
-        #ifndef WOLF_CRYPTO_CB_FIND
-        if (os->devId != INVALID_DEVID)
-        #endif
-        {
-            ret = wc_CryptoCb_RandomSeed(os, output, sz);
-            if (ret != CRYPTOCB_UNAVAILABLE)
-                return ret;
-            /* fall-through when unavailable */
-            ret = 0; /* reset error code */
-        }
-    #endif
+    // #ifdef WOLF_CRYPTO_CB
+    //     #ifndef WOLF_CRYPTO_CB_FIND
+    //     if (os->devId != INVALID_DEVID)
+    //     #endif
+    //     {
+    //         ret = wc_CryptoCb_RandomSeed(os, output, sz);
+    //         if (ret != CRYPTOCB_UNAVAILABLE)
+    //             return ret;
+    //         /* fall-through when unavailable */
+    //         ret = 0; /* reset error code */
+    //     }
+    // #endif
 
-    #ifdef HAVE_ENTROPY_MEMUSE
-        ret = wc_Entropy_Get(MAX_ENTROPY_BITS, output, sz);
-        if (ret == 0) {
-            return 0;
-        }
-     #ifdef ENTROPY_MEMUSE_FORCE_FAILURE
-        /* Don't fallback to /dev/urandom. */
-        return ret;
-    #endif
-    #endif
+    // #ifdef HAVE_ENTROPY_MEMUSE
+    //     ret = wc_Entropy_Get(MAX_ENTROPY_BITS, output, sz);
+    //     if (ret == 0) {
+    //         return 0;
+    //     }
+    //  #ifdef ENTROPY_MEMUSE_FORCE_FAILURE
+    //     /* Don't fallback to /dev/urandom. */
+    //     return ret;
+    // #endif
+    // #endif
 
-    #if defined(HAVE_INTEL_RDSEED) || defined(HAVE_AMD_RDSEED)
-        if (IS_INTEL_RDSEED(intel_flags)) {
-             ret = wc_GenerateSeed_IntelRD(NULL, output, sz);
-             if (ret == 0) {
-                 /* success, we're done */
-                 return ret;
-             }
-        #ifdef FORCE_FAILURE_RDSEED
-             /* don't fallback to /dev/urandom */
-             return ret;
-        #else
-             /* reset error and fallback to using /dev/urandom */
-             ret = 0;
-        #endif
-        }
-    #endif /* HAVE_INTEL_RDSEED || HAVE_AMD_RDSEED */
+    // #if defined(HAVE_INTEL_RDSEED) || defined(HAVE_AMD_RDSEED)
+    //     if (IS_INTEL_RDSEED(intel_flags)) {
+    //          ret = wc_GenerateSeed_IntelRD(NULL, output, sz);
+    //          if (ret == 0) {
+    //              /* success, we're done */
+    //              return ret;
+    //          }
+    //     #ifdef FORCE_FAILURE_RDSEED
+    //          /* don't fallback to /dev/urandom */
+    //          return ret;
+    //     #else
+    //          /* reset error and fallback to using /dev/urandom */
+    //          ret = 0;
+    //     #endif
+    //     }
+    // #endif /* HAVE_INTEL_RDSEED || HAVE_AMD_RDSEED */
 
-    #ifndef NO_DEV_URANDOM /* way to disable use of /dev/urandom */
-        // os->fd = open("/dev/urandom", O_RDONLY);
-        // #if defined(DEBUG_WOLFSSL)
-        //     WOLFSSL_MSG("opened /dev/urandom.");
-        // #endif
-        // if (os->fd == -1)
-    #endif
-        {
-            /* may still have /dev/random */
-            // os->fd = open("/dev/random", O_RDONLY);
-    #if defined(DEBUG_WOLFSSL)
-            WOLFSSL_MSG("opened /dev/random.");
-    #endif
-            if (os->fd == -1)
-                return OPEN_RAN_E;
-        }
-    #if defined(DEBUG_WOLFSSL)
-        WOLFSSL_MSG("rnd read...");
-    #endif
-        while (sz) {
-            int len = (int)read(os->fd, output, sz);
-            if (len == -1) {
-                ret = READ_RAN_E;
-                break;
-            }
+    // #ifndef NO_DEV_URANDOM /* way to disable use of /dev/urandom */
+    //     // os->fd = open("/dev/urandom", O_RDONLY);
+    //     // #if defined(DEBUG_WOLFSSL)
+    //     //     WOLFSSL_MSG("opened /dev/urandom.");
+    //     // #endif
+    //     // if (os->fd == -1)
+    // #endif
+    //     {
+    //         /* may still have /dev/random */
+    //         // os->fd = open("/dev/random", O_RDONLY);
+    // #if defined(DEBUG_WOLFSSL)
+    //         WOLFSSL_MSG("opened /dev/random.");
+    // #endif
+    //         if (os->fd == -1)
+    //             return OPEN_RAN_E;
+    //     }
+    // #if defined(DEBUG_WOLFSSL)
+    //     WOLFSSL_MSG("rnd read...");
+    // #endif
+    //     while (sz) {
+    //         int len = (int)read(os->fd, output, sz);
+    //         if (len == -1) {
+    //             ret = READ_RAN_E;
+    //             break;
+    //         }
 
-            sz     -= (word32)len;
-            output += len;
+    //         sz     -= (word32)len;
+    //         output += len;
 
-            if (sz) {
-    #if defined(BLOCKING) || defined(WC_RNG_BLOCKING)
-                sleep(0);             /* context switch */
-    #else
-                ret = RAN_BLOCK_E;
-                break;
-    #endif
-            }
-        }
-        close(os->fd);
+    //         if (sz) {
+    // #if defined(BLOCKING) || defined(WC_RNG_BLOCKING)
+    //             sleep(0);             /* context switch */
+    // #else
+    //             ret = RAN_BLOCK_E;
+    //             break;
+    // #endif
+    //         }
+    //     }
+    //     close(os->fd);
 
         return ret;
     }
