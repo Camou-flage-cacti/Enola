@@ -10,8 +10,8 @@ volatile unsigned int *IBT_size = (unsigned int *)IBT_ADDRESS;
 volatile unsigned int * IBT_entry = (unsigned int *) (IBT_ADDRESS + sizeof(unsigned int));
 
 unsigned int occurrence_trace_size = 0;
-#define vi_range 14398
-#define app_base 0x41c
+#define vi_range 19000
+#define app_base 0x468
 unsigned short int index_map[vi_range];
 
 void intialize_IBT()

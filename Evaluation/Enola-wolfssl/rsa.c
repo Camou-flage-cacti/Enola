@@ -3664,7 +3664,7 @@ int wc_RsaPublicEncrypt(const byte* in, word32 inLen, byte* out, word32 outLen,
     int ret;
     SAVE_VECTOR_REGISTERS(return _svr_ret;);
     ret = RsaPublicEncryptEx(in, inLen, out, outLen, key,
-        RSA_PUBLIC_ENCRYPT, RSA_BLOCK_TYPE_2, WC_RSA_PKCSV15_PAD,
+        RSA_PUBLIC_ENCRYPT, RSA_BLOCK_TYPE_1, WC_RSA_PKCSV15_PAD,
         WC_HASH_TYPE_NONE, WC_MGF1NONE, NULL, 0, 0, rng);
     RESTORE_VECTOR_REGISTERS();
     return ret;

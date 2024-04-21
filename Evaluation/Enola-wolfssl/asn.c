@@ -124,12 +124,12 @@ ASN Options:
 #include "logging.h"
 
 #include "random.h"
-#include <wolfssl/wolfcrypt/hash.h"
+#include "hash.h"
 #ifdef NO_INLINE
     #include <wolfssl/wolfcrypt/misc.h>
 #else
     #define WOLFSSL_MISC_INCLUDED
-    #include <wolfcrypt/src/misc.c"
+    #include "misc.c"
 #endif
 
 #ifndef NO_RC4
