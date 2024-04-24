@@ -13,7 +13,7 @@ unsigned int occurrence_trace_size = 0;
 #define vi_range 5600
 #define app_base 0x420
 unsigned short int index_map[vi_range];
-
+unsigned int total_exec = 0;
 void intialize_IBT()
 {
 	#ifdef ENOLA_TRACE_DEBUG
@@ -45,6 +45,7 @@ void init_trampoline()
 	}
 	//To.occurrence_size = 0;
 	occurrence_trace_size = 0;
+	total_exec = 0;
 }
 
 void print_occurence_trace()
@@ -105,7 +106,7 @@ void secure_trace_storage(int current_addr)
 	//printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/
 	To.occurrence_count[idx]++;
-	
+	total_exec++;
 
 	//To.occurrence_size++;
 	#ifdef ENOLA_TRACE_DEBUG
@@ -157,7 +158,7 @@ void indirect_secure_trace_storage(int indirect_target)
 	//printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/
 	To.occurrence_count[idx]++;
-
+	total_exec++;
 	#ifdef ENOLA_TRACE_DEBUG
 	printf("\r\n The indirect source is 0x%x and the target is at 0x%x address=\r\n", indirect_source, indirect_target);
 	printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
