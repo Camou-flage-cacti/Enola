@@ -6,18 +6,18 @@ BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0
 #BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
 #ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
-vpath %.c ./ /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition
+vpath %.c ./ root-path/Running/1.3.0/CMSIS_Driver root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path//Running/1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
 
 # Include directories (converted to Unix-style paths)
 
 INCLUDES += -I./ARM/RTE/Device/SSE-310-MPS3_FVP -I./ARM/RTE/_ARMCLANG  
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/tool/misc_header
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition 
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Platform
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Include
+INCLUDES += -Iroot-path/tool/misc_header
+INCLUDES += -Iroot-path/Running/1.3.0/Board/Device_Definition 
+INCLUDES += -Iroot-path/Running/1.3.0/Board/Platform
+INCLUDES += -Iroot-path/Running/1.3.0/CMSIS_Driver
+INCLUDES += -Iroot-path/Running/1.3.0/Device/Include
 #INCLUDES += -Iuninsrumented_source
 #INCLUDES += -I/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/include
 
