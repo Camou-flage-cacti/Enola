@@ -1,0 +1,228 @@
+# This makefile will use arm-none-eabi-gcc as default toolchain
+
+# COMPILER=<PATH_TO_OTHER_GCC_VERSION>/arm-none-eabi-gcc make
+# COMPILER=clang make
+
+# outs
+BIN := Blinky.elf
+BIN1 := Blinky1.axf
+BIN2 := Blinky2.axf
+BIN_BC := Blinky_all.bc
+BIN_S := Blinky_all.s
+BUILD_DIR := build
+
+# libs
+ARM_DIR_REL := ../Arm/Packs
+ARM_DIR := $(abspath $(ARM_DIR_REL))
+IOTKit_BSP := $(ARM_DIR)//Keil/V2M-MPS2_IOTKit_BSP/1.4.2
+BOARD_DIR := $(IOTKit_BSP)/Boards/ARM/V2M-MPS2/Common/
+CMSIS_DIR := $(IOTKit_BSP)/CMSIS/Driver/
+ARM_COMPILER_DIR := $(ARM_DIR)/Keil/ARM_Compiler/1.6.3/Source
+RET_DIR_REL := ./RTE/Device/IOTKit_CM33_FP
+RET_DIR := $(abspath $(RET_DIR_REL))
+
+#############   source files    ##############
+#  Can get from the .uvprojx <Component> label
+SRCS += Blinky.c
+SRCS += stdout_USART.c
+SRCS += $(BOARD_DIR)/Buttons_V2M-MPS2.c
+SRCS += $(BOARD_DIR)/GLCD_Fonts.c
+SRCS += $(BOARD_DIR)/GLCD_V2M-MPS2.c
+SRCS += $(BOARD_DIR)/LED_V2M-MPS2.c
+SRCS += $(BOARD_DIR)/Touch_V2M-MPS2.c
+SRCS += $(CMSIS_DIR)/USART_V2M-MPS2.c
+SRCS += $(ARM_COMPILER_DIR)/retarget_io.c
+SRCS += $(RET_DIR)/system_IOTKit_CM33.c
+
+SRCS += $(RET_DIR)/startup_IOTKit_CM33.c
+
+ASMS = $(RET_DIR)/startup_IOTKit_CM33.S
+
+#############   include    ##############
+# Fix those include files
+INCLUDE_DIRS =
+INCLUDE_DIRS += -I ../Arm/ARMCLANG/include
+INCLUDE_DIRS += -I $(RET_DIR)
+INCLUDE_DIRS += -I ./RTE/_V2M-MPS2_
+INCLUDE_DIRS += -I $(ARM_DIR)/ARM/CMSIS/5.8.0/CMSIS/Core/Include
+INCLUDE_DIRS += -I $(ARM_DIR)/ARM/CMSIS/5.8.0/CMSIS/Core/Include/core
+INCLUDE_DIRS += -I $(ARM_DIR)/ARM/CMSIS/5.8.0/CMSIS/Driver/Include
+INCLUDE_DIRS += -I $(ARM_DIR)/Keil/MDK-Middleware/7.13.0/Board
+INCLUDE_DIRS += -I $(IOTKit_BSP)/Boards/ARM/V2M-MPS2/Common
+INCLUDE_DIRS += -I $(IOTKit_BSP)/Device/IOTKit_CM33/Include
+
+# Compiler & Linker
+
+#############  CFLAGS   ##############
+# by default it arm-none-eabi-gcc
+COMPILER ?= arm-none-eabi-gcc
+
+# get from the Keil IDE project settings
+CPU_FLAGS = -mcpu=cortex-m33
+ARCH_FLAGS = -mthumb -mfpu=fpv5-sp-d16 -mfloat-abi=hard
+# get from the .dep file
+DEFINES += -D__USE_TIMER0 -D__USE_FPGA -D__USE_SECURE -D_RTE_ -DIOTKit_CM33_FP -D_RTE_ -D__USE_LCD 
+
+ifneq '' '$(findstring clang,$(COMPILER))'
+$(info ===Clang Compiler Detected===)
+VERSION=0.1
+CROSS_COMPILE	=/home/t/Downloads/LLVM-embedded-toolchain-for-Arm/install-${VERSION}/LLVMEmbeddedToolchainForArm-${VERSION}/bin
+
+CC 				= $(CROSS_COMPILE)/clang
+CXX				= $(CROSS_COMPILE)/clang++
+LLC				= /home/t/Downloads/LLVM-embedded-toolchain-for-Arm/build-0.1/llvm/bin/llc
+AR				= $(CROSS_COMPILE)/ar
+LINK			= $(CROSS_COMPILE)/llvm-link
+SIZE			= $(CROSS_COMPILE)/llvm-size
+OBJDUMP			= $(CROSS_COMPILE)/llvm-objdump
+OBJCOPY			= $(CROSS_COMPILE)/llvm-objcopy
+STRIP			= $(CROSS_COMPILE)/llvm-strip
+
+LLVM_FLAGS += --config armv8m.main_hard_fp_rdimon_baremetal
+COMPILER_SPECIFIC_CFLAGS += $(LLVM_FLAGS) --target=arm-none-eabi -Oz 
+COMPILER_SPECIFIC_ASFLAGS += --target=arm-none-eabi -masm=gnu
+COMPILER_SPECIFIC_LDFLAGS += 
+
+LDSCRIPT = $(RET_DIR)/IOTKit_CM33.ld
+# --import=".\Out\Blinky_CMSE_Lib.o" \
+# 							--summary_stderr --info summarysizes --map --load_addr_map_info \
+# 							--xref --callgraph --symbols \
+# 							--info sizes --info totals --info unused --info veneers
+endif
+
+
+ifneq '' '$(findstring gcc,$(COMPILER))'
+$(info ===GCC Compiler Detected===)
+CROSS_COMPILE	= arm-none-eabi-
+CC				= $(CROSS_COMPILE)gcc
+CXX				= $(CROSS_COMPILE)g++
+AS				= $(CROSS_COMPILE)as
+AR				= $(CROSS_COMPILE)ar
+LD				= $(CROSS_COMPILE)ld
+SIZE			= $(CROSS_COMPILE)size
+OBJDUMP			= $(CROSS_COMPILE)objdump
+OBJCOPY			= $(CROSS_COMPILE)objcopy
+STRIP			= $(CROSS_COMPILE)strip
+
+COMPILER_SPECIFIC_CFLAGS += -Os \
+							-fstrict-aliasing -Wstrict-aliasing -Wno-error=address-of-packed-member \
+							-ffunction-sections -fdata-sections\
+							-specs=nano.specs --specs=rdimon.specs -lc -lrdimon
+COMPILER_SPECIFIC_ASFLAGS +=
+COMPILER_SPECIFIC_LDFLAGS += -Xlinker -Map=${BUILD_DIR}/output.map
+
+LDSCRIPT = $(RET_DIR)/gcc_arm.ld
+
+endif
+
+CFLAGS += $(COMPILER_SPECIFIC_CFLAGS)
+LDFLAGS += $(COMPILER_SPECIFIC_LDFLAGS)
+ASFLAGS += $(COMPILER_SPECIFIC_ASFLAGS)
+
+#############   flags  for arm gcc  ##############
+COMMON_FLAGS = -Wall -Wextra -Wfatal-errors
+
+# Compile flags
+CFLAGS += $(COMMON_FLAGS)
+CFLAGS += -fno-rtti -funsigned-char
+CFLAGS += -gdwarf-3 -MD -fno-function-sections -w -Wno-padded
+
+# asm flags
+ASFLAGS = $(COMMON_FLAGS)
+ASFLAGS += $(CPU_FLAGS) -c -gdwarf-3
+ASFLAGS += -Wa,-defsym,_RTE_=1 -Wa,-defsym,IOTKit_CM33_FP=1 -Wa,-defsym,_RTE_=1
+
+# Link flags
+# -A=cortex-m33
+LDFLAGS += -g -T $(LDSCRIPT)
+#  -import-cmse-lib-out=${BUILD_DIR}/Blinky_CMSE_Lib.o
+
+####################
+LIBS = 
+
+OBJ_FILES := $(SRCS:%.c=$(BUILD_DIR)/%.o) 
+BC_FILES := $(SRCS:%.c=$(BUILD_DIR)/%.bc) 
+# $(ASMS:%.S=$(BUILD_DIR)/%.o)
+
+CFLAGS += $(INCLUDE_DIRS)
+
+.PHONY: clean
+
+ifneq '' '$(findstring clang,$(COMPILER))'
+$(BUILD_DIR)/$(BIN1) : $(BUILD_DIR)/$(BIN_BC)
+	@echo ""
+	@echo ""
+	@echo "--- Final executable file ---"
+	@echo ""
+	$(CC) $(LDFLAGS) $(CFLAGS) $+ -o $(@)
+	$(SIZE) $(BUILD_DIR)/$(BIN)
+
+$(BUILD_DIR)/$(BIN_S) : $(BUILD_DIR)/$(BIN_BC)
+	$(LLC) -march=arm -o $(@) $^ 
+
+$(BUILD_DIR)/$(BIN_BC) : $(BC_FILES)
+	@echo ""
+	@echo ""
+	@echo "--- Final linking .bc ---"
+	@echo ""
+	$(LINK) $+ -o $(@)
+
+$(BUILD_DIR)/$(BIN2) : $(OBJ_FILES)
+	@echo ""
+	@echo ""
+	@echo "--- Final linking .o ---"
+	@echo ""
+	$(CC) -ffunction-sections -fdata-sections $(CPU_FLAGS) $(CFLAGS) $(LDFLAGS) $+ -o $(@)
+	$(SIZE) $(BUILD_DIR)/$(BIN)
+endif
+
+ifneq '' '$(findstring gcc,$(COMPILER))'
+# $(SIZE) $(BUILD_DIR)/$(BIN) 
+$(BUILD_DIR)/$(BIN) : $(OBJ_FILES)
+	@echo ""
+	@echo ""
+	@echo "--- Final linking ---"
+	@echo ""
+	$(CC) -ffunction-sections -fdata-sections $(CPU_FLAGS) $(CFLAGS) $(LDFLAGS) $+ -o $(@)
+	$(SIZE) $(BUILD_DIR)/$(BIN)
+endif
+
+%.d: %.c 
+	@set -e; rm -f $@; \
+	$(CC) -M $(DEFINES) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+
+# %.d: %.S
+# 	@set -e; rm -f $@; \
+# 	$(CC) $(ASFLAGS) $< > $@.$$$$; \
+# 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+# 	rm -f $@.$$$$
+# $(ASMS:%.S=$(BUILD_DIR)/%.d)
+INCLUDES := $(SRCS:%.c=$(BUILD_DIR)/%.d) 
+-include $(INCLUDES)
+
+ifneq '' '$(findstring clang,$(COMPILER))'
+
+${BUILD_DIR}/%.bc : %.c Makefile
+	-mkdir -p $(@D)
+	$(CC) -xc -std=gnu11 $(CFLAGS) $(CPU_FLAGS) -mthumb $(DEFINES) -mcmse -c $< -S -emit-llvm -o $@
+
+${BUILD_DIR}/%.o : %.c Makefile
+	-mkdir -p $(@D)
+	$(CC) -xc -std=gnu11 $(CFLAGS) $(CPU_FLAGS) -mthumb $(DEFINES) -mcmse -c $< -o $@
+endif
+
+ifneq '' '$(findstring gcc,$(COMPILER))'
+${BUILD_DIR}/%.o : %.c Makefile
+	-mkdir -p $(@D)
+	$(CC) -xc -std=gnu11 $(CFLAGS) $(CPU_FLAGS) -mthumb $(DEFINES) -mcmse -c $< -o $@
+
+# ${BUILD_DIR}/%.o : %.S Makefile
+# 	-mkdir -p $(@D)
+# 	$(CC) $(CFLAGS) $(ASFLAGS) -MMD -c $< -o $@
+
+endif
+
+clean:
+	-rm -rf build *.bc *.i *.s	

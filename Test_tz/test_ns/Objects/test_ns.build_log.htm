@@ -1,0 +1,108 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: MD Armanuzzaman, University at Buffalo, LIC=R4HVB-LGPAE-JJI3D-RQTGE-WVZY4-PR1SU
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      CMSIS_AGDI_V8M.DLL V1.7.17.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Test_tz\test_ns\test_ns.uvprojx
+Project File Date:  11/20/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build Project 'test_ns' - Target 'Target 1'
+Error instantiating RTE components
+Error #540: 'ARM::CMSIS Driver:MPC:1.1.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Device:Startup:Baremetal:1.2.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:MPC:1.1.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:SPI:1.0.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:SysCounter:1.0.1' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:SysTimer:1.0.0' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+Error #540: 'ARM::Native Driver:Timeout:1.0.1' component is not available for target 'Target 1', pack 'ARM.V2M_MPS3_SSE_310_BSP.1.2.0' is not selected
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: I2C Version: 2.4.0
+   * Component: SPI Version: 2.3.0
+   * Component: USART Version: 2.4.0
+   * Component: Custom Version: 1.0.0
+   * Component: Custom Version: 1.0.0
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.3.0.pack
+                ARM.V2M_MPS3_SSE_310_BSP.1.3.0
+                ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
+   * Component: SPI Version: 1.0.1
+   * Component: Definition Version: 2.0.0
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.2.0.pack
+                ARM.V2M_MPS3_SSE_310_BSP.1.2.0
+                ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/SSE-310-MPS3_AN555
+  ./RTE/_Target_1
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Driver/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Board/Device_Definition
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Board/Platform
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS Driver:I2C:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_I2C.h
+
+   * Component: ::CMSIS Driver:SPI:2.3.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_SPI.h
+
+   * Component: ::CMSIS Driver:USART:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
+
+   * Component: ARM::CMSIS Driver:I2C:Custom:1.0.0
+      Include file:  CMSIS/Driver/Include/Driver_I2C.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_I2C.c
+
+   * Component: ARM::CMSIS Driver:SPI:1.0.1
+      Source file:   CMSIS_Driver/Driver_SPI.c
+
+   * Component: ARM::CMSIS Driver:USART:Custom:1.0.0
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
+      Source file:   CMSIS/Driver/DriverTemplates/Driver_USART.c
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+
+   * Component: ARM::Device:Definition:2.0.0
+      Include file:  Device/Config/device_cfg.h
+      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
+      Include file:  Board/Platform/platform_base_address.h
+      Include file:  Board/Device_Definition/device_definition.h
+      Source file:   Board/Device_Definition/device_definition.c
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
