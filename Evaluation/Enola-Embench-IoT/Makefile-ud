@@ -2,10 +2,10 @@
 BUILD_DIR := build
 
 UNINSTRUMENTED_DIR := uninsrumented_source
-CLANG_LIB_PATH := /home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/lib/clang-runtimes/arm-none-eabi/armv8m.main_hard_fp
+CLANG_LIB_PATH := /plain_llvm_root_path/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/lib/clang-runtimes/arm-none-eabi/armv8m.main_hard_fp
 UNINSTRUMENTED_START_UP := ./RTE/Device/IOTKit_CM33_FP
 BIN_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-#BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
+#BIN_PATH=/plain_llvm_root_path/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
 ENOLA_LIB_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
 # include ../../Makefile.conf

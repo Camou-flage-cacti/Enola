@@ -28,7 +28,7 @@ The [generate_version_txt.cmake](../LLVM_compiler/Environment-config/generate_ve
 9. ninja
 
 # LLVM tool chain info
-1. front end pass library directory after build: /home/tomal/llvm_all/llvm-arm-org/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib
+1. front end pass library directory after build: root_path_of_llvm/build/llvm/lib
 
 
 # LLVM Tool commands
