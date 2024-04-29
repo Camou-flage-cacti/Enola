@@ -7,3 +7,4 @@
 - Create a folder name `EnolaPass` under `root_path_of_llvm/repos/llvm-project/llvm/lib/Transforms`
 - Copy all files from [Enola Annotator](Enola-Annotator/) to `EnolaPass`
 - Copy and replace all files from [Enola Instrumentor](Enola-Instrumentor) to `root_path_of_llvm/repos/llvm-project/llvm/lib/Target/ARM`
+- run the `ninja` build command to re-compile llvm
