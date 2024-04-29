@@ -6,7 +6,7 @@ BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0
 #BIN_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
 #ENOLA_LIB_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
-vpath %.c ./ root-path/Running/1.3.0/CMSIS_Driver root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path//Running/1.3.0/Board/Device_Definition
+vpath %.c ./ root-path/Running/1.3.0/CMSIS_Driver root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path/Running/1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
 

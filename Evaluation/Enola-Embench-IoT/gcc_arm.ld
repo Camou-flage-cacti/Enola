@@ -1,8 +1,8 @@
 /* Define memory regions */
 MEMORY
 {
-  FLASH (rx) : ORIGIN = 0x10000000, LENGTH = 0x00200000
-  RAM (rwx) : ORIGIN = 0x38000000, LENGTH = 0x00200000
+  FLASH (rx) : ORIGIN = 0x11000000, LENGTH = 0x00200000
+  RAM (rwx) : ORIGIN = 0x31000000, LENGTH = 0x00200000
 }
 
 /* Library configurations */

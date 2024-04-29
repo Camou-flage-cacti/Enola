@@ -6,7 +6,7 @@ UNINSTRUMENTED_DIR := uninsrumented_source
 BIN_PATH="your llvm path"
 ENOLA_LIB_PATH="your-path/LLVMEnolaPass.so"
 
-vpath %.c ./ root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path//Running/1.3.0/Board/Device_Definition
+vpath %.c ./ root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path/Running/1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
 
