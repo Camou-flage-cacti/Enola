@@ -37,7 +37,7 @@ The [generate_version_txt.cmake](Enola_compiler/Environment-config/generate_vers
 4. git -C repos clone https://github.com/picolibc/picolibc.git && git -C repos/picolibc checkout 35c504ff6065b2a87ea8a106ae0d0d61d1e7ece5
 5. git -C repos/picolibc apply ../../patches/picolibc.patch
 6. Replace the Enola LLVM Source files according to [this](Enola_compiler/Readme.md)
-6. mkdir build
-7. cd build
-8. cmake .. -GNinja -DFETCHCONTENT_SOURCE_DIR_LLVMPROJECT=../repos/llvm-project -DFETCHCONTENT_SOURCE_DIR_PICOLIBC=../repos/picolibc
-9. ninja
+7. mkdir build
+8. cd build
+9. cmake .. -GNinja -DFETCHCONTENT_SOURCE_DIR_LLVMPROJECT=../repos/llvm-project -DFETCHCONTENT_SOURCE_DIR_PICOLIBC=../repos/picolibc
+10. ninja
