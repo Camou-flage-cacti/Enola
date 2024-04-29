@@ -3,8 +3,6 @@ BUILD_DIR := build
 
 UNINSTRUMENTED_DIR := uninsrumented_source
 BIN_PATH=/plain_llvm_root_path/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
-#BIN_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-#ENOLA_LIB_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
 vpath %.c ./ root-path/Running/1.3.0/CMSIS_Driver root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path/Running/1.3.0/Board/Device_Definition
 
@@ -53,20 +51,7 @@ TARGET = Blinky.axf
 
 # Default target
 all: $(BUILD_DIR) $(TARGET)
-#all: $(BUILD_DIR) $(TARGET)
 
-# app:
-# 	$(CC) $(CFLAGS) application.c -S -emit-llvm -o application.ll 
-# 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass application.ll -S -o application_opt.ll
-# 	$(LLC) -filetype=obj -march=arm -mcpu=cortex-m85 --mattr=+pacbti application_opt.ll -O0 -o $(BUILD_DIR)/application.o
-# test:
-# 	$(CC) $(CFLAGS) $(INCLUDES) main.c -S -emit-llvm -o main.ll
-# 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass main.ll -S -o main_opt.ll
-# 	$(LLC) -march=arm -filetype=obj --mattr=+pacbti main_opt.ll -O0 -o main.o
-#application.o: Application/application.c:
-#	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
-#	opt $(CFLAGS) -enable-new-pm=0 -load root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
-#	llc $(CFLAGS) -filetype=obj application_opt.ll -o application_opt.o
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
