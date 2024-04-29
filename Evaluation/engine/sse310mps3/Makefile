@@ -75,7 +75,7 @@ enolaME:
 	
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
-#	opt $(CFLAGS) -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
+#	opt $(CFLAGS) -enable-new-pm=0 -load root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
 #	llc $(CFLAGS) -filetype=obj application_opt.ll -o application_opt.o
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)

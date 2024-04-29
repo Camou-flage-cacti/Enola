@@ -3,8 +3,8 @@ BUILD_DIR := build
 
 UNINSTRUMENTED_DIR := uninsrumented_source
 BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
-#BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-#ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
+#BIN_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
+#ENOLA_LIB_PATH=root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
 
 vpath %.c ./ root-path/Running/1.3.0/CMSIS_Driver root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path//Running/1.3.0/Board/Device_Definition
 
@@ -66,7 +66,7 @@ all: $(BUILD_DIR) $(TARGET)
 # 	$(LLC) -march=arm -filetype=obj --mattr=+pacbti main_opt.ll -O0 -o main.o
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
-#	opt $(CFLAGS) -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
+#	opt $(CFLAGS) -enable-new-pm=0 -load root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
 #	llc $(CFLAGS) -filetype=obj application_opt.ll -o application_opt.o
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
