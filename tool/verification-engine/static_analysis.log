@@ -1,0 +1,10 @@
+0x0, , 0
+0x10000000, .text, 6056
+0x100017a8, .ARM.exidx, 16
+0x38000000, .data, 28
+0x3800001c, .bss, 13368
+0x0, .comment, 41
+0x0, .ARM.attributes, 74
+0x0, .symtab, 7296
+0x0, .shstrtab, 80
+0x0, .strtab, 5077
