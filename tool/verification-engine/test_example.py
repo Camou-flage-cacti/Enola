@@ -1,9 +1,4 @@
 #!/usr/bin/env python
-#
-# ARMv8 binary replay
-#
-# Copyright (c) 2018 Northeastern University
-#
 import argparse
 import binascii
 import ConfigParser
