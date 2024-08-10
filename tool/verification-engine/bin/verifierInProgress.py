@@ -1,6 +1,8 @@
 from elftools.elf.elffile import ELFFile
 from capstone import *
 import angr
+import struct
+import os
 
 # Specify the path to the ELF binary
 binary_path = 'Blinky.axf'
@@ -9,6 +11,35 @@ binary_path = 'Blinky.axf'
 md = Cs(CS_ARCH_ARM, CS_MODE_THUMB)
 
 exit_points = []
+sim_func_call_stack = []
+occuerence_trace = []
+
+
+def parse_occurence_trace(traceFile):
+    if not os.path.isfile(traceFile):
+        exit("The trace file '%s' not found" % (traceFile))
+    else:
+        print("The trace file '%s' exists" % (traceFile))
+    with open(traceFile, "rb") as f:
+        # Read the first 4 bytes to get the total number of elements
+        total_elements_bytes = f.read(4)
+        total_elements = struct.unpack(">I", total_elements_bytes)[0]  # Assuming unsigned int (4 bytes)
+        print(hex(total_elements))
+
+        # Loop through each key-value pair
+        for _ in range(total_elements):
+            # Read 4 bytes for the key
+            address_bytes = f.read(4)
+            address = struct.unpack(">I", address_bytes)[0]  # Assuming unsigned int (4 bytes)
+            
+            # Read 4 bytes for the value
+            occuerence_count_bytes = f.read(4)
+            occuerence_count = struct.unpack(">I", occuerence_count_bytes)[0]  # Assuming unsigned int (4 bytes)
+
+            # Append the key-value pair to the list
+            occuerence_trace.append((address, occuerence_count))
+        for key, value in occuerence_trace:
+            print(f"Key: 0x{key:08X}, Value: 0x{value:08X}")
 
 def find_exit_points(cfg, node, visited):
     """
@@ -123,8 +154,12 @@ def AbstractExec():
                         
                         # Disassemble the 'main' function
                         for insn in md.disasm(code, main_addr):
-                            print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
-                        break
+                            #print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+                            if(insn.mnemonic == "bl"):
+                                print("Found BL instruction at 0x%x" % insn.address)
+                                target_address = insn.op_str  # The target address is usually in the operand string
+                                print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
+                                #break
 
 '''
 
@@ -367,8 +402,9 @@ def simulateEnolaInstructions():
 '''
 
 def main():
-    getExitBasicBlocks()
-    AbstractExec()
+    parse_occurence_trace('trace')
+    #getExitBasicBlocks()
+    #AbstractExec()
     
 
 if __name__ == "__main__":
