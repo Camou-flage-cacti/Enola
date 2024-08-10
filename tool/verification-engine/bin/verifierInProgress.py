@@ -455,23 +455,35 @@ def simulateEnolaInstructions():
     return
 '''
 def testIterativeMethod():
-    program_entry = 'main'
-    program_entry_addr = 0x10000400
-    code = get_function_code_section(program_entry, program_entry_addr)
-    #start disassembling the function
-    for insn in md.disasm(code, program_entry_addr):
-        #print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+    program_current_function = 'main' #program_entry
+    program_counter = 0x10000400
 
-        if(insn.mnemonic == "bl"):
-            target_address = insn.op_str  # The target address is usually in the operand string
-            print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
-            clean_target_str = target_address.lstrip('#')
-            target_int = int(clean_target_str, 16)
-            sim_func_call_stack.append(target_int)
-            target_function = get_function_name_from_address(target_int)
-            print(target_function)
-            if(target_function not in omit_functions):
-                print('Simulate the called function')
+    while program_counter not in exit_points:
+        program_current_function = get_function_name_from_address(program_counter)
+        if not program_counter:
+            print('Function symbol not found for address 0x%x' %(program_counter))
+        code = get_function_code_section(program_current_function, program_counter)
+        
+        #start disassembling the function
+        for insn in md.disasm(code, program_counter):
+            #print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+
+            if(insn.mnemonic == "bl"):
+                target_address = insn.op_str  # The target address is usually in the operand string
+                print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
+                clean_target_str = target_address.lstrip('#')
+                target_int = int(clean_target_str, 16)
+                sim_func_call_stack.append(insn.address + insn.size)
+                target_function = get_function_name_from_address(target_int)
+                #print(target_function)
+                if(target_function not in omit_functions):
+                    print('Simulate the called function')
+                    program_counter = target_int
+                    break
+            elif insn.mnemonic in ["bx", "pop", "ldr"] and ("lr" in insn.op_str or "pc" in insn.op_str):
+                # Handle function return by checking common return instructions
+                print(f"Detected function return instruction at 0x{insn.address:x}")
+                program_counter = sim_func_call_stack.pop()
 
 def main():
     #parse_occurence_trace('trace')
@@ -482,7 +494,9 @@ def main():
     #getExitBasicBlocks()
     #AbstractExec()
     testIterativeMethod()
-    
+    for n in sim_func_call_stack:
+        print(hex(n))
+
     
 
 if __name__ == "__main__":
