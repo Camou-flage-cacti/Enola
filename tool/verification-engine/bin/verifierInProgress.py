@@ -3,6 +3,7 @@ from capstone import *
 import angr
 import struct
 import os
+import lief
 
 # Specify the path to the ELF binary
 binary_path = 'Blinky.axf'
@@ -13,7 +14,17 @@ md = Cs(CS_ARCH_ARM, CS_MODE_THUMB)
 exit_points = []
 sim_func_call_stack = []
 occuerence_trace = []
+omit_functions =["init_trampoline"]
 
+paresed_bin = lief.parse(binary_path)
+
+def get_function_name_from_address(address):
+    # Iterate over the symbols to find the function name for the given address
+    address = address + 1
+    for symbol in paresed_bin.symbols:
+        if symbol.value == address:
+            return symbol.name
+    return None
 
 def parse_occurence_trace(traceFile):
     if not os.path.isfile(traceFile):
@@ -114,7 +125,45 @@ def getExitBasicBlocks():
             print(f"  0x{exit_block:x}")
     '''
         
+def get_function_code_section(function_name, currect_address):
+    if not function_name or not currect_address:
+        print("Function name or address empty")
+        return None
+    with open(binary_path, 'rb') as f:
+        elf = ELFFile(f)
 
+        symtab_section = elf.get_section_by_name('.symtab')
+        if not symtab_section:
+            print("No symbol table found in this ELF file.")
+        else:
+            # Find the 'main' function symbol
+            #main_symbol = None
+            for symbol in symtab_section.iter_symbols():
+                if symbol.name == function_name:
+                    function_symbol = symbol
+                    break
+            
+            if not function_symbol:
+                print("No 'main' function found in the symbol table.")
+                return None
+            else:
+                function_addr = function_symbol['st_value']
+                function_size = function_symbol['st_size']
+
+                # Mask out the Thumb bit if present
+                function_addr &= ~1
+
+                print(f"{function_name} function found at 0x{function_addr:x}, size: {function_size}")
+                current_offset = currect_address - function_addr
+                # Locate the section containing the main function
+                for section in elf.iter_sections():
+                    if section['sh_addr'] <= function_addr < (section['sh_addr'] + section['sh_size']):
+                        # Calculate offset within the section
+                        offset = function_addr - section['sh_addr'] + current_offset
+                        # Extract the code bytes for the main function
+                        code = section.data()[offset:offset + function_size - current_offset]
+                        print('Returning Code section of %s with currect address 0x%x' %(function_name, currect_address))
+                        return code
 
 def AbstractExec():
     # Open the binary file
@@ -154,11 +203,16 @@ def AbstractExec():
                         
                         # Disassemble the 'main' function
                         for insn in md.disasm(code, main_addr):
-                            #print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
-                            if(insn.mnemonic == "bl"):
-                                print("Found BL instruction at 0x%x" % insn.address)
+                            print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+                            
+"""                             if(insn.mnemonic == "bl"):
                                 target_address = insn.op_str  # The target address is usually in the operand string
                                 print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
+                                clean_target_str = target_address.lstrip('#')
+                                target_int = int(clean_target_str, 16)
+                                sim_func_call_stack.append(target_int)
+                                print(get_function_name_from_address(target_int)) """
+                            
                                 #break
 
 '''
@@ -400,11 +454,35 @@ def simulateEnolaInstructions():
 
     return
 '''
+def testIterativeMethod():
+    program_entry = 'main'
+    program_entry_addr = 0x10000400
+    code = get_function_code_section(program_entry, program_entry_addr)
+    #start disassembling the function
+    for insn in md.disasm(code, program_entry_addr):
+        #print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+
+        if(insn.mnemonic == "bl"):
+            target_address = insn.op_str  # The target address is usually in the operand string
+            print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
+            clean_target_str = target_address.lstrip('#')
+            target_int = int(clean_target_str, 16)
+            sim_func_call_stack.append(target_int)
+            target_function = get_function_name_from_address(target_int)
+            print(target_function)
+            if(target_function not in omit_functions):
+                print('Simulate the called function')
 
 def main():
-    parse_occurence_trace('trace')
+    #parse_occurence_trace('trace')
+    #current_address = 0x1000041c
+    #code = get_function_code_section('crc32pseudo', current_address)
+    #for insn in md.disasm(code, current_address):
+    #                        print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
     #getExitBasicBlocks()
     #AbstractExec()
+    testIterativeMethod()
+    
     
 
 if __name__ == "__main__":
