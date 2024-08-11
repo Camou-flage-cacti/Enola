@@ -12,9 +12,10 @@ binary_path = 'Blinky.axf'
 md = Cs(CS_ARCH_ARM, CS_MODE_THUMB)
 
 exit_points = []
-sim_func_call_stack = []
+sim_func_call_return_stack = []
+sim_func_call_names = []
 occuerence_trace = []
-omit_functions =["init_trampoline"]
+omit_functions =["init_trampoline", "secure_trace_storage", "indirect_secure_trace_storage"]
 
 paresed_bin = lief.parse(binary_path)
 
@@ -22,6 +23,7 @@ def get_function_name_from_address(address):
     # Iterate over the symbols to find the function name for the given address
     address = address + 1
     for symbol in paresed_bin.symbols:
+        #print(f"0x{hex(symbol.value)} symbol name {symbol.name}")
         if symbol.value == address:
             return symbol.name
     return None
@@ -210,7 +212,7 @@ def AbstractExec():
                                 print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
                                 clean_target_str = target_address.lstrip('#')
                                 target_int = int(clean_target_str, 16)
-                                sim_func_call_stack.append(target_int)
+                                sim_func_call_return_stack.append(target_int)
                                 print(get_function_name_from_address(target_int)) """
                             
                                 #break
@@ -459,31 +461,50 @@ def testIterativeMethod():
     program_counter = 0x10000400
 
     while program_counter not in exit_points:
-        program_current_function = get_function_name_from_address(program_counter)
+    #for x in range(6):
+        print('\n\n\nCurrent program counter: 0x%x belongs to function %s' %(program_counter, program_current_function))
+
         if not program_counter:
             print('Function symbol not found for address 0x%x' %(program_counter))
         code = get_function_code_section(program_current_function, program_counter)
         
         #start disassembling the function
         for insn in md.disasm(code, program_counter):
-            #print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+            print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
 
             if(insn.mnemonic == "bl"):
                 target_address = insn.op_str  # The target address is usually in the operand string
-                print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
+                #print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
                 clean_target_str = target_address.lstrip('#')
                 target_int = int(clean_target_str, 16)
-                sim_func_call_stack.append(insn.address + insn.size)
+                
                 target_function = get_function_name_from_address(target_int)
                 #print(target_function)
                 if(target_function not in omit_functions):
-                    print('Simulate the called function')
+                    print('Simulate the called function with return address: 0x%x' %(insn.address + insn.size))
+                    sim_func_call_return_stack.append(insn.address + insn.size)
                     program_counter = target_int
+                    sim_func_call_names.append(program_current_function)
+                    program_current_function = target_function #update called function
                     break
-            elif insn.mnemonic in ["bx", "pop", "ldr"] and ("lr" in insn.op_str or "pc" in insn.op_str):
+            elif(insn.mnemonic == "b"):
+                target_address = insn.op_str
+                clean_target_str = target_address.lstrip('#')
+                target_int = int(clean_target_str, 16)
+                target_function = get_function_name_from_address(target_int)
+                #print(target_function)
+                if(target_function not in omit_functions):
+                    print("branch to %s" % (target_address))
+                    #sim_func_call_return_stack.append(insn.address + insn.size)
+                    program_counter = target_int
+                    program_current_function = target_function #update called function
+                    break
+            elif insn.mnemonic in ["bx", "pop"] and ("lr" in insn.op_str or "pc" in insn.op_str):
                 # Handle function return by checking common return instructions
-                print(f"Detected function return instruction at 0x{insn.address:x}")
-                program_counter = sim_func_call_stack.pop()
+                program_counter = sim_func_call_return_stack.pop()
+                program_current_function = sim_func_call_names.pop()
+                print(f"Detected function return instruction at 0x{insn.address:x}, return value 0x{hex(program_counter)}")
+                break
 
 def main():
     #parse_occurence_trace('trace')
@@ -493,8 +514,11 @@ def main():
     #                        print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
     #getExitBasicBlocks()
     #AbstractExec()
+    #func = get_function_name_from_address( 0x1000049a)
+    #print(func)
     testIterativeMethod()
-    for n in sim_func_call_stack:
+    print('\n\nThe simulated stack state:')
+    for n in sim_func_call_return_stack:
         print(hex(n))
 
     
