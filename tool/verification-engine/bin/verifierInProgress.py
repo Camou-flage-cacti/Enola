@@ -460,8 +460,8 @@ def testIterativeMethod():
     program_current_function = 'main' #program_entry
     program_counter = 0x10000400
 
-    while program_counter not in exit_points:
-    #for x in range(6):
+    #while program_counter not in exit_points:
+    for x in range(10):
         print('\n\n\nCurrent program counter: 0x%x belongs to function %s' %(program_counter, program_current_function))
 
         if not program_counter:
@@ -492,6 +492,9 @@ def testIterativeMethod():
                 clean_target_str = target_address.lstrip('#')
                 target_int = int(clean_target_str, 16)
                 target_function = get_function_name_from_address(target_int)
+                if not target_function:
+                    print('branch within')
+                    target_function = program_current_function
                 #print(target_function)
                 if(target_function not in omit_functions):
                     print("branch to %s" % (target_address))
