@@ -19,6 +19,17 @@ omit_functions =["init_trampoline", "secure_trace_storage", "indirect_secure_tra
 
 paresed_bin = lief.parse(binary_path)
 
+def check_occurence_trace_presence(current_address):
+    
+    exists = False
+
+    for key, value in occuerence_trace:
+        if(key == current_address):
+            exists = True
+            break
+
+    return exists
+
 def get_function_name_from_address(address):
     # Iterate over the symbols to find the function name for the given address
     address = address + 1
@@ -472,6 +483,10 @@ def testIterativeMethod():
         for insn in md.disasm(code, program_counter):
             print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
 
+            
+            if(check_occurence_trace_presence(insn.address)):
+                print("\n\nFound in occuerence trace 0x%x\n\n" %(insn.address))
+
             if(insn.mnemonic == "bl"):
                 target_address = insn.op_str  # The target address is usually in the operand string
                 #print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
@@ -510,12 +525,12 @@ def testIterativeMethod():
                 break
 
 def main():
-    #parse_occurence_trace('trace')
+    parse_occurence_trace('trace')
     #current_address = 0x1000041c
     #code = get_function_code_section('crc32pseudo', current_address)
     #for insn in md.disasm(code, current_address):
     #                        print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
-    #getExitBasicBlocks()
+    getExitBasicBlocks()
     #AbstractExec()
     #func = get_function_name_from_address( 0x1000049a)
     #print(func)
