@@ -1,0 +1,757 @@
+Component: Arm Compiler for Embedded 6.18 Tool: armlink [5e4cc100]
+
+==============================================================================
+
+Section Cross References
+
+    main_ns.o(.text.NonSecure_LED_On) refers to led_v2m-mps2.o(.text.LED_On) for LED_On
+    main_ns.o(.ARM.exidx.text.NonSecure_LED_On) refers to main_ns.o(.text.NonSecure_LED_On) for [Anonymous Symbol]
+    main_ns.o(.text.NonSecure_LED_Off) refers to led_v2m-mps2.o(.text.LED_Off) for LED_Off
+    main_ns.o(.ARM.exidx.text.NonSecure_LED_Off) refers to main_ns.o(.text.NonSecure_LED_Off) for [Anonymous Symbol]
+    main_ns.o(.text.SysTick_Handler) refers to led_v2m-mps2.o(.text.LED_Off) for LED_Off
+    main_ns.o(.text.SysTick_Handler) refers to led_v2m-mps2.o(.text.LED_On) for LED_On
+    main_ns.o(.text.SysTick_Handler) refers to main_ns.o(.bss.SysTick_Handler.ticks) for [Anonymous Symbol]
+    main_ns.o(.ARM.exidx.text.SysTick_Handler) refers to main_ns.o(.text.SysTick_Handler) for [Anonymous Symbol]
+    main_ns.o(.text.main) refers to system_iotkit_cm23.o(.text.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    main_ns.o(.text.main) refers to led_v2m-mps2.o(.text.LED_On) for LED_On
+    main_ns.o(.text.main) refers to led_v2m-mps2.o(.text.LED_Off) for LED_Off
+    main_ns.o(.text.main) refers to main_ns.o(.text.NonSecure_LED_On) for NonSecure_LED_On
+    main_ns.o(.text.main) refers to main_ns.o(.text.NonSecure_LED_Off) for NonSecure_LED_Off
+    main_ns.o(.text.main) refers to system_iotkit_cm23.o(.data.SystemCoreClock) for SystemCoreClock
+    main_ns.o(.text.main) refers to main_ns.o(.data.text) for text
+    main_ns.o(.ARM.exidx.text.main) refers to main_ns.o(.text.main) for [Anonymous Symbol]
+    led_v2m-mps2.o(.ARM.exidx.text.LED_Initialize) refers to led_v2m-mps2.o(.text.LED_Initialize) for [Anonymous Symbol]
+    led_v2m-mps2.o(.ARM.exidx.text.LED_Uninitialize) refers to led_v2m-mps2.o(.text.LED_Uninitialize) for [Anonymous Symbol]
+    led_v2m-mps2.o(.ARM.exidx.text.LED_On) refers to led_v2m-mps2.o(.text.LED_On) for [Anonymous Symbol]
+    led_v2m-mps2.o(.ARM.exidx.text.LED_Off) refers to led_v2m-mps2.o(.text.LED_Off) for [Anonymous Symbol]
+    led_v2m-mps2.o(.ARM.exidx.text.LED_SetOut) refers to led_v2m-mps2.o(.text.LED_SetOut) for [Anonymous Symbol]
+    led_v2m-mps2.o(.ARM.exidx.text.LED_GetCount) refers to led_v2m-mps2.o(.text.LED_GetCount) for [Anonymous Symbol]
+    startup_iotkit_cm23.o(.ARM.exidx.text.Default_Handler) refers to startup_iotkit_cm23.o(.text.Default_Handler) for [Anonymous Symbol]
+    startup_iotkit_cm23.o(.text.Reset_Handler) refers to system_iotkit_cm23.o(.text.SystemInit) for SystemInit
+    startup_iotkit_cm23.o(.text.Reset_Handler) refers to __main.o(!!!main) for __main
+    startup_iotkit_cm23.o(.ARM.exidx.text.Reset_Handler) refers to startup_iotkit_cm23.o(.text.Reset_Handler) for [Anonymous Symbol]
+    startup_iotkit_cm23.o(.ARM.exidx.text.HardFault_Handler) refers to startup_iotkit_cm23.o(.text.HardFault_Handler) for [Anonymous Symbol]
+    startup_iotkit_cm23.o(RESET) refers to startup_iotkit_cm23.o(.text.Reset_Handler) for Reset_Handler
+    startup_iotkit_cm23.o(RESET) refers to startup_iotkit_cm23.o(.text.Default_Handler) for NMI_Handler
+    startup_iotkit_cm23.o(RESET) refers to startup_iotkit_cm23.o(.text.HardFault_Handler) for HardFault_Handler
+    startup_iotkit_cm23.o(RESET) refers to main_ns.o(.text.SysTick_Handler) for SysTick_Handler
+    system_iotkit_cm23.o(.text.SystemCoreClockUpdate) refers to system_iotkit_cm23.o(.data.SystemCoreClock) for SystemCoreClock
+    system_iotkit_cm23.o(.ARM.exidx.text.SystemCoreClockUpdate) refers to system_iotkit_cm23.o(.text.SystemCoreClockUpdate) for [Anonymous Symbol]
+    system_iotkit_cm23.o(.text.SystemInit) refers to startup_iotkit_cm23.o(RESET) for __Vectors
+    system_iotkit_cm23.o(.text.SystemInit) refers to system_iotkit_cm23.o(.data.SystemCoreClock) for SystemCoreClock
+    system_iotkit_cm23.o(.ARM.exidx.text.SystemInit) refers to system_iotkit_cm23.o(.text.SystemInit) for [Anonymous Symbol]
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry7.o(.ARM.Collect$$rtentry$$00000007) for __rt_entry_sh
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main_ns.o(.text.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    __rtentry7.o(.ARM.Collect$$rtentry$$00000007) refers to __rtentry7.o(.ARM.Collect$$rtentry$$00002718) for __lit__00000000
+    __rtentry7.o(__vectab_stack_and_reset_2_area) refers to __main.o(!!!main) for __main
+    __rtentry7.o(.ARM.exidx) refers to __rtentry7.o(.ARM.Collect$$rtentry$$00000007) for .ARM.Collect$$rtentry$$00000007
+    __rtentry7.o(.ARM.exidx) refers to __rtentry7.o(.ARM.Collect$$rtentry$$00002718) for .ARM.Collect$$rtentry$$00002718
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to sys_stackheap.o(.text) for __user_initial_stackheap
+    sys_stackheap_outer.o(__vectab_stack_and_reset_area) refers to tempstk.o(.text) for __temporary_stack_top
+    sys_stackheap_outer.o(__vectab_stack_and_reset_area) refers to __main.o(!!!main) for __main
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000034) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000006) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000010) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_relocate_pie_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000035) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000027) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    sys_stackheap.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_stackheap.o(.text) refers to use_no_semi.o(.text) for __I$use$semihosting
+    sys_stackheap_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_stackheap_hlt.o(.text) refers to use_no_semi.o(.text) for __I$use$semihosting
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$0000001A) refers to libinit2.o(.ARM.Collect$$libinit$$00000011) for .ARM.Collect$$libinit$$00000011
+    libinit2.o(.ARM.Collect$$libinit$$00000028) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000029) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    libinit5.o(.ARM.Collect$$libinit$$0000000A) refers to libinit5.o(.ARM.Collect$$libinit$$0000271B) for __lit__00000000
+    libinit5.o(.ARM.Collect$$libinit$$0000002C) refers to libinit5.o(.ARM.Collect$$libinit$$0000273D) for __lit__00000002
+    libinit5.o(.ARM.Collect$$libinit$$0000002C) refers to argv_veneer.o(.text) for __ARM_argv_veneer
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_exit_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000007) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000010) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_command_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_wrch_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing main_ns.o(.text), (0 bytes).
+    Removing main_ns.o(.ARM.exidx.text.NonSecure_LED_On), (8 bytes).
+    Removing main_ns.o(.ARM.exidx.text.NonSecure_LED_Off), (8 bytes).
+    Removing main_ns.o(.ARM.exidx.text.SysTick_Handler), (8 bytes).
+    Removing main_ns.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main_ns.o(.ARM.use_no_argv), (4 bytes).
+    Removing led_v2m-mps2.o(.text), (0 bytes).
+    Removing led_v2m-mps2.o(.text.LED_Initialize), (12 bytes).
+    Removing led_v2m-mps2.o(.ARM.exidx.text.LED_Initialize), (8 bytes).
+    Removing led_v2m-mps2.o(.text.LED_Uninitialize), (4 bytes).
+    Removing led_v2m-mps2.o(.ARM.exidx.text.LED_Uninitialize), (8 bytes).
+    Removing led_v2m-mps2.o(.ARM.exidx.text.LED_On), (8 bytes).
+    Removing led_v2m-mps2.o(.ARM.exidx.text.LED_Off), (8 bytes).
+    Removing led_v2m-mps2.o(.text.LED_SetOut), (16 bytes).
+    Removing led_v2m-mps2.o(.ARM.exidx.text.LED_SetOut), (8 bytes).
+    Removing led_v2m-mps2.o(.text.LED_GetCount), (4 bytes).
+    Removing led_v2m-mps2.o(.ARM.exidx.text.LED_GetCount), (8 bytes).
+    Removing startup_iotkit_cm23.o(.text), (0 bytes).
+    Removing startup_iotkit_cm23.o(.ARM.exidx.text.Default_Handler), (8 bytes).
+    Removing startup_iotkit_cm23.o(.ARM.exidx.text.Reset_Handler), (8 bytes).
+    Removing startup_iotkit_cm23.o(.ARM.exidx.text.HardFault_Handler), (8 bytes).
+    Removing system_iotkit_cm23.o(.text), (0 bytes).
+    Removing system_iotkit_cm23.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
+    Removing system_iotkit_cm23.o(.ARM.exidx.text.SystemInit), (8 bytes).
+
+24 unused section(s) (total 160 bytes) removed from the image.
+
+==============================================================================
+
+Adding Veneers to the image
+
+    Adding TT veneer (12 bytes, Long) for call to 'Secure_LED_On' from main_ns.o(.text.SysTick_Handler).
+    Adding TT veneer (12 bytes, Long) for call to 'Secure_LED_Off' from main_ns.o(.text.SysTick_Handler).
+    Adding TT veneer (12 bytes, Long) for call to 'Secure_LED_On_callback' from main_ns.o(.text.main).
+    Adding TT veneer (12 bytes, Long) for call to 'Secure_LED_Off_callback' from main_ns.o(.text.main).
+    Adding TT veneer (12 bytes, Long) for call to 'Secure_printf' from main_ns.o(.text.main).
+
+5 Veneer(s) (total 60 bytes) added to the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry7.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/scatterp.s                 0x00000000   Number         0  __scatter.o ABSOLUTE
+    ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_hlt.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit_hlt.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command_hlt.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch_hlt.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit5.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../fplib/cfplib/fpinit.c                 0x00000000   Number         0  fpinit.o ABSOLUTE
+    LED_V2M-MPS2.c                           0x00000000   Number         0  led_v2m-mps2.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    main_ns.c                                0x00000000   Number         0  main_ns.o ABSOLUTE
+    startup_IOTKit_CM23.c                    0x00000000   Number         0  startup_iotkit_cm23.o ABSOLUTE
+    system_IOTKit_CM23.c                     0x00000000   Number         0  system_iotkit_cm23.o ABSOLUTE
+    __tagsym$$used.0                         0x00200000   Number         0  startup_iotkit_cm23.o(RESET)
+    !!!main                                  0x00200400   Section        8  __main.o(!!!main)
+    !!!scatter                               0x00200408   Section       60  __scatter.o(!!!scatter)
+    !!handler_copy                           0x00200444   Section       26  __scatter_copy.o(!!handler_copy)
+    !!handler_zi                             0x00200460   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x0020047c   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000002          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    .ARM.Collect$$libinit$$00000004          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$00000006          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000006)
+    .ARM.Collect$$libinit$$0000000C          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000010          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000010)
+    .ARM.Collect$$libinit$$00000013          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$00000027          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000027)
+    .ARM.Collect$$libinit$$0000002E          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000034          0x0020047e   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000034)
+    .ARM.Collect$$libinit$$00000035          0x0020047e   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000035)
+    .ARM.Collect$$libshutdown$$00000000      0x00200480   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x00200482   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x00200482   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000007      0x00200482   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    .ARM.Collect$$libshutdown$$0000000A      0x00200482   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    .ARM.Collect$$libshutdown$$0000000C      0x00200482   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000F      0x00200482   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    .ARM.Collect$$libshutdown$$00000010      0x00200482   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    .ARM.Collect$$rtentry$$00000000          0x00200484   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x00200484   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000007          0x00200484   Section        4  __rtentry7.o(.ARM.Collect$$rtentry$$00000007)
+    .ARM.Collect$$rtentry$$00000009          0x00200488   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x00200488   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x0020048c   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x0020048c   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __lit__00000000                          0x00200494   Data           4  __rtentry7.o(.ARM.Collect$$rtentry$$00002718)
+    .ARM.Collect$$rtentry$$00002718          0x00200494   Section        4  __rtentry7.o(.ARM.Collect$$rtentry$$00002718)
+    .ARM.Collect$$rtexit$$00000000           0x00200498   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x0020049a   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x0020049a   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x0020049e   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .text                                    0x002004a4   Section        0  exit.o(.text)
+    .text                                    0x002004b4   Section        2  use_no_semi.o(.text)
+    .text                                    0x002004b6   Section        0  indicate_semi.o(.text)
+    .text                                    0x002004b8   Section        0  sys_exit.o(.text)
+    [Anonymous Symbol]                       0x002004c4   Section        0  startup_iotkit_cm23.o(.text.Default_Handler)
+    [Anonymous Symbol]                       0x002004c6   Section        0  startup_iotkit_cm23.o(.text.HardFault_Handler)
+    [Anonymous Symbol]                       0x002004c8   Section        0  led_v2m-mps2.o(.text.LED_Off)
+    [Anonymous Symbol]                       0x002004dc   Section        0  led_v2m-mps2.o(.text.LED_On)
+    __arm_cp.2_0                             0x002004f0   Number         4  led_v2m-mps2.o(.text.LED_On)
+    [Anonymous Symbol]                       0x002004f4   Section        0  main_ns.o(.text.NonSecure_LED_Off)
+    [Anonymous Symbol]                       0x002004fc   Section        0  main_ns.o(.text.NonSecure_LED_On)
+    [Anonymous Symbol]                       0x00200504   Section        0  startup_iotkit_cm23.o(.text.Reset_Handler)
+    __arm_cp.1_0                             0x00200514   Number         4  startup_iotkit_cm23.o(.text.Reset_Handler)
+    [Anonymous Symbol]                       0x00200518   Section        0  main_ns.o(.text.SysTick_Handler)
+    __arm_cp.2_0                             0x0020056c   Number         4  main_ns.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x00200570   Section        0  system_iotkit_cm23.o(.text.SystemCoreClockUpdate)
+    [Anonymous Symbol]                       0x00200578   Section        0  system_iotkit_cm23.o(.text.SystemInit)
+    __arm_cp.1_0                             0x00200588   Number         4  system_iotkit_cm23.o(.text.SystemInit)
+    __arm_cp.1_1                             0x0020058c   Number         4  system_iotkit_cm23.o(.text.SystemInit)
+    __arm_cp.1_3                             0x00200590   Number         4  system_iotkit_cm23.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x00200594   Section        0  main_ns.o(.text.main)
+    __arm_cp.3_0                             0x00200628   Number         4  main_ns.o(.text.main)
+    __arm_cp.3_1                             0x0020062c   Number         4  main_ns.o(.text.main)
+    __arm_cp.3_2                             0x00200630   Number         4  main_ns.o(.text.main)
+    __arm_cp.3_3                             0x00200634   Number         4  main_ns.o(.text.main)
+    __arm_cp.3_4                             0x00200638   Number         4  main_ns.o(.text.main)
+    __arm_cp.3_5                             0x0020063c   Number         4  main_ns.o(.text.main)
+    __arm_cp.3_6                             0x00200640   Number         4  main_ns.o(.text.main)
+    SysTick_Handler.ticks                    0x28200024   Data           4  main_ns.o(.bss.SysTick_Handler.ticks)
+    [Anonymous Symbol]                       0x28200024   Section        0  main_ns.o(.bss.SysTick_Handler.ticks)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$8M$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$UX$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ZI$$Limit                          - Undefined Weak Reference
+    __ARM_exceptions_init                     - Undefined Weak Reference
+    __alloca_initialize                       - Undefined Weak Reference
+    __arm_preinit_                            - Undefined Weak Reference
+    __arm_relocate_pie_                       - Undefined Weak Reference
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __rt_locale                               - Undefined Weak Reference
+    __sigvec_lookup                           - Undefined Weak Reference
+    _atexit_init                              - Undefined Weak Reference
+    _call_atexit_fns                          - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _fp_trap_init                             - Undefined Weak Reference
+    _fp_trap_shutdown                         - Undefined Weak Reference
+    _get_lc_collate                           - Undefined Weak Reference
+    _get_lc_ctype                             - Undefined Weak Reference
+    _get_lc_monetary                          - Undefined Weak Reference
+    _get_lc_numeric                           - Undefined Weak Reference
+    _get_lc_time                              - Undefined Weak Reference
+    _getenv_init                              - Undefined Weak Reference
+    _handle_redirection                       - Undefined Weak Reference
+    _init_alloc                               - Undefined Weak Reference
+    _init_user_alloc                          - Undefined Weak Reference
+    _initio                                   - Undefined Weak Reference
+    _rand_init                                - Undefined Weak Reference
+    _signal_finish                            - Undefined Weak Reference
+    _signal_init                              - Undefined Weak Reference
+    _terminate_alloc                          - Undefined Weak Reference
+    _terminate_user_alloc                     - Undefined Weak Reference
+    _terminateio                              - Undefined Weak Reference
+    __Vectors                                0x00200000   Data        1024  startup_iotkit_cm23.o(RESET)
+    __main                                   0x00200401   Thumb Code     8  __main.o(!!!main)
+    __scatterload                            0x00200409   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x00200409   Thumb Code    52  __scatter.o(!!!scatter)
+    __scatterload_rt2_thumb_only             0x00200409   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x00200419   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_copy                       0x00200445   Thumb Code    26  __scatter_copy.o(!!handler_copy)
+    __scatterload_zeroinit                   0x00200461   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x0020047d   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_alloca_1                   0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_argv_1                     0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_atexit_1                   0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_clock_1                    0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_cpp_1                      0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000034)
+    __rt_lib_init_exceptions_1               0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_fp_1                       0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000002)
+    __rt_lib_init_fp_trap_1                  0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_getenv_1                   0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_heap_1                     0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_init_lc_collate_1               0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_ctype_1                 0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_monetary_1              0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_numeric_1               0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_lc_time_1                  0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_preinit_1                  0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000006)
+    __rt_lib_init_rand_1                     0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000010)
+    __rt_lib_init_relocate_pie_1             0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_return                     0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000035)
+    __rt_lib_init_signal_1                   0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_stdio_1                    0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000027)
+    __rt_lib_init_user_alloc_1               0x0020047f   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_shutdown                        0x00200481   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    __rt_lib_shutdown_heap_1                 0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    __rt_lib_shutdown_return                 0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    __rt_lib_shutdown_signal_1               0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    __rt_lib_shutdown_stdio_1                0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_user_alloc_1           0x00200483   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_entry                               0x00200485   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x00200485   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x00200485   Thumb Code     0  __rtentry7.o(.ARM.Collect$$rtentry$$00000007)
+    __rt_entry_li                            0x00200489   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x00200489   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x0020048d   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x0020048d   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x00200499   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x0020049b   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x0020049b   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x0020049f   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    exit                                     0x002004a5   Thumb Code    16  exit.o(.text)
+    __I$use$semihosting                      0x002004b5   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x002004b5   Thumb Code     2  use_no_semi.o(.text)
+    __semihosting_library_function           0x002004b7   Thumb Code     0  indicate_semi.o(.text)
+    _sys_exit                                0x002004b9   Thumb Code     8  sys_exit.o(.text)
+    BRIDGE_ERROR_Handler                     0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA0_ERROR_Handler                       0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA0_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA0_TC_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA1_ERROR_Handler                       0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA1_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA1_TC_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA2_ERROR_Handler                       0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA2_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA2_TC_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA3_ERROR_Handler                       0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA3_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DMA3_TC_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    DUALTIMER_Handler                        0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    Default_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    ETHERNET_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_0_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_10_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_11_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_12_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_13_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_14_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_15_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_1_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_2_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_3_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_4_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_5_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_6_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_7_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_8_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_9_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO0_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_0_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_10_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_11_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_12_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_13_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_14_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_15_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_1_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_2_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_3_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_4_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_5_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_6_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_7_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_8_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_9_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO1_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_0_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_10_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_11_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_12_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_13_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_14_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_15_Handler                         0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_1_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_2_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_3_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_4_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_5_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_6_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_7_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_8_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_9_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO2_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO3_0_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO3_1_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO3_2_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO3_3_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    GPIO3_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    I2S_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    MPC_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    MSC_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    NMI_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    NONSEC_WATCHDOG_Handler                  0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    NONSEC_WATCHDOG_RESET_Handler            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    PPC_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    PendSV_Handler                           0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    S32K_TIMER_Handler                       0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    SPI0_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    SPI1_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    SPI2_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    SPI3_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    SPI4_Handler                             0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    SVC_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    TIMER0_Handler                           0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    TIMER1_Handler                           0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    TSC_Handler                              0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART0RX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART0TX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART0_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART1RX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART1TX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART1_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART2RX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART2TX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART2_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART3RX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART3TX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART3_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART4RX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART4TX_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UART4_Handler                            0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    UARTOVF_Handler                          0x002004c5   Thumb Code     2  startup_iotkit_cm23.o(.text.Default_Handler)
+    HardFault_Handler                        0x002004c7   Thumb Code     2  startup_iotkit_cm23.o(.text.HardFault_Handler)
+    LED_Off                                  0x002004c9   Thumb Code    20  led_v2m-mps2.o(.text.LED_Off)
+    LED_On                                   0x002004dd   Thumb Code    20  led_v2m-mps2.o(.text.LED_On)
+    NonSecure_LED_Off                        0x002004f5   Thumb Code     8  main_ns.o(.text.NonSecure_LED_Off)
+    NonSecure_LED_On                         0x002004fd   Thumb Code     8  main_ns.o(.text.NonSecure_LED_On)
+    Reset_Handler                            0x00200505   Thumb Code    16  startup_iotkit_cm23.o(.text.Reset_Handler)
+    SysTick_Handler                          0x00200519   Thumb Code    84  main_ns.o(.text.SysTick_Handler)
+    SystemCoreClockUpdate                    0x00200571   Thumb Code     8  system_iotkit_cm23.o(.text.SystemCoreClockUpdate)
+    SystemInit                               0x00200579   Thumb Code    16  system_iotkit_cm23.o(.text.SystemInit)
+    main                                     0x00200595   Thumb Code   148  main_ns.o(.text.main)
+    Long Thumb to Thumb Veneer to Secure_LED_On 0x00200645   Thumb Code    12  anon$$obj.o(Veneer$$Code)
+    Long Thumb to Thumb Veneer to Secure_LED_Off 0x00200651   Thumb Code    12  anon$$obj.o(Veneer$$Code)
+    Long Thumb to Thumb Veneer to Secure_LED_On_callback 0x0020065d   Thumb Code    12  anon$$obj.o(Veneer$$Code)
+    Long Thumb to Thumb Veneer to Secure_LED_Off_callback 0x00200669   Thumb Code    12  anon$$obj.o(Veneer$$Code)
+    Long Thumb to Thumb Veneer to Secure_printf 0x00200675   Thumb Code    12  anon$$obj.o(Veneer$$Code)
+    Region$$Table$$Base                      0x00200680   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x002006a0   Number         0  anon$$obj.o(Region$$Table)
+    Secure_LED_On                            0x101ffe01   Thumb Code     8  IOTKit_CM23_s_CMSE_Lib.o ABSOLUTE
+    Secure_LED_Off                           0x101ffe09   Thumb Code     8  IOTKit_CM23_s_CMSE_Lib.o ABSOLUTE
+    Secure_printf                            0x101ffe11   Thumb Code     8  IOTKit_CM23_s_CMSE_Lib.o ABSOLUTE
+    Secure_LED_On_callback                   0x101ffe19   Thumb Code     8  IOTKit_CM23_s_CMSE_Lib.o ABSOLUTE
+    Secure_LED_Off_callback                  0x101ffe21   Thumb Code     8  IOTKit_CM23_s_CMSE_Lib.o ABSOLUTE
+    SystemCoreClock                          0x28200000   Data           4  system_iotkit_cm23.o(.data.SystemCoreClock)
+    text                                     0x28200004   Data          30  main_ns.o(.data.text)
+    Image$$ARM_LIB_HEAP$$ZI$$Base            0x28200028   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x28200c28   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x28400000   Number         0  anon$$obj.o ABSOLUTE
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00200401
+
+  Load Region LR_ROM (Base: 0x00200000, Size: 0x000006c4, Max: 0x00200000, ABSOLUTE)
+
+    Execution Region ER_ROM (Exec base: 0x00200000, Load base: 0x00200000, Size: 0x000006a0, Max: 0x00200000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00200000   0x00200000   0x00000400   Data   RO           49    RESET               startup_iotkit_cm23.o
+    0x00200400   0x00200400   0x00000008   Code   RO           71  * !!!main             c_p.l(__main.o)
+    0x00200408   0x00200408   0x0000003c   Code   RO          251    !!!scatter          c_p.l(__scatter.o)
+    0x00200444   0x00200444   0x0000001a   Code   RO          253    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x0020045e   0x0020045e   0x00000002   PAD
+    0x00200460   0x00200460   0x0000001c   Code   RO          255    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0020047c   0x0020047c   0x00000002   Code   RO          104    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          116    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          118    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          120    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          123    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          125    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          127    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          130    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          132    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          134    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          136    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          138    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          140    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          142    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          144    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          146    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          148    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          150    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          154    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          156    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          158    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000000   Code   RO          160    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
+    0x0020047e   0x0020047e   0x00000002   Code   RO          161    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
+    0x00200480   0x00200480   0x00000002   Code   RO          190    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x00200482   0x00200482   0x00000000   Code   RO          202    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x00200482   0x00200482   0x00000000   Code   RO          204    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x00200482   0x00200482   0x00000000   Code   RO          207    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x00200482   0x00200482   0x00000000   Code   RO          210    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x00200482   0x00200482   0x00000000   Code   RO          212    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x00200482   0x00200482   0x00000000   Code   RO          215    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x00200482   0x00200482   0x00000002   Code   RO          216    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x00200484   0x00200484   0x00000000   Code   RO           73    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x00200484   0x00200484   0x00000000   Code   RO           75    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x00200484   0x00200484   0x00000004   Code   RO           89    .ARM.Collect$$rtentry$$00000007  c_p.l(__rtentry7.o)
+    0x00200488   0x00200488   0x00000000   Code   RO           77    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x00200488   0x00200488   0x00000004   Code   RO           78    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x0020048c   0x0020048c   0x00000000   Code   RO           80    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x0020048c   0x0020048c   0x00000008   Code   RO           81    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x00200494   0x00200494   0x00000004   Code   RO           90    .ARM.Collect$$rtentry$$00002718  c_p.l(__rtentry7.o)
+    0x00200498   0x00200498   0x00000002   Code   RO          113    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0020049a   0x0020049a   0x00000000   Code   RO          170    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0020049a   0x0020049a   0x00000004   Code   RO          171    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x0020049e   0x0020049e   0x00000006   Code   RO          172    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x002004a4   0x002004a4   0x00000010   Code   RO           97    .text               c_p.l(exit.o)
+    0x002004b4   0x002004b4   0x00000002   Code   RO          166    .text               c_p.l(use_no_semi.o)
+    0x002004b6   0x002004b6   0x00000000   Code   RO          168    .text               c_p.l(indicate_semi.o)
+    0x002004b6   0x002004b6   0x00000002   PAD
+    0x002004b8   0x002004b8   0x0000000c   Code   RO          180    .text               c_p.l(sys_exit.o)
+    0x002004c4   0x002004c4   0x00000002   Code   RO           43    .text.Default_Handler  startup_iotkit_cm23.o
+    0x002004c6   0x002004c6   0x00000002   Code   RO           47    .text.HardFault_Handler  startup_iotkit_cm23.o
+    0x002004c8   0x002004c8   0x00000014   Code   RO           29    .text.LED_Off       led_v2m-mps2.o
+    0x002004dc   0x002004dc   0x00000018   Code   RO           27    .text.LED_On        led_v2m-mps2.o
+    0x002004f4   0x002004f4   0x00000008   Code   RO            6    .text.NonSecure_LED_Off  main_ns.o
+    0x002004fc   0x002004fc   0x00000008   Code   RO            4    .text.NonSecure_LED_On  main_ns.o
+    0x00200504   0x00200504   0x00000014   Code   RO           45    .text.Reset_Handler  startup_iotkit_cm23.o
+    0x00200518   0x00200518   0x00000058   Code   RO            8    .text.SysTick_Handler  main_ns.o
+    0x00200570   0x00200570   0x00000008   Code   RO           58    .text.SystemCoreClockUpdate  system_iotkit_cm23.o
+    0x00200578   0x00200578   0x0000001c   Code   RO           60    .text.SystemInit    system_iotkit_cm23.o
+    0x00200594   0x00200594   0x000000b0   Code   RO           10    .text.main          main_ns.o
+    0x00200644   0x00200644   0x0000000c   Ven    RO          257    Veneer$$Code        anon$$obj.o
+    0x00200650   0x00200650   0x0000000c   Ven    RO          258    Veneer$$Code        anon$$obj.o
+    0x0020065c   0x0020065c   0x0000000c   Ven    RO          259    Veneer$$Code        anon$$obj.o
+    0x00200668   0x00200668   0x0000000c   Ven    RO          260    Veneer$$Code        anon$$obj.o
+    0x00200674   0x00200674   0x0000000c   Ven    RO          261    Veneer$$Code        anon$$obj.o
+    0x00200680   0x00200680   0x00000020   Data   RO          250    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_RAM (Exec base: 0x28200000, Load base: 0x002006a0, Size: 0x00000028, Max: 0x001ff000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x28200000   0x002006a0   0x00000004   Data   RW           62    .data.SystemCoreClock  system_iotkit_cm23.o
+    0x28200004   0x002006a4   0x0000001e   Data   RW           12    .data.text          main_ns.o
+    0x28200022   0x002006c2   0x00000002   PAD
+    0x28200024        -       0x00000004   Zero   RW           13    .bss.SysTick_Handler.ticks  main_ns.o
+
+
+    Execution Region ARM_LIB_HEAP (Exec base: 0x28200028, Load base: 0x002006c4, Size: 0x00000c00, Max: 0x00000c00, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x28200028        -       0x00000c00   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x283ffc00, Load base: 0x002006c4, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x283ffc00        -       0x00000400   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+        44          4          0          0          0       2073   led_v2m-mps2.o
+       280         32          0         30          4       5417   main_ns.o
+        24          4       1024          0          0       1404   startup_iotkit_cm23.o
+        36         12          0          4          0       1213   system_iotkit_cm23.o
+
+    ----------------------------------------------------------------------
+       444         72       1056         36       4100      10107   Object Totals
+        60         20         32          0       4096          0   (incl. Generated)
+         0          0          0          2          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         8          0          0          0          0         68   __main.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         8          4          0          0          0          0   __rtentry7.o
+        60          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
+        28          0          0          0          0          0   __scatter_zi.o
+        16          0          0          0          0         68   exit.o
+         0          0          0          0          0          0   indicate_semi.o
+         2          0          0          0          0          0   libinit.o
+         2          0          0          0          0          0   libinit2.o
+         2          0          0          0          0          0   libshutdown.o
+         2          0          0          0          0          0   libshutdown2.o
+         2          0          0          0          0          0   rtexit.o
+        10          0          0          0          0          0   rtexit2.o
+        12          4          0          0          0         60   sys_exit.o
+         2          0          0          0          0         68   use_no_semi.o
+
+    ----------------------------------------------------------------------
+       196         16          0          0          0        264   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       192         16          0          0          0        264   c_p.l
+
+    ----------------------------------------------------------------------
+       196         16          0          0          0        264   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+       640         88       1056         36       4100      10419   Grand Totals
+       640         88       1056         36       4100      10419   ELF Image Totals
+       640         88       1056         36          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 1696 (   1.66kB)
+    Total RW  Size (RW Data + ZI Data)              4136 (   4.04kB)
+    Total ROM Size (Code + RO Data + RW Data)       1732 (   1.69kB)
+
+==============================================================================
+
