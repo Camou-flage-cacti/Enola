@@ -1,8 +1,14 @@
 /* Define memory regions */
 MEMORY
 {
+/* This two lines are for no-TrustZone project
   FLASH (rx) : ORIGIN = 0x10000000, LENGTH = 0x00200000
-  RAM (rwx) : ORIGIN = 0x38000000, LENGTH = 0x00200000
+  RAM (rwx) : ORIGIN = 0x38000000, LENGTH = 0x00200000 */
+  
+  /* The next two lines are for TrustZone project */
+  FLASH (rx) : ORIGIN = 0x00200000, LENGTH = 0x00200000
+  RAM (rwx) : ORIGIN = 0x28200000, LENGTH = 0x00200000
+   
 }
 
 /* Library configurations */
@@ -20,8 +26,8 @@ SECTIONS
     KEEP(*(.vectors))
 
     _start = .; /* Define the entry point at the beginning of the .text section */
-    *main.o(.text*)
-    *main.o(.text)
+    *main_ns.o(.text*)
+    *main_ns.o(.text)
     *nettle-aes.o(.text*)
     *nettle-aes.o(.text)
     *nettle-sha256.o(.text*)
