@@ -80,8 +80,8 @@ all: $(BUILD_DIR) enolaAE $(TARGET)
 
 enolaAE:
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/enolaTrampoline.c -o $(BUILD_DIR)/enolaTrampoline.o
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_START_UP)/startup_IOTKit_CM33.c -o $(BUILD_DIR)/startup_IOTKit_CM33.o
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_START_UP)/system_IOTKit_CM33.c -o $(BUILD_DIR)/system_IOTKit_CM33.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_START_UP)/startup_IOTKit_CM33_TZ.c -o $(BUILD_DIR)/startup_IOTKit_CM33.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_START_UP)/system_IOTKit_CM33_TZ.c -o $(BUILD_DIR)/system_IOTKit_CM33.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/stdout.c -o $(BUILD_DIR)/stdout.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/USART_V2M-MPS2.c -o $(BUILD_DIR)/USART_V2M-MPS2.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/retarget_io.c -o $(BUILD_DIR)/retarget_io.o
@@ -97,7 +97,7 @@ $(BUILD_DIR):
 $(TARGET): $(OBJECTS)
 #	$(CC) $(LDFLAGS) -o $@ $^
 #	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-crt0.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $^
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-crt0.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $(ENOLA_SECURE_LIB)/IOTKit_CM23_s_CMSE_Lib.o $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-crt0.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $(ENOLA_SECURE_LIB)/IOTKit_CM33_s_CMSE_Lib.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
 #	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
