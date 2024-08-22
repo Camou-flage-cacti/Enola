@@ -35,14 +35,14 @@ void init_trampoline()
         To.occurrence_count[i] = 0;
     }
 
-    for(int i = 0; i <BASIC_BlOCK_MAX; i++)
+    for(int i = 0; i <ARBITRARY_MAX; i++)
     {
         To.arbitrary_cf_addresses[i] = -1;
     }
-	for(int i =0 ; i <vi_range; i++)
-	{
-		index_map[i] = 0xffff;
-	}
+		for(int i =0 ; i <vi_range; i++)
+		{
+			index_map[i] = 0xffff;
+		}
 	//To.occurrence_size = 0;
 	occurrence_trace_size = 0;
 	total_exec = 0;

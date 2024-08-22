@@ -180,6 +180,7 @@ int main (void)
   SysTick_Config(SystemCoreClock / 100);  /* Generate interrupt each 10 ms */
 	
 	init_trampoline();
+	print_occurence_trace();
   NonSecure_ResetHandler();
 }
 

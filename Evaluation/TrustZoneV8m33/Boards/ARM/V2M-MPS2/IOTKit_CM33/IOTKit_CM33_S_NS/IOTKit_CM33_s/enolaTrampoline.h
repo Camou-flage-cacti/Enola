@@ -28,7 +28,7 @@ void  display_elapsed_times();*/
 
 
 /*library functions*/
-__attribute__((optnone)) void init_trampoline();
+void init_trampoline();
 void __attribute__((naked)) init_registers();
 void __attribute__((naked)) enable_PAC();
 void __attribute__((naked)) setup_S_PAC_Keys();
