@@ -54,6 +54,12 @@ void Secure_printf (char* pString)
   printf("%s", pString);
 }
 
+void test_llvm_nsc (int a) __attribute__((cmse_nonsecure_entry)) ;
+void test_llvm_nsc (int a)
+{
+  printf("LLVM NSC compiled count: 0x%x\n\r", a);
+}
+
 
 /*----------------------------------------------------------------------------
   Secure function for NonSecure callbacks exported to NonSecure application
