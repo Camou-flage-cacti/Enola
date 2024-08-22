@@ -10,8 +10,8 @@ volatile unsigned int *IBT_size = (unsigned int *)IBT_ADDRESS;
 volatile unsigned int * IBT_entry = (unsigned int *) (IBT_ADDRESS + sizeof(unsigned int));
 
 unsigned int occurrence_trace_size = 0;
-#define vi_range 5600
-#define app_base 0x420
+#define vi_range 10240
+#define app_base 0x400
 unsigned short int index_map[vi_range];
 unsigned int total_exec = 0;
 void intialize_IBT()
@@ -94,13 +94,14 @@ void secure_trace_storage(int current_addr)
 	// : "r0"
 	// );
 	//unsigned int idx = get_idx(current_addr);
-	unsigned int map_idx = (current_addr & 0xffff) - 0x420;
+	unsigned int map_idx = (current_addr & 0xffff) - app_base;
 	unsigned int idx = index_map [map_idx];
 	if(idx == 0xffff)
 	{
-		To.basicBlockStart[idx] = current_addr;
+		To.basicBlockStart[occurrence_trace_size] = current_addr;
+		index_map[map_idx] = occurrence_trace_size;
 		idx = occurrence_trace_size++;
-		index_map[map_idx] = idx;
+		
 	}
 	//idx = (idx == BASIC_BlOCK_MAX ? occurrence_trace_size++ : idx);
 	//printf("\r\n Debugging info: index %u =\r\n",idx);
@@ -151,9 +152,9 @@ void indirect_secure_trace_storage(int indirect_target)
 	unsigned int idx = index_map [map_idx];
 	if(idx == 0xffff)
 	{
-		To.basicBlockStart[idx] = indirect_target;
+		To.basicBlockStart[occurrence_trace_size] = indirect_target;
+		index_map[map_idx] = occurrence_trace_size;
 		idx = occurrence_trace_size++;
-		index_map[map_idx] = idx;
 	}
 	//printf("\r\n Debugging info: index %u =\r\n",idx);
 	/*Update address and occurrence count*/

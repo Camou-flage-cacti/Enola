@@ -534,8 +534,9 @@ Image Symbol Table
     test_llvm_nsc                            0x101ffe19   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
     Secure_LED_On_callback                   0x101ffe21   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
     Secure_LED_Off_callback                  0x101ffe29   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
-    secure_trace_storage                     0x101ffe31   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
-    indirect_secure_trace_storage            0x101ffe39   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
+    print_occurence_trace                    0x101ffe31   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
+    secure_trace_storage                     0x101ffe39   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
+    indirect_secure_trace_storage            0x101ffe41   Thumb Code     8  IOTKit_CM33_s_CMSE_Lib.o ABSOLUTE
     SystemCoreClock                          0x28200000   Data           4  system_iotkit_cm33.o(.data.SystemCoreClock)
     text                                     0x28200004   Data          30  main_ns.o(.data.text)
     Image$$ARM_LIB_HEAP$$ZI$$Base            0x28200028   Number         0  anon$$obj.o ABSOLUTE

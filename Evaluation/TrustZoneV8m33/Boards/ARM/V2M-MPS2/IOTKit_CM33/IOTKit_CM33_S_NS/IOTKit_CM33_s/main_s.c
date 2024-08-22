@@ -82,7 +82,7 @@ int32_t Secure_LED_Off_callback(NonSecure_fpParam callback)
 /*----------------------------------------------------------------------------
   SysTick IRQ Handler
  *----------------------------------------------------------------------------*/
-void SysTick_Handler (void);
+/*void SysTick_Handler (void);
 void SysTick_Handler (void) {
   static uint32_t ticks = 0;
   static uint32_t ticks_printf = 0;
@@ -120,7 +120,7 @@ void SysTick_Handler (void) {
       }
   }
 }
-
+*/
 
 static uint32_t x;
 /*----------------------------------------------------------------------------
@@ -180,7 +180,6 @@ int main (void)
   SysTick_Config(SystemCoreClock / 100);  /* Generate interrupt each 10 ms */
 	
 	init_trampoline();
-	print_occurence_trace();
   NonSecure_ResetHandler();
 }
 

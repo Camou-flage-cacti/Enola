@@ -15,3 +15,4 @@ extern void    Secure_printf (char*);
 extern void 	 test_llvm_nsc (int count);
 extern void 	 secure_trace_storage(int current_addr);
 extern void 	 indirect_secure_trace_storage(int indirect_target);
+extern void 	 print_occurence_trace();

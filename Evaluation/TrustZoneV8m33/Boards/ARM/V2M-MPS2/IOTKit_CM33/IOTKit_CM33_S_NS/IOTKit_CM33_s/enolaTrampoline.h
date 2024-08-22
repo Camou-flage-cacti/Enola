@@ -35,7 +35,7 @@ void __attribute__((naked)) setup_S_PAC_Keys();
 extern void secure_trace_storage(int current_addr)  __attribute__((cmse_nonsecure_entry)) ;
 extern void indirect_secure_trace_storage(int indirect_target)  __attribute__((cmse_nonsecure_entry)) ;
 unsigned int get_idx(unsigned int addr);
-void print_occurence_trace(); /*Temporary function*/
+extern void print_occurence_trace()  __attribute__((cmse_nonsecure_entry)) ; /*Temporary function*/
 int linear_ITL_search(unsigned int);
 void intialize_IBT();
 #endif
