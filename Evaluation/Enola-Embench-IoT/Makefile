@@ -34,9 +34,9 @@ INCLUDES += -I./uninsrumented_source
 #SOURCES += LED_V2M-MPS2.c
 #SOURCES += Touch_V2M-MPS2.c
 
-SOURCES = main_ns.c
-#SOURCES += crc_32.c
-#SOURCES += beebsc.c
+#SOURCES = main_ns.c
+SOURCES += crc_32.c
+SOURCES += beebsc.c
 
 #SOURCES += USART_V2M-MPS2.c
 #SOURCES += retarget_io.c
@@ -79,7 +79,7 @@ TARGET = Blinky.axf
 all: $(BUILD_DIR) enolaAE $(TARGET)
 
 enolaAE:
-	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/enolaTrampoline.c -o $(BUILD_DIR)/enolaTrampoline.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/enola-measurement.c -o $(BUILD_DIR)/enola-measurement.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_START_UP)/startup_IOTKit_CM33_TZ.c -o $(BUILD_DIR)/startup_IOTKit_CM33.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_START_UP)/system_IOTKit_CM33_TZ.c -o $(BUILD_DIR)/system_IOTKit_CM33.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/stdout.c -o $(BUILD_DIR)/stdout.o
@@ -89,6 +89,7 @@ enolaAE:
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libc.c -o $(BUILD_DIR)/dummy-libc.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libgcc.c -o $(BUILD_DIR)/dummy-libgcc.o
 	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/dummy-libm.c -o $(BUILD_DIR)/dummy-libm.o
+	$(CC) $(INCLUDES) $(CFLAGS) -c main_ns.c -o $(BUILD_DIR)/main_ns.o
 #	$(CC) $(INCLUDES) $(CFLAGS) -c $(UNINSTRUMENTED_DIR)/boardsupport.c -o $(BUILD_DIR)/boardsupport.o
 
 $(BUILD_DIR):
@@ -97,13 +98,13 @@ $(BUILD_DIR):
 $(TARGET): $(OBJECTS)
 #	$(CC) $(LDFLAGS) -o $@ $^
 #	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-crt0.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $^
-	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/enolaTrampoline.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-crt0.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $(ENOLA_SECURE_LIB)/IOTKit_CM33_s_CMSE_Lib.o $^
+	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/main_ns.o $(BUILD_DIR)/enola-measurement.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $(ENOLA_SECURE_LIB)/IOTKit_CM33_s_CMSE_Lib.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
-	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+#	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+#	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:
