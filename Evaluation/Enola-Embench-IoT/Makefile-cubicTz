@@ -35,8 +35,8 @@ INCLUDES += -I./uninsrumented_source
 #SOURCES += Touch_V2M-MPS2.c
 
 #SOURCES = main_ns.c
-SOURCES = libhuffbench.c
-SOURCES += beebsc.c
+SOURCES = libcubic.c
+SOURCES += basicmath_small.c
 
 #SOURCES += USART_V2M-MPS2.c
 #SOURCES += retarget_io.c
