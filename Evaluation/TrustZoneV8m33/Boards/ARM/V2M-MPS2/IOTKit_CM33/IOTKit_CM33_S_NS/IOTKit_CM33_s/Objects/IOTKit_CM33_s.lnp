@@ -1,6 +1,7 @@
 --cpu=Cortex-M33
 ".\objects\main_s.o"
 ".\objects\stdout_usart.o"
+".\objects\enolatrampoline.o"
 ".\objects\glcd_fonts.o"
 ".\objects\glcd_v2m-mps2.o"
 ".\objects\led_v2m-mps2.o"

@@ -98,5 +98,7 @@ int main (void)
 		{
 			test_llvm_nsc(i + 1);
 		}
+		secure_trace_storage(0x1122);
+		indirect_secure_trace_storage(0x1122332);
 //   }
 }

@@ -10,7 +10,7 @@
 #include "Board_LED.h"                             /* ::Board Support:LED */
 #include "Board_GLCD.h"                            /* ::Board Support:Graphic LCD */
 #include "GLCD_Config.h"                           /* Keil.V2M-MPS2 IOT-Kit::Board Support:Graphic LCD */
-
+#include "enolaTrampoline.h"
 /* Start address of non-secure application */
 #define NONSECURE_START (0x00200000u)
 
@@ -178,7 +178,8 @@ int main (void)
   }
 
   SysTick_Config(SystemCoreClock / 100);  /* Generate interrupt each 10 ms */
-
+	
+	init_trampoline();
   NonSecure_ResetHandler();
 }
 

@@ -13,3 +13,5 @@ extern int32_t Secure_LED_On_callback (NonSecure_funcptr);
 extern int32_t Secure_LED_Off_callback(NonSecure_funcptr);
 extern void    Secure_printf (char*);
 extern void 	 test_llvm_nsc (int count);
+extern void 	 secure_trace_storage(int current_addr);
+extern void 	 indirect_secure_trace_storage(int indirect_target);

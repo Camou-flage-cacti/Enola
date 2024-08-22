@@ -829,10 +829,13 @@ main:
 .LBB7_2:
 	@DEBUG_VALUE: main:NonSecure_ResetHandler <- $r4
 	@DEBUG_VALUE: main:NonSecure_ResetHandler <- $r4
-	.loc	1 182 3                         @ main_s.c:182:3
+	.loc	1 182 2                         @ main_s.c:182:2
+	bl	init_trampoline
+.Ltmp90:
+	.loc	1 183 3                         @ main_s.c:183:3
 	push.w	{r4, r5, r6, r7, r8, r9, r10, r11}
 	bic	r4, r4, #1
-.Ltmp90:
+.Ltmp91:
 	sub	sp, #136
 	vlstm	sp
 	mov	r0, r4
@@ -849,7 +852,7 @@ main:
 	mov	r12, r4
 	msr	apsr_nzcvqg, r4
 	blxns	r4
-.Ltmp91:
+.Ltmp92:
 	mrs	r12, control
 	tst.w	r12, #8
 	it	ne
@@ -857,11 +860,11 @@ main:
 	vlldm	sp
 	add	sp, #136
 	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11}
-	.loc	1 183 1                         @ main_s.c:183:1
+	.loc	1 184 1                         @ main_s.c:184:1
 	mov.w	r0, #0
 	add	sp, #16
 	pop	{r4, r5, r6, pc}
-.Ltmp92:
+.Ltmp93:
 	.p2align	2
 @ %bb.3:
 	.loc	1 0 1 is_stmt 0                 @ main_s.c:0:1
@@ -1037,7 +1040,7 @@ __ARM_use_no_argv:
 	.long	-1
 	.long	.Lfunc_begin7                   @   base address
 	.long	.Ltmp54-.Lfunc_begin7
-	.long	.Ltmp90-.Lfunc_begin7
+	.long	.Ltmp91-.Lfunc_begin7
 	.short	1                               @ Loc expr size
 	.byte	84                              @ DW_OP_reg4
 	.long	0
