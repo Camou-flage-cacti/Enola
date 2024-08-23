@@ -150,7 +150,7 @@ int main (void)
   SystemCoreClockUpdate();
 
   stdout_init();                          /* Initialize Serial interface */
-  LED_Initialize ();
+  /*LED_Initialize ();*/
   GLCD_Initialize();
 
   /* display initial screen */
@@ -159,9 +159,9 @@ int main (void)
   GLCD_ClearScreen();
   GLCD_SetBackgroundColor(GLCD_COLOR_BLUE);
   GLCD_SetForegroundColor(GLCD_COLOR_RED);
-  GLCD_DrawString(0*16, 0*24, "   V2M-MPS2+ Demo   ");
-  GLCD_DrawString(0*16, 1*24, " Secure/Non-Secure  ");
-  GLCD_DrawString(0*16, 2*24, "   www.keil.com     ");
+  GLCD_DrawString(0*16, 0*24, "   CactiLab   ");
+  GLCD_DrawString(0*16, 1*24, " ENOLA  ");
+  GLCD_DrawString(0*16, 2*24, "   CFA    ");
 
   GLCD_SetBackgroundColor(GLCD_COLOR_WHITE);
   GLCD_SetForegroundColor(GLCD_COLOR_BLACK);
@@ -170,14 +170,14 @@ int main (void)
       GLCD_DrawString(0*16, 4*24, "  Cortex-M23        ");
       break;
     case 0xD21:
-      GLCD_DrawString(0*16, 4*24, "  Cortex-M33        ");
+      GLCD_DrawString(0*16, 4*24, "  Cortex-M85        ");
       break;
     default:
       GLCD_DrawString(0*16, 4*24, "  unknown Cortex-M  ");
       break;
   }
 
-  SysTick_Config(SystemCoreClock / 100);  /* Generate interrupt each 10 ms */
+  //SysTick_Config(SystemCoreClock / 100);  /* Generate interrupt each 10 ms */
 	
 	init_trampoline();
   NonSecure_ResetHandler();
