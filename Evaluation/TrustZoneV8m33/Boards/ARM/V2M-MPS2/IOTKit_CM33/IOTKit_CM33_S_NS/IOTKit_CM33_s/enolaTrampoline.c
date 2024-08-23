@@ -74,27 +74,7 @@ unsigned int get_idx(unsigned int addr)
 /*TODO: implement secure trace storage for TA*/
 void secure_trace_storage(int current_addr)
 {	
-	// __asm volatile(
-	// "PUSH {r12}\n\t"
-	// );
-	// if(occurrence_trace_size >= BASIC_BlOCK_MAX)
-	// {
-	// 	#ifdef ENOLA_TRACE_DEBUG
-	// 	printf("\r\n Error info: Occurence trace buffer full =\r\n");
-	// 	#endif
-	// 	return;
-	// }
-
-	// unsigned int current_addr = 0;
-	// __asm volatile(
-	// //"MOV r0, lr\n\t"
-	// "MOV %0, r0\n\t"
-	// : "=r" (current_addr)
-	// :
-	// : "r0"
-	// );
-	//unsigned int idx = get_idx(current_addr);
-	unsigned int map_idx = (current_addr & 0xffff) - app_base;
+	/*unsigned int map_idx = (current_addr & 0xffff) - app_base;
 	unsigned int idx = index_map [map_idx];
 	if(idx == 0xffff)
 	{
@@ -103,52 +83,31 @@ void secure_trace_storage(int current_addr)
 		idx = occurrence_trace_size++;
 		
 	}
-	//idx = (idx == BASIC_BlOCK_MAX ? occurrence_trace_size++ : idx);
-	//printf("\r\n Debugging info: index %u =\r\n",idx);
-	/*Update address and occurrence count*/
-	To.occurrence_count[idx]++;
-	total_exec++;
 
-	//To.occurrence_size++;
-	#ifdef ENOLA_TRACE_DEBUG
-    printf("\r\n Debugging info: in the secure trace storage function =\r\n");
-	print_occurence_trace();
-	#endif
-	return;
+	To.occurrence_count[idx]++;*/
+	
+	
+ // Cache commonly used values to avoid repeated calculations
+	unsigned int map_idx = (current_addr & 0xffff) - app_base;
+	unsigned int *idx_ptr = &index_map[map_idx];
+	unsigned int idx = *idx_ptr;
+
+	// Check if the index has been initialized
+	if (idx == 0xffffffff)
+	{
+			To.basicBlockStart[occurrence_trace_size] = current_addr;
+			*idx_ptr = occurrence_trace_size;
+			idx = occurrence_trace_size++;
+	}
+
+	// Use precomputed index to update the occurrence count
+	To.occurrence_count[idx]++;
+	
 }
 /*TODO Implement indirect branch analysis from the binary offline analysis data*/
 void indirect_secure_trace_storage(int indirect_target)
 {
-	// if(occurrence_trace_size >= BASIC_BlOCK_MAX)
-	// {
-	// 	#ifdef ENOLA_TRACE_DEBUG
-	// 	printf("\r\n Error info: Occurence trace buffer full =\r\n");
-	// 	#endif
-	// 	return;
-	// }
-	/*get the target address from r0, the instrumened code will provide it in r0*/
-	// __asm volatile(
-	// "MOV %0, r0\n\t"
-	// : "=r" (indirect_target)
-	// :
-	// : "r0"
-	// );
-	/*get the source address from lr + 2, lr will always be the load from stack instruction*/
-	// __asm volatile(
-	// "MOV %0, r1\n\t"
-	// : "=r" (indirect_source)
-	// :
-	// : "r1"
-	// );
-	/*get the target address from r0, the instrumened code will provide it in r0*/
-	/*get the source address from lr + 2, lr will always be the load from stack instruction*/
-	//indirect_source = dummy2;
-	/*We need to decrease by 1 as in ARM PC will always be -1 */
-	//indirect_source += 1;
-	//printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
-	// unsigned int idx = get_idx(indirect_target);
-	// idx = (idx == BASIC_BlOCK_MAX ? occurrence_trace_size++ : idx);
-	unsigned int map_idx = (indirect_target & 0xffff) - app_base;
+	/*unsigned int map_idx = (indirect_target & 0xffff) - app_base;
 	unsigned int idx = index_map [map_idx];
 	if(idx == 0xffff)
 	{
@@ -156,16 +115,23 @@ void indirect_secure_trace_storage(int indirect_target)
 		index_map[map_idx] = occurrence_trace_size;
 		idx = occurrence_trace_size++;
 	}
-	//printf("\r\n Debugging info: index %u =\r\n",idx);
-	/*Update address and occurrence count*/
-	To.occurrence_count[idx]++;
-	total_exec++;
-	#ifdef ENOLA_TRACE_DEBUG
-	printf("\r\n The indirect source is 0x%x and the target is at 0x%x address=\r\n", indirect_source, indirect_target);
-	printf("\r\n Debugging info: in the insecure trace storage function =\r\n");
-	#endif
+	
+	To.occurrence_count[idx]++;*/
+	 // Cache commonly used values to avoid repeated calculations
+	unsigned int map_idx = (indirect_target & 0xffff) - app_base;
+	unsigned int *idx_ptr = &index_map[map_idx];
+	unsigned int idx = *idx_ptr;
 
-	return;
+	// Check if the index has been initialized
+	if (idx == 0xffffffff)
+	{
+			To.basicBlockStart[occurrence_trace_size] = indirect_target;
+			*idx_ptr = occurrence_trace_size;
+			idx = occurrence_trace_size++;
+	}
+
+	// Use precomputed index to update the occurrence count
+	To.occurrence_count[idx]++;
 }
 int linear_ITL_search(unsigned int target)
 {
