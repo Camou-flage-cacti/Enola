@@ -27,14 +27,12 @@ int main (void)
 
   SystemCoreClockUpdate();
 
-  Secure_printf(text);
-  Secure_printf(text);
   elapsed_time_init();
 	elapsed_time_start(0);
   volatile int result = benchmark ();
   elapsed_time_stop(0);
 
-
+  print_occurence_trace();
   int correct = verify_benchmark (result);
   return (!correct);
 

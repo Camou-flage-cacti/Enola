@@ -101,10 +101,10 @@ $(TARGET): $(OBJECTS)
 	$(CC) $(INCLUDES) $(LDFLAGS)  -o $@ $(BUILD_DIR)/main_ns.o $(BUILD_DIR)/enola-measurement.o $(BUILD_DIR)/startup_IOTKit_CM33.o $(BUILD_DIR)/system_IOTKit_CM33.o $(BUILD_DIR)/stdout.o  $(BUILD_DIR)/USART_V2M-MPS2.o  $(BUILD_DIR)/retarget_io.o $(BUILD_DIR)/dummy-libc.o $(BUILD_DIR)/dummy-libgcc.o $(BUILD_DIR)/dummy-libm.o $(ENOLA_SECURE_LIB)/IOTKit_CM33_s_CMSE_Lib.o $^
 # Rule to compile .c files to .o files
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-#	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
-#	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-#	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
+#	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
+	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
+	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:
