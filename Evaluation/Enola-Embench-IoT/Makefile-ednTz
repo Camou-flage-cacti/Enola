@@ -103,7 +103,7 @@ $(BUILD_DIR)/%.o: %.c
 #	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	$(CC) $(CFLAGS) $(INCLUDES) $< -S -emit-llvm -o $(BUILD_DIR)/$*.ll
 	$(OPT) -enable-new-pm=0 -load $(ENOLA_LIB_PATH) -EnolaPass $(BUILD_DIR)/$*.ll -S -o $(BUILD_DIR)/$*_opt.ll
-#	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
+	$(LLC) -march=arm -filetype=obj $(BUILD_DIR)/$*_opt.ll -o $@
 
 # To remove generated files
 clean:
