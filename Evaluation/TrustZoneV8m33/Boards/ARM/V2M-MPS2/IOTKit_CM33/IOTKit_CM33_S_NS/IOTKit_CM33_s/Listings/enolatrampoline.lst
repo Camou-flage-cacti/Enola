@@ -61,52 +61,51 @@ init_trampoline:
 	.fnstart
 	.cfi_startproc
 @ %bb.0:
-	.save	{r4, r5, r7, lr}
-	push	{r4, r5, r7, lr}
+	.save	{r4, r5, r6, lr}
+	push	{r4, r5, r6, lr}
 	.cfi_def_cfa_offset 16
 	.cfi_offset lr, -4
-	.cfi_offset r7, -8
+	.cfi_offset r6, -8
 	.cfi_offset r5, -12
 	.cfi_offset r4, -16
 .Ltmp1:
 	.loc	1 31 21 prologue_end            @ enolaTrampoline.c:31:21
 	movw	r4, :lower16:To
+	movw	r0, #28000
 	movt	r4, :upper16:To
 	movs	r5, #0
+	strb	r5, [r4, r0]
 .Ltmp2:
-	.loc	1 34 31                         @ enolaTrampoline.c:34:31
-	mov	r0, r4
-	mov.w	r1, #1024
-	movs	r2, #255
-.Ltmp3:
-	.loc	1 31 21                         @ enolaTrampoline.c:31:21
-	strb.w	r5, [r4, #2048]
-.Ltmp4:
 	@DEBUG_VALUE: i <- 0
 	.loc	1 34 31                         @ enolaTrampoline.c:34:31
+	mov	r0, r4
+	movw	r1, #14000
+	movs	r2, #255
+	movw	r6, #14000
 	bl	__aeabi_memset4
-.Ltmp5:
+.Ltmp3:
 	.loc	1 35 32                         @ enolaTrampoline.c:35:32
-	add.w	r0, r4, #1024
-	mov.w	r1, #1024
+	adds	r0, r4, r6
+	movw	r1, #14000
 	bl	__aeabi_memclr4
-.Ltmp6:
+.Ltmp4:
 	.loc	1 0 32 is_stmt 0                @ enolaTrampoline.c:0:32
-	mov.w	r0, #-1
-.Ltmp7:
+	movw	r0, #28004
+	mov.w	r1, #-1
+.Ltmp5:
 	@DEBUG_VALUE: i <- undef
 	@DEBUG_VALUE: i <- [DW_OP_plus_uconst 1, DW_OP_stack_value] undef
 	.loc	1 40 38 is_stmt 1               @ enolaTrampoline.c:40:38
-	str.w	r0, [r4, #2052]
-.Ltmp8:
+	str	r1, [r4, r0]
+.Ltmp6:
 	@DEBUG_VALUE: i <- 0
 	.loc	1 44 17                         @ enolaTrampoline.c:44:17
 	movw	r0, :lower16:index_map
 	movt	r0, :upper16:index_map
-	mov.w	r1, #20480
+	movw	r1, #46000
 	movs	r2, #255
 	bl	__aeabi_memset4
-.Ltmp9:
+.Ltmp7:
 	@DEBUG_VALUE: i <- [DW_OP_plus_uconst 1, DW_OP_stack_value] undef
 	.loc	1 47 24                         @ enolaTrampoline.c:47:24
 	movw	r0, :lower16:occurrence_trace_size
@@ -117,8 +116,8 @@ init_trampoline:
 	movt	r0, :upper16:total_exec
 	str	r5, [r0]
 	.loc	1 49 1                          @ enolaTrampoline.c:49:1
-	pop	{r4, r5, r7, pc}
-.Ltmp10:
+	pop	{r4, r5, r6, pc}
+.Ltmp8:
 .Lfunc_end1:
 	.size	init_trampoline, .Lfunc_end1-init_trampoline
 	.cfi_endproc
@@ -141,37 +140,35 @@ print_occurence_trace:
 	.fnstart
 	.cfi_startproc
 @ %bb.0:
-	.save	{r4, r5, r6, r7, lr}
-	push	{r4, r5, r6, r7, lr}
-	.cfi_def_cfa_offset 20
-	.cfi_offset lr, -4
-	.cfi_offset r7, -8
-	.cfi_offset r6, -12
-	.cfi_offset r5, -16
-	.cfi_offset r4, -20
-	.pad	#4
-	sub	sp, #4
+	.save	{r4, r5, r6, r7, r8, lr}
+	push.w	{r4, r5, r6, r7, r8, lr}
 	.cfi_def_cfa_offset 24
-.Ltmp11:
+	.cfi_offset lr, -4
+	.cfi_offset r8, -8
+	.cfi_offset r7, -12
+	.cfi_offset r6, -16
+	.cfi_offset r5, -20
+	.cfi_offset r4, -24
+.Ltmp9:
 	.loc	1 53 2 prologue_end             @ enolaTrampoline.c:53:2
 	adr	r0, .LCPI2_0
 	bl	puts
-.Ltmp12:
+.Ltmp10:
 	.loc	1 54 64                         @ enolaTrampoline.c:54:64
-	movw	r5, :lower16:occurrence_trace_size
-	movt	r5, :upper16:occurrence_trace_size
-	ldr	r1, [r5]
+	movw	r8, :lower16:occurrence_trace_size
+	movt	r8, :upper16:occurrence_trace_size
+	ldr.w	r1, [r8]
 	.loc	1 54 2 is_stmt 0                @ enolaTrampoline.c:54:2
 	adr	r0, .LCPI2_1
 	bl	__2printf
-.Ltmp13:
+.Ltmp11:
 	@DEBUG_VALUE: i <- 0
 	.loc	1 55 22 is_stmt 1               @ enolaTrampoline.c:55:22
-	ldr	r0, [r5]
-.Ltmp14:
+	ldr.w	r0, [r8]
+.Ltmp12:
 	.loc	1 55 2 is_stmt 0                @ enolaTrampoline.c:55:2
 	cbz	r0, .LBB2_3
-.Ltmp15:
+.Ltmp13:
 @ %bb.1:
 	@DEBUG_VALUE: i <- 0
 	.loc	1 0 2                           @ enolaTrampoline.c:0:2
@@ -179,8 +176,9 @@ print_occurence_trace:
 	movw	r4, :lower16:.L.str.2
 	movs	r6, #0
 	movt	r7, :upper16:To
+	movw	r5, #14000
 	movt	r4, :upper16:.L.str.2
-.Ltmp16:
+.Ltmp14:
 	.p2align	2
 .LBB2_2:                                @ =>This Inner Loop Header: Depth=1
 	@DEBUG_VALUE: i <- $r6
@@ -188,30 +186,29 @@ print_occurence_trace:
 	add.w	r0, r7, r6, lsl #2
 	ldr.w	r1, [r7, r6, lsl #2]
 	.loc	1 57 72 is_stmt 0               @ enolaTrampoline.c:57:72
-	ldr.w	r2, [r0, #1024]
+	ldr	r2, [r0, r5]
 	.loc	1 57 3                          @ enolaTrampoline.c:57:3
 	mov	r0, r4
 	bl	__2printf
-.Ltmp17:
+.Ltmp15:
 	.loc	1 55 22 is_stmt 1               @ enolaTrampoline.c:55:22
-	ldr	r0, [r5]
+	ldr.w	r0, [r8]
 	.loc	1 55 47 is_stmt 0               @ enolaTrampoline.c:55:47
 	adds	r6, #1
-.Ltmp18:
+.Ltmp16:
 	@DEBUG_VALUE: i <- $r6
 	.loc	1 55 2                          @ enolaTrampoline.c:55:2
 	cmp	r6, r0
 	blo	.LBB2_2
-.Ltmp19:
+.Ltmp17:
 .LBB2_3:
 	.loc	1 59 2 is_stmt 1                @ enolaTrampoline.c:59:2
 	movw	r0, :lower16:.Lstr.4
 	movt	r0, :upper16:.Lstr.4
 	bl	puts
-.Ltmp20:
+.Ltmp18:
 	.loc	1 60 2                          @ enolaTrampoline.c:60:2
-	add	sp, #4
-	pop.w	{r4, r5, r6, r7, lr}
+	pop.w	{r4, r5, r6, r7, r8, lr}
 	mrs	r12, control
 	tst.w	r12, #8
 	beq	.LBB2_5
@@ -236,7 +233,7 @@ print_occurence_trace:
 	mov	r12, lr
 	msr	apsr_nzcvqg, lr
 	bxns	lr
-.Ltmp21:
+.Ltmp19:
 	.p2align	2
 @ %bb.6:
 	.loc	1 0 2 is_stmt 0                 @ enolaTrampoline.c:0:2
@@ -269,59 +266,59 @@ get_idx:
 	movw	r1, :lower16:occurrence_trace_size
 	movt	r1, :upper16:occurrence_trace_size
 	ldr	r2, [r1]
-.Ltmp22:
+.Ltmp20:
 	@DEBUG_VALUE: i <- 0
 	.loc	1 65 2 prologue_end             @ enolaTrampoline.c:65:2
 	cmp	r2, #0
 	@DEBUG_VALUE: get_idx:addr <- $r0
 	itt	eq
-	moveq.w	r0, #256
-.Ltmp23:
+	movweq	r0, #3500
+.Ltmp21:
 	.loc	1 73 1                          @ enolaTrampoline.c:73:1
 	bxeq	lr
-.Ltmp24:
+.Ltmp22:
 .LBB3_1:
 	@DEBUG_VALUE: i <- 0
 	.loc	1 0 1 is_stmt 0                 @ enolaTrampoline.c:0:1
 	movw	r12, :lower16:To
 	mov	r1, r0
-.Ltmp25:
+.Ltmp23:
 	@DEBUG_VALUE: get_idx:addr <- $r1
 	movs	r0, #0
 	movt	r12, :upper16:To
-.Ltmp26:
+.Ltmp24:
 	.p2align	2
 .LBB3_2:                                @ =>This Inner Loop Header: Depth=1
 	@DEBUG_VALUE: get_idx:addr <- $r1
 	@DEBUG_VALUE: i <- $r0
 	.loc	1 67 6 is_stmt 1                @ enolaTrampoline.c:67:6
 	ldr.w	r3, [r12, r0, lsl #2]
-.Ltmp27:
+.Ltmp25:
 	.loc	1 67 6 is_stmt 0                @ enolaTrampoline.c:67:6
 	cmp	r3, r1
-.Ltmp28:
+.Ltmp26:
 	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
 	it	eq
 	bxeq	lr
-.Ltmp29:
+.Ltmp27:
 .LBB3_3:                                @   in Loop: Header=BB3_2 Depth=1
 	@DEBUG_VALUE: i <- $r0
 	@DEBUG_VALUE: get_idx:addr <- $r1
 	.loc	1 65 54                         @ enolaTrampoline.c:65:54
 	adds	r0, #1
-.Ltmp30:
+.Ltmp28:
 	@DEBUG_VALUE: i <- $r0
 	.loc	1 65 2 is_stmt 0                @ enolaTrampoline.c:65:2
 	cmp	r2, r0
 	bne	.LBB3_2
-.Ltmp31:
+.Ltmp29:
 @ %bb.4:
 	@DEBUG_VALUE: get_idx:addr <- $r1
 	.loc	1 0 2                           @ enolaTrampoline.c:0:2
-	mov.w	r0, #256
+	movw	r0, #3500
 	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
 	bx	lr
-.Ltmp32:
+.Ltmp30:
 .Lfunc_end3:
 	.size	get_idx, .Lfunc_end3-get_idx
 	.cfi_endproc
@@ -352,19 +349,19 @@ secure_trace_storage:
 	.cfi_offset r7, -8
 	movw	r1, #64512
 	movt	r1, #65535
-.Ltmp33:
+.Ltmp31:
 	.loc	1 91 49 prologue_end            @ enolaTrampoline.c:91:49
 	uxtah	r3, r1, r0
-.Ltmp34:
+.Ltmp32:
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	.loc	1 92 27                         @ enolaTrampoline.c:92:27
 	movw	lr, :lower16:index_map
 	movt	lr, :upper16:index_map
-.Ltmp35:
+.Ltmp33:
 	@DEBUG_VALUE: secure_trace_storage:idx_ptr <- undef
 	.loc	1 93 21                         @ enolaTrampoline.c:93:21
 	ldr.w	r2, [lr, r3, lsl #1]
-.Ltmp36:
+.Ltmp34:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	.loc	1 0 21 is_stmt 0                @ enolaTrampoline.c:0:21
 	movw	r12, :lower16:To
@@ -372,7 +369,7 @@ secure_trace_storage:
 	adds	r1, r2, #1
 	movt	r12, :upper16:To
 	bne	.LBB4_2
-.Ltmp37:
+.Ltmp35:
 @ %bb.1:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
@@ -381,37 +378,38 @@ secure_trace_storage:
 	movw	r1, :lower16:occurrence_trace_size
 	movt	r1, :upper16:occurrence_trace_size
 	ldr	r2, [r1]
-.Ltmp38:
+.Ltmp36:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	.loc	1 98 46 is_stmt 0               @ enolaTrampoline.c:98:46
 	str.w	r0, [r12, r2, lsl #2]
 	.loc	1 100 31 is_stmt 1              @ enolaTrampoline.c:100:31
 	adds	r0, r2, #1
-.Ltmp39:
+.Ltmp37:
 	@DEBUG_VALUE: secure_trace_storage:current_addr <- [DW_OP_LLVM_entry_value 1] $r0
 	.loc	1 99 13                         @ enolaTrampoline.c:99:13
 	str.w	r2, [lr, r3, lsl #1]
 	.loc	1 100 31                        @ enolaTrampoline.c:100:31
 	str	r0, [r1]
-.Ltmp40:
+.Ltmp38:
 .LBB4_2:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	.loc	1 104 2                         @ enolaTrampoline.c:104:2
 	add.w	r0, r12, r2, lsl #2
+	movw	r1, #14000
 	.loc	1 104 26 is_stmt 0              @ enolaTrampoline.c:104:26
-	ldr.w	r1, [r0, #1024]
-	adds	r1, #1
-	str.w	r1, [r0, #1024]
+	ldr	r2, [r0, r1]
+.Ltmp39:
+	adds	r2, #1
+	str	r2, [r0, r1]
 	.loc	1 106 1 is_stmt 1               @ enolaTrampoline.c:106:1
 	pop.w	{r7, lr}
 	mrs	r12, control
 	tst.w	r12, #8
 	beq	.LBB4_4
-.Ltmp41:
+.Ltmp40:
 @ %bb.3:
-	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	vmrs	r12, fpscr
 	vmov	d0, lr, lr
@@ -425,20 +423,18 @@ secure_trace_storage:
 	vmov	d5, lr, lr
 	vmov	d6, lr, lr
 	vmov	d7, lr, lr
-.Ltmp42:
+.Ltmp41:
 .LBB4_4:
-	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	mov	r0, lr
 	mov	r1, lr
 	mov	r2, lr
-.Ltmp43:
 	mov	r3, lr
-.Ltmp44:
+.Ltmp42:
 	mov	r12, lr
 	msr	apsr_nzcvqg, lr
 	bxns	lr
-.Ltmp45:
+.Ltmp43:
 .Lfunc_end4:
 	.size	secure_trace_storage, .Lfunc_end4-secure_trace_storage
 	.cfi_endproc
@@ -469,19 +465,19 @@ indirect_secure_trace_storage:
 	.cfi_offset r7, -8
 	movw	r1, #64512
 	movt	r1, #65535
-.Ltmp46:
+.Ltmp44:
 	.loc	1 121 52 prologue_end           @ enolaTrampoline.c:121:52
 	uxtah	r3, r1, r0
-.Ltmp47:
+.Ltmp45:
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	.loc	1 122 27                        @ enolaTrampoline.c:122:27
 	movw	lr, :lower16:index_map
 	movt	lr, :upper16:index_map
-.Ltmp48:
+.Ltmp46:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx_ptr <- undef
 	.loc	1 123 21                        @ enolaTrampoline.c:123:21
 	ldr.w	r2, [lr, r3, lsl #1]
-.Ltmp49:
+.Ltmp47:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	.loc	1 0 21 is_stmt 0                @ enolaTrampoline.c:0:21
 	movw	r12, :lower16:To
@@ -489,7 +485,7 @@ indirect_secure_trace_storage:
 	adds	r1, r2, #1
 	movt	r12, :upper16:To
 	bne	.LBB5_2
-.Ltmp50:
+.Ltmp48:
 @ %bb.1:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
@@ -498,37 +494,38 @@ indirect_secure_trace_storage:
 	movw	r1, :lower16:occurrence_trace_size
 	movt	r1, :upper16:occurrence_trace_size
 	ldr	r2, [r1]
-.Ltmp51:
+.Ltmp49:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	.loc	1 128 46 is_stmt 0              @ enolaTrampoline.c:128:46
 	str.w	r0, [r12, r2, lsl #2]
 	.loc	1 130 31 is_stmt 1              @ enolaTrampoline.c:130:31
 	adds	r0, r2, #1
-.Ltmp52:
+.Ltmp50:
 	@DEBUG_VALUE: indirect_secure_trace_storage:indirect_target <- [DW_OP_LLVM_entry_value 1] $r0
 	.loc	1 129 13                        @ enolaTrampoline.c:129:13
 	str.w	r2, [lr, r3, lsl #1]
 	.loc	1 130 31                        @ enolaTrampoline.c:130:31
 	str	r0, [r1]
-.Ltmp53:
+.Ltmp51:
 .LBB5_2:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	.loc	1 134 2                         @ enolaTrampoline.c:134:2
 	add.w	r0, r12, r2, lsl #2
+	movw	r1, #14000
 	.loc	1 134 26 is_stmt 0              @ enolaTrampoline.c:134:26
-	ldr.w	r1, [r0, #1024]
-	adds	r1, #1
-	str.w	r1, [r0, #1024]
+	ldr	r2, [r0, r1]
+.Ltmp52:
+	adds	r2, #1
+	str	r2, [r0, r1]
 	.loc	1 135 1 is_stmt 1               @ enolaTrampoline.c:135:1
 	pop.w	{r7, lr}
 	mrs	r12, control
 	tst.w	r12, #8
 	beq	.LBB5_4
-.Ltmp54:
+.Ltmp53:
 @ %bb.3:
-	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	vmrs	r12, fpscr
 	vmov	d0, lr, lr
@@ -542,20 +539,18 @@ indirect_secure_trace_storage:
 	vmov	d5, lr, lr
 	vmov	d6, lr, lr
 	vmov	d7, lr, lr
-.Ltmp55:
+.Ltmp54:
 .LBB5_4:
-	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	mov	r0, lr
 	mov	r1, lr
 	mov	r2, lr
-.Ltmp56:
 	mov	r3, lr
-.Ltmp57:
+.Ltmp55:
 	mov	r12, lr
 	msr	apsr_nzcvqg, lr
 	bxns	lr
-.Ltmp58:
+.Ltmp56:
 .Lfunc_end5:
 	.size	indirect_secure_trace_storage, .Lfunc_end5-indirect_secure_trace_storage
 	.cfi_endproc
@@ -578,10 +573,10 @@ linear_ITL_search:
 	@DEBUG_VALUE: linear_ITL_search:target <- $r0
 	.loc	1 146 1 prologue_end            @ enolaTrampoline.c:146:1
 	movs	r0, #1
-.Ltmp59:
+.Ltmp57:
 	@DEBUG_VALUE: linear_ITL_search:target <- [DW_OP_LLVM_entry_value 1] $r0
 	bx	lr
-.Ltmp60:
+.Ltmp58:
 .Lfunc_end6:
 	.size	linear_ITL_search, .Lfunc_end6-linear_ITL_search
 	.cfi_endproc
@@ -607,7 +602,7 @@ init_registers:
 	mov.w	r11, #0
 
 	@NO_APP
-.Ltmp61:
+.Ltmp59:
 .Lfunc_end7:
 	.size	init_registers, .Lfunc_end7-init_registers
 	.cfi_endproc
@@ -656,8 +651,8 @@ total_exec:
 	.globl	To
 	.p2align	2
 To:
-	.zero	2056
-	.size	To, 2056
+	.zero	28008
+	.size	To, 28008
 
 	.hidden	index_map                       @ @index_map
 	.type	index_map,%object
@@ -665,8 +660,8 @@ To:
 	.globl	index_map
 	.p2align	2
 index_map:
-	.zero	20480
-	.size	index_map, 20480
+	.zero	46000
+	.size	index_map, 46000
 
 	.type	.L.str.2,%object                @ @.str.2
 	.section	.rodata.str1.1,"aMS",%progbits,1
@@ -688,8 +683,8 @@ index_map:
 .Ldebug_loc0:
 	.long	-1
 	.long	.Lfunc_begin1                   @   base address
-	.long	.Ltmp4-.Lfunc_begin1
-	.long	.Ltmp7-.Lfunc_begin1
+	.long	.Ltmp2-.Lfunc_begin1
+	.long	.Ltmp5-.Lfunc_begin1
 	.short	3                               @ Loc expr size
 	.byte	17                              @ DW_OP_consts
 	.byte	0                               @ 0
@@ -699,8 +694,8 @@ index_map:
 .Ldebug_loc1:
 	.long	-1
 	.long	.Lfunc_begin1                   @   base address
-	.long	.Ltmp8-.Lfunc_begin1
-	.long	.Ltmp9-.Lfunc_begin1
+	.long	.Ltmp6-.Lfunc_begin1
+	.long	.Ltmp7-.Lfunc_begin1
 	.short	3                               @ Loc expr size
 	.byte	17                              @ DW_OP_consts
 	.byte	0                               @ 0
@@ -710,14 +705,14 @@ index_map:
 .Ldebug_loc2:
 	.long	-1
 	.long	.Lfunc_begin2                   @   base address
-	.long	.Ltmp13-.Lfunc_begin2
-	.long	.Ltmp16-.Lfunc_begin2
+	.long	.Ltmp11-.Lfunc_begin2
+	.long	.Ltmp14-.Lfunc_begin2
 	.short	3                               @ Loc expr size
 	.byte	17                              @ DW_OP_consts
 	.byte	0                               @ 0
 	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp16-.Lfunc_begin2
-	.long	.Ltmp19-.Lfunc_begin2
+	.long	.Ltmp14-.Lfunc_begin2
+	.long	.Ltmp17-.Lfunc_begin2
 	.short	1                               @ Loc expr size
 	.byte	86                              @ DW_OP_reg6
 	.long	0
@@ -726,10 +721,10 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin3                   @   base address
 	.long	.Lfunc_begin3-.Lfunc_begin3
-	.long	.Ltmp23-.Lfunc_begin3
+	.long	.Ltmp21-.Lfunc_begin3
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp25-.Lfunc_begin3
+	.long	.Ltmp23-.Lfunc_begin3
 	.long	.Lfunc_end3-.Lfunc_begin3
 	.short	1                               @ Loc expr size
 	.byte	81                              @ DW_OP_reg1
@@ -738,13 +733,13 @@ index_map:
 .Ldebug_loc4:
 	.long	-1
 	.long	.Lfunc_begin3                   @   base address
+	.long	.Ltmp20-.Lfunc_begin3
 	.long	.Ltmp22-.Lfunc_begin3
-	.long	.Ltmp24-.Lfunc_begin3
 	.short	2                               @ Loc expr size
 	.byte	48                              @ DW_OP_lit0
 	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp26-.Lfunc_begin3
-	.long	.Ltmp31-.Lfunc_begin3
+	.long	.Ltmp24-.Lfunc_begin3
+	.long	.Ltmp29-.Lfunc_begin3
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
 	.long	0
@@ -753,11 +748,11 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin4                   @   base address
 	.long	.Lfunc_begin4-.Lfunc_begin4
-	.long	.Ltmp39-.Lfunc_begin4
+	.long	.Ltmp37-.Lfunc_begin4
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp39-.Lfunc_begin4
-	.long	.Ltmp40-.Lfunc_begin4
+	.long	.Ltmp37-.Lfunc_begin4
+	.long	.Ltmp38-.Lfunc_begin4
 	.short	4                               @ Loc expr size
 	.byte	243                             @ DW_OP_GNU_entry_value
 	.byte	1                               @ 1
@@ -768,8 +763,8 @@ index_map:
 .Ldebug_loc6:
 	.long	-1
 	.long	.Lfunc_begin4                   @   base address
-	.long	.Ltmp34-.Lfunc_begin4
-	.long	.Ltmp44-.Lfunc_begin4
+	.long	.Ltmp32-.Lfunc_begin4
+	.long	.Ltmp42-.Lfunc_begin4
 	.short	1                               @ Loc expr size
 	.byte	83                              @ DW_OP_reg3
 	.long	0
@@ -777,8 +772,8 @@ index_map:
 .Ldebug_loc7:
 	.long	-1
 	.long	.Lfunc_begin4                   @   base address
-	.long	.Ltmp36-.Lfunc_begin4
-	.long	.Ltmp43-.Lfunc_begin4
+	.long	.Ltmp34-.Lfunc_begin4
+	.long	.Ltmp39-.Lfunc_begin4
 	.short	1                               @ Loc expr size
 	.byte	82                              @ DW_OP_reg2
 	.long	0
@@ -787,11 +782,11 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin5                   @   base address
 	.long	.Lfunc_begin5-.Lfunc_begin5
-	.long	.Ltmp52-.Lfunc_begin5
+	.long	.Ltmp50-.Lfunc_begin5
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp52-.Lfunc_begin5
-	.long	.Ltmp53-.Lfunc_begin5
+	.long	.Ltmp50-.Lfunc_begin5
+	.long	.Ltmp51-.Lfunc_begin5
 	.short	4                               @ Loc expr size
 	.byte	243                             @ DW_OP_GNU_entry_value
 	.byte	1                               @ 1
@@ -802,8 +797,8 @@ index_map:
 .Ldebug_loc9:
 	.long	-1
 	.long	.Lfunc_begin5                   @   base address
-	.long	.Ltmp47-.Lfunc_begin5
-	.long	.Ltmp57-.Lfunc_begin5
+	.long	.Ltmp45-.Lfunc_begin5
+	.long	.Ltmp55-.Lfunc_begin5
 	.short	1                               @ Loc expr size
 	.byte	83                              @ DW_OP_reg3
 	.long	0
@@ -811,8 +806,8 @@ index_map:
 .Ldebug_loc10:
 	.long	-1
 	.long	.Lfunc_begin5                   @   base address
-	.long	.Ltmp49-.Lfunc_begin5
-	.long	.Ltmp56-.Lfunc_begin5
+	.long	.Ltmp47-.Lfunc_begin5
+	.long	.Ltmp52-.Lfunc_begin5
 	.short	1                               @ Loc expr size
 	.byte	82                              @ DW_OP_reg2
 	.long	0
@@ -821,10 +816,10 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin6                   @   base address
 	.long	.Lfunc_begin6-.Lfunc_begin6
-	.long	.Ltmp59-.Lfunc_begin6
+	.long	.Ltmp57-.Lfunc_begin6
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp59-.Lfunc_begin6
+	.long	.Ltmp57-.Lfunc_begin6
 	.long	.Lfunc_end6-.Lfunc_begin6
 	.short	4                               @ Loc expr size
 	.byte	243                             @ DW_OP_GNU_entry_value
@@ -1019,8 +1014,10 @@ index_map:
 	.byte	15                              @ Abbreviation Code
 	.byte	11                              @ DW_TAG_lexical_block
 	.byte	1                               @ DW_CHILDREN_yes
-	.byte	85                              @ DW_AT_ranges
-	.byte	23                              @ DW_FORM_sec_offset
+	.byte	17                              @ DW_AT_low_pc
+	.byte	1                               @ DW_FORM_addr
+	.byte	18                              @ DW_AT_high_pc
+	.byte	6                               @ DW_FORM_data4
 	.byte	0                               @ EOM(1)
 	.byte	0                               @ EOM(2)
 	.byte	16                              @ Abbreviation Code
@@ -1039,15 +1036,6 @@ index_map:
 	.byte	0                               @ EOM(1)
 	.byte	0                               @ EOM(2)
 	.byte	17                              @ Abbreviation Code
-	.byte	11                              @ DW_TAG_lexical_block
-	.byte	1                               @ DW_CHILDREN_yes
-	.byte	17                              @ DW_AT_low_pc
-	.byte	1                               @ DW_FORM_addr
-	.byte	18                              @ DW_AT_high_pc
-	.byte	6                               @ DW_FORM_data4
-	.byte	0                               @ EOM(1)
-	.byte	0                               @ EOM(2)
-	.byte	18                              @ Abbreviation Code
 	.byte	52                              @ DW_TAG_variable
 	.byte	0                               @ DW_CHILDREN_no
 	.byte	3                               @ DW_AT_name
@@ -1060,7 +1048,7 @@ index_map:
 	.byte	19                              @ DW_FORM_ref4
 	.byte	0                               @ EOM(1)
 	.byte	0                               @ EOM(2)
-	.byte	19                              @ Abbreviation Code
+	.byte	18                              @ Abbreviation Code
 	.byte	46                              @ DW_TAG_subprogram
 	.byte	1                               @ DW_CHILDREN_yes
 	.byte	17                              @ DW_AT_low_pc
@@ -1085,7 +1073,7 @@ index_map:
 	.byte	25                              @ DW_FORM_flag_present
 	.byte	0                               @ EOM(1)
 	.byte	0                               @ EOM(2)
-	.byte	20                              @ Abbreviation Code
+	.byte	19                              @ Abbreviation Code
 	.byte	5                               @ DW_TAG_formal_parameter
 	.byte	0                               @ DW_CHILDREN_no
 	.byte	2                               @ DW_AT_location
@@ -1098,6 +1086,13 @@ index_map:
 	.byte	11                              @ DW_FORM_data1
 	.byte	73                              @ DW_AT_type
 	.byte	19                              @ DW_FORM_ref4
+	.byte	0                               @ EOM(1)
+	.byte	0                               @ EOM(2)
+	.byte	20                              @ Abbreviation Code
+	.byte	11                              @ DW_TAG_lexical_block
+	.byte	1                               @ DW_CHILDREN_yes
+	.byte	85                              @ DW_AT_ranges
+	.byte	23                              @ DW_FORM_sec_offset
 	.byte	0                               @ EOM(1)
 	.byte	0                               @ EOM(2)
 	.byte	21                              @ Abbreviation Code
@@ -1131,14 +1126,14 @@ index_map:
 	.short	4                               @ DWARF version number
 	.long	.debug_abbrev                   @ Offset Into Abbrev. Section
 	.byte	4                               @ Address Size (in bytes)
-	.byte	1                               @ Abbrev [1] 0xb:0x2ac DW_TAG_compile_unit
+	.byte	1                               @ Abbrev [1] 0xb:0x2b0 DW_TAG_compile_unit
 	.long	.Linfo_string0                  @ DW_AT_producer
 	.short	12                              @ DW_AT_language
 	.long	.Linfo_string1                  @ DW_AT_name
 	.long	.Lline_table_start0             @ DW_AT_stmt_list
 	.long	.Linfo_string2                  @ DW_AT_comp_dir
 	.long	0                               @ DW_AT_low_pc
-	.long	.Ldebug_ranges2                 @ DW_AT_ranges
+	.long	.Ldebug_ranges1                 @ DW_AT_ranges
 	.byte	2                               @ Abbrev [2] 0x26:0x11 DW_TAG_variable
 	.long	.Linfo_string3                  @ DW_AT_name
 	.long	55                              @ DW_AT_type
@@ -1194,7 +1189,7 @@ index_map:
 	.long	To
 	.byte	6                               @ Abbrev [6] 0x8c:0x3d DW_TAG_structure_type
 	.long	.Linfo_string15                 @ DW_AT_name
-	.short	2056                            @ DW_AT_byte_size
+	.short	28008                           @ DW_AT_byte_size
 	.byte	2                               @ DW_AT_decl_file
 	.byte	13                              @ DW_AT_decl_line
 	.byte	7                               @ Abbrev [7] 0x95:0xc DW_TAG_member
@@ -1208,25 +1203,25 @@ index_map:
 	.long	201                             @ DW_AT_type
 	.byte	2                               @ DW_AT_decl_file
 	.byte	17                              @ DW_AT_decl_line
-	.short	1024                            @ DW_AT_data_member_location
+	.short	14000                           @ DW_AT_data_member_location
 	.byte	8                               @ Abbrev [8] 0xae:0xd DW_TAG_member
 	.long	.Linfo_string12                 @ DW_AT_name
 	.long	221                             @ DW_AT_type
 	.byte	2                               @ DW_AT_decl_file
 	.byte	18                              @ DW_AT_decl_line
-	.short	2048                            @ DW_AT_data_member_location
+	.short	28000                           @ DW_AT_data_member_location
 	.byte	8                               @ Abbrev [8] 0xbb:0xd DW_TAG_member
 	.long	.Linfo_string14                 @ DW_AT_name
 	.long	228                             @ DW_AT_type
 	.byte	2                               @ DW_AT_decl_file
 	.byte	19                              @ DW_AT_decl_line
-	.short	2052                            @ DW_AT_data_member_location
+	.short	28004                           @ DW_AT_data_member_location
 	.byte	0                               @ End Of Children Mark
 	.byte	9                               @ Abbrev [9] 0xc9:0xd DW_TAG_array_type
 	.long	65                              @ DW_AT_type
 	.byte	10                              @ Abbrev [10] 0xce:0x7 DW_TAG_subrange_type
 	.long	214                             @ DW_AT_type
-	.short	256                             @ DW_AT_count
+	.short	3500                            @ DW_AT_count
 	.byte	0                               @ End Of Children Mark
 	.byte	11                              @ Abbrev [11] 0xd6:0x7 DW_TAG_base_type
 	.long	.Linfo_string10                 @ DW_AT_name
@@ -1255,7 +1250,7 @@ index_map:
 	.long	270                             @ DW_AT_type
 	.byte	10                              @ Abbrev [10] 0x106:0x7 DW_TAG_subrange_type
 	.long	214                             @ DW_AT_type
-	.short	10240                           @ DW_AT_count
+	.short	23000                           @ DW_AT_count
 	.byte	0                               @ End Of Children Mark
 	.byte	5                               @ Abbrev [5] 0x10e:0x7 DW_TAG_base_type
 	.long	.Linfo_string17                 @ DW_AT_name
@@ -1271,7 +1266,7 @@ index_map:
 	.byte	1                               @ DW_AT_decl_file
 	.byte	17                              @ DW_AT_decl_line
                                         @ DW_AT_external
-	.byte	14                              @ Abbrev [14] 0x126:0x55 DW_TAG_subprogram
+	.byte	14                              @ Abbrev [14] 0x126:0x59 DW_TAG_subprogram
 	.long	.Lfunc_begin1                   @ DW_AT_low_pc
 	.long	.Lfunc_end1-.Lfunc_begin1       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1281,36 +1276,37 @@ index_map:
 	.byte	1                               @ DW_AT_decl_file
 	.byte	29                              @ DW_AT_decl_line
                                         @ DW_AT_external
-	.byte	15                              @ Abbrev [15] 0x137:0x15 DW_TAG_lexical_block
-	.long	.Ldebug_ranges0                 @ DW_AT_ranges
-	.byte	16                              @ Abbrev [16] 0x13c:0xf DW_TAG_variable
+	.byte	15                              @ Abbrev [15] 0x137:0x19 DW_TAG_lexical_block
+	.long	.Ltmp2                          @ DW_AT_low_pc
+	.long	.Ltmp5-.Ltmp2                   @ DW_AT_high_pc
+	.byte	16                              @ Abbrev [16] 0x140:0xf DW_TAG_variable
 	.long	.Ldebug_loc0                    @ DW_AT_location
 	.long	.Linfo_string27                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	32                              @ DW_AT_decl_line
-	.long	682                             @ DW_AT_type
+	.long	686                             @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
-	.byte	17                              @ Abbrev [17] 0x14c:0x15 DW_TAG_lexical_block
-	.long	.Ltmp7                          @ DW_AT_low_pc
-	.long	.Ltmp8-.Ltmp7                   @ DW_AT_high_pc
-	.byte	18                              @ Abbrev [18] 0x155:0xb DW_TAG_variable
+	.byte	15                              @ Abbrev [15] 0x150:0x15 DW_TAG_lexical_block
+	.long	.Ltmp5                          @ DW_AT_low_pc
+	.long	.Ltmp6-.Ltmp5                   @ DW_AT_high_pc
+	.byte	17                              @ Abbrev [17] 0x159:0xb DW_TAG_variable
 	.long	.Linfo_string27                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	38                              @ DW_AT_decl_line
-	.long	682                             @ DW_AT_type
+	.long	686                             @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
-	.byte	17                              @ Abbrev [17] 0x161:0x19 DW_TAG_lexical_block
-	.long	.Ltmp8                          @ DW_AT_low_pc
-	.long	.Ltmp9-.Ltmp8                   @ DW_AT_high_pc
-	.byte	16                              @ Abbrev [16] 0x16a:0xf DW_TAG_variable
+	.byte	15                              @ Abbrev [15] 0x165:0x19 DW_TAG_lexical_block
+	.long	.Ltmp6                          @ DW_AT_low_pc
+	.long	.Ltmp7-.Ltmp6                   @ DW_AT_high_pc
+	.byte	16                              @ Abbrev [16] 0x16e:0xf DW_TAG_variable
 	.long	.Ldebug_loc1                    @ DW_AT_location
 	.long	.Linfo_string27                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	42                              @ DW_AT_decl_line
-	.long	682                             @ DW_AT_type
+	.long	686                             @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
 	.byte	0                               @ End Of Children Mark
-	.byte	14                              @ Abbrev [14] 0x17b:0x2b DW_TAG_subprogram
+	.byte	14                              @ Abbrev [14] 0x17f:0x2b DW_TAG_subprogram
 	.long	.Lfunc_begin2                   @ DW_AT_low_pc
 	.long	.Lfunc_end2-.Lfunc_begin2       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1320,18 +1316,18 @@ index_map:
 	.byte	1                               @ DW_AT_decl_file
 	.byte	51                              @ DW_AT_decl_line
                                         @ DW_AT_external
-	.byte	17                              @ Abbrev [17] 0x18c:0x19 DW_TAG_lexical_block
-	.long	.Ltmp13                         @ DW_AT_low_pc
-	.long	.Ltmp19-.Ltmp13                 @ DW_AT_high_pc
-	.byte	16                              @ Abbrev [16] 0x195:0xf DW_TAG_variable
+	.byte	15                              @ Abbrev [15] 0x190:0x19 DW_TAG_lexical_block
+	.long	.Ltmp11                         @ DW_AT_low_pc
+	.long	.Ltmp17-.Ltmp11                 @ DW_AT_high_pc
+	.byte	16                              @ Abbrev [16] 0x199:0xf DW_TAG_variable
 	.long	.Ldebug_loc2                    @ DW_AT_location
 	.long	.Linfo_string27                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	55                              @ DW_AT_decl_line
-	.long	682                             @ DW_AT_type
+	.long	686                             @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
 	.byte	0                               @ End Of Children Mark
-	.byte	19                              @ Abbrev [19] 0x1a6:0x3a DW_TAG_subprogram
+	.byte	18                              @ Abbrev [18] 0x1aa:0x3a DW_TAG_subprogram
 	.long	.Lfunc_begin3                   @ DW_AT_low_pc
 	.long	.Lfunc_end3-.Lfunc_begin3       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1343,15 +1339,15 @@ index_map:
                                         @ DW_AT_prototyped
 	.long	65                              @ DW_AT_type
                                         @ DW_AT_external
-	.byte	20                              @ Abbrev [20] 0x1bb:0xf DW_TAG_formal_parameter
+	.byte	19                              @ Abbrev [19] 0x1bf:0xf DW_TAG_formal_parameter
 	.long	.Ldebug_loc3                    @ DW_AT_location
 	.long	.Linfo_string28                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	63                              @ DW_AT_decl_line
 	.long	65                              @ DW_AT_type
-	.byte	15                              @ Abbrev [15] 0x1ca:0x15 DW_TAG_lexical_block
-	.long	.Ldebug_ranges1                 @ DW_AT_ranges
-	.byte	16                              @ Abbrev [16] 0x1cf:0xf DW_TAG_variable
+	.byte	20                              @ Abbrev [20] 0x1ce:0x15 DW_TAG_lexical_block
+	.long	.Ldebug_ranges0                 @ DW_AT_ranges
+	.byte	16                              @ Abbrev [16] 0x1d3:0xf DW_TAG_variable
 	.long	.Ldebug_loc4                    @ DW_AT_location
 	.long	.Linfo_string27                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
@@ -1359,7 +1355,7 @@ index_map:
 	.long	65                              @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
 	.byte	0                               @ End Of Children Mark
-	.byte	21                              @ Abbrev [21] 0x1e0:0x4a DW_TAG_subprogram
+	.byte	21                              @ Abbrev [21] 0x1e4:0x4a DW_TAG_subprogram
 	.long	.Lfunc_begin4                   @ DW_AT_low_pc
 	.long	.Lfunc_end4-.Lfunc_begin4       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1370,31 +1366,31 @@ index_map:
 	.byte	75                              @ DW_AT_decl_line
                                         @ DW_AT_prototyped
                                         @ DW_AT_external
-	.byte	20                              @ Abbrev [20] 0x1f1:0xf DW_TAG_formal_parameter
+	.byte	19                              @ Abbrev [19] 0x1f5:0xf DW_TAG_formal_parameter
 	.long	.Ldebug_loc5                    @ DW_AT_location
 	.long	.Linfo_string29                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	75                              @ DW_AT_decl_line
-	.long	682                             @ DW_AT_type
-	.byte	16                              @ Abbrev [16] 0x200:0xf DW_TAG_variable
+	.long	686                             @ DW_AT_type
+	.byte	16                              @ Abbrev [16] 0x204:0xf DW_TAG_variable
 	.long	.Ldebug_loc6                    @ DW_AT_location
 	.long	.Linfo_string30                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	91                              @ DW_AT_decl_line
 	.long	65                              @ DW_AT_type
-	.byte	16                              @ Abbrev [16] 0x20f:0xf DW_TAG_variable
+	.byte	16                              @ Abbrev [16] 0x213:0xf DW_TAG_variable
 	.long	.Ldebug_loc7                    @ DW_AT_location
 	.long	.Linfo_string31                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	93                              @ DW_AT_decl_line
 	.long	65                              @ DW_AT_type
-	.byte	18                              @ Abbrev [18] 0x21e:0xb DW_TAG_variable
+	.byte	17                              @ Abbrev [17] 0x222:0xb DW_TAG_variable
 	.long	.Linfo_string32                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	92                              @ DW_AT_decl_line
-	.long	689                             @ DW_AT_type
+	.long	693                             @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
-	.byte	21                              @ Abbrev [21] 0x22a:0x4a DW_TAG_subprogram
+	.byte	21                              @ Abbrev [21] 0x22e:0x4a DW_TAG_subprogram
 	.long	.Lfunc_begin5                   @ DW_AT_low_pc
 	.long	.Lfunc_end5-.Lfunc_begin5       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1405,31 +1401,31 @@ index_map:
 	.byte	108                             @ DW_AT_decl_line
                                         @ DW_AT_prototyped
                                         @ DW_AT_external
-	.byte	20                              @ Abbrev [20] 0x23b:0xf DW_TAG_formal_parameter
+	.byte	19                              @ Abbrev [19] 0x23f:0xf DW_TAG_formal_parameter
 	.long	.Ldebug_loc8                    @ DW_AT_location
 	.long	.Linfo_string33                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	108                             @ DW_AT_decl_line
-	.long	682                             @ DW_AT_type
-	.byte	16                              @ Abbrev [16] 0x24a:0xf DW_TAG_variable
+	.long	686                             @ DW_AT_type
+	.byte	16                              @ Abbrev [16] 0x24e:0xf DW_TAG_variable
 	.long	.Ldebug_loc9                    @ DW_AT_location
 	.long	.Linfo_string30                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	121                             @ DW_AT_decl_line
 	.long	65                              @ DW_AT_type
-	.byte	16                              @ Abbrev [16] 0x259:0xf DW_TAG_variable
+	.byte	16                              @ Abbrev [16] 0x25d:0xf DW_TAG_variable
 	.long	.Ldebug_loc10                   @ DW_AT_location
 	.long	.Linfo_string31                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	123                             @ DW_AT_decl_line
 	.long	65                              @ DW_AT_type
-	.byte	18                              @ Abbrev [18] 0x268:0xb DW_TAG_variable
+	.byte	17                              @ Abbrev [17] 0x26c:0xb DW_TAG_variable
 	.long	.Linfo_string32                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	122                             @ DW_AT_decl_line
-	.long	689                             @ DW_AT_type
+	.long	693                             @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
-	.byte	19                              @ Abbrev [19] 0x274:0x25 DW_TAG_subprogram
+	.byte	18                              @ Abbrev [18] 0x278:0x25 DW_TAG_subprogram
 	.long	.Lfunc_begin6                   @ DW_AT_low_pc
 	.long	.Lfunc_end6-.Lfunc_begin6       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1439,16 +1435,16 @@ index_map:
 	.byte	1                               @ DW_AT_decl_file
 	.byte	136                             @ DW_AT_decl_line
                                         @ DW_AT_prototyped
-	.long	682                             @ DW_AT_type
+	.long	686                             @ DW_AT_type
                                         @ DW_AT_external
-	.byte	20                              @ Abbrev [20] 0x289:0xf DW_TAG_formal_parameter
+	.byte	19                              @ Abbrev [19] 0x28d:0xf DW_TAG_formal_parameter
 	.long	.Ldebug_loc11                   @ DW_AT_location
 	.long	.Linfo_string34                 @ DW_AT_name
 	.byte	1                               @ DW_AT_decl_file
 	.byte	136                             @ DW_AT_decl_line
 	.long	65                              @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
-	.byte	13                              @ Abbrev [13] 0x299:0x11 DW_TAG_subprogram
+	.byte	13                              @ Abbrev [13] 0x29d:0x11 DW_TAG_subprogram
 	.long	.Lfunc_begin7                   @ DW_AT_low_pc
 	.long	.Lfunc_end7-.Lfunc_begin7       @ DW_AT_high_pc
 	.byte	1                               @ DW_AT_frame_base
@@ -1458,32 +1454,25 @@ index_map:
 	.byte	1                               @ DW_AT_decl_file
 	.byte	168                             @ DW_AT_decl_line
                                         @ DW_AT_external
-	.byte	5                               @ Abbrev [5] 0x2aa:0x7 DW_TAG_base_type
+	.byte	5                               @ Abbrev [5] 0x2ae:0x7 DW_TAG_base_type
 	.long	.Linfo_string25                 @ DW_AT_name
 	.byte	5                               @ DW_AT_encoding
 	.byte	4                               @ DW_AT_byte_size
-	.byte	3                               @ Abbrev [3] 0x2b1:0x5 DW_TAG_pointer_type
+	.byte	3                               @ Abbrev [3] 0x2b5:0x5 DW_TAG_pointer_type
 	.long	65                              @ DW_AT_type
 	.byte	0                               @ End Of Children Mark
 .Ldebug_info_end0:
 	.section	.debug_ranges,"",%progbits
 .Ldebug_ranges0:
-	.long	.Ltmp2
-	.long	.Ltmp3
-	.long	.Ltmp4
-	.long	.Ltmp7
+	.long	.Ltmp20
+	.long	.Ltmp21
+	.long	.Ltmp24
+	.long	.Ltmp26
+	.long	.Ltmp27
+	.long	.Ltmp29
 	.long	0
 	.long	0
 .Ldebug_ranges1:
-	.long	.Ltmp22
-	.long	.Ltmp23
-	.long	.Ltmp26
-	.long	.Ltmp28
-	.long	.Ltmp29
-	.long	.Ltmp31
-	.long	0
-	.long	0
-.Ldebug_ranges2:
 	.long	.Lfunc_begin0
 	.long	.Lfunc_end0
 	.long	.Lfunc_begin1

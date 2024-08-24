@@ -10,7 +10,7 @@ volatile unsigned int *IBT_size = (unsigned int *)IBT_ADDRESS;
 volatile unsigned int * IBT_entry = (unsigned int *) (IBT_ADDRESS + sizeof(unsigned int));
 
 unsigned int occurrence_trace_size = 0;
-#define vi_range 10240
+#define vi_range 23000
 #define app_base 0x400
 unsigned short int index_map[vi_range];
 unsigned int total_exec = 0;
