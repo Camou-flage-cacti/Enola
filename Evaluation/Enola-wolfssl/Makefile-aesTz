@@ -27,16 +27,8 @@ INCLUDES += -I./inc/V2M-MPS2_IOTKit_BSP/1.5.0/CMSIS/Driver
 INCLUDES += -I./uninsrumented_source
 
 # Source files (converted to Unix-style paths)
-#SOURCES = rsa.c
-#SOURCES += hash.c
-#SOURCES += sha.c
-#SOURCES += dsa.c
 SOURCES += aes.c
-#SOURCES += asn.c
-#SOURCES += md5.c
-#SOURCES += sp_int.c
 SOURCES += random.c
-#SOURCES += sha256.c
 SOURCES += memory.c
 
 # Compiler settings
