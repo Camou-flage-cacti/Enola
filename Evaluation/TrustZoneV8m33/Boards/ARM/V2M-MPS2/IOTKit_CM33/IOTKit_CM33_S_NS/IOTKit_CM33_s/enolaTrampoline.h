@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define ARBITRARY_MAX 1
-#define BASIC_BlOCK_MAX 256
+#define BASIC_BlOCK_MAX 3500
 #define IBT_ADDRESS 0x31040000
 
 //#define  ELAPSED_TIME_MAX_SECTIONS  1
