@@ -16,9 +16,23 @@
  */
 #define CMSIS_device_header "SSE310MPS3.h"
 
-/* ARM::CMSIS Driver:SPI:1.0.1 */
-#define RTE_SPI0      0
+/* ARM::CMSIS Driver:MPC:1.1.0 */
+#define RTE_SRAM_MPC      1
+        #define RTE_ISRAM0_MPC    1
+        #define RTE_ISRAM1_MPC    1
+        #define RTE_QSPI_MPC      1
+        #define RTE_DDR4_MPC      0
+        #define RTE_VM0_MPC       1
+        #define RTE_VM1_MPC       1
+        #define RTE_SSRAM2_MPC    1
+        #define RTE_SSRAM3_MPC    1
+/* ARM::CMSIS Driver:SPI:1.2.0 */
+#define RTE_SPI0      1
 
+/* ARM::Native Driver:SysCounter:1.0.1 */
+#define RTE_SYSCOUNTER      1
+/* ARM::Native Driver:Timeout:1.0.1 */
+#define RTE_TIMEOUT      1
 
 
 #endif /* RTE_COMPONENTS_H */
