@@ -1,0 +1,120 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: MD Armanuzzaman, University at Buffalo, LIC=UB40X-1FZUK-UN3QX-0G01W-UGX93-RV7MT
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      UL2V8M.DLL V1.7.9.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_S\SSE310_S.uvprojx
+Project File Date:  09/17/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+compiling stdout_USART.c...
+compiling retarget_io.c...
+compiling uart_cmsdk_drv.c...
+compiling device_definition.c...
+compiling system_SSE310MPS3.c...
+compiling main.c...
+compiling Driver_USART.c...
+compiling startup_SSE310MPS3.c...
+linking...
+.\Objects\SSE310_S.axf: warning: Your license for feature Keil will expire in 3 days [-Wlicense-management]
+.\Objects\SSE310_S.axf: Error: L6405E: No .ANY selector matches anon$$obj.o(Veneer$$CMSE).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+".\Objects\SSE310_S.axf" - 1 Error(s), 1 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.0.0.pack
+                ARM.CMSIS.6.0.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: USART Version: 2.4.0
+   * Component: CORE Version: 6.0.0
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.V2M_MPS3_SSE_310_BSP.1.3.0.pack
+                ARM.V2M_MPS3_SSE_310_BSP.1.3.0
+                ARM V2M-MPS3 Board Support PACK for CoreLink SSE-310 - TrustZone enabled subsystem for embedded.
+   * Component: USART Version: 1.1.0
+   * Component: Definition Version: 2.0.0
+   * Component: UART Version: 1.1.0
+   * Component: Startup Variant: C Startup Version: 2.0.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.ARM_Compiler.1.7.2.pack
+                Keil.ARM_Compiler.1.7.2
+                Keil ARM Compiler extensions for ARM Compiler 5 and ARM Compiler 6
+   * Component: STDOUT Variant: Breakpoint Version: 1.2.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/SSE-310-MPS3_AN555
+  ./RTE/_Target_1
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Driver/Include
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Board/Device_Definition
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Board/Platform
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/CMSIS_Driver
+  C:/Users/dakum/AppData/Local/Arm/Packs/ARM/V2M_MPS3_SSE_310_BSP/1.3.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS Driver:USART:2.4.0 (API)
+      Include file:  CMSIS/Driver/Include/Driver_USART.h
+
+   * Component: ARM::CMSIS Driver:USART:1.1.0
+      Include file:  CMSIS_Driver/Driver_USART_Common.h
+      Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
+      Source file:   CMSIS_Driver/Driver_USART.c
+
+   * Component: ARM::CMSIS:CORE:6.0.0
+      Source file:   CMSIS/Core/Template/ARMv8-M/tz_context.c
+      Include file:  CMSIS/Core/Include/tz_context.h
+      Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
+
+   * Component: ARM::Device:Definition:2.0.0
+      Include file:  Board/Device_Definition/device_definition.h
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
+      Include file:  Board/Platform/platform_base_address.h
+      Include file:  Device/Config/device_cfg.h
+
+   * Component: ARM::Device:Native Driver:UART:1.1.0
+      Source file:   Device/Source/uart_cmsdk_drv.c
+      Include file:  Device/Include/uart_cmsdk_drv.h
+
+   * Component: ARM::Device:Startup:C Startup:2.0.0
+      Include file:  Device/Include/region_limits.h
+      Source file:   Device/Source/startup_SSE310MPS3.c
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
+      Include file:  Device/Include/region_defs.h
+      Source file:   Examples/templates/empty_main.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:Breakpoint:1.2.0
+      Source file:   Source/retarget_io.c
+Target not created.
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
