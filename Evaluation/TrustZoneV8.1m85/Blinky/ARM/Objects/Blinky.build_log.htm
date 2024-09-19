@@ -28,18 +28,18 @@ Project File Date:  09/17/2024
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'ARMCLANG'
 compiling device_definition.c...
-compiling systimer_armv8-m_drv.c...
-compiling main.c...
-compiling led_port.c...
-compiling syscounter_armv8-m_cntrl_drv.c...
-compiling stdout_USART.c...
-compiling syscounter_armv8-m_read_drv.c...
 compiling Blinky.c...
-compiling retarget_io.c...
-compiling system_SSE310MPS3.c...
+compiling main.c...
+compiling stdout_USART.c...
 compiling arm_mps3_io_drv.c...
-compiling systimer_armv8-m_timeout.c...
+compiling syscounter_armv8-m_read_drv.c...
+compiling led_port.c...
+compiling retarget_io.c...
+compiling syscounter_armv8-m_cntrl_drv.c...
+compiling system_SSE310MPS3.c...
 compiling uart_cmsdk_drv.c...
+compiling systimer_armv8-m_drv.c...
+compiling systimer_armv8-m_timeout.c...
 compiling Driver_USART.c...
 compiling startup_SSE310MPS3.c...
 linking...
@@ -102,19 +102,19 @@ Package Vendor: Keil
       Include file:  CMSIS/Driver/Include/Driver_USART.h
 
    * Component: ARM::CMSIS Driver:USART:1.1.0
-      Include file:  CMSIS_Driver/Driver_USART_Common.h
-      Source file:   CMSIS_Driver/Driver_USART.c
       Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
+      Source file:   CMSIS_Driver/Driver_USART.c
+      Include file:  CMSIS_Driver/Driver_USART_Common.h
 
    * Component: ARM::CMSIS:CORE:6.0.0
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:2.0.0
-      Include file:  Board/Platform/platform_base_address.h
-      Include file:  Board/Device_Definition/device_definition.h
       Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
-      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Platform/platform_base_address.h
       Include file:  Device/Config/device_cfg.h
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Device_Definition/device_definition.h
 
    * Component: ARM::Device:Native Driver:IO:1.0.1
       Include file:  Device/Include/arm_mps3_io_drv.h
@@ -122,27 +122,27 @@ Package Vendor: Keil
 
    * Component: ARM::Device:Native Driver:SysCounter:1.0.1
       Include file:  Device/Include/syscounter_armv8-m_cntrl_drv.h
-      Source file:   Device/Source/syscounter_armv8-m_cntrl_drv.c
-      Include file:  Device/Include/syscounter_armv8-m_read_drv.h
       Source file:   Device/Source/syscounter_armv8-m_read_drv.c
+      Include file:  Device/Include/syscounter_armv8-m_read_drv.h
+      Source file:   Device/Source/syscounter_armv8-m_cntrl_drv.c
 
    * Component: ARM::Device:Native Driver:SysTimer:1.0.0
-      Include file:  Device/Include/systimer_armv8-m_drv.h
       Source file:   Device/Source/systimer_armv8-m_drv.c
+      Include file:  Device/Include/systimer_armv8-m_drv.h
 
    * Component: ARM::Device:Native Driver:Timeout:1.0.1
-      Source file:   Device/Source/systimer_armv8-m_timeout.c
       Include file:  Device/Include/timeout.h
+      Source file:   Device/Source/systimer_armv8-m_timeout.c
 
    * Component: ARM::Device:Native Driver:UART:1.1.0
-      Source file:   Device/Source/uart_cmsdk_drv.c
       Include file:  Device/Include/uart_cmsdk_drv.h
+      Source file:   Device/Source/uart_cmsdk_drv.c
 
    * Component: ARM::Device:Startup:C Startup:2.0.0
-      Source file:   Device/Source/system_SSE310MPS3.c
       Source file:   Examples/templates/empty_main.c
-      Source file:   Device/Source/startup_SSE310MPS3.c
       Include file:  Device/Include/system_SSE310MPS3.h
+      Source file:   Device/Source/system_SSE310MPS3.c
+      Source file:   Device/Source/startup_SSE310MPS3.c
 
    * Component: ARM::Device:UART STDOUT:1.0.0
       Include file:  Device/Include/stdout_USART.h
@@ -150,10 +150,10 @@ Package Vendor: Keil
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
       Source file:   Template/stdout_USART.c
-      Source file:   Source/retarget_io.c
-      Source file:   Template/stdout_display.c
       Source file:   Template/stdout_user.c
-Build Time Elapsed:  00:00:02
+      Source file:   Template/stdout_display.c
+      Source file:   Source/retarget_io.c
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

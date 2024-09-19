@@ -8,7 +8,7 @@
 #include "RTE_Components.h"                        /* Component selection */
 #include CMSIS_device_header
 /* Start address of non-secure application */
-#define NONSECURE_START (0x1020000u)
+#define NONSECURE_START (0x01020000u)
 
 
 
@@ -57,18 +57,19 @@ int main (void)
   volatile float  x3 = 24.1111118f;
 
   x3 = x3 * (x1 / x2);
+	uint32_t s_msp = 0, s_psp = 0, ns_msp = 0, ns_psp = 0;
 
   /* exercise some core register from Secure Mode */
-  x = __get_MSP();
-  x = __get_PSP();
+  s_msp = __get_MSP();
+  s_psp = __get_PSP();
   __TZ_set_MSP_NS(NonSecure_StackPointer);
-  x = __TZ_get_MSP_NS();
-  __TZ_set_PSP_NS(0x1020000u);
-  x = __TZ_get_PSP_NS();
-
+  ns_msp = __TZ_get_MSP_NS();
+  __TZ_set_PSP_NS(0x01020000u); //need to figure out the value. this value is wrong if psp is required
+  ns_psp = __TZ_get_PSP_NS();
  // SystemCoreClockUpdate();
 
   stdout_init();
+	s_msp = ns_msp * s_psp * ns_psp;
   NonSecure_ResetHandler();
 }
 

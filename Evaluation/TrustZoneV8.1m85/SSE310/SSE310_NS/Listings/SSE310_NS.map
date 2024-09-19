@@ -982,50 +982,50 @@ Image Symbol Table
     [Anonymous Symbol]                       0x010205a0   Section        0  startup_sse310mps3.o(.text.PPC_Handler)
     [Anonymous Symbol]                       0x010205a8   Section        0  startup_sse310mps3.o(.text.PendSV_Handler)
     [Anonymous Symbol]                       0x010205b0   Section        0  startup_sse310mps3.o(.text.Reset_Handler)
-    [Anonymous Symbol]                       0x010205e8   Section        0  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
-    [Anonymous Symbol]                       0x010205f0   Section        0  startup_sse310mps3.o(.text.SPI_ADC_Handler)
-    [Anonymous Symbol]                       0x010205f8   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
-    [Anonymous Symbol]                       0x01020600   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
-    [Anonymous Symbol]                       0x01020608   Section        0  startup_sse310mps3.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x01020610   Section        0  startup_sse310mps3.o(.text.SecureFault_Handler)
-    [Anonymous Symbol]                       0x01020618   Section        0  startup_sse310mps3.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x01020620   Section        0  system_sse310mps3.o(.text.SystemCoreClockUpdate)
-    [Anonymous Symbol]                       0x01020640   Section        0  system_sse310mps3.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x01020778   Section        0  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
-    [Anonymous Symbol]                       0x01020780   Section        0  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
-    [Anonymous Symbol]                       0x01020788   Section        0  startup_sse310mps3.o(.text.TIMER1_Handler)
-    [Anonymous Symbol]                       0x01020790   Section        0  startup_sse310mps3.o(.text.TIMER2_Handler)
-    [Anonymous Symbol]                       0x01020798   Section        0  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
-    [Anonymous Symbol]                       0x010207a0   Section        0  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
-    [Anonymous Symbol]                       0x010207a8   Section        0  startup_sse310mps3.o(.text.UART0_Combined_Handler)
-    [Anonymous Symbol]                       0x010207b0   Section        0  startup_sse310mps3.o(.text.UART1_Combined_Handler)
-    [Anonymous Symbol]                       0x010207b8   Section        0  startup_sse310mps3.o(.text.UART2_Combined_Handler)
-    [Anonymous Symbol]                       0x010207c0   Section        0  startup_sse310mps3.o(.text.UART3_Combined_Handler)
-    [Anonymous Symbol]                       0x010207c8   Section        0  startup_sse310mps3.o(.text.UART4_Combined_Handler)
-    [Anonymous Symbol]                       0x010207d0   Section        0  startup_sse310mps3.o(.text.UART5_Combined_Handler)
-    [Anonymous Symbol]                       0x010207d8   Section        0  startup_sse310mps3.o(.text.UARTOVF_Handler)
-    [Anonymous Symbol]                       0x010207e0   Section        0  driver_usart.o(.text.UARTRX0_Handler)
-    [Anonymous Symbol]                       0x01020868   Section        0  startup_sse310mps3.o(.text.UARTRX1_Handler)
-    [Anonymous Symbol]                       0x01020870   Section        0  startup_sse310mps3.o(.text.UARTRX2_Handler)
-    [Anonymous Symbol]                       0x01020878   Section        0  startup_sse310mps3.o(.text.UARTRX3_Handler)
-    [Anonymous Symbol]                       0x01020880   Section        0  startup_sse310mps3.o(.text.UARTRX4_Handler)
-    [Anonymous Symbol]                       0x01020888   Section        0  startup_sse310mps3.o(.text.UARTRX5_Handler)
-    [Anonymous Symbol]                       0x01020890   Section        0  driver_usart.o(.text.UARTTX0_Handler)
-    [Anonymous Symbol]                       0x01020908   Section        0  startup_sse310mps3.o(.text.UARTTX1_Handler)
-    [Anonymous Symbol]                       0x01020910   Section        0  startup_sse310mps3.o(.text.UARTTX2_Handler)
-    [Anonymous Symbol]                       0x01020918   Section        0  startup_sse310mps3.o(.text.UARTTX3_Handler)
-    [Anonymous Symbol]                       0x01020920   Section        0  startup_sse310mps3.o(.text.UARTTX4_Handler)
-    [Anonymous Symbol]                       0x01020928   Section        0  startup_sse310mps3.o(.text.UARTTX5_Handler)
-    [Anonymous Symbol]                       0x01020930   Section        0  startup_sse310mps3.o(.text.USB_Handler)
-    [Anonymous Symbol]                       0x01020938   Section        0  startup_sse310mps3.o(.text.UsageFault_Handler)
-    [Anonymous Symbol]                       0x01020940   Section        0  main_ns.o(.text.main)
-    [Anonymous Symbol]                       0x010209a8   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
-    [Anonymous Symbol]                       0x01020a00   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
-    [Anonymous Symbol]                       0x01020a40   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
-    $v0                                      0x01020a8e   Number         0  fpinit_81m.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x01020a8e   Section       30  fpinit_81m.o(x$fpl$fpinit)
-    UART0_CMSDK_DEV_CFG_S                    0x01020aac   Data           8  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
-    [Anonymous Symbol]                       0x01020aac   Section        0  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
+    [Anonymous Symbol]                       0x010205d0   Section        0  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
+    [Anonymous Symbol]                       0x010205d8   Section        0  startup_sse310mps3.o(.text.SPI_ADC_Handler)
+    [Anonymous Symbol]                       0x010205e0   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
+    [Anonymous Symbol]                       0x010205e8   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
+    [Anonymous Symbol]                       0x010205f0   Section        0  startup_sse310mps3.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x010205f8   Section        0  startup_sse310mps3.o(.text.SecureFault_Handler)
+    [Anonymous Symbol]                       0x01020600   Section        0  startup_sse310mps3.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x01020608   Section        0  system_sse310mps3.o(.text.SystemCoreClockUpdate)
+    [Anonymous Symbol]                       0x01020628   Section        0  system_sse310mps3.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x01020760   Section        0  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
+    [Anonymous Symbol]                       0x01020768   Section        0  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
+    [Anonymous Symbol]                       0x01020770   Section        0  startup_sse310mps3.o(.text.TIMER1_Handler)
+    [Anonymous Symbol]                       0x01020778   Section        0  startup_sse310mps3.o(.text.TIMER2_Handler)
+    [Anonymous Symbol]                       0x01020780   Section        0  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
+    [Anonymous Symbol]                       0x01020788   Section        0  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
+    [Anonymous Symbol]                       0x01020790   Section        0  startup_sse310mps3.o(.text.UART0_Combined_Handler)
+    [Anonymous Symbol]                       0x01020798   Section        0  startup_sse310mps3.o(.text.UART1_Combined_Handler)
+    [Anonymous Symbol]                       0x010207a0   Section        0  startup_sse310mps3.o(.text.UART2_Combined_Handler)
+    [Anonymous Symbol]                       0x010207a8   Section        0  startup_sse310mps3.o(.text.UART3_Combined_Handler)
+    [Anonymous Symbol]                       0x010207b0   Section        0  startup_sse310mps3.o(.text.UART4_Combined_Handler)
+    [Anonymous Symbol]                       0x010207b8   Section        0  startup_sse310mps3.o(.text.UART5_Combined_Handler)
+    [Anonymous Symbol]                       0x010207c0   Section        0  startup_sse310mps3.o(.text.UARTOVF_Handler)
+    [Anonymous Symbol]                       0x010207c8   Section        0  driver_usart.o(.text.UARTRX0_Handler)
+    [Anonymous Symbol]                       0x01020850   Section        0  startup_sse310mps3.o(.text.UARTRX1_Handler)
+    [Anonymous Symbol]                       0x01020858   Section        0  startup_sse310mps3.o(.text.UARTRX2_Handler)
+    [Anonymous Symbol]                       0x01020860   Section        0  startup_sse310mps3.o(.text.UARTRX3_Handler)
+    [Anonymous Symbol]                       0x01020868   Section        0  startup_sse310mps3.o(.text.UARTRX4_Handler)
+    [Anonymous Symbol]                       0x01020870   Section        0  startup_sse310mps3.o(.text.UARTRX5_Handler)
+    [Anonymous Symbol]                       0x01020878   Section        0  driver_usart.o(.text.UARTTX0_Handler)
+    [Anonymous Symbol]                       0x010208f0   Section        0  startup_sse310mps3.o(.text.UARTTX1_Handler)
+    [Anonymous Symbol]                       0x010208f8   Section        0  startup_sse310mps3.o(.text.UARTTX2_Handler)
+    [Anonymous Symbol]                       0x01020900   Section        0  startup_sse310mps3.o(.text.UARTTX3_Handler)
+    [Anonymous Symbol]                       0x01020908   Section        0  startup_sse310mps3.o(.text.UARTTX4_Handler)
+    [Anonymous Symbol]                       0x01020910   Section        0  startup_sse310mps3.o(.text.UARTTX5_Handler)
+    [Anonymous Symbol]                       0x01020918   Section        0  startup_sse310mps3.o(.text.USB_Handler)
+    [Anonymous Symbol]                       0x01020920   Section        0  startup_sse310mps3.o(.text.UsageFault_Handler)
+    [Anonymous Symbol]                       0x01020928   Section        0  main_ns.o(.text.main)
+    [Anonymous Symbol]                       0x01020990   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
+    [Anonymous Symbol]                       0x010209e8   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
+    [Anonymous Symbol]                       0x01020a28   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
+    $v0                                      0x01020a76   Number         0  fpinit_81m.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x01020a76   Section       30  fpinit_81m.o(x$fpl$fpinit)
+    UART0_CMSDK_DEV_CFG_S                    0x01020a94   Data           8  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
+    [Anonymous Symbol]                       0x01020a94   Section        0  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
     Driver_USART0_DEV                        0x21040000   Data          36  driver_usart.o(.data.Driver_USART0_DEV)
     [Anonymous Symbol]                       0x21040000   Section        0  driver_usart.o(.data.Driver_USART0_DEV)
     UART0_CMSDK_DEV_DATA_S                   0x21040054   Data          12  device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S)
@@ -1209,54 +1209,54 @@ Image Symbol Table
     NPU0_Handler                             0x01020599   Thumb Code     4  startup_sse310mps3.o(.text.NPU0_Handler)
     PPC_Handler                              0x010205a1   Thumb Code     4  startup_sse310mps3.o(.text.PPC_Handler)
     PendSV_Handler                           0x010205a9   Thumb Code     4  startup_sse310mps3.o(.text.PendSV_Handler)
-    Reset_Handler                            0x010205b1   Thumb Code    50  startup_sse310mps3.o(.text.Reset_Handler)
-    SLOWCLK_Timer_Handler                    0x010205e9   Thumb Code     4  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
-    SPI_ADC_Handler                          0x010205f1   Thumb Code     4  startup_sse310mps3.o(.text.SPI_ADC_Handler)
-    SPI_SHIELD0_Handler                      0x010205f9   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
-    SPI_SHIELD1_Handler                      0x01020601   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
-    SVC_Handler                              0x01020609   Thumb Code     4  startup_sse310mps3.o(.text.SVC_Handler)
-    SecureFault_Handler                      0x01020611   Thumb Code     4  startup_sse310mps3.o(.text.SecureFault_Handler)
-    SysTick_Handler                          0x01020619   Thumb Code     4  startup_sse310mps3.o(.text.SysTick_Handler)
-    SystemCoreClockUpdate                    0x01020621   Thumb Code    30  system_sse310mps3.o(.text.SystemCoreClockUpdate)
-    SystemInit                               0x01020641   Thumb Code   310  system_sse310mps3.o(.text.SystemInit)
-    System_Timestamp_Counter_Handler         0x01020779   Thumb Code     4  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
-    TFM_TIMER0_IRQ_Handler                   0x01020781   Thumb Code     4  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
-    TIMER1_Handler                           0x01020789   Thumb Code     4  startup_sse310mps3.o(.text.TIMER1_Handler)
-    TIMER2_Handler                           0x01020791   Thumb Code     4  startup_sse310mps3.o(.text.TIMER2_Handler)
-    TIMER3_AON_Handler                       0x01020799   Thumb Code     4  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
-    TOUCH_SCREEN_Handler                     0x010207a1   Thumb Code     4  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
-    UART0_Combined_Handler                   0x010207a9   Thumb Code     4  startup_sse310mps3.o(.text.UART0_Combined_Handler)
-    UART1_Combined_Handler                   0x010207b1   Thumb Code     4  startup_sse310mps3.o(.text.UART1_Combined_Handler)
-    UART2_Combined_Handler                   0x010207b9   Thumb Code     4  startup_sse310mps3.o(.text.UART2_Combined_Handler)
-    UART3_Combined_Handler                   0x010207c1   Thumb Code     4  startup_sse310mps3.o(.text.UART3_Combined_Handler)
-    UART4_Combined_Handler                   0x010207c9   Thumb Code     4  startup_sse310mps3.o(.text.UART4_Combined_Handler)
-    UART5_Combined_Handler                   0x010207d1   Thumb Code     4  startup_sse310mps3.o(.text.UART5_Combined_Handler)
-    UARTOVF_Handler                          0x010207d9   Thumb Code     4  startup_sse310mps3.o(.text.UARTOVF_Handler)
-    UARTRX0_Handler                          0x010207e1   Thumb Code   130  driver_usart.o(.text.UARTRX0_Handler)
-    UARTRX1_Handler                          0x01020869   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX1_Handler)
-    UARTRX2_Handler                          0x01020871   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX2_Handler)
-    UARTRX3_Handler                          0x01020879   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX3_Handler)
-    UARTRX4_Handler                          0x01020881   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX4_Handler)
-    UARTRX5_Handler                          0x01020889   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX5_Handler)
-    UARTTX0_Handler                          0x01020891   Thumb Code   118  driver_usart.o(.text.UARTTX0_Handler)
-    UARTTX1_Handler                          0x01020909   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX1_Handler)
-    UARTTX2_Handler                          0x01020911   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX2_Handler)
-    UARTTX3_Handler                          0x01020919   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX3_Handler)
-    UARTTX4_Handler                          0x01020921   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX4_Handler)
-    UARTTX5_Handler                          0x01020929   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX5_Handler)
-    USB_Handler                              0x01020931   Thumb Code     4  startup_sse310mps3.o(.text.USB_Handler)
-    UsageFault_Handler                       0x01020939   Thumb Code     4  startup_sse310mps3.o(.text.UsageFault_Handler)
-    main                                     0x01020941   Thumb Code   100  main_ns.o(.text.main)
-    uart_cmsdk_clear_interrupt               0x010209a9   Thumb Code    86  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
-    uart_cmsdk_read                          0x01020a01   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
-    uart_cmsdk_write                         0x01020a41   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
-    Long Thumb to Thumb Veneer to Secure_printf 0x01020a7b   Thumb Code    10  anon$$obj.o(Veneer$$Code)
-    Long Thumb to Thumb Veneer to test_llvm_nsc 0x01020a85   Thumb Code    10  anon$$obj.o(Veneer$$Code)
-    _fp_init                                 0x01020a8f   Thumb Code    30  fpinit_81m.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x01020aab   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x01020aab   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x01020ab4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x01020ad4   Number         0  anon$$obj.o(Region$$Table)
+    Reset_Handler                            0x010205b1   Thumb Code    26  startup_sse310mps3.o(.text.Reset_Handler)
+    SLOWCLK_Timer_Handler                    0x010205d1   Thumb Code     4  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
+    SPI_ADC_Handler                          0x010205d9   Thumb Code     4  startup_sse310mps3.o(.text.SPI_ADC_Handler)
+    SPI_SHIELD0_Handler                      0x010205e1   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
+    SPI_SHIELD1_Handler                      0x010205e9   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
+    SVC_Handler                              0x010205f1   Thumb Code     4  startup_sse310mps3.o(.text.SVC_Handler)
+    SecureFault_Handler                      0x010205f9   Thumb Code     4  startup_sse310mps3.o(.text.SecureFault_Handler)
+    SysTick_Handler                          0x01020601   Thumb Code     4  startup_sse310mps3.o(.text.SysTick_Handler)
+    SystemCoreClockUpdate                    0x01020609   Thumb Code    30  system_sse310mps3.o(.text.SystemCoreClockUpdate)
+    SystemInit                               0x01020629   Thumb Code   310  system_sse310mps3.o(.text.SystemInit)
+    System_Timestamp_Counter_Handler         0x01020761   Thumb Code     4  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
+    TFM_TIMER0_IRQ_Handler                   0x01020769   Thumb Code     4  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
+    TIMER1_Handler                           0x01020771   Thumb Code     4  startup_sse310mps3.o(.text.TIMER1_Handler)
+    TIMER2_Handler                           0x01020779   Thumb Code     4  startup_sse310mps3.o(.text.TIMER2_Handler)
+    TIMER3_AON_Handler                       0x01020781   Thumb Code     4  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
+    TOUCH_SCREEN_Handler                     0x01020789   Thumb Code     4  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
+    UART0_Combined_Handler                   0x01020791   Thumb Code     4  startup_sse310mps3.o(.text.UART0_Combined_Handler)
+    UART1_Combined_Handler                   0x01020799   Thumb Code     4  startup_sse310mps3.o(.text.UART1_Combined_Handler)
+    UART2_Combined_Handler                   0x010207a1   Thumb Code     4  startup_sse310mps3.o(.text.UART2_Combined_Handler)
+    UART3_Combined_Handler                   0x010207a9   Thumb Code     4  startup_sse310mps3.o(.text.UART3_Combined_Handler)
+    UART4_Combined_Handler                   0x010207b1   Thumb Code     4  startup_sse310mps3.o(.text.UART4_Combined_Handler)
+    UART5_Combined_Handler                   0x010207b9   Thumb Code     4  startup_sse310mps3.o(.text.UART5_Combined_Handler)
+    UARTOVF_Handler                          0x010207c1   Thumb Code     4  startup_sse310mps3.o(.text.UARTOVF_Handler)
+    UARTRX0_Handler                          0x010207c9   Thumb Code   130  driver_usart.o(.text.UARTRX0_Handler)
+    UARTRX1_Handler                          0x01020851   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX1_Handler)
+    UARTRX2_Handler                          0x01020859   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX2_Handler)
+    UARTRX3_Handler                          0x01020861   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX3_Handler)
+    UARTRX4_Handler                          0x01020869   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX4_Handler)
+    UARTRX5_Handler                          0x01020871   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX5_Handler)
+    UARTTX0_Handler                          0x01020879   Thumb Code   118  driver_usart.o(.text.UARTTX0_Handler)
+    UARTTX1_Handler                          0x010208f1   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX1_Handler)
+    UARTTX2_Handler                          0x010208f9   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX2_Handler)
+    UARTTX3_Handler                          0x01020901   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX3_Handler)
+    UARTTX4_Handler                          0x01020909   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX4_Handler)
+    UARTTX5_Handler                          0x01020911   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX5_Handler)
+    USB_Handler                              0x01020919   Thumb Code     4  startup_sse310mps3.o(.text.USB_Handler)
+    UsageFault_Handler                       0x01020921   Thumb Code     4  startup_sse310mps3.o(.text.UsageFault_Handler)
+    main                                     0x01020929   Thumb Code   100  main_ns.o(.text.main)
+    uart_cmsdk_clear_interrupt               0x01020991   Thumb Code    86  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
+    uart_cmsdk_read                          0x010209e9   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
+    uart_cmsdk_write                         0x01020a29   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
+    Long Thumb to Thumb Veneer to Secure_printf 0x01020a63   Thumb Code    10  anon$$obj.o(Veneer$$Code)
+    Long Thumb to Thumb Veneer to test_llvm_nsc 0x01020a6d   Thumb Code    10  anon$$obj.o(Veneer$$Code)
+    _fp_init                                 0x01020a77   Thumb Code    30  fpinit_81m.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x01020a93   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x01020a93   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x01020a9c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x01020abc   Number         0  anon$$obj.o(Region$$Table)
     Secure_printf                            0x1101fe01   Thumb Code     8  SSE310_S_CMSE_Lib.o ABSOLUTE
     test_llvm_nsc                            0x1101fe09   Thumb Code     8  SSE310_S_CMSE_Lib.o ABSOLUTE
     PeripheralClock                          0x21040024   Data           4  system_sse310mps3.o(.data.PeripheralClock)
@@ -1276,9 +1276,9 @@ Memory Map of the image
 
   Image Entry point : 0x01020241
 
-  Load Region LR_CODE (Base: 0x01020000, Size: 0x00000b40, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_CODE (Base: 0x01020000, Size: 0x00000b20, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_CODE (Exec base: 0x01020000, Load base: 0x01020000, Size: 0x00000ad4, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_CODE (Exec base: 0x01020000, Load base: 0x01020000, Size: 0x00000abc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1507,137 +1507,137 @@ Memory Map of the image
     0x010205a4   0x010205a4   0x00000004   PAD
     0x010205a8   0x010205a8   0x00000004   Code   RO          183    .text.PendSV_Handler  startup_sse310mps3.o
     0x010205ac   0x010205ac   0x00000004   PAD
-    0x010205b0   0x010205b0   0x00000032   Code   RO          409    .text.Reset_Handler  startup_sse310mps3.o
-    0x010205e2   0x010205e2   0x00000006   PAD
-    0x010205e8   0x010205e8   0x00000004   Code   RO          191    .text.SLOWCLK_Timer_Handler  startup_sse310mps3.o
+    0x010205b0   0x010205b0   0x0000001a   Code   RO          409    .text.Reset_Handler  startup_sse310mps3.o
+    0x010205ca   0x010205ca   0x00000006   PAD
+    0x010205d0   0x010205d0   0x00000004   Code   RO          191    .text.SLOWCLK_Timer_Handler  startup_sse310mps3.o
+    0x010205d4   0x010205d4   0x00000004   PAD
+    0x010205d8   0x010205d8   0x00000004   Code   RO          259    .text.SPI_ADC_Handler  startup_sse310mps3.o
+    0x010205dc   0x010205dc   0x00000004   PAD
+    0x010205e0   0x010205e0   0x00000004   Code   RO          261    .text.SPI_SHIELD0_Handler  startup_sse310mps3.o
+    0x010205e4   0x010205e4   0x00000004   PAD
+    0x010205e8   0x010205e8   0x00000004   Code   RO          263    .text.SPI_SHIELD1_Handler  startup_sse310mps3.o
     0x010205ec   0x010205ec   0x00000004   PAD
-    0x010205f0   0x010205f0   0x00000004   Code   RO          259    .text.SPI_ADC_Handler  startup_sse310mps3.o
+    0x010205f0   0x010205f0   0x00000004   Code   RO          179    .text.SVC_Handler   startup_sse310mps3.o
     0x010205f4   0x010205f4   0x00000004   PAD
-    0x010205f8   0x010205f8   0x00000004   Code   RO          261    .text.SPI_SHIELD0_Handler  startup_sse310mps3.o
+    0x010205f8   0x010205f8   0x00000004   Code   RO          177    .text.SecureFault_Handler  startup_sse310mps3.o
     0x010205fc   0x010205fc   0x00000004   PAD
-    0x01020600   0x01020600   0x00000004   Code   RO          263    .text.SPI_SHIELD1_Handler  startup_sse310mps3.o
+    0x01020600   0x01020600   0x00000004   Code   RO          185    .text.SysTick_Handler  startup_sse310mps3.o
     0x01020604   0x01020604   0x00000004   PAD
-    0x01020608   0x01020608   0x00000004   Code   RO          179    .text.SVC_Handler   startup_sse310mps3.o
-    0x0102060c   0x0102060c   0x00000004   PAD
-    0x01020610   0x01020610   0x00000004   Code   RO          177    .text.SecureFault_Handler  startup_sse310mps3.o
-    0x01020614   0x01020614   0x00000004   PAD
-    0x01020618   0x01020618   0x00000004   Code   RO          185    .text.SysTick_Handler  startup_sse310mps3.o
-    0x0102061c   0x0102061c   0x00000004   PAD
-    0x01020620   0x01020620   0x0000001e   Code   RO          419    .text.SystemCoreClockUpdate  system_sse310mps3.o
-    0x0102063e   0x0102063e   0x00000002   PAD
-    0x01020640   0x01020640   0x00000136   Code   RO          421    .text.SystemInit    system_sse310mps3.o
-    0x01020776   0x01020776   0x00000002   PAD
-    0x01020778   0x01020778   0x00000004   Code   RO          217    .text.System_Timestamp_Counter_Handler  startup_sse310mps3.o
+    0x01020608   0x01020608   0x0000001e   Code   RO          419    .text.SystemCoreClockUpdate  system_sse310mps3.o
+    0x01020626   0x01020626   0x00000002   PAD
+    0x01020628   0x01020628   0x00000136   Code   RO          421    .text.SystemInit    system_sse310mps3.o
+    0x0102075e   0x0102075e   0x00000002   PAD
+    0x01020760   0x01020760   0x00000004   Code   RO          217    .text.System_Timestamp_Counter_Handler  startup_sse310mps3.o
+    0x01020764   0x01020764   0x00000004   PAD
+    0x01020768   0x01020768   0x00000004   Code   RO          193    .text.TFM_TIMER0_IRQ_Handler  startup_sse310mps3.o
+    0x0102076c   0x0102076c   0x00000004   PAD
+    0x01020770   0x01020770   0x00000004   Code   RO          195    .text.TIMER1_Handler  startup_sse310mps3.o
+    0x01020774   0x01020774   0x00000004   PAD
+    0x01020778   0x01020778   0x00000004   Code   RO          197    .text.TIMER2_Handler  startup_sse310mps3.o
     0x0102077c   0x0102077c   0x00000004   PAD
-    0x01020780   0x01020780   0x00000004   Code   RO          193    .text.TFM_TIMER0_IRQ_Handler  startup_sse310mps3.o
+    0x01020780   0x01020780   0x00000004   Code   RO          211    .text.TIMER3_AON_Handler  startup_sse310mps3.o
     0x01020784   0x01020784   0x00000004   PAD
-    0x01020788   0x01020788   0x00000004   Code   RO          195    .text.TIMER1_Handler  startup_sse310mps3.o
+    0x01020788   0x01020788   0x00000004   Code   RO          255    .text.TOUCH_SCREEN_Handler  startup_sse310mps3.o
     0x0102078c   0x0102078c   0x00000004   PAD
-    0x01020790   0x01020790   0x00000004   Code   RO          197    .text.TIMER2_Handler  startup_sse310mps3.o
+    0x01020790   0x01020790   0x00000004   Code   RO          239    .text.UART0_Combined_Handler  startup_sse310mps3.o
     0x01020794   0x01020794   0x00000004   PAD
-    0x01020798   0x01020798   0x00000004   Code   RO          211    .text.TIMER3_AON_Handler  startup_sse310mps3.o
+    0x01020798   0x01020798   0x00000004   Code   RO          241    .text.UART1_Combined_Handler  startup_sse310mps3.o
     0x0102079c   0x0102079c   0x00000004   PAD
-    0x010207a0   0x010207a0   0x00000004   Code   RO          255    .text.TOUCH_SCREEN_Handler  startup_sse310mps3.o
+    0x010207a0   0x010207a0   0x00000004   Code   RO          243    .text.UART2_Combined_Handler  startup_sse310mps3.o
     0x010207a4   0x010207a4   0x00000004   PAD
-    0x010207a8   0x010207a8   0x00000004   Code   RO          239    .text.UART0_Combined_Handler  startup_sse310mps3.o
+    0x010207a8   0x010207a8   0x00000004   Code   RO          245    .text.UART3_Combined_Handler  startup_sse310mps3.o
     0x010207ac   0x010207ac   0x00000004   PAD
-    0x010207b0   0x010207b0   0x00000004   Code   RO          241    .text.UART1_Combined_Handler  startup_sse310mps3.o
+    0x010207b0   0x010207b0   0x00000004   Code   RO          247    .text.UART4_Combined_Handler  startup_sse310mps3.o
     0x010207b4   0x010207b4   0x00000004   PAD
-    0x010207b8   0x010207b8   0x00000004   Code   RO          243    .text.UART2_Combined_Handler  startup_sse310mps3.o
+    0x010207b8   0x010207b8   0x00000004   Code   RO          407    .text.UART5_Combined_Handler  startup_sse310mps3.o
     0x010207bc   0x010207bc   0x00000004   PAD
-    0x010207c0   0x010207c0   0x00000004   Code   RO          245    .text.UART3_Combined_Handler  startup_sse310mps3.o
+    0x010207c0   0x010207c0   0x00000004   Code   RO          249    .text.UARTOVF_Handler  startup_sse310mps3.o
     0x010207c4   0x010207c4   0x00000004   PAD
-    0x010207c8   0x010207c8   0x00000004   Code   RO          247    .text.UART4_Combined_Handler  startup_sse310mps3.o
-    0x010207cc   0x010207cc   0x00000004   PAD
-    0x010207d0   0x010207d0   0x00000004   Code   RO          407    .text.UART5_Combined_Handler  startup_sse310mps3.o
-    0x010207d4   0x010207d4   0x00000004   PAD
-    0x010207d8   0x010207d8   0x00000004   Code   RO          249    .text.UARTOVF_Handler  startup_sse310mps3.o
-    0x010207dc   0x010207dc   0x00000004   PAD
-    0x010207e0   0x010207e0   0x00000082   Code   RO           18    .text.UARTRX0_Handler  driver_usart.o
-    0x01020862   0x01020862   0x00000006   PAD
-    0x01020868   0x01020868   0x00000004   Code   RO          223    .text.UARTRX1_Handler  startup_sse310mps3.o
+    0x010207c8   0x010207c8   0x00000082   Code   RO           18    .text.UARTRX0_Handler  driver_usart.o
+    0x0102084a   0x0102084a   0x00000006   PAD
+    0x01020850   0x01020850   0x00000004   Code   RO          223    .text.UARTRX1_Handler  startup_sse310mps3.o
+    0x01020854   0x01020854   0x00000004   PAD
+    0x01020858   0x01020858   0x00000004   Code   RO          227    .text.UARTRX2_Handler  startup_sse310mps3.o
+    0x0102085c   0x0102085c   0x00000004   PAD
+    0x01020860   0x01020860   0x00000004   Code   RO          231    .text.UARTRX3_Handler  startup_sse310mps3.o
+    0x01020864   0x01020864   0x00000004   PAD
+    0x01020868   0x01020868   0x00000004   Code   RO          235    .text.UARTRX4_Handler  startup_sse310mps3.o
     0x0102086c   0x0102086c   0x00000004   PAD
-    0x01020870   0x01020870   0x00000004   Code   RO          227    .text.UARTRX2_Handler  startup_sse310mps3.o
+    0x01020870   0x01020870   0x00000004   Code   RO          403    .text.UARTRX5_Handler  startup_sse310mps3.o
     0x01020874   0x01020874   0x00000004   PAD
-    0x01020878   0x01020878   0x00000004   Code   RO          231    .text.UARTRX3_Handler  startup_sse310mps3.o
-    0x0102087c   0x0102087c   0x00000004   PAD
-    0x01020880   0x01020880   0x00000004   Code   RO          235    .text.UARTRX4_Handler  startup_sse310mps3.o
-    0x01020884   0x01020884   0x00000004   PAD
-    0x01020888   0x01020888   0x00000004   Code   RO          403    .text.UARTRX5_Handler  startup_sse310mps3.o
-    0x0102088c   0x0102088c   0x00000004   PAD
-    0x01020890   0x01020890   0x00000076   Code   RO           20    .text.UARTTX0_Handler  driver_usart.o
-    0x01020906   0x01020906   0x00000002   PAD
-    0x01020908   0x01020908   0x00000004   Code   RO          225    .text.UARTTX1_Handler  startup_sse310mps3.o
+    0x01020878   0x01020878   0x00000076   Code   RO           20    .text.UARTTX0_Handler  driver_usart.o
+    0x010208ee   0x010208ee   0x00000002   PAD
+    0x010208f0   0x010208f0   0x00000004   Code   RO          225    .text.UARTTX1_Handler  startup_sse310mps3.o
+    0x010208f4   0x010208f4   0x00000004   PAD
+    0x010208f8   0x010208f8   0x00000004   Code   RO          229    .text.UARTTX2_Handler  startup_sse310mps3.o
+    0x010208fc   0x010208fc   0x00000004   PAD
+    0x01020900   0x01020900   0x00000004   Code   RO          233    .text.UARTTX3_Handler  startup_sse310mps3.o
+    0x01020904   0x01020904   0x00000004   PAD
+    0x01020908   0x01020908   0x00000004   Code   RO          237    .text.UARTTX4_Handler  startup_sse310mps3.o
     0x0102090c   0x0102090c   0x00000004   PAD
-    0x01020910   0x01020910   0x00000004   Code   RO          229    .text.UARTTX2_Handler  startup_sse310mps3.o
+    0x01020910   0x01020910   0x00000004   Code   RO          405    .text.UARTTX5_Handler  startup_sse310mps3.o
     0x01020914   0x01020914   0x00000004   PAD
-    0x01020918   0x01020918   0x00000004   Code   RO          233    .text.UARTTX3_Handler  startup_sse310mps3.o
+    0x01020918   0x01020918   0x00000004   Code   RO          257    .text.USB_Handler   startup_sse310mps3.o
     0x0102091c   0x0102091c   0x00000004   PAD
-    0x01020920   0x01020920   0x00000004   Code   RO          237    .text.UARTTX4_Handler  startup_sse310mps3.o
+    0x01020920   0x01020920   0x00000004   Code   RO          175    .text.UsageFault_Handler  startup_sse310mps3.o
     0x01020924   0x01020924   0x00000004   PAD
-    0x01020928   0x01020928   0x00000004   Code   RO          405    .text.UARTTX5_Handler  startup_sse310mps3.o
-    0x0102092c   0x0102092c   0x00000004   PAD
-    0x01020930   0x01020930   0x00000004   Code   RO          257    .text.USB_Handler   startup_sse310mps3.o
-    0x01020934   0x01020934   0x00000004   PAD
-    0x01020938   0x01020938   0x00000004   Code   RO          175    .text.UsageFault_Handler  startup_sse310mps3.o
-    0x0102093c   0x0102093c   0x00000004   PAD
-    0x01020940   0x01020940   0x00000064   Code   RO            7    .text.main          main_ns.o
-    0x010209a4   0x010209a4   0x00000004   PAD
-    0x010209a8   0x010209a8   0x00000056   Code   RO          148    .text.uart_cmsdk_clear_interrupt  uart_cmsdk_drv.o
-    0x010209fe   0x010209fe   0x00000002   PAD
-    0x01020a00   0x01020a00   0x0000003a   Code   RO          136    .text.uart_cmsdk_read  uart_cmsdk_drv.o
-    0x01020a3a   0x01020a3a   0x00000006   PAD
-    0x01020a40   0x01020a40   0x0000003a   Code   RO          138    .text.uart_cmsdk_write  uart_cmsdk_drv.o
-    0x01020a7a   0x01020a7a   0x0000000a   Ven    RO          619    Veneer$$Code        anon$$obj.o
-    0x01020a84   0x01020a84   0x0000000a   Ven    RO          620    Veneer$$Code        anon$$obj.o
-    0x01020a8e   0x01020a8e   0x0000001e   Code   RO          540    x$fpl$fpinit        fz_wv.l(fpinit_81m.o)
-    0x01020aac   0x01020aac   0x00000008   Data   RO          114    .rodata.UART0_CMSDK_DEV_CFG_S  device_definition.o
-    0x01020ab4   0x01020ab4   0x00000020   Data   RO          612    Region$$Table       anon$$obj.o
+    0x01020928   0x01020928   0x00000064   Code   RO            7    .text.main          main_ns.o
+    0x0102098c   0x0102098c   0x00000004   PAD
+    0x01020990   0x01020990   0x00000056   Code   RO          148    .text.uart_cmsdk_clear_interrupt  uart_cmsdk_drv.o
+    0x010209e6   0x010209e6   0x00000002   PAD
+    0x010209e8   0x010209e8   0x0000003a   Code   RO          136    .text.uart_cmsdk_read  uart_cmsdk_drv.o
+    0x01020a22   0x01020a22   0x00000006   PAD
+    0x01020a28   0x01020a28   0x0000003a   Code   RO          138    .text.uart_cmsdk_write  uart_cmsdk_drv.o
+    0x01020a62   0x01020a62   0x0000000a   Ven    RO          619    Veneer$$Code        anon$$obj.o
+    0x01020a6c   0x01020a6c   0x0000000a   Ven    RO          620    Veneer$$Code        anon$$obj.o
+    0x01020a76   0x01020a76   0x0000001e   Code   RO          540    x$fpl$fpinit        fz_wv.l(fpinit_81m.o)
+    0x01020a94   0x01020a94   0x00000008   Data   RO          114    .rodata.UART0_CMSDK_DEV_CFG_S  device_definition.o
+    0x01020a9c   0x01020a9c   0x00000020   Data   RO          612    Region$$Table       anon$$obj.o
 
 
-    Execution Region CODE_WATERMARK (Exec base: 0x01020ad4, Load base: 0x01020ad4, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
+    Execution Region CODE_WATERMARK (Exec base: 0x01020abc, Load base: 0x01020abc, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x01020ad4        -       0x00000000   Zero   RW            1    CODE_WATERMARK.bss  anon$$obj.o
+    0x01020abc        -       0x00000000   Zero   RW            1    CODE_WATERMARK.bss  anon$$obj.o
 
 
-    Execution Region ER_DATA (Exec base: 0x21040000, Load base: 0x01020ad4, Size: 0x00000064, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_DATA (Exec base: 0x21040000, Load base: 0x01020abc, Size: 0x00000064, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x21040000   0x01020ad4   0x00000024   Data   RW           76    .data.Driver_USART0_DEV  driver_usart.o
-    0x21040024   0x01020af8   0x00000004   Data   RW          424    .data.PeripheralClock  system_sse310mps3.o
-    0x21040028   0x01020afc   0x00000004   Data   RW          423    .data.SystemCoreClock  system_sse310mps3.o
-    0x2104002c   0x01020b00   0x00000008   Data   RW          116    .data.UART0_CMSDK_DEV_S  device_definition.o
-    0x21040034   0x01020b08   0x0000001e   Data   RW            9    .data.text          main_ns.o
-    0x21040052   0x01020b26   0x00000002   PAD
+    0x21040000   0x01020abc   0x00000024   Data   RW           76    .data.Driver_USART0_DEV  driver_usart.o
+    0x21040024   0x01020ae0   0x00000004   Data   RW          424    .data.PeripheralClock  system_sse310mps3.o
+    0x21040028   0x01020ae4   0x00000004   Data   RW          423    .data.SystemCoreClock  system_sse310mps3.o
+    0x2104002c   0x01020ae8   0x00000008   Data   RW          116    .data.UART0_CMSDK_DEV_S  device_definition.o
+    0x21040034   0x01020af0   0x0000001e   Data   RW            9    .data.text          main_ns.o
+    0x21040052   0x01020b0e   0x00000002   PAD
     0x21040054        -       0x0000000c   Zero   RW          115    .bss.UART0_CMSDK_DEV_DATA_S  device_definition.o
     0x21040060        -       0x00000004   Zero   RW           10    .bss.x              main_ns.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x21040068, Load base: 0x01020b28, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x21040068, Load base: 0x01020b10, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x21040068        -       0x00000400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x21040480, Load base: 0x01020b40, Size: 0x000003f8, Max: 0x000003f8, ABSOLUTE)
+    Execution Region ARM_LIB_STACK (Exec base: 0x21040480, Load base: 0x01020b20, Size: 0x000003f8, Max: 0x000003f8, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x21040480        -       0x000003f8   Zero   RW            3    ARM_LIB_STACK.bss   anon$$obj.o
 
 
-    Execution Region STACKSEAL (Exec base: 0x21040878, Load base: 0x01020b40, Size: 0x00000008, Max: 0x00000008, ABSOLUTE)
+    Execution Region STACKSEAL (Exec base: 0x21040878, Load base: 0x01020b20, Size: 0x00000008, Max: 0x00000008, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x21040878        -       0x00000008   Zero   RW            4    STACKSEAL.bss       anon$$obj.o
 
 
-    Execution Region SRAM_WATERMARK (Exec base: 0x21040880, Load base: 0x01020b40, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
+    Execution Region SRAM_WATERMARK (Exec base: 0x21040880, Load base: 0x01020b20, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1654,12 +1654,12 @@ Image component sizes
          0          0          8          8         12       1147   device_definition.o
        248          0          0         36          0      12557   driver_usart.o
        100          0          0         30          4       1103   main_ns.o
-       522          0        576          0          0      11192   startup_sse310mps3.o
+       498          0        576          0          0      10655   startup_sse310mps3.o
        340          0          0          8          0       2783   system_sse310mps3.o
        202          0          0          0          0       5178   uart_cmsdk_drv.o
 
     ----------------------------------------------------------------------
-      1934          0        616         84       2064      33960   Object Totals
+      1910          0        616         84       2064      33423   Object Totals
         20          0         32          0       2048          0   (incl. Generated)
        502          0          0          2          0          0   (incl. Padding)
 
@@ -1707,15 +1707,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2156         16        616         84       2064      34428   Grand Totals
-      2156         16        616         84       2064      34428   ELF Image Totals
-      2156         16        616         84          0          0   ROM Totals
+      2132         16        616         84       2064      33891   Grand Totals
+      2132         16        616         84       2064      33891   ELF Image Totals
+      2132         16        616         84          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2772 (   2.71kB)
+    Total RO  Size (Code + RO Data)                 2748 (   2.68kB)
     Total RW  Size (RW Data + ZI Data)              2148 (   2.10kB)
-    Total ROM Size (Code + RO Data + RW Data)       2856 (   2.79kB)
+    Total ROM Size (Code + RO Data + RW Data)       2832 (   2.77kB)
 
 ==============================================================================
 

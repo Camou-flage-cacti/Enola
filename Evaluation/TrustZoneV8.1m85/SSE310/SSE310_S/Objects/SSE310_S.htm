@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\SSE310_S.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\SSE310_S.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Thu Sep 19 16:20:41 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Thu Sep 19 18:14:42 2024
 <BR><P>
 <H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -284,7 +284,7 @@ Function Pointers
 <H3>
 Global Symbols
 </H3>
-<P><STRONG><a name="[89]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
+<P><STRONG><a name="[8b]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
 <BR><BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
@@ -292,7 +292,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[8e]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
-<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
 <P><STRONG><a name="[90]"></a>__scatterload_rt2</STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
@@ -421,7 +421,7 @@ Global Symbols
 <P><STRONG><a name="[105]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[8f]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
@@ -465,8 +465,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_test_llvm_nsc
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_Secure_printf
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_test_llvm_nsc
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_Secure_printf
 </UL>
 
 <P><STRONG><a name="[a9]"></a>__printf</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, __printf.o(.text), UNUSED, KEPT)
@@ -1456,7 +1456,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = Reset_Handler &rArr; SystemInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_sse310mps3.o(RESET)
@@ -1503,7 +1503,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_sse310mps3.o(RESET)
 </UL>
-<P><STRONG><a name="[8a]"></a>__acle_se_Secure_printf</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, main.o(.text.Secure_printf), UNUSED, KEPT)
+<P><STRONG><a name="[89]"></a>__acle_se_Secure_printf</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, main.o(.text.Secure_printf), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = __acle_se_Secure_printf &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1760,7 +1760,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8b]"></a>__acle_se_test_llvm_nsc</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, main.o(.text.test_llvm_nsc), UNUSED, KEPT)
+<P><STRONG><a name="[8a]"></a>__acle_se_test_llvm_nsc</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, main.o(.text.test_llvm_nsc), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = __acle_se_test_llvm_nsc &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1855,14 +1855,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = Secure_printf &rArr; __acle_se_Secure_printf &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_Secure_printf
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_Secure_printf
 </UL>
 
 <P><STRONG><a name="[8d]"></a>test_llvm_nsc</STRONG> (Thumb, 8 bytes, Stack size unknown bytes, anon$$obj.o(Veneer$$CMSE), UNUSED, KEPT)
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = test_llvm_nsc &rArr; __acle_se_test_llvm_nsc &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_test_llvm_nsc
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__acle_se_test_llvm_nsc
 </UL>
 <P>
 <H3>
