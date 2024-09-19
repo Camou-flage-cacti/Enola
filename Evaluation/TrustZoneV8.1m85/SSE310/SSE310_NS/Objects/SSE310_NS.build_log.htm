@@ -21,27 +21,37 @@ Target DLL:      UL2V8M.DLL V1.7.9.0
 Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
-C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_S\SSE310_S.uvprojx
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_NS\SSE310_NS.uvprojx
 Project File Date:  09/19/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild Project 'SSE310_S' - Target 'Target 1'
-compiling stdout_USART.c...
-compiling device_definition.c...
+Rebuild Project 'SSE310_NS' - Target 'Target 1'
 compiling retarget_io.c...
-compiling main.c...
+compiling device_definition.c...
 compiling uart_cmsdk_drv.c...
 compiling system_SSE310MPS3.c...
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_NS\main_ns.c(9): warning: In file included from...
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_S\Secure_Functions.h(11): warning: no newline at end of file [-Wnewline-eof]
+extern void    test_llvm_nsc (int count);
+                                         ^
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_NS\main_ns.c(12): warning: no previous extern declaration for non-static variable 'text' [-Wmissing-variable-declarations]
+char text[] = "Hello World (non-secure) xx\r\n";
+     ^
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_NS\main_ns.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char text[] = "Hello World (non-secure) xx\r\n";
+^
+C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_NS\main_ns.c(20): warning: unused variable 'c' [-Wunused-variable]
+  uint32_t c;
+           ^
+3 warnings generated.
+compiling main_ns.c...
 compiling Driver_USART.c...
 compiling startup_SSE310MPS3.c...
 linking...
-.\Objects\SSE310_S.axf: warning: Your license for feature Keil will expire in 1 days [-Wlicense-management]
-.\Objects\SSE310_S.axf: Error: L6405E: No .ANY selector matches anon$$obj.o(Veneer$$CMSE).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-".\Objects\SSE310_S.axf" - 1 Error(s), 1 Warning(s).
+.\Objects\SSE310_NS.axf: warning: Your license for feature Keil will expire in 1 days [-Wlicense-management]
+Program Size: Code=2104 RO-data=616 RW-data=52 ZI-data=2064  
+".\Objects\SSE310_NS.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -89,9 +99,7 @@ Package Vendor: Keil
       Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
 
    * Component: ARM::CMSIS:CORE:6.0.0
-      Source file:   CMSIS/Core/Template/ARMv8-M/tz_context.c
       Include file:  CMSIS/Core/Include/tz_context.h
-      Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
 
    * Component: ARM::Device:Definition:2.0.0
       Include file:  Board/Device_Definition/device_definition.h
@@ -112,7 +120,6 @@ Package Vendor: Keil
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:Breakpoint:1.2.0
       Source file:   Source/retarget_io.c
-Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

@@ -182,6 +182,27 @@ Section Cross References
     retarget_io.o(.ARM.exidx.text._sys_istty) refers to retarget_io.o(.text._sys_istty) for [Anonymous Symbol]
     retarget_io.o(.ARM.exidx.text._sys_seek) refers to retarget_io.o(.text._sys_seek) for [Anonymous Symbol]
     retarget_io.o(.ARM.exidx.text._sys_flen) refers to retarget_io.o(.text._sys_flen) for [Anonymous Symbol]
+    device_definition.o(.data.UART0_CMSDK_DEV_S) refers to device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S) for [Anonymous Symbol]
+    device_definition.o(.data.UART0_CMSDK_DEV_S) refers to device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_init) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_uninit) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_uninit) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_baudrate) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_read) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_write) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_ready) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable) for [Anonymous Symbol]
+    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_overrun_clear) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_overrun_clear) for [Anonymous Symbol]
     startup_sse310mps3.o(.ARM.exidx.text.NMI_Handler) refers to startup_sse310mps3.o(.text.NMI_Handler) for [Anonymous Symbol]
     startup_sse310mps3.o(.ARM.exidx.text.HardFault_Handler) refers to startup_sse310mps3.o(.text.HardFault_Handler) for [Anonymous Symbol]
     startup_sse310mps3.o(.ARM.exidx.text.MemManage_Handler) refers to startup_sse310mps3.o(.text.MemManage_Handler) for [Anonymous Symbol]
@@ -434,27 +455,6 @@ Section Cross References
     system_sse310mps3.o(.text.SystemInit) refers to system_sse310mps3.o(.data.SystemCoreClock) for SystemCoreClock
     system_sse310mps3.o(.text.SystemInit) refers to system_sse310mps3.o(.data.PeripheralClock) for PeripheralClock
     system_sse310mps3.o(.ARM.exidx.text.SystemInit) refers to system_sse310mps3.o(.text.SystemInit) for [Anonymous Symbol]
-    device_definition.o(.data.UART0_CMSDK_DEV_S) refers to device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S) for [Anonymous Symbol]
-    device_definition.o(.data.UART0_CMSDK_DEV_S) refers to device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_init) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_uninit) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_uninit) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_baudrate) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_read) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_write) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_tx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_irq_rx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_ready) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_tx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_enable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_disable) for [Anonymous Symbol]
-    uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_overrun_clear) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_rx_overrun_clear) for [Anonymous Symbol]
     __2printf.o(.text) refers to _printf_char_file.o(.text) for _printf_char_file
     __2printf.o(.text) refers to stdio_streams.o(.bss) for __stdout
     noretval__2printf.o(.text) refers to _printf_char_file.o(.text) for _printf_char_file
@@ -853,6 +853,32 @@ Removing Unused input sections from the image.
     Removing retarget_io.o(.ARM.exidx.text._sys_istty), (8 bytes).
     Removing retarget_io.o(.ARM.exidx.text._sys_seek), (8 bytes).
     Removing retarget_io.o(.ARM.exidx.text._sys_flen), (8 bytes).
+    Removing device_definition.o(.text), (0 bytes).
+    Removing uart_cmsdk_drv.o(.text), (0 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_uninit), (52 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_uninit), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate), (6 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock), (36 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready), (26 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable), (8 bytes).
+    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_overrun_clear), (20 bytes).
+    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_overrun_clear), (8 bytes).
     Removing startup_sse310mps3.o(.text), (0 bytes).
     Removing startup_sse310mps3.o(.ARM.exidx.text.NMI_Handler), (8 bytes).
     Removing startup_sse310mps3.o(.ARM.exidx.text.HardFault_Handler), (8 bytes).
@@ -983,31 +1009,5 @@ Removing Unused input sections from the image.
     Removing system_sse310mps3.o(.text.SystemCoreClockUpdate), (30 bytes).
     Removing system_sse310mps3.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_sse310mps3.o(.ARM.exidx.text.SystemInit), (8 bytes).
-    Removing device_definition.o(.text), (0 bytes).
-    Removing uart_cmsdk_drv.o(.text), (0 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_init), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_uninit), (52 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_uninit), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_baudrate), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_get_baudrate), (6 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_get_baudrate), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_set_clock), (36 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_set_clock), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_read), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_write), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_tx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_tx_ready), (26 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_ready), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_irq_rx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_ready), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_clear_interrupt), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_tx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_enable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_disable), (8 bytes).
-    Removing uart_cmsdk_drv.o(.text.uart_cmsdk_rx_overrun_clear), (20 bytes).
-    Removing uart_cmsdk_drv.o(.ARM.exidx.text.uart_cmsdk_rx_overrun_clear), (8 bytes).
 
 195 unused section(s) (total 1659 bytes) removed from the image.
