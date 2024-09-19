@@ -49,7 +49,7 @@ LR_CODE S_CODE_START {
 
     STACKSEAL +0 EMPTY 0x8 {
     }
-
+	
     /* This empty, zero long execution region is here to mark the limit address
      * of the last execution region that is allocated in SRAM.
      */

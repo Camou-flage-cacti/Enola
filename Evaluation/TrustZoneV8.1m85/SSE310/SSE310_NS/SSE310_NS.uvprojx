@@ -189,7 +189,7 @@
             <nBranchProt>0</nBranchProt>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
-            <StupSel>8</StupSel>
+            <StupSel>16</StupSel>
             <useUlib>0</useUlib>
             <EndSel>1</EndSel>
             <uLtcg>0</uLtcg>
@@ -206,12 +206,12 @@
             <Ro1Chk>0</Ro1Chk>
             <Ro2Chk>0</Ro2Chk>
             <Ro3Chk>0</Ro3Chk>
-            <Ir1Chk>1</Ir1Chk>
-            <Ir2Chk>0</Ir2Chk>
+            <Ir1Chk>0</Ir1Chk>
+            <Ir2Chk>1</Ir2Chk>
             <Ra1Chk>0</Ra1Chk>
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
-            <Im1Chk>1</Im1Chk>
+            <Im1Chk>0</Im1Chk>
             <Im2Chk>1</Im2Chk>
             <OnChipMemories>
               <Ocm1>
@@ -281,23 +281,23 @@
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <StartAddress>0x1020000</StartAddress>
+                <Size>0x200000</Size>
               </OCR_RVCT5>
               <OCR_RVCT6>
                 <Type>0</Type>
-                <StartAddress>0x1000000</StartAddress>
-                <Size>0x200000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x0</Size>
               </OCR_RVCT6>
               <OCR_RVCT7>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
-                <Size>0x2000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x0</Size>
               </OCR_RVCT7>
               <OCR_RVCT8>
                 <Type>0</Type>
-                <StartAddress>0x20002000</StartAddress>
-                <Size>0x2000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x0</Size>
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
@@ -306,8 +306,8 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x8000</Size>
+                <StartAddress>0x21040000</StartAddress>
+                <Size>0x4000</Size>
               </OCR_RVCT10>
             </OnChipMemories>
             <RvctStartVector></RvctStartVector>
@@ -371,7 +371,7 @@
             <TextAddressRange>0x11000000</TextAddressRange>
             <DataAddressRange>0x31000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\RTE\Device\SSE-310-MPS3_AN555\linker_SSE310MPS3_secure.sct</ScatterFile>
+            <ScatterFile>.\RTE\Device\SSE-310-MPS3_AN555\linker_SSE310MPS3_non_secure.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -398,6 +398,11 @@
               <FileName>Secure_Functions.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\SSE310_S\Secure_Functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>SSE310_S_CMSE_Lib.o</FileName>
+              <FileType>3</FileType>
+              <FilePath>..\SSE310_S\Objects\SSE310_S_CMSE_Lib.o</FilePath>
             </File>
           </Files>
         </Group>

@@ -6,6 +6,7 @@ Section Cross References
 
     main_ns.o(.text.main) refers to main_ns.o(.bss.x) for x
     main_ns.o(.text.main) refers to system_sse310mps3.o(.text.SystemCoreClockUpdate) for SystemCoreClockUpdate
+    main_ns.o(.text.main) refers to main_ns.o(.data.text) for text
     main_ns.o(.ARM.exidx.text.main) refers to main_ns.o(.text.main) for [Anonymous Symbol]
     driver_usart.o(.text.UARTRX0_Handler) refers to driver_usart.o(.data.Driver_USART0_DEV) for Driver_USART0_DEV
     driver_usart.o(.text.UARTRX0_Handler) refers to uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt) for uart_cmsdk_clear_interrupt
@@ -510,7 +511,6 @@ Removing Unused input sections from the image.
 
     Removing main_ns.o(.text), (0 bytes).
     Removing main_ns.o(.ARM.exidx.text.main), (8 bytes).
-    Removing main_ns.o(.data.text), (30 bytes).
     Removing main_ns.o(.ARM.use_no_argv), (4 bytes).
     Removing driver_usart.o(.text), (0 bytes).
     Removing driver_usart.o(.ARM.exidx.text.UARTRX0_Handler), (8 bytes).
@@ -760,7 +760,16 @@ Removing Unused input sections from the image.
     Removing system_sse310mps3.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_sse310mps3.o(.ARM.exidx.text.SystemInit), (8 bytes).
 
-251 unused section(s) (total 4656 bytes) removed from the image.
+250 unused section(s) (total 4626 bytes) removed from the image.
+
+==============================================================================
+
+Adding Veneers to the image
+
+    Adding TT veneer (10 bytes, Long) for call to 'Secure_printf' from main_ns.o(.text.main).
+    Adding TT veneer (10 bytes, Long) for call to 'test_llvm_nsc' from main_ns.o(.text.main).
+
+2 Veneer(s) (total 20 bytes) added to the image.
 
 ==============================================================================
 
@@ -833,196 +842,196 @@ Image Symbol Table
     startup_SSE310MPS3.c                     0x00000000   Number         0  startup_sse310mps3.o ABSOLUTE
     system_SSE310MPS3.c                      0x00000000   Number         0  system_sse310mps3.o ABSOLUTE
     uart_cmsdk_drv.c                         0x00000000   Number         0  uart_cmsdk_drv.o ABSOLUTE
-    __tagsym$$used.0                         0x11000000   Number         0  startup_sse310mps3.o(RESET)
-    !!!main                                  0x11000240   Section        8  __main.o(!!!main)
-    !!!scatter                               0x11000248   Section       52  __scatter.o(!!!scatter)
-    !!handler_copy                           0x1100027c   Section       26  __scatter_copy.o(!!handler_copy)
-    !!handler_zi                             0x11000298   Section       28  __scatter_zi.o(!!handler_zi)
-    .ARM.Collect$$libinit$$00000000          0x110002b4   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
-    .ARM.Collect$$libinit$$00000001          0x110002b6   Section        4  libinit2.o(.ARM.Collect$$libinit$$00000001)
-    .ARM.Collect$$libinit$$00000004          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
-    .ARM.Collect$$libinit$$00000006          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000006)
-    .ARM.Collect$$libinit$$0000000C          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
-    .ARM.Collect$$libinit$$0000000E          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
-    .ARM.Collect$$libinit$$00000010          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000010)
-    .ARM.Collect$$libinit$$00000013          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
-    .ARM.Collect$$libinit$$00000015          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
-    .ARM.Collect$$libinit$$00000017          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
-    .ARM.Collect$$libinit$$00000019          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
-    .ARM.Collect$$libinit$$0000001B          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
-    .ARM.Collect$$libinit$$0000001D          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
-    .ARM.Collect$$libinit$$0000001F          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
-    .ARM.Collect$$libinit$$00000021          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
-    .ARM.Collect$$libinit$$00000023          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
-    .ARM.Collect$$libinit$$00000025          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
-    .ARM.Collect$$libinit$$00000027          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000027)
-    .ARM.Collect$$libinit$$0000002E          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
-    .ARM.Collect$$libinit$$00000030          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
-    .ARM.Collect$$libinit$$00000032          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
-    .ARM.Collect$$libinit$$00000034          0x110002ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000034)
-    .ARM.Collect$$libinit$$00000035          0x110002ba   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000035)
-    .ARM.Collect$$libshutdown$$00000000      0x110002bc   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
-    .ARM.Collect$$libshutdown$$00000002      0x110002be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
-    .ARM.Collect$$libshutdown$$00000004      0x110002be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
-    .ARM.Collect$$libshutdown$$00000007      0x110002be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
-    .ARM.Collect$$libshutdown$$0000000A      0x110002be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
-    .ARM.Collect$$libshutdown$$0000000C      0x110002be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
-    .ARM.Collect$$libshutdown$$0000000F      0x110002be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
-    .ARM.Collect$$libshutdown$$00000010      0x110002be   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
-    .ARM.Collect$$rtentry$$00000000          0x110002c0   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
-    .ARM.Collect$$rtentry$$00000002          0x110002c0   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
-    .ARM.Collect$$rtentry$$00000007          0x110002c0   Section        4  __rtentry7.o(.ARM.Collect$$rtentry$$00000007)
-    .ARM.Collect$$rtentry$$00000009          0x110002c4   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
-    .ARM.Collect$$rtentry$$0000000A          0x110002c4   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
-    .ARM.Collect$$rtentry$$0000000C          0x110002c8   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
-    .ARM.Collect$$rtentry$$0000000D          0x110002c8   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
-    __lit__00000000                          0x110002d0   Data           4  __rtentry7.o(.ARM.Collect$$rtentry$$00002718)
-    .ARM.Collect$$rtentry$$00002718          0x110002d0   Section        4  __rtentry7.o(.ARM.Collect$$rtentry$$00002718)
-    .ARM.Collect$$rtexit$$00000000           0x110002d4   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
-    .ARM.Collect$$rtexit$$00000002           0x110002d6   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
-    .ARM.Collect$$rtexit$$00000003           0x110002d6   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
-    .ARM.Collect$$rtexit$$00000004           0x110002da   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
-    .text                                    0x110002e0   Section        0  exit.o(.text)
-    .text                                    0x110002f2   Section        2  use_no_semi.o(.text)
-    .text                                    0x110002f4   Section        0  indicate_semi.o(.text)
-    .text                                    0x110002f4   Section        0  sys_exit.o(.text)
-    [Anonymous Symbol]                       0x11000300   Section        0  startup_sse310mps3.o(.text.BRIDGE_ERROR_Handler)
-    [Anonymous Symbol]                       0x11000308   Section        0  startup_sse310mps3.o(.text.BusFault_Handler)
-    [Anonymous Symbol]                       0x11000310   Section        0  startup_sse310mps3.o(.text.COMBINED_PPU_Handler)
-    [Anonymous Symbol]                       0x11000318   Section        0  startup_sse310mps3.o(.text.CPU0_CTI_0_Handler)
-    [Anonymous Symbol]                       0x11000320   Section        0  startup_sse310mps3.o(.text.CPU0_CTI_1_Handler)
-    [Anonymous Symbol]                       0x11000328   Section        0  startup_sse310mps3.o(.text.DMA_Ch_0_Combined_Handler)
-    [Anonymous Symbol]                       0x11000330   Section        0  startup_sse310mps3.o(.text.DMA_Ch_0_Error_Handler)
-    [Anonymous Symbol]                       0x11000338   Section        0  startup_sse310mps3.o(.text.DMA_Ch_0_Terminal_Count_Handler)
-    [Anonymous Symbol]                       0x11000340   Section        0  startup_sse310mps3.o(.text.DMA_Ch_1_Combined_Handler)
-    [Anonymous Symbol]                       0x11000348   Section        0  startup_sse310mps3.o(.text.DMA_Ch_1_Error_Handler)
-    [Anonymous Symbol]                       0x11000350   Section        0  startup_sse310mps3.o(.text.DMA_Ch_1_Terminal_Count_Handler)
-    [Anonymous Symbol]                       0x11000358   Section        0  startup_sse310mps3.o(.text.DMA_Ch_2_Combined_Handler)
-    [Anonymous Symbol]                       0x11000360   Section        0  startup_sse310mps3.o(.text.DMA_Ch_2_Error_Handler)
-    [Anonymous Symbol]                       0x11000368   Section        0  startup_sse310mps3.o(.text.DMA_Ch_2_Terminal_Count_Handler)
-    [Anonymous Symbol]                       0x11000370   Section        0  startup_sse310mps3.o(.text.DMA_Ch_3_Combined_Handler)
-    [Anonymous Symbol]                       0x11000378   Section        0  startup_sse310mps3.o(.text.DMA_Ch_3_Error_Handler)
-    [Anonymous Symbol]                       0x11000380   Section        0  startup_sse310mps3.o(.text.DMA_Ch_3_Terminal_Count_Handler)
-    [Anonymous Symbol]                       0x11000388   Section        0  startup_sse310mps3.o(.text.DebugMon_Handler)
-    [Anonymous Symbol]                       0x11000390   Section        0  startup_sse310mps3.o(.text.ETHERNET_Handler)
-    [Anonymous Symbol]                       0x11000398   Section        0  startup_sse310mps3.o(.text.GPIO0_0_Handler)
-    [Anonymous Symbol]                       0x110003a0   Section        0  startup_sse310mps3.o(.text.GPIO0_10_Handler)
-    [Anonymous Symbol]                       0x110003a8   Section        0  startup_sse310mps3.o(.text.GPIO0_11_Handler)
-    [Anonymous Symbol]                       0x110003b0   Section        0  startup_sse310mps3.o(.text.GPIO0_12_Handler)
-    [Anonymous Symbol]                       0x110003b8   Section        0  startup_sse310mps3.o(.text.GPIO0_13_Handler)
-    [Anonymous Symbol]                       0x110003c0   Section        0  startup_sse310mps3.o(.text.GPIO0_14_Handler)
-    [Anonymous Symbol]                       0x110003c8   Section        0  startup_sse310mps3.o(.text.GPIO0_15_Handler)
-    [Anonymous Symbol]                       0x110003d0   Section        0  startup_sse310mps3.o(.text.GPIO0_1_Handler)
-    [Anonymous Symbol]                       0x110003d8   Section        0  startup_sse310mps3.o(.text.GPIO0_2_Handler)
-    [Anonymous Symbol]                       0x110003e0   Section        0  startup_sse310mps3.o(.text.GPIO0_3_Handler)
-    [Anonymous Symbol]                       0x110003e8   Section        0  startup_sse310mps3.o(.text.GPIO0_4_Handler)
-    [Anonymous Symbol]                       0x110003f0   Section        0  startup_sse310mps3.o(.text.GPIO0_5_Handler)
-    [Anonymous Symbol]                       0x110003f8   Section        0  startup_sse310mps3.o(.text.GPIO0_6_Handler)
-    [Anonymous Symbol]                       0x11000400   Section        0  startup_sse310mps3.o(.text.GPIO0_7_Handler)
-    [Anonymous Symbol]                       0x11000408   Section        0  startup_sse310mps3.o(.text.GPIO0_8_Handler)
-    [Anonymous Symbol]                       0x11000410   Section        0  startup_sse310mps3.o(.text.GPIO0_9_Handler)
-    [Anonymous Symbol]                       0x11000418   Section        0  startup_sse310mps3.o(.text.GPIO0_Combined_Handler)
-    [Anonymous Symbol]                       0x11000420   Section        0  startup_sse310mps3.o(.text.GPIO1_0_Handler)
-    [Anonymous Symbol]                       0x11000428   Section        0  startup_sse310mps3.o(.text.GPIO1_10_Handler)
-    [Anonymous Symbol]                       0x11000430   Section        0  startup_sse310mps3.o(.text.GPIO1_11_Handler)
-    [Anonymous Symbol]                       0x11000438   Section        0  startup_sse310mps3.o(.text.GPIO1_12_Handler)
-    [Anonymous Symbol]                       0x11000440   Section        0  startup_sse310mps3.o(.text.GPIO1_13_Handler)
-    [Anonymous Symbol]                       0x11000448   Section        0  startup_sse310mps3.o(.text.GPIO1_14_Handler)
-    [Anonymous Symbol]                       0x11000450   Section        0  startup_sse310mps3.o(.text.GPIO1_15_Handler)
-    [Anonymous Symbol]                       0x11000458   Section        0  startup_sse310mps3.o(.text.GPIO1_1_Handler)
-    [Anonymous Symbol]                       0x11000460   Section        0  startup_sse310mps3.o(.text.GPIO1_2_Handler)
-    [Anonymous Symbol]                       0x11000468   Section        0  startup_sse310mps3.o(.text.GPIO1_3_Handler)
-    [Anonymous Symbol]                       0x11000470   Section        0  startup_sse310mps3.o(.text.GPIO1_4_Handler)
-    [Anonymous Symbol]                       0x11000478   Section        0  startup_sse310mps3.o(.text.GPIO1_5_Handler)
-    [Anonymous Symbol]                       0x11000480   Section        0  startup_sse310mps3.o(.text.GPIO1_6_Handler)
-    [Anonymous Symbol]                       0x11000488   Section        0  startup_sse310mps3.o(.text.GPIO1_7_Handler)
-    [Anonymous Symbol]                       0x11000490   Section        0  startup_sse310mps3.o(.text.GPIO1_8_Handler)
-    [Anonymous Symbol]                       0x11000498   Section        0  startup_sse310mps3.o(.text.GPIO1_9_Handler)
-    [Anonymous Symbol]                       0x110004a0   Section        0  startup_sse310mps3.o(.text.GPIO1_Combined_Handler)
-    [Anonymous Symbol]                       0x110004a8   Section        0  startup_sse310mps3.o(.text.GPIO2_0_Handler)
-    [Anonymous Symbol]                       0x110004b0   Section        0  startup_sse310mps3.o(.text.GPIO2_10_Handler)
-    [Anonymous Symbol]                       0x110004b8   Section        0  startup_sse310mps3.o(.text.GPIO2_11_Handler)
-    [Anonymous Symbol]                       0x110004c0   Section        0  startup_sse310mps3.o(.text.GPIO2_12_Handler)
-    [Anonymous Symbol]                       0x110004c8   Section        0  startup_sse310mps3.o(.text.GPIO2_13_Handler)
-    [Anonymous Symbol]                       0x110004d0   Section        0  startup_sse310mps3.o(.text.GPIO2_14_Handler)
-    [Anonymous Symbol]                       0x110004d8   Section        0  startup_sse310mps3.o(.text.GPIO2_15_Handler)
-    [Anonymous Symbol]                       0x110004e0   Section        0  startup_sse310mps3.o(.text.GPIO2_1_Handler)
-    [Anonymous Symbol]                       0x110004e8   Section        0  startup_sse310mps3.o(.text.GPIO2_2_Handler)
-    [Anonymous Symbol]                       0x110004f0   Section        0  startup_sse310mps3.o(.text.GPIO2_3_Handler)
-    [Anonymous Symbol]                       0x110004f8   Section        0  startup_sse310mps3.o(.text.GPIO2_4_Handler)
-    [Anonymous Symbol]                       0x11000500   Section        0  startup_sse310mps3.o(.text.GPIO2_5_Handler)
-    [Anonymous Symbol]                       0x11000508   Section        0  startup_sse310mps3.o(.text.GPIO2_6_Handler)
-    [Anonymous Symbol]                       0x11000510   Section        0  startup_sse310mps3.o(.text.GPIO2_7_Handler)
-    [Anonymous Symbol]                       0x11000518   Section        0  startup_sse310mps3.o(.text.GPIO2_8_Handler)
-    [Anonymous Symbol]                       0x11000520   Section        0  startup_sse310mps3.o(.text.GPIO2_9_Handler)
-    [Anonymous Symbol]                       0x11000528   Section        0  startup_sse310mps3.o(.text.GPIO2_Combined_Handler)
-    [Anonymous Symbol]                       0x11000530   Section        0  startup_sse310mps3.o(.text.GPIO3_0_Handler)
-    [Anonymous Symbol]                       0x11000538   Section        0  startup_sse310mps3.o(.text.GPIO3_1_Handler)
-    [Anonymous Symbol]                       0x11000540   Section        0  startup_sse310mps3.o(.text.GPIO3_2_Handler)
-    [Anonymous Symbol]                       0x11000548   Section        0  startup_sse310mps3.o(.text.GPIO3_3_Handler)
-    [Anonymous Symbol]                       0x11000550   Section        0  startup_sse310mps3.o(.text.GPIO3_Combined_Handler)
-    [Anonymous Symbol]                       0x11000558   Section        0  startup_sse310mps3.o(.text.HardFault_Handler)
-    [Anonymous Symbol]                       0x11000560   Section        0  startup_sse310mps3.o(.text.I2S_Handler)
-    [Anonymous Symbol]                       0x11000568   Section        0  startup_sse310mps3.o(.text.MPC_Handler)
-    [Anonymous Symbol]                       0x11000570   Section        0  startup_sse310mps3.o(.text.MSC_Handler)
-    [Anonymous Symbol]                       0x11000578   Section        0  startup_sse310mps3.o(.text.MemManage_Handler)
-    [Anonymous Symbol]                       0x11000580   Section        0  startup_sse310mps3.o(.text.NMI_Handler)
-    [Anonymous Symbol]                       0x11000588   Section        0  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_Handler)
-    [Anonymous Symbol]                       0x11000590   Section        0  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_RESET_REQ_Handler)
-    [Anonymous Symbol]                       0x11000598   Section        0  startup_sse310mps3.o(.text.NPU0_Handler)
-    [Anonymous Symbol]                       0x110005a0   Section        0  startup_sse310mps3.o(.text.PPC_Handler)
-    [Anonymous Symbol]                       0x110005a8   Section        0  startup_sse310mps3.o(.text.PendSV_Handler)
-    [Anonymous Symbol]                       0x110005b0   Section        0  startup_sse310mps3.o(.text.Reset_Handler)
-    [Anonymous Symbol]                       0x110005e8   Section        0  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
-    [Anonymous Symbol]                       0x110005f0   Section        0  startup_sse310mps3.o(.text.SPI_ADC_Handler)
-    [Anonymous Symbol]                       0x110005f8   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
-    [Anonymous Symbol]                       0x11000600   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
-    [Anonymous Symbol]                       0x11000608   Section        0  startup_sse310mps3.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x11000610   Section        0  startup_sse310mps3.o(.text.SecureFault_Handler)
-    [Anonymous Symbol]                       0x11000618   Section        0  startup_sse310mps3.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x11000620   Section        0  system_sse310mps3.o(.text.SystemCoreClockUpdate)
-    [Anonymous Symbol]                       0x11000640   Section        0  system_sse310mps3.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x11000778   Section        0  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
-    [Anonymous Symbol]                       0x11000780   Section        0  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
-    [Anonymous Symbol]                       0x11000788   Section        0  startup_sse310mps3.o(.text.TIMER1_Handler)
-    [Anonymous Symbol]                       0x11000790   Section        0  startup_sse310mps3.o(.text.TIMER2_Handler)
-    [Anonymous Symbol]                       0x11000798   Section        0  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
-    [Anonymous Symbol]                       0x110007a0   Section        0  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
-    [Anonymous Symbol]                       0x110007a8   Section        0  startup_sse310mps3.o(.text.UART0_Combined_Handler)
-    [Anonymous Symbol]                       0x110007b0   Section        0  startup_sse310mps3.o(.text.UART1_Combined_Handler)
-    [Anonymous Symbol]                       0x110007b8   Section        0  startup_sse310mps3.o(.text.UART2_Combined_Handler)
-    [Anonymous Symbol]                       0x110007c0   Section        0  startup_sse310mps3.o(.text.UART3_Combined_Handler)
-    [Anonymous Symbol]                       0x110007c8   Section        0  startup_sse310mps3.o(.text.UART4_Combined_Handler)
-    [Anonymous Symbol]                       0x110007d0   Section        0  startup_sse310mps3.o(.text.UART5_Combined_Handler)
-    [Anonymous Symbol]                       0x110007d8   Section        0  startup_sse310mps3.o(.text.UARTOVF_Handler)
-    [Anonymous Symbol]                       0x110007e0   Section        0  driver_usart.o(.text.UARTRX0_Handler)
-    [Anonymous Symbol]                       0x11000868   Section        0  startup_sse310mps3.o(.text.UARTRX1_Handler)
-    [Anonymous Symbol]                       0x11000870   Section        0  startup_sse310mps3.o(.text.UARTRX2_Handler)
-    [Anonymous Symbol]                       0x11000878   Section        0  startup_sse310mps3.o(.text.UARTRX3_Handler)
-    [Anonymous Symbol]                       0x11000880   Section        0  startup_sse310mps3.o(.text.UARTRX4_Handler)
-    [Anonymous Symbol]                       0x11000888   Section        0  startup_sse310mps3.o(.text.UARTRX5_Handler)
-    [Anonymous Symbol]                       0x11000890   Section        0  driver_usart.o(.text.UARTTX0_Handler)
-    [Anonymous Symbol]                       0x11000908   Section        0  startup_sse310mps3.o(.text.UARTTX1_Handler)
-    [Anonymous Symbol]                       0x11000910   Section        0  startup_sse310mps3.o(.text.UARTTX2_Handler)
-    [Anonymous Symbol]                       0x11000918   Section        0  startup_sse310mps3.o(.text.UARTTX3_Handler)
-    [Anonymous Symbol]                       0x11000920   Section        0  startup_sse310mps3.o(.text.UARTTX4_Handler)
-    [Anonymous Symbol]                       0x11000928   Section        0  startup_sse310mps3.o(.text.UARTTX5_Handler)
-    [Anonymous Symbol]                       0x11000930   Section        0  startup_sse310mps3.o(.text.USB_Handler)
-    [Anonymous Symbol]                       0x11000938   Section        0  startup_sse310mps3.o(.text.UsageFault_Handler)
-    [Anonymous Symbol]                       0x11000940   Section        0  main_ns.o(.text.main)
-    [Anonymous Symbol]                       0x11000988   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
-    [Anonymous Symbol]                       0x110009e0   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
-    [Anonymous Symbol]                       0x11000a20   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
-    $v0                                      0x11000a5a   Number         0  fpinit_81m.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x11000a5a   Section       30  fpinit_81m.o(x$fpl$fpinit)
-    UART0_CMSDK_DEV_CFG_S                    0x11000a78   Data           8  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
-    [Anonymous Symbol]                       0x11000a78   Section        0  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
-    Driver_USART0_DEV                        0x31000000   Data          36  driver_usart.o(.data.Driver_USART0_DEV)
-    [Anonymous Symbol]                       0x31000000   Section        0  driver_usart.o(.data.Driver_USART0_DEV)
-    UART0_CMSDK_DEV_DATA_S                   0x31000034   Data          12  device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S)
-    [Anonymous Symbol]                       0x31000034   Section        0  device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S)
-    x                                        0x31000040   Data           4  main_ns.o(.bss.x)
-    [Anonymous Symbol]                       0x31000040   Section        0  main_ns.o(.bss.x)
+    __tagsym$$used.0                         0x01020000   Number         0  startup_sse310mps3.o(RESET)
+    !!!main                                  0x01020240   Section        8  __main.o(!!!main)
+    !!!scatter                               0x01020248   Section       52  __scatter.o(!!!scatter)
+    !!handler_copy                           0x0102027c   Section       26  __scatter_copy.o(!!handler_copy)
+    !!handler_zi                             0x01020298   Section       28  __scatter_zi.o(!!handler_zi)
+    .ARM.Collect$$libinit$$00000000          0x010202b4   Section        2  libinit.o(.ARM.Collect$$libinit$$00000000)
+    .ARM.Collect$$libinit$$00000001          0x010202b6   Section        4  libinit2.o(.ARM.Collect$$libinit$$00000001)
+    .ARM.Collect$$libinit$$00000004          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    .ARM.Collect$$libinit$$00000006          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000006)
+    .ARM.Collect$$libinit$$0000000C          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    .ARM.Collect$$libinit$$0000000E          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    .ARM.Collect$$libinit$$00000010          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000010)
+    .ARM.Collect$$libinit$$00000013          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    .ARM.Collect$$libinit$$00000015          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    .ARM.Collect$$libinit$$00000017          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    .ARM.Collect$$libinit$$00000019          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    .ARM.Collect$$libinit$$0000001B          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    .ARM.Collect$$libinit$$0000001D          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    .ARM.Collect$$libinit$$0000001F          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    .ARM.Collect$$libinit$$00000021          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    .ARM.Collect$$libinit$$00000023          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    .ARM.Collect$$libinit$$00000025          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    .ARM.Collect$$libinit$$00000027          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000027)
+    .ARM.Collect$$libinit$$0000002E          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    .ARM.Collect$$libinit$$00000030          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    .ARM.Collect$$libinit$$00000032          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    .ARM.Collect$$libinit$$00000034          0x010202ba   Section        0  libinit2.o(.ARM.Collect$$libinit$$00000034)
+    .ARM.Collect$$libinit$$00000035          0x010202ba   Section        2  libinit2.o(.ARM.Collect$$libinit$$00000035)
+    .ARM.Collect$$libshutdown$$00000000      0x010202bc   Section        2  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    .ARM.Collect$$libshutdown$$00000002      0x010202be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    .ARM.Collect$$libshutdown$$00000004      0x010202be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    .ARM.Collect$$libshutdown$$00000007      0x010202be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    .ARM.Collect$$libshutdown$$0000000A      0x010202be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    .ARM.Collect$$libshutdown$$0000000C      0x010202be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    .ARM.Collect$$libshutdown$$0000000F      0x010202be   Section        0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    .ARM.Collect$$libshutdown$$00000010      0x010202be   Section        2  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    .ARM.Collect$$rtentry$$00000000          0x010202c0   Section        0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    .ARM.Collect$$rtentry$$00000002          0x010202c0   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    .ARM.Collect$$rtentry$$00000007          0x010202c0   Section        4  __rtentry7.o(.ARM.Collect$$rtentry$$00000007)
+    .ARM.Collect$$rtentry$$00000009          0x010202c4   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    .ARM.Collect$$rtentry$$0000000A          0x010202c4   Section        4  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    .ARM.Collect$$rtentry$$0000000C          0x010202c8   Section        0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    .ARM.Collect$$rtentry$$0000000D          0x010202c8   Section        8  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __lit__00000000                          0x010202d0   Data           4  __rtentry7.o(.ARM.Collect$$rtentry$$00002718)
+    .ARM.Collect$$rtentry$$00002718          0x010202d0   Section        4  __rtentry7.o(.ARM.Collect$$rtentry$$00002718)
+    .ARM.Collect$$rtexit$$00000000           0x010202d4   Section        2  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    .ARM.Collect$$rtexit$$00000002           0x010202d6   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    .ARM.Collect$$rtexit$$00000003           0x010202d6   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    .ARM.Collect$$rtexit$$00000004           0x010202da   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    .text                                    0x010202e0   Section        0  exit.o(.text)
+    .text                                    0x010202f2   Section        2  use_no_semi.o(.text)
+    .text                                    0x010202f4   Section        0  indicate_semi.o(.text)
+    .text                                    0x010202f4   Section        0  sys_exit.o(.text)
+    [Anonymous Symbol]                       0x01020300   Section        0  startup_sse310mps3.o(.text.BRIDGE_ERROR_Handler)
+    [Anonymous Symbol]                       0x01020308   Section        0  startup_sse310mps3.o(.text.BusFault_Handler)
+    [Anonymous Symbol]                       0x01020310   Section        0  startup_sse310mps3.o(.text.COMBINED_PPU_Handler)
+    [Anonymous Symbol]                       0x01020318   Section        0  startup_sse310mps3.o(.text.CPU0_CTI_0_Handler)
+    [Anonymous Symbol]                       0x01020320   Section        0  startup_sse310mps3.o(.text.CPU0_CTI_1_Handler)
+    [Anonymous Symbol]                       0x01020328   Section        0  startup_sse310mps3.o(.text.DMA_Ch_0_Combined_Handler)
+    [Anonymous Symbol]                       0x01020330   Section        0  startup_sse310mps3.o(.text.DMA_Ch_0_Error_Handler)
+    [Anonymous Symbol]                       0x01020338   Section        0  startup_sse310mps3.o(.text.DMA_Ch_0_Terminal_Count_Handler)
+    [Anonymous Symbol]                       0x01020340   Section        0  startup_sse310mps3.o(.text.DMA_Ch_1_Combined_Handler)
+    [Anonymous Symbol]                       0x01020348   Section        0  startup_sse310mps3.o(.text.DMA_Ch_1_Error_Handler)
+    [Anonymous Symbol]                       0x01020350   Section        0  startup_sse310mps3.o(.text.DMA_Ch_1_Terminal_Count_Handler)
+    [Anonymous Symbol]                       0x01020358   Section        0  startup_sse310mps3.o(.text.DMA_Ch_2_Combined_Handler)
+    [Anonymous Symbol]                       0x01020360   Section        0  startup_sse310mps3.o(.text.DMA_Ch_2_Error_Handler)
+    [Anonymous Symbol]                       0x01020368   Section        0  startup_sse310mps3.o(.text.DMA_Ch_2_Terminal_Count_Handler)
+    [Anonymous Symbol]                       0x01020370   Section        0  startup_sse310mps3.o(.text.DMA_Ch_3_Combined_Handler)
+    [Anonymous Symbol]                       0x01020378   Section        0  startup_sse310mps3.o(.text.DMA_Ch_3_Error_Handler)
+    [Anonymous Symbol]                       0x01020380   Section        0  startup_sse310mps3.o(.text.DMA_Ch_3_Terminal_Count_Handler)
+    [Anonymous Symbol]                       0x01020388   Section        0  startup_sse310mps3.o(.text.DebugMon_Handler)
+    [Anonymous Symbol]                       0x01020390   Section        0  startup_sse310mps3.o(.text.ETHERNET_Handler)
+    [Anonymous Symbol]                       0x01020398   Section        0  startup_sse310mps3.o(.text.GPIO0_0_Handler)
+    [Anonymous Symbol]                       0x010203a0   Section        0  startup_sse310mps3.o(.text.GPIO0_10_Handler)
+    [Anonymous Symbol]                       0x010203a8   Section        0  startup_sse310mps3.o(.text.GPIO0_11_Handler)
+    [Anonymous Symbol]                       0x010203b0   Section        0  startup_sse310mps3.o(.text.GPIO0_12_Handler)
+    [Anonymous Symbol]                       0x010203b8   Section        0  startup_sse310mps3.o(.text.GPIO0_13_Handler)
+    [Anonymous Symbol]                       0x010203c0   Section        0  startup_sse310mps3.o(.text.GPIO0_14_Handler)
+    [Anonymous Symbol]                       0x010203c8   Section        0  startup_sse310mps3.o(.text.GPIO0_15_Handler)
+    [Anonymous Symbol]                       0x010203d0   Section        0  startup_sse310mps3.o(.text.GPIO0_1_Handler)
+    [Anonymous Symbol]                       0x010203d8   Section        0  startup_sse310mps3.o(.text.GPIO0_2_Handler)
+    [Anonymous Symbol]                       0x010203e0   Section        0  startup_sse310mps3.o(.text.GPIO0_3_Handler)
+    [Anonymous Symbol]                       0x010203e8   Section        0  startup_sse310mps3.o(.text.GPIO0_4_Handler)
+    [Anonymous Symbol]                       0x010203f0   Section        0  startup_sse310mps3.o(.text.GPIO0_5_Handler)
+    [Anonymous Symbol]                       0x010203f8   Section        0  startup_sse310mps3.o(.text.GPIO0_6_Handler)
+    [Anonymous Symbol]                       0x01020400   Section        0  startup_sse310mps3.o(.text.GPIO0_7_Handler)
+    [Anonymous Symbol]                       0x01020408   Section        0  startup_sse310mps3.o(.text.GPIO0_8_Handler)
+    [Anonymous Symbol]                       0x01020410   Section        0  startup_sse310mps3.o(.text.GPIO0_9_Handler)
+    [Anonymous Symbol]                       0x01020418   Section        0  startup_sse310mps3.o(.text.GPIO0_Combined_Handler)
+    [Anonymous Symbol]                       0x01020420   Section        0  startup_sse310mps3.o(.text.GPIO1_0_Handler)
+    [Anonymous Symbol]                       0x01020428   Section        0  startup_sse310mps3.o(.text.GPIO1_10_Handler)
+    [Anonymous Symbol]                       0x01020430   Section        0  startup_sse310mps3.o(.text.GPIO1_11_Handler)
+    [Anonymous Symbol]                       0x01020438   Section        0  startup_sse310mps3.o(.text.GPIO1_12_Handler)
+    [Anonymous Symbol]                       0x01020440   Section        0  startup_sse310mps3.o(.text.GPIO1_13_Handler)
+    [Anonymous Symbol]                       0x01020448   Section        0  startup_sse310mps3.o(.text.GPIO1_14_Handler)
+    [Anonymous Symbol]                       0x01020450   Section        0  startup_sse310mps3.o(.text.GPIO1_15_Handler)
+    [Anonymous Symbol]                       0x01020458   Section        0  startup_sse310mps3.o(.text.GPIO1_1_Handler)
+    [Anonymous Symbol]                       0x01020460   Section        0  startup_sse310mps3.o(.text.GPIO1_2_Handler)
+    [Anonymous Symbol]                       0x01020468   Section        0  startup_sse310mps3.o(.text.GPIO1_3_Handler)
+    [Anonymous Symbol]                       0x01020470   Section        0  startup_sse310mps3.o(.text.GPIO1_4_Handler)
+    [Anonymous Symbol]                       0x01020478   Section        0  startup_sse310mps3.o(.text.GPIO1_5_Handler)
+    [Anonymous Symbol]                       0x01020480   Section        0  startup_sse310mps3.o(.text.GPIO1_6_Handler)
+    [Anonymous Symbol]                       0x01020488   Section        0  startup_sse310mps3.o(.text.GPIO1_7_Handler)
+    [Anonymous Symbol]                       0x01020490   Section        0  startup_sse310mps3.o(.text.GPIO1_8_Handler)
+    [Anonymous Symbol]                       0x01020498   Section        0  startup_sse310mps3.o(.text.GPIO1_9_Handler)
+    [Anonymous Symbol]                       0x010204a0   Section        0  startup_sse310mps3.o(.text.GPIO1_Combined_Handler)
+    [Anonymous Symbol]                       0x010204a8   Section        0  startup_sse310mps3.o(.text.GPIO2_0_Handler)
+    [Anonymous Symbol]                       0x010204b0   Section        0  startup_sse310mps3.o(.text.GPIO2_10_Handler)
+    [Anonymous Symbol]                       0x010204b8   Section        0  startup_sse310mps3.o(.text.GPIO2_11_Handler)
+    [Anonymous Symbol]                       0x010204c0   Section        0  startup_sse310mps3.o(.text.GPIO2_12_Handler)
+    [Anonymous Symbol]                       0x010204c8   Section        0  startup_sse310mps3.o(.text.GPIO2_13_Handler)
+    [Anonymous Symbol]                       0x010204d0   Section        0  startup_sse310mps3.o(.text.GPIO2_14_Handler)
+    [Anonymous Symbol]                       0x010204d8   Section        0  startup_sse310mps3.o(.text.GPIO2_15_Handler)
+    [Anonymous Symbol]                       0x010204e0   Section        0  startup_sse310mps3.o(.text.GPIO2_1_Handler)
+    [Anonymous Symbol]                       0x010204e8   Section        0  startup_sse310mps3.o(.text.GPIO2_2_Handler)
+    [Anonymous Symbol]                       0x010204f0   Section        0  startup_sse310mps3.o(.text.GPIO2_3_Handler)
+    [Anonymous Symbol]                       0x010204f8   Section        0  startup_sse310mps3.o(.text.GPIO2_4_Handler)
+    [Anonymous Symbol]                       0x01020500   Section        0  startup_sse310mps3.o(.text.GPIO2_5_Handler)
+    [Anonymous Symbol]                       0x01020508   Section        0  startup_sse310mps3.o(.text.GPIO2_6_Handler)
+    [Anonymous Symbol]                       0x01020510   Section        0  startup_sse310mps3.o(.text.GPIO2_7_Handler)
+    [Anonymous Symbol]                       0x01020518   Section        0  startup_sse310mps3.o(.text.GPIO2_8_Handler)
+    [Anonymous Symbol]                       0x01020520   Section        0  startup_sse310mps3.o(.text.GPIO2_9_Handler)
+    [Anonymous Symbol]                       0x01020528   Section        0  startup_sse310mps3.o(.text.GPIO2_Combined_Handler)
+    [Anonymous Symbol]                       0x01020530   Section        0  startup_sse310mps3.o(.text.GPIO3_0_Handler)
+    [Anonymous Symbol]                       0x01020538   Section        0  startup_sse310mps3.o(.text.GPIO3_1_Handler)
+    [Anonymous Symbol]                       0x01020540   Section        0  startup_sse310mps3.o(.text.GPIO3_2_Handler)
+    [Anonymous Symbol]                       0x01020548   Section        0  startup_sse310mps3.o(.text.GPIO3_3_Handler)
+    [Anonymous Symbol]                       0x01020550   Section        0  startup_sse310mps3.o(.text.GPIO3_Combined_Handler)
+    [Anonymous Symbol]                       0x01020558   Section        0  startup_sse310mps3.o(.text.HardFault_Handler)
+    [Anonymous Symbol]                       0x01020560   Section        0  startup_sse310mps3.o(.text.I2S_Handler)
+    [Anonymous Symbol]                       0x01020568   Section        0  startup_sse310mps3.o(.text.MPC_Handler)
+    [Anonymous Symbol]                       0x01020570   Section        0  startup_sse310mps3.o(.text.MSC_Handler)
+    [Anonymous Symbol]                       0x01020578   Section        0  startup_sse310mps3.o(.text.MemManage_Handler)
+    [Anonymous Symbol]                       0x01020580   Section        0  startup_sse310mps3.o(.text.NMI_Handler)
+    [Anonymous Symbol]                       0x01020588   Section        0  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_Handler)
+    [Anonymous Symbol]                       0x01020590   Section        0  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_RESET_REQ_Handler)
+    [Anonymous Symbol]                       0x01020598   Section        0  startup_sse310mps3.o(.text.NPU0_Handler)
+    [Anonymous Symbol]                       0x010205a0   Section        0  startup_sse310mps3.o(.text.PPC_Handler)
+    [Anonymous Symbol]                       0x010205a8   Section        0  startup_sse310mps3.o(.text.PendSV_Handler)
+    [Anonymous Symbol]                       0x010205b0   Section        0  startup_sse310mps3.o(.text.Reset_Handler)
+    [Anonymous Symbol]                       0x010205e8   Section        0  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
+    [Anonymous Symbol]                       0x010205f0   Section        0  startup_sse310mps3.o(.text.SPI_ADC_Handler)
+    [Anonymous Symbol]                       0x010205f8   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
+    [Anonymous Symbol]                       0x01020600   Section        0  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
+    [Anonymous Symbol]                       0x01020608   Section        0  startup_sse310mps3.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x01020610   Section        0  startup_sse310mps3.o(.text.SecureFault_Handler)
+    [Anonymous Symbol]                       0x01020618   Section        0  startup_sse310mps3.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x01020620   Section        0  system_sse310mps3.o(.text.SystemCoreClockUpdate)
+    [Anonymous Symbol]                       0x01020640   Section        0  system_sse310mps3.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x01020778   Section        0  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
+    [Anonymous Symbol]                       0x01020780   Section        0  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
+    [Anonymous Symbol]                       0x01020788   Section        0  startup_sse310mps3.o(.text.TIMER1_Handler)
+    [Anonymous Symbol]                       0x01020790   Section        0  startup_sse310mps3.o(.text.TIMER2_Handler)
+    [Anonymous Symbol]                       0x01020798   Section        0  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
+    [Anonymous Symbol]                       0x010207a0   Section        0  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
+    [Anonymous Symbol]                       0x010207a8   Section        0  startup_sse310mps3.o(.text.UART0_Combined_Handler)
+    [Anonymous Symbol]                       0x010207b0   Section        0  startup_sse310mps3.o(.text.UART1_Combined_Handler)
+    [Anonymous Symbol]                       0x010207b8   Section        0  startup_sse310mps3.o(.text.UART2_Combined_Handler)
+    [Anonymous Symbol]                       0x010207c0   Section        0  startup_sse310mps3.o(.text.UART3_Combined_Handler)
+    [Anonymous Symbol]                       0x010207c8   Section        0  startup_sse310mps3.o(.text.UART4_Combined_Handler)
+    [Anonymous Symbol]                       0x010207d0   Section        0  startup_sse310mps3.o(.text.UART5_Combined_Handler)
+    [Anonymous Symbol]                       0x010207d8   Section        0  startup_sse310mps3.o(.text.UARTOVF_Handler)
+    [Anonymous Symbol]                       0x010207e0   Section        0  driver_usart.o(.text.UARTRX0_Handler)
+    [Anonymous Symbol]                       0x01020868   Section        0  startup_sse310mps3.o(.text.UARTRX1_Handler)
+    [Anonymous Symbol]                       0x01020870   Section        0  startup_sse310mps3.o(.text.UARTRX2_Handler)
+    [Anonymous Symbol]                       0x01020878   Section        0  startup_sse310mps3.o(.text.UARTRX3_Handler)
+    [Anonymous Symbol]                       0x01020880   Section        0  startup_sse310mps3.o(.text.UARTRX4_Handler)
+    [Anonymous Symbol]                       0x01020888   Section        0  startup_sse310mps3.o(.text.UARTRX5_Handler)
+    [Anonymous Symbol]                       0x01020890   Section        0  driver_usart.o(.text.UARTTX0_Handler)
+    [Anonymous Symbol]                       0x01020908   Section        0  startup_sse310mps3.o(.text.UARTTX1_Handler)
+    [Anonymous Symbol]                       0x01020910   Section        0  startup_sse310mps3.o(.text.UARTTX2_Handler)
+    [Anonymous Symbol]                       0x01020918   Section        0  startup_sse310mps3.o(.text.UARTTX3_Handler)
+    [Anonymous Symbol]                       0x01020920   Section        0  startup_sse310mps3.o(.text.UARTTX4_Handler)
+    [Anonymous Symbol]                       0x01020928   Section        0  startup_sse310mps3.o(.text.UARTTX5_Handler)
+    [Anonymous Symbol]                       0x01020930   Section        0  startup_sse310mps3.o(.text.USB_Handler)
+    [Anonymous Symbol]                       0x01020938   Section        0  startup_sse310mps3.o(.text.UsageFault_Handler)
+    [Anonymous Symbol]                       0x01020940   Section        0  main_ns.o(.text.main)
+    [Anonymous Symbol]                       0x010209a8   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
+    [Anonymous Symbol]                       0x01020a00   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
+    [Anonymous Symbol]                       0x01020a40   Section        0  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
+    $v0                                      0x01020a8e   Number         0  fpinit_81m.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x01020a8e   Section       30  fpinit_81m.o(x$fpl$fpinit)
+    UART0_CMSDK_DEV_CFG_S                    0x01020aac   Data           8  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
+    [Anonymous Symbol]                       0x01020aac   Section        0  device_definition.o(.rodata.UART0_CMSDK_DEV_CFG_S)
+    Driver_USART0_DEV                        0x21040000   Data          36  driver_usart.o(.data.Driver_USART0_DEV)
+    [Anonymous Symbol]                       0x21040000   Section        0  driver_usart.o(.data.Driver_USART0_DEV)
+    UART0_CMSDK_DEV_DATA_S                   0x21040054   Data          12  device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S)
+    [Anonymous Symbol]                       0x21040054   Section        0  device_definition.o(.bss.UART0_CMSDK_DEV_DATA_S)
+    x                                        0x21040060   Data           4  main_ns.o(.bss.x)
+    [Anonymous Symbol]                       0x21040060   Section        0  main_ns.o(.bss.x)
 
     Global Symbols
 
@@ -1059,200 +1068,205 @@ Image Symbol Table
     _terminate_alloc                          - Undefined Weak Reference
     _terminate_user_alloc                     - Undefined Weak Reference
     _terminateio                              - Undefined Weak Reference
-    __Vectors                                0x11000000   Data         576  startup_sse310mps3.o(RESET)
-    __main                                   0x11000241   Thumb Code     8  __main.o(!!!main)
-    __scatterload                            0x11000249   Thumb Code     0  __scatter.o(!!!scatter)
-    __scatterload_rt2                        0x11000249   Thumb Code    44  __scatter.o(!!!scatter)
-    __scatterload_rt2_thumb_only             0x11000249   Thumb Code     0  __scatter.o(!!!scatter)
-    __scatterload_null                       0x11000257   Thumb Code     0  __scatter.o(!!!scatter)
-    __scatterload_copy                       0x1100027d   Thumb Code    26  __scatter_copy.o(!!handler_copy)
-    __scatterload_zeroinit                   0x11000299   Thumb Code    28  __scatter_zi.o(!!handler_zi)
-    __rt_lib_init                            0x110002b5   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
-    __rt_lib_init_fp_1                       0x110002b7   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000001)
-    __rt_lib_init_alloca_1                   0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
-    __rt_lib_init_argv_1                     0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
-    __rt_lib_init_atexit_1                   0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
-    __rt_lib_init_clock_1                    0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
-    __rt_lib_init_cpp_1                      0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000034)
-    __rt_lib_init_exceptions_1               0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
-    __rt_lib_init_fp_trap_1                  0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
-    __rt_lib_init_getenv_1                   0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
-    __rt_lib_init_heap_1                     0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
-    __rt_lib_init_lc_collate_1               0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
-    __rt_lib_init_lc_ctype_1                 0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
-    __rt_lib_init_lc_monetary_1              0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
-    __rt_lib_init_lc_numeric_1               0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
-    __rt_lib_init_lc_time_1                  0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
-    __rt_lib_init_preinit_1                  0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000006)
-    __rt_lib_init_rand_1                     0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000010)
-    __rt_lib_init_relocate_pie_1             0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
-    __rt_lib_init_return                     0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000035)
-    __rt_lib_init_signal_1                   0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
-    __rt_lib_init_stdio_1                    0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000027)
-    __rt_lib_init_user_alloc_1               0x110002bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
-    __rt_lib_shutdown                        0x110002bd   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
-    __rt_lib_shutdown_cpp_1                  0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
-    __rt_lib_shutdown_fp_trap_1              0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
-    __rt_lib_shutdown_heap_1                 0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
-    __rt_lib_shutdown_return                 0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
-    __rt_lib_shutdown_signal_1               0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
-    __rt_lib_shutdown_stdio_1                0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
-    __rt_lib_shutdown_user_alloc_1           0x110002bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
-    __rt_entry                               0x110002c1   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
-    __rt_entry_presh_1                       0x110002c1   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
-    __rt_entry_sh                            0x110002c1   Thumb Code     0  __rtentry7.o(.ARM.Collect$$rtentry$$00000007)
-    __rt_entry_li                            0x110002c5   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
-    __rt_entry_postsh_1                      0x110002c5   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
-    __rt_entry_main                          0x110002c9   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
-    __rt_entry_postli_1                      0x110002c9   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
-    __rt_exit                                0x110002d5   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
-    __rt_exit_ls                             0x110002d7   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
-    __rt_exit_prels_1                        0x110002d7   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
-    __rt_exit_exit                           0x110002db   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
-    exit                                     0x110002e1   Thumb Code    18  exit.o(.text)
-    __I$use$semihosting                      0x110002f3   Thumb Code     0  use_no_semi.o(.text)
-    __use_no_semihosting_swi                 0x110002f3   Thumb Code     2  use_no_semi.o(.text)
-    __semihosting_library_function           0x110002f5   Thumb Code     0  indicate_semi.o(.text)
-    _sys_exit                                0x110002f5   Thumb Code     8  sys_exit.o(.text)
-    BRIDGE_ERROR_Handler                     0x11000301   Thumb Code     4  startup_sse310mps3.o(.text.BRIDGE_ERROR_Handler)
-    BusFault_Handler                         0x11000309   Thumb Code     4  startup_sse310mps3.o(.text.BusFault_Handler)
-    COMBINED_PPU_Handler                     0x11000311   Thumb Code     4  startup_sse310mps3.o(.text.COMBINED_PPU_Handler)
-    CPU0_CTI_0_Handler                       0x11000319   Thumb Code     4  startup_sse310mps3.o(.text.CPU0_CTI_0_Handler)
-    CPU0_CTI_1_Handler                       0x11000321   Thumb Code     4  startup_sse310mps3.o(.text.CPU0_CTI_1_Handler)
-    DMA_Ch_0_Combined_Handler                0x11000329   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_0_Combined_Handler)
-    DMA_Ch_0_Error_Handler                   0x11000331   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_0_Error_Handler)
-    DMA_Ch_0_Terminal_Count_Handler          0x11000339   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_0_Terminal_Count_Handler)
-    DMA_Ch_1_Combined_Handler                0x11000341   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_1_Combined_Handler)
-    DMA_Ch_1_Error_Handler                   0x11000349   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_1_Error_Handler)
-    DMA_Ch_1_Terminal_Count_Handler          0x11000351   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_1_Terminal_Count_Handler)
-    DMA_Ch_2_Combined_Handler                0x11000359   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_2_Combined_Handler)
-    DMA_Ch_2_Error_Handler                   0x11000361   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_2_Error_Handler)
-    DMA_Ch_2_Terminal_Count_Handler          0x11000369   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_2_Terminal_Count_Handler)
-    DMA_Ch_3_Combined_Handler                0x11000371   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_3_Combined_Handler)
-    DMA_Ch_3_Error_Handler                   0x11000379   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_3_Error_Handler)
-    DMA_Ch_3_Terminal_Count_Handler          0x11000381   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_3_Terminal_Count_Handler)
-    DebugMon_Handler                         0x11000389   Thumb Code     4  startup_sse310mps3.o(.text.DebugMon_Handler)
-    ETHERNET_Handler                         0x11000391   Thumb Code     4  startup_sse310mps3.o(.text.ETHERNET_Handler)
-    GPIO0_0_Handler                          0x11000399   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_0_Handler)
-    GPIO0_10_Handler                         0x110003a1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_10_Handler)
-    GPIO0_11_Handler                         0x110003a9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_11_Handler)
-    GPIO0_12_Handler                         0x110003b1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_12_Handler)
-    GPIO0_13_Handler                         0x110003b9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_13_Handler)
-    GPIO0_14_Handler                         0x110003c1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_14_Handler)
-    GPIO0_15_Handler                         0x110003c9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_15_Handler)
-    GPIO0_1_Handler                          0x110003d1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_1_Handler)
-    GPIO0_2_Handler                          0x110003d9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_2_Handler)
-    GPIO0_3_Handler                          0x110003e1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_3_Handler)
-    GPIO0_4_Handler                          0x110003e9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_4_Handler)
-    GPIO0_5_Handler                          0x110003f1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_5_Handler)
-    GPIO0_6_Handler                          0x110003f9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_6_Handler)
-    GPIO0_7_Handler                          0x11000401   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_7_Handler)
-    GPIO0_8_Handler                          0x11000409   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_8_Handler)
-    GPIO0_9_Handler                          0x11000411   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_9_Handler)
-    GPIO0_Combined_Handler                   0x11000419   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_Combined_Handler)
-    GPIO1_0_Handler                          0x11000421   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_0_Handler)
-    GPIO1_10_Handler                         0x11000429   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_10_Handler)
-    GPIO1_11_Handler                         0x11000431   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_11_Handler)
-    GPIO1_12_Handler                         0x11000439   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_12_Handler)
-    GPIO1_13_Handler                         0x11000441   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_13_Handler)
-    GPIO1_14_Handler                         0x11000449   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_14_Handler)
-    GPIO1_15_Handler                         0x11000451   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_15_Handler)
-    GPIO1_1_Handler                          0x11000459   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_1_Handler)
-    GPIO1_2_Handler                          0x11000461   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_2_Handler)
-    GPIO1_3_Handler                          0x11000469   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_3_Handler)
-    GPIO1_4_Handler                          0x11000471   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_4_Handler)
-    GPIO1_5_Handler                          0x11000479   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_5_Handler)
-    GPIO1_6_Handler                          0x11000481   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_6_Handler)
-    GPIO1_7_Handler                          0x11000489   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_7_Handler)
-    GPIO1_8_Handler                          0x11000491   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_8_Handler)
-    GPIO1_9_Handler                          0x11000499   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_9_Handler)
-    GPIO1_Combined_Handler                   0x110004a1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_Combined_Handler)
-    GPIO2_0_Handler                          0x110004a9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_0_Handler)
-    GPIO2_10_Handler                         0x110004b1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_10_Handler)
-    GPIO2_11_Handler                         0x110004b9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_11_Handler)
-    GPIO2_12_Handler                         0x110004c1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_12_Handler)
-    GPIO2_13_Handler                         0x110004c9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_13_Handler)
-    GPIO2_14_Handler                         0x110004d1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_14_Handler)
-    GPIO2_15_Handler                         0x110004d9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_15_Handler)
-    GPIO2_1_Handler                          0x110004e1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_1_Handler)
-    GPIO2_2_Handler                          0x110004e9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_2_Handler)
-    GPIO2_3_Handler                          0x110004f1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_3_Handler)
-    GPIO2_4_Handler                          0x110004f9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_4_Handler)
-    GPIO2_5_Handler                          0x11000501   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_5_Handler)
-    GPIO2_6_Handler                          0x11000509   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_6_Handler)
-    GPIO2_7_Handler                          0x11000511   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_7_Handler)
-    GPIO2_8_Handler                          0x11000519   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_8_Handler)
-    GPIO2_9_Handler                          0x11000521   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_9_Handler)
-    GPIO2_Combined_Handler                   0x11000529   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_Combined_Handler)
-    GPIO3_0_Handler                          0x11000531   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_0_Handler)
-    GPIO3_1_Handler                          0x11000539   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_1_Handler)
-    GPIO3_2_Handler                          0x11000541   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_2_Handler)
-    GPIO3_3_Handler                          0x11000549   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_3_Handler)
-    GPIO3_Combined_Handler                   0x11000551   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_Combined_Handler)
-    HardFault_Handler                        0x11000559   Thumb Code     4  startup_sse310mps3.o(.text.HardFault_Handler)
-    I2S_Handler                              0x11000561   Thumb Code     4  startup_sse310mps3.o(.text.I2S_Handler)
-    MPC_Handler                              0x11000569   Thumb Code     4  startup_sse310mps3.o(.text.MPC_Handler)
-    MSC_Handler                              0x11000571   Thumb Code     4  startup_sse310mps3.o(.text.MSC_Handler)
-    MemManage_Handler                        0x11000579   Thumb Code     4  startup_sse310mps3.o(.text.MemManage_Handler)
-    NMI_Handler                              0x11000581   Thumb Code     4  startup_sse310mps3.o(.text.NMI_Handler)
-    NONSEC_WATCHDOG_Handler                  0x11000589   Thumb Code     4  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_Handler)
-    NONSEC_WATCHDOG_RESET_REQ_Handler        0x11000591   Thumb Code     4  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_RESET_REQ_Handler)
-    NPU0_Handler                             0x11000599   Thumb Code     4  startup_sse310mps3.o(.text.NPU0_Handler)
-    PPC_Handler                              0x110005a1   Thumb Code     4  startup_sse310mps3.o(.text.PPC_Handler)
-    PendSV_Handler                           0x110005a9   Thumb Code     4  startup_sse310mps3.o(.text.PendSV_Handler)
-    Reset_Handler                            0x110005b1   Thumb Code    50  startup_sse310mps3.o(.text.Reset_Handler)
-    SLOWCLK_Timer_Handler                    0x110005e9   Thumb Code     4  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
-    SPI_ADC_Handler                          0x110005f1   Thumb Code     4  startup_sse310mps3.o(.text.SPI_ADC_Handler)
-    SPI_SHIELD0_Handler                      0x110005f9   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
-    SPI_SHIELD1_Handler                      0x11000601   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
-    SVC_Handler                              0x11000609   Thumb Code     4  startup_sse310mps3.o(.text.SVC_Handler)
-    SecureFault_Handler                      0x11000611   Thumb Code     4  startup_sse310mps3.o(.text.SecureFault_Handler)
-    SysTick_Handler                          0x11000619   Thumb Code     4  startup_sse310mps3.o(.text.SysTick_Handler)
-    SystemCoreClockUpdate                    0x11000621   Thumb Code    30  system_sse310mps3.o(.text.SystemCoreClockUpdate)
-    SystemInit                               0x11000641   Thumb Code   310  system_sse310mps3.o(.text.SystemInit)
-    System_Timestamp_Counter_Handler         0x11000779   Thumb Code     4  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
-    TFM_TIMER0_IRQ_Handler                   0x11000781   Thumb Code     4  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
-    TIMER1_Handler                           0x11000789   Thumb Code     4  startup_sse310mps3.o(.text.TIMER1_Handler)
-    TIMER2_Handler                           0x11000791   Thumb Code     4  startup_sse310mps3.o(.text.TIMER2_Handler)
-    TIMER3_AON_Handler                       0x11000799   Thumb Code     4  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
-    TOUCH_SCREEN_Handler                     0x110007a1   Thumb Code     4  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
-    UART0_Combined_Handler                   0x110007a9   Thumb Code     4  startup_sse310mps3.o(.text.UART0_Combined_Handler)
-    UART1_Combined_Handler                   0x110007b1   Thumb Code     4  startup_sse310mps3.o(.text.UART1_Combined_Handler)
-    UART2_Combined_Handler                   0x110007b9   Thumb Code     4  startup_sse310mps3.o(.text.UART2_Combined_Handler)
-    UART3_Combined_Handler                   0x110007c1   Thumb Code     4  startup_sse310mps3.o(.text.UART3_Combined_Handler)
-    UART4_Combined_Handler                   0x110007c9   Thumb Code     4  startup_sse310mps3.o(.text.UART4_Combined_Handler)
-    UART5_Combined_Handler                   0x110007d1   Thumb Code     4  startup_sse310mps3.o(.text.UART5_Combined_Handler)
-    UARTOVF_Handler                          0x110007d9   Thumb Code     4  startup_sse310mps3.o(.text.UARTOVF_Handler)
-    UARTRX0_Handler                          0x110007e1   Thumb Code   130  driver_usart.o(.text.UARTRX0_Handler)
-    UARTRX1_Handler                          0x11000869   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX1_Handler)
-    UARTRX2_Handler                          0x11000871   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX2_Handler)
-    UARTRX3_Handler                          0x11000879   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX3_Handler)
-    UARTRX4_Handler                          0x11000881   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX4_Handler)
-    UARTRX5_Handler                          0x11000889   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX5_Handler)
-    UARTTX0_Handler                          0x11000891   Thumb Code   118  driver_usart.o(.text.UARTTX0_Handler)
-    UARTTX1_Handler                          0x11000909   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX1_Handler)
-    UARTTX2_Handler                          0x11000911   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX2_Handler)
-    UARTTX3_Handler                          0x11000919   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX3_Handler)
-    UARTTX4_Handler                          0x11000921   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX4_Handler)
-    UARTTX5_Handler                          0x11000929   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX5_Handler)
-    USB_Handler                              0x11000931   Thumb Code     4  startup_sse310mps3.o(.text.USB_Handler)
-    UsageFault_Handler                       0x11000939   Thumb Code     4  startup_sse310mps3.o(.text.UsageFault_Handler)
-    main                                     0x11000941   Thumb Code    72  main_ns.o(.text.main)
-    uart_cmsdk_clear_interrupt               0x11000989   Thumb Code    86  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
-    uart_cmsdk_read                          0x110009e1   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
-    uart_cmsdk_write                         0x11000a21   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
-    _fp_init                                 0x11000a5b   Thumb Code    30  fpinit_81m.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x11000a77   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x11000a77   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x11000a80   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x11000aa0   Number         0  anon$$obj.o(Region$$Table)
-    PeripheralClock                          0x31000024   Data           4  system_sse310mps3.o(.data.PeripheralClock)
-    SystemCoreClock                          0x31000028   Data           4  system_sse310mps3.o(.data.SystemCoreClock)
-    UART0_CMSDK_DEV_S                        0x3100002c   Data           8  device_definition.o(.data.UART0_CMSDK_DEV_S)
-    Image$$ARM_LIB_HEAP$$ZI$$Base            0x31000048   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x31000448   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ARM_LIB_STACK$$ZI$$Base           0x31000460   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ARM_LIB_STACK$$ZI$$Limit          0x31000858   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x01020000   Data         576  startup_sse310mps3.o(RESET)
+    __main                                   0x01020241   Thumb Code     8  __main.o(!!!main)
+    __scatterload                            0x01020249   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_rt2                        0x01020249   Thumb Code    44  __scatter.o(!!!scatter)
+    __scatterload_rt2_thumb_only             0x01020249   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_null                       0x01020257   Thumb Code     0  __scatter.o(!!!scatter)
+    __scatterload_copy                       0x0102027d   Thumb Code    26  __scatter_copy.o(!!handler_copy)
+    __scatterload_zeroinit                   0x01020299   Thumb Code    28  __scatter_zi.o(!!handler_zi)
+    __rt_lib_init                            0x010202b5   Thumb Code     0  libinit.o(.ARM.Collect$$libinit$$00000000)
+    __rt_lib_init_fp_1                       0x010202b7   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000001)
+    __rt_lib_init_alloca_1                   0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000030)
+    __rt_lib_init_argv_1                     0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000002E)
+    __rt_lib_init_atexit_1                   0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001D)
+    __rt_lib_init_clock_1                    0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000023)
+    __rt_lib_init_cpp_1                      0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000034)
+    __rt_lib_init_exceptions_1               0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000032)
+    __rt_lib_init_fp_trap_1                  0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000021)
+    __rt_lib_init_getenv_1                   0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000025)
+    __rt_lib_init_heap_1                     0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000C)
+    __rt_lib_init_lc_collate_1               0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000013)
+    __rt_lib_init_lc_ctype_1                 0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000015)
+    __rt_lib_init_lc_monetary_1              0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000017)
+    __rt_lib_init_lc_numeric_1               0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000019)
+    __rt_lib_init_lc_time_1                  0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001B)
+    __rt_lib_init_preinit_1                  0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000006)
+    __rt_lib_init_rand_1                     0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000010)
+    __rt_lib_init_relocate_pie_1             0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000004)
+    __rt_lib_init_return                     0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000035)
+    __rt_lib_init_signal_1                   0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000001F)
+    __rt_lib_init_stdio_1                    0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$00000027)
+    __rt_lib_init_user_alloc_1               0x010202bb   Thumb Code     0  libinit2.o(.ARM.Collect$$libinit$$0000000E)
+    __rt_lib_shutdown                        0x010202bd   Thumb Code     0  libshutdown.o(.ARM.Collect$$libshutdown$$00000000)
+    __rt_lib_shutdown_cpp_1                  0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000002)
+    __rt_lib_shutdown_fp_trap_1              0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000007)
+    __rt_lib_shutdown_heap_1                 0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F)
+    __rt_lib_shutdown_return                 0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000010)
+    __rt_lib_shutdown_signal_1               0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A)
+    __rt_lib_shutdown_stdio_1                0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$00000004)
+    __rt_lib_shutdown_user_alloc_1           0x010202bf   Thumb Code     0  libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C)
+    __rt_entry                               0x010202c1   Thumb Code     0  __rtentry.o(.ARM.Collect$$rtentry$$00000000)
+    __rt_entry_presh_1                       0x010202c1   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000002)
+    __rt_entry_sh                            0x010202c1   Thumb Code     0  __rtentry7.o(.ARM.Collect$$rtentry$$00000007)
+    __rt_entry_li                            0x010202c5   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000A)
+    __rt_entry_postsh_1                      0x010202c5   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$00000009)
+    __rt_entry_main                          0x010202c9   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+    __rt_entry_postli_1                      0x010202c9   Thumb Code     0  __rtentry2.o(.ARM.Collect$$rtentry$$0000000C)
+    __rt_exit                                0x010202d5   Thumb Code     0  rtexit.o(.ARM.Collect$$rtexit$$00000000)
+    __rt_exit_ls                             0x010202d7   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
+    __rt_exit_prels_1                        0x010202d7   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
+    __rt_exit_exit                           0x010202db   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
+    exit                                     0x010202e1   Thumb Code    18  exit.o(.text)
+    __I$use$semihosting                      0x010202f3   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x010202f3   Thumb Code     2  use_no_semi.o(.text)
+    __semihosting_library_function           0x010202f5   Thumb Code     0  indicate_semi.o(.text)
+    _sys_exit                                0x010202f5   Thumb Code     8  sys_exit.o(.text)
+    BRIDGE_ERROR_Handler                     0x01020301   Thumb Code     4  startup_sse310mps3.o(.text.BRIDGE_ERROR_Handler)
+    BusFault_Handler                         0x01020309   Thumb Code     4  startup_sse310mps3.o(.text.BusFault_Handler)
+    COMBINED_PPU_Handler                     0x01020311   Thumb Code     4  startup_sse310mps3.o(.text.COMBINED_PPU_Handler)
+    CPU0_CTI_0_Handler                       0x01020319   Thumb Code     4  startup_sse310mps3.o(.text.CPU0_CTI_0_Handler)
+    CPU0_CTI_1_Handler                       0x01020321   Thumb Code     4  startup_sse310mps3.o(.text.CPU0_CTI_1_Handler)
+    DMA_Ch_0_Combined_Handler                0x01020329   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_0_Combined_Handler)
+    DMA_Ch_0_Error_Handler                   0x01020331   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_0_Error_Handler)
+    DMA_Ch_0_Terminal_Count_Handler          0x01020339   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_0_Terminal_Count_Handler)
+    DMA_Ch_1_Combined_Handler                0x01020341   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_1_Combined_Handler)
+    DMA_Ch_1_Error_Handler                   0x01020349   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_1_Error_Handler)
+    DMA_Ch_1_Terminal_Count_Handler          0x01020351   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_1_Terminal_Count_Handler)
+    DMA_Ch_2_Combined_Handler                0x01020359   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_2_Combined_Handler)
+    DMA_Ch_2_Error_Handler                   0x01020361   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_2_Error_Handler)
+    DMA_Ch_2_Terminal_Count_Handler          0x01020369   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_2_Terminal_Count_Handler)
+    DMA_Ch_3_Combined_Handler                0x01020371   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_3_Combined_Handler)
+    DMA_Ch_3_Error_Handler                   0x01020379   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_3_Error_Handler)
+    DMA_Ch_3_Terminal_Count_Handler          0x01020381   Thumb Code     4  startup_sse310mps3.o(.text.DMA_Ch_3_Terminal_Count_Handler)
+    DebugMon_Handler                         0x01020389   Thumb Code     4  startup_sse310mps3.o(.text.DebugMon_Handler)
+    ETHERNET_Handler                         0x01020391   Thumb Code     4  startup_sse310mps3.o(.text.ETHERNET_Handler)
+    GPIO0_0_Handler                          0x01020399   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_0_Handler)
+    GPIO0_10_Handler                         0x010203a1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_10_Handler)
+    GPIO0_11_Handler                         0x010203a9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_11_Handler)
+    GPIO0_12_Handler                         0x010203b1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_12_Handler)
+    GPIO0_13_Handler                         0x010203b9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_13_Handler)
+    GPIO0_14_Handler                         0x010203c1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_14_Handler)
+    GPIO0_15_Handler                         0x010203c9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_15_Handler)
+    GPIO0_1_Handler                          0x010203d1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_1_Handler)
+    GPIO0_2_Handler                          0x010203d9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_2_Handler)
+    GPIO0_3_Handler                          0x010203e1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_3_Handler)
+    GPIO0_4_Handler                          0x010203e9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_4_Handler)
+    GPIO0_5_Handler                          0x010203f1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_5_Handler)
+    GPIO0_6_Handler                          0x010203f9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_6_Handler)
+    GPIO0_7_Handler                          0x01020401   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_7_Handler)
+    GPIO0_8_Handler                          0x01020409   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_8_Handler)
+    GPIO0_9_Handler                          0x01020411   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_9_Handler)
+    GPIO0_Combined_Handler                   0x01020419   Thumb Code     4  startup_sse310mps3.o(.text.GPIO0_Combined_Handler)
+    GPIO1_0_Handler                          0x01020421   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_0_Handler)
+    GPIO1_10_Handler                         0x01020429   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_10_Handler)
+    GPIO1_11_Handler                         0x01020431   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_11_Handler)
+    GPIO1_12_Handler                         0x01020439   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_12_Handler)
+    GPIO1_13_Handler                         0x01020441   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_13_Handler)
+    GPIO1_14_Handler                         0x01020449   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_14_Handler)
+    GPIO1_15_Handler                         0x01020451   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_15_Handler)
+    GPIO1_1_Handler                          0x01020459   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_1_Handler)
+    GPIO1_2_Handler                          0x01020461   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_2_Handler)
+    GPIO1_3_Handler                          0x01020469   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_3_Handler)
+    GPIO1_4_Handler                          0x01020471   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_4_Handler)
+    GPIO1_5_Handler                          0x01020479   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_5_Handler)
+    GPIO1_6_Handler                          0x01020481   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_6_Handler)
+    GPIO1_7_Handler                          0x01020489   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_7_Handler)
+    GPIO1_8_Handler                          0x01020491   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_8_Handler)
+    GPIO1_9_Handler                          0x01020499   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_9_Handler)
+    GPIO1_Combined_Handler                   0x010204a1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO1_Combined_Handler)
+    GPIO2_0_Handler                          0x010204a9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_0_Handler)
+    GPIO2_10_Handler                         0x010204b1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_10_Handler)
+    GPIO2_11_Handler                         0x010204b9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_11_Handler)
+    GPIO2_12_Handler                         0x010204c1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_12_Handler)
+    GPIO2_13_Handler                         0x010204c9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_13_Handler)
+    GPIO2_14_Handler                         0x010204d1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_14_Handler)
+    GPIO2_15_Handler                         0x010204d9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_15_Handler)
+    GPIO2_1_Handler                          0x010204e1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_1_Handler)
+    GPIO2_2_Handler                          0x010204e9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_2_Handler)
+    GPIO2_3_Handler                          0x010204f1   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_3_Handler)
+    GPIO2_4_Handler                          0x010204f9   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_4_Handler)
+    GPIO2_5_Handler                          0x01020501   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_5_Handler)
+    GPIO2_6_Handler                          0x01020509   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_6_Handler)
+    GPIO2_7_Handler                          0x01020511   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_7_Handler)
+    GPIO2_8_Handler                          0x01020519   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_8_Handler)
+    GPIO2_9_Handler                          0x01020521   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_9_Handler)
+    GPIO2_Combined_Handler                   0x01020529   Thumb Code     4  startup_sse310mps3.o(.text.GPIO2_Combined_Handler)
+    GPIO3_0_Handler                          0x01020531   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_0_Handler)
+    GPIO3_1_Handler                          0x01020539   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_1_Handler)
+    GPIO3_2_Handler                          0x01020541   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_2_Handler)
+    GPIO3_3_Handler                          0x01020549   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_3_Handler)
+    GPIO3_Combined_Handler                   0x01020551   Thumb Code     4  startup_sse310mps3.o(.text.GPIO3_Combined_Handler)
+    HardFault_Handler                        0x01020559   Thumb Code     4  startup_sse310mps3.o(.text.HardFault_Handler)
+    I2S_Handler                              0x01020561   Thumb Code     4  startup_sse310mps3.o(.text.I2S_Handler)
+    MPC_Handler                              0x01020569   Thumb Code     4  startup_sse310mps3.o(.text.MPC_Handler)
+    MSC_Handler                              0x01020571   Thumb Code     4  startup_sse310mps3.o(.text.MSC_Handler)
+    MemManage_Handler                        0x01020579   Thumb Code     4  startup_sse310mps3.o(.text.MemManage_Handler)
+    NMI_Handler                              0x01020581   Thumb Code     4  startup_sse310mps3.o(.text.NMI_Handler)
+    NONSEC_WATCHDOG_Handler                  0x01020589   Thumb Code     4  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_Handler)
+    NONSEC_WATCHDOG_RESET_REQ_Handler        0x01020591   Thumb Code     4  startup_sse310mps3.o(.text.NONSEC_WATCHDOG_RESET_REQ_Handler)
+    NPU0_Handler                             0x01020599   Thumb Code     4  startup_sse310mps3.o(.text.NPU0_Handler)
+    PPC_Handler                              0x010205a1   Thumb Code     4  startup_sse310mps3.o(.text.PPC_Handler)
+    PendSV_Handler                           0x010205a9   Thumb Code     4  startup_sse310mps3.o(.text.PendSV_Handler)
+    Reset_Handler                            0x010205b1   Thumb Code    50  startup_sse310mps3.o(.text.Reset_Handler)
+    SLOWCLK_Timer_Handler                    0x010205e9   Thumb Code     4  startup_sse310mps3.o(.text.SLOWCLK_Timer_Handler)
+    SPI_ADC_Handler                          0x010205f1   Thumb Code     4  startup_sse310mps3.o(.text.SPI_ADC_Handler)
+    SPI_SHIELD0_Handler                      0x010205f9   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD0_Handler)
+    SPI_SHIELD1_Handler                      0x01020601   Thumb Code     4  startup_sse310mps3.o(.text.SPI_SHIELD1_Handler)
+    SVC_Handler                              0x01020609   Thumb Code     4  startup_sse310mps3.o(.text.SVC_Handler)
+    SecureFault_Handler                      0x01020611   Thumb Code     4  startup_sse310mps3.o(.text.SecureFault_Handler)
+    SysTick_Handler                          0x01020619   Thumb Code     4  startup_sse310mps3.o(.text.SysTick_Handler)
+    SystemCoreClockUpdate                    0x01020621   Thumb Code    30  system_sse310mps3.o(.text.SystemCoreClockUpdate)
+    SystemInit                               0x01020641   Thumb Code   310  system_sse310mps3.o(.text.SystemInit)
+    System_Timestamp_Counter_Handler         0x01020779   Thumb Code     4  startup_sse310mps3.o(.text.System_Timestamp_Counter_Handler)
+    TFM_TIMER0_IRQ_Handler                   0x01020781   Thumb Code     4  startup_sse310mps3.o(.text.TFM_TIMER0_IRQ_Handler)
+    TIMER1_Handler                           0x01020789   Thumb Code     4  startup_sse310mps3.o(.text.TIMER1_Handler)
+    TIMER2_Handler                           0x01020791   Thumb Code     4  startup_sse310mps3.o(.text.TIMER2_Handler)
+    TIMER3_AON_Handler                       0x01020799   Thumb Code     4  startup_sse310mps3.o(.text.TIMER3_AON_Handler)
+    TOUCH_SCREEN_Handler                     0x010207a1   Thumb Code     4  startup_sse310mps3.o(.text.TOUCH_SCREEN_Handler)
+    UART0_Combined_Handler                   0x010207a9   Thumb Code     4  startup_sse310mps3.o(.text.UART0_Combined_Handler)
+    UART1_Combined_Handler                   0x010207b1   Thumb Code     4  startup_sse310mps3.o(.text.UART1_Combined_Handler)
+    UART2_Combined_Handler                   0x010207b9   Thumb Code     4  startup_sse310mps3.o(.text.UART2_Combined_Handler)
+    UART3_Combined_Handler                   0x010207c1   Thumb Code     4  startup_sse310mps3.o(.text.UART3_Combined_Handler)
+    UART4_Combined_Handler                   0x010207c9   Thumb Code     4  startup_sse310mps3.o(.text.UART4_Combined_Handler)
+    UART5_Combined_Handler                   0x010207d1   Thumb Code     4  startup_sse310mps3.o(.text.UART5_Combined_Handler)
+    UARTOVF_Handler                          0x010207d9   Thumb Code     4  startup_sse310mps3.o(.text.UARTOVF_Handler)
+    UARTRX0_Handler                          0x010207e1   Thumb Code   130  driver_usart.o(.text.UARTRX0_Handler)
+    UARTRX1_Handler                          0x01020869   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX1_Handler)
+    UARTRX2_Handler                          0x01020871   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX2_Handler)
+    UARTRX3_Handler                          0x01020879   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX3_Handler)
+    UARTRX4_Handler                          0x01020881   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX4_Handler)
+    UARTRX5_Handler                          0x01020889   Thumb Code     4  startup_sse310mps3.o(.text.UARTRX5_Handler)
+    UARTTX0_Handler                          0x01020891   Thumb Code   118  driver_usart.o(.text.UARTTX0_Handler)
+    UARTTX1_Handler                          0x01020909   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX1_Handler)
+    UARTTX2_Handler                          0x01020911   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX2_Handler)
+    UARTTX3_Handler                          0x01020919   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX3_Handler)
+    UARTTX4_Handler                          0x01020921   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX4_Handler)
+    UARTTX5_Handler                          0x01020929   Thumb Code     4  startup_sse310mps3.o(.text.UARTTX5_Handler)
+    USB_Handler                              0x01020931   Thumb Code     4  startup_sse310mps3.o(.text.USB_Handler)
+    UsageFault_Handler                       0x01020939   Thumb Code     4  startup_sse310mps3.o(.text.UsageFault_Handler)
+    main                                     0x01020941   Thumb Code   100  main_ns.o(.text.main)
+    uart_cmsdk_clear_interrupt               0x010209a9   Thumb Code    86  uart_cmsdk_drv.o(.text.uart_cmsdk_clear_interrupt)
+    uart_cmsdk_read                          0x01020a01   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_read)
+    uart_cmsdk_write                         0x01020a41   Thumb Code    58  uart_cmsdk_drv.o(.text.uart_cmsdk_write)
+    Long Thumb to Thumb Veneer to Secure_printf 0x01020a7b   Thumb Code    10  anon$$obj.o(Veneer$$Code)
+    Long Thumb to Thumb Veneer to test_llvm_nsc 0x01020a85   Thumb Code    10  anon$$obj.o(Veneer$$Code)
+    _fp_init                                 0x01020a8f   Thumb Code    30  fpinit_81m.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x01020aab   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x01020aab   Thumb Code     0  fpinit_81m.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x01020ab4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x01020ad4   Number         0  anon$$obj.o(Region$$Table)
+    Secure_printf                            0x1101fe01   Thumb Code     8  SSE310_S_CMSE_Lib.o ABSOLUTE
+    test_llvm_nsc                            0x1101fe09   Thumb Code     8  SSE310_S_CMSE_Lib.o ABSOLUTE
+    PeripheralClock                          0x21040024   Data           4  system_sse310mps3.o(.data.PeripheralClock)
+    SystemCoreClock                          0x21040028   Data           4  system_sse310mps3.o(.data.SystemCoreClock)
+    UART0_CMSDK_DEV_S                        0x2104002c   Data           8  device_definition.o(.data.UART0_CMSDK_DEV_S)
+    text                                     0x21040034   Data          30  main_ns.o(.data.text)
+    Image$$ARM_LIB_HEAP$$ZI$$Base            0x21040068   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x21040468   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_STACK$$ZI$$Base           0x21040480   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x21040878   Number         0  anon$$obj.o ABSOLUTE
 
 
 
@@ -1260,369 +1274,374 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image Entry point : 0x11000241
+  Image Entry point : 0x01020241
 
-  Load Region LR_CODE (Base: 0x11000000, Size: 0x00000ae0, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_CODE (Base: 0x01020000, Size: 0x00000b40, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_CODE (Exec base: 0x11000000, Load base: 0x11000000, Size: 0x00000aa0, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x11000000   0x11000000   0x00000240   Data   RO          411    RESET               startup_sse310mps3.o
-    0x11000240   0x11000240   0x00000008   Code   RO          435  * !!!main             c_w.l(__main.o)
-    0x11000248   0x11000248   0x00000034   Code   RO          613    !!!scatter          c_w.l(__scatter.o)
-    0x1100027c   0x1100027c   0x0000001a   Code   RO          615    !!handler_copy      c_w.l(__scatter_copy.o)
-    0x11000296   0x11000296   0x00000002   PAD
-    0x11000298   0x11000298   0x0000001c   Code   RO          617    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x110002b4   0x110002b4   0x00000002   Code   RO          467    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x110002b6   0x110002b6   0x00000004   Code   RO          477    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          480    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          482    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          485    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          487    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          489    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          492    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          494    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          496    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          498    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          500    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          502    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          504    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          506    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          508    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          510    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          512    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          516    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          518    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          520    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000000   Code   RO          522    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x110002ba   0x110002ba   0x00000002   Code   RO          523    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x110002bc   0x110002bc   0x00000002   Code   RO          552    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x110002be   0x110002be   0x00000000   Code   RO          564    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x110002be   0x110002be   0x00000000   Code   RO          566    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x110002be   0x110002be   0x00000000   Code   RO          569    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x110002be   0x110002be   0x00000000   Code   RO          572    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x110002be   0x110002be   0x00000000   Code   RO          574    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x110002be   0x110002be   0x00000000   Code   RO          577    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x110002be   0x110002be   0x00000002   Code   RO          578    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x110002c0   0x110002c0   0x00000000   Code   RO          437    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x110002c0   0x110002c0   0x00000000   Code   RO          439    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x110002c0   0x110002c0   0x00000004   Code   RO          453    .ARM.Collect$$rtentry$$00000007  c_w.l(__rtentry7.o)
-    0x110002c4   0x110002c4   0x00000000   Code   RO          441    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x110002c4   0x110002c4   0x00000004   Code   RO          442    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x110002c8   0x110002c8   0x00000000   Code   RO          444    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x110002c8   0x110002c8   0x00000008   Code   RO          445    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x110002d0   0x110002d0   0x00000004   Code   RO          454    .ARM.Collect$$rtentry$$00002718  c_w.l(__rtentry7.o)
-    0x110002d4   0x110002d4   0x00000002   Code   RO          475    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x110002d6   0x110002d6   0x00000000   Code   RO          532    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x110002d6   0x110002d6   0x00000004   Code   RO          533    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x110002da   0x110002da   0x00000006   Code   RO          534    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
-    0x110002e0   0x110002e0   0x00000012   Code   RO          460    .text               c_w.l(exit.o)
-    0x110002f2   0x110002f2   0x00000002   Code   RO          528    .text               c_w.l(use_no_semi.o)
-    0x110002f4   0x110002f4   0x00000000   Code   RO          530    .text               c_w.l(indicate_semi.o)
-    0x110002f4   0x110002f4   0x0000000c   Code   RO          542    .text               c_w.l(sys_exit.o)
-    0x11000300   0x11000300   0x00000004   Code   RO          205    .text.BRIDGE_ERROR_Handler  startup_sse310mps3.o
-    0x11000304   0x11000304   0x00000004   PAD
-    0x11000308   0x11000308   0x00000004   Code   RO          173    .text.BusFault_Handler  startup_sse310mps3.o
-    0x1100030c   0x1100030c   0x00000004   PAD
-    0x11000310   0x11000310   0x00000004   Code   RO          207    .text.COMBINED_PPU_Handler  startup_sse310mps3.o
-    0x11000314   0x11000314   0x00000004   PAD
-    0x11000318   0x11000318   0x00000004   Code   RO          213    .text.CPU0_CTI_0_Handler  startup_sse310mps3.o
-    0x1100031c   0x1100031c   0x00000004   PAD
-    0x11000320   0x11000320   0x00000004   Code   RO          215    .text.CPU0_CTI_1_Handler  startup_sse310mps3.o
-    0x11000324   0x11000324   0x00000004   PAD
-    0x11000328   0x11000328   0x00000004   Code   RO          269    .text.DMA_Ch_0_Combined_Handler  startup_sse310mps3.o
-    0x1100032c   0x1100032c   0x00000004   PAD
-    0x11000330   0x11000330   0x00000004   Code   RO          265    .text.DMA_Ch_0_Error_Handler  startup_sse310mps3.o
-    0x11000334   0x11000334   0x00000004   PAD
-    0x11000338   0x11000338   0x00000004   Code   RO          267    .text.DMA_Ch_0_Terminal_Count_Handler  startup_sse310mps3.o
-    0x1100033c   0x1100033c   0x00000004   PAD
-    0x11000340   0x11000340   0x00000004   Code   RO          275    .text.DMA_Ch_1_Combined_Handler  startup_sse310mps3.o
-    0x11000344   0x11000344   0x00000004   PAD
-    0x11000348   0x11000348   0x00000004   Code   RO          271    .text.DMA_Ch_1_Error_Handler  startup_sse310mps3.o
-    0x1100034c   0x1100034c   0x00000004   PAD
-    0x11000350   0x11000350   0x00000004   Code   RO          273    .text.DMA_Ch_1_Terminal_Count_Handler  startup_sse310mps3.o
-    0x11000354   0x11000354   0x00000004   PAD
-    0x11000358   0x11000358   0x00000004   Code   RO          281    .text.DMA_Ch_2_Combined_Handler  startup_sse310mps3.o
-    0x1100035c   0x1100035c   0x00000004   PAD
-    0x11000360   0x11000360   0x00000004   Code   RO          277    .text.DMA_Ch_2_Error_Handler  startup_sse310mps3.o
-    0x11000364   0x11000364   0x00000004   PAD
-    0x11000368   0x11000368   0x00000004   Code   RO          279    .text.DMA_Ch_2_Terminal_Count_Handler  startup_sse310mps3.o
-    0x1100036c   0x1100036c   0x00000004   PAD
-    0x11000370   0x11000370   0x00000004   Code   RO          287    .text.DMA_Ch_3_Combined_Handler  startup_sse310mps3.o
-    0x11000374   0x11000374   0x00000004   PAD
-    0x11000378   0x11000378   0x00000004   Code   RO          283    .text.DMA_Ch_3_Error_Handler  startup_sse310mps3.o
-    0x1100037c   0x1100037c   0x00000004   PAD
-    0x11000380   0x11000380   0x00000004   Code   RO          285    .text.DMA_Ch_3_Terminal_Count_Handler  startup_sse310mps3.o
-    0x11000384   0x11000384   0x00000004   PAD
-    0x11000388   0x11000388   0x00000004   Code   RO          181    .text.DebugMon_Handler  startup_sse310mps3.o
-    0x1100038c   0x1100038c   0x00000004   PAD
-    0x11000390   0x11000390   0x00000004   Code   RO          251    .text.ETHERNET_Handler  startup_sse310mps3.o
-    0x11000394   0x11000394   0x00000004   PAD
-    0x11000398   0x11000398   0x00000004   Code   RO          299    .text.GPIO0_0_Handler  startup_sse310mps3.o
-    0x1100039c   0x1100039c   0x00000004   PAD
-    0x110003a0   0x110003a0   0x00000004   Code   RO          319    .text.GPIO0_10_Handler  startup_sse310mps3.o
-    0x110003a4   0x110003a4   0x00000004   PAD
-    0x110003a8   0x110003a8   0x00000004   Code   RO          321    .text.GPIO0_11_Handler  startup_sse310mps3.o
-    0x110003ac   0x110003ac   0x00000004   PAD
-    0x110003b0   0x110003b0   0x00000004   Code   RO          323    .text.GPIO0_12_Handler  startup_sse310mps3.o
-    0x110003b4   0x110003b4   0x00000004   PAD
-    0x110003b8   0x110003b8   0x00000004   Code   RO          325    .text.GPIO0_13_Handler  startup_sse310mps3.o
-    0x110003bc   0x110003bc   0x00000004   PAD
-    0x110003c0   0x110003c0   0x00000004   Code   RO          327    .text.GPIO0_14_Handler  startup_sse310mps3.o
-    0x110003c4   0x110003c4   0x00000004   PAD
-    0x110003c8   0x110003c8   0x00000004   Code   RO          329    .text.GPIO0_15_Handler  startup_sse310mps3.o
-    0x110003cc   0x110003cc   0x00000004   PAD
-    0x110003d0   0x110003d0   0x00000004   Code   RO          301    .text.GPIO0_1_Handler  startup_sse310mps3.o
-    0x110003d4   0x110003d4   0x00000004   PAD
-    0x110003d8   0x110003d8   0x00000004   Code   RO          303    .text.GPIO0_2_Handler  startup_sse310mps3.o
-    0x110003dc   0x110003dc   0x00000004   PAD
-    0x110003e0   0x110003e0   0x00000004   Code   RO          305    .text.GPIO0_3_Handler  startup_sse310mps3.o
-    0x110003e4   0x110003e4   0x00000004   PAD
-    0x110003e8   0x110003e8   0x00000004   Code   RO          307    .text.GPIO0_4_Handler  startup_sse310mps3.o
-    0x110003ec   0x110003ec   0x00000004   PAD
-    0x110003f0   0x110003f0   0x00000004   Code   RO          309    .text.GPIO0_5_Handler  startup_sse310mps3.o
-    0x110003f4   0x110003f4   0x00000004   PAD
-    0x110003f8   0x110003f8   0x00000004   Code   RO          311    .text.GPIO0_6_Handler  startup_sse310mps3.o
-    0x110003fc   0x110003fc   0x00000004   PAD
-    0x11000400   0x11000400   0x00000004   Code   RO          313    .text.GPIO0_7_Handler  startup_sse310mps3.o
-    0x11000404   0x11000404   0x00000004   PAD
-    0x11000408   0x11000408   0x00000004   Code   RO          315    .text.GPIO0_8_Handler  startup_sse310mps3.o
-    0x1100040c   0x1100040c   0x00000004   PAD
-    0x11000410   0x11000410   0x00000004   Code   RO          317    .text.GPIO0_9_Handler  startup_sse310mps3.o
-    0x11000414   0x11000414   0x00000004   PAD
-    0x11000418   0x11000418   0x00000004   Code   RO          291    .text.GPIO0_Combined_Handler  startup_sse310mps3.o
-    0x1100041c   0x1100041c   0x00000004   PAD
-    0x11000420   0x11000420   0x00000004   Code   RO          331    .text.GPIO1_0_Handler  startup_sse310mps3.o
-    0x11000424   0x11000424   0x00000004   PAD
-    0x11000428   0x11000428   0x00000004   Code   RO          351    .text.GPIO1_10_Handler  startup_sse310mps3.o
-    0x1100042c   0x1100042c   0x00000004   PAD
-    0x11000430   0x11000430   0x00000004   Code   RO          353    .text.GPIO1_11_Handler  startup_sse310mps3.o
-    0x11000434   0x11000434   0x00000004   PAD
-    0x11000438   0x11000438   0x00000004   Code   RO          355    .text.GPIO1_12_Handler  startup_sse310mps3.o
-    0x1100043c   0x1100043c   0x00000004   PAD
-    0x11000440   0x11000440   0x00000004   Code   RO          357    .text.GPIO1_13_Handler  startup_sse310mps3.o
-    0x11000444   0x11000444   0x00000004   PAD
-    0x11000448   0x11000448   0x00000004   Code   RO          359    .text.GPIO1_14_Handler  startup_sse310mps3.o
-    0x1100044c   0x1100044c   0x00000004   PAD
-    0x11000450   0x11000450   0x00000004   Code   RO          361    .text.GPIO1_15_Handler  startup_sse310mps3.o
-    0x11000454   0x11000454   0x00000004   PAD
-    0x11000458   0x11000458   0x00000004   Code   RO          333    .text.GPIO1_1_Handler  startup_sse310mps3.o
-    0x1100045c   0x1100045c   0x00000004   PAD
-    0x11000460   0x11000460   0x00000004   Code   RO          335    .text.GPIO1_2_Handler  startup_sse310mps3.o
-    0x11000464   0x11000464   0x00000004   PAD
-    0x11000468   0x11000468   0x00000004   Code   RO          337    .text.GPIO1_3_Handler  startup_sse310mps3.o
-    0x1100046c   0x1100046c   0x00000004   PAD
-    0x11000470   0x11000470   0x00000004   Code   RO          339    .text.GPIO1_4_Handler  startup_sse310mps3.o
-    0x11000474   0x11000474   0x00000004   PAD
-    0x11000478   0x11000478   0x00000004   Code   RO          341    .text.GPIO1_5_Handler  startup_sse310mps3.o
-    0x1100047c   0x1100047c   0x00000004   PAD
-    0x11000480   0x11000480   0x00000004   Code   RO          343    .text.GPIO1_6_Handler  startup_sse310mps3.o
-    0x11000484   0x11000484   0x00000004   PAD
-    0x11000488   0x11000488   0x00000004   Code   RO          345    .text.GPIO1_7_Handler  startup_sse310mps3.o
-    0x1100048c   0x1100048c   0x00000004   PAD
-    0x11000490   0x11000490   0x00000004   Code   RO          347    .text.GPIO1_8_Handler  startup_sse310mps3.o
-    0x11000494   0x11000494   0x00000004   PAD
-    0x11000498   0x11000498   0x00000004   Code   RO          349    .text.GPIO1_9_Handler  startup_sse310mps3.o
-    0x1100049c   0x1100049c   0x00000004   PAD
-    0x110004a0   0x110004a0   0x00000004   Code   RO          293    .text.GPIO1_Combined_Handler  startup_sse310mps3.o
-    0x110004a4   0x110004a4   0x00000004   PAD
-    0x110004a8   0x110004a8   0x00000004   Code   RO          363    .text.GPIO2_0_Handler  startup_sse310mps3.o
-    0x110004ac   0x110004ac   0x00000004   PAD
-    0x110004b0   0x110004b0   0x00000004   Code   RO          383    .text.GPIO2_10_Handler  startup_sse310mps3.o
-    0x110004b4   0x110004b4   0x00000004   PAD
-    0x110004b8   0x110004b8   0x00000004   Code   RO          385    .text.GPIO2_11_Handler  startup_sse310mps3.o
-    0x110004bc   0x110004bc   0x00000004   PAD
-    0x110004c0   0x110004c0   0x00000004   Code   RO          387    .text.GPIO2_12_Handler  startup_sse310mps3.o
-    0x110004c4   0x110004c4   0x00000004   PAD
-    0x110004c8   0x110004c8   0x00000004   Code   RO          389    .text.GPIO2_13_Handler  startup_sse310mps3.o
-    0x110004cc   0x110004cc   0x00000004   PAD
-    0x110004d0   0x110004d0   0x00000004   Code   RO          391    .text.GPIO2_14_Handler  startup_sse310mps3.o
-    0x110004d4   0x110004d4   0x00000004   PAD
-    0x110004d8   0x110004d8   0x00000004   Code   RO          393    .text.GPIO2_15_Handler  startup_sse310mps3.o
-    0x110004dc   0x110004dc   0x00000004   PAD
-    0x110004e0   0x110004e0   0x00000004   Code   RO          365    .text.GPIO2_1_Handler  startup_sse310mps3.o
-    0x110004e4   0x110004e4   0x00000004   PAD
-    0x110004e8   0x110004e8   0x00000004   Code   RO          367    .text.GPIO2_2_Handler  startup_sse310mps3.o
-    0x110004ec   0x110004ec   0x00000004   PAD
-    0x110004f0   0x110004f0   0x00000004   Code   RO          369    .text.GPIO2_3_Handler  startup_sse310mps3.o
-    0x110004f4   0x110004f4   0x00000004   PAD
-    0x110004f8   0x110004f8   0x00000004   Code   RO          371    .text.GPIO2_4_Handler  startup_sse310mps3.o
-    0x110004fc   0x110004fc   0x00000004   PAD
-    0x11000500   0x11000500   0x00000004   Code   RO          373    .text.GPIO2_5_Handler  startup_sse310mps3.o
-    0x11000504   0x11000504   0x00000004   PAD
-    0x11000508   0x11000508   0x00000004   Code   RO          375    .text.GPIO2_6_Handler  startup_sse310mps3.o
-    0x1100050c   0x1100050c   0x00000004   PAD
-    0x11000510   0x11000510   0x00000004   Code   RO          377    .text.GPIO2_7_Handler  startup_sse310mps3.o
-    0x11000514   0x11000514   0x00000004   PAD
-    0x11000518   0x11000518   0x00000004   Code   RO          379    .text.GPIO2_8_Handler  startup_sse310mps3.o
-    0x1100051c   0x1100051c   0x00000004   PAD
-    0x11000520   0x11000520   0x00000004   Code   RO          381    .text.GPIO2_9_Handler  startup_sse310mps3.o
-    0x11000524   0x11000524   0x00000004   PAD
-    0x11000528   0x11000528   0x00000004   Code   RO          295    .text.GPIO2_Combined_Handler  startup_sse310mps3.o
-    0x1100052c   0x1100052c   0x00000004   PAD
-    0x11000530   0x11000530   0x00000004   Code   RO          395    .text.GPIO3_0_Handler  startup_sse310mps3.o
-    0x11000534   0x11000534   0x00000004   PAD
-    0x11000538   0x11000538   0x00000004   Code   RO          397    .text.GPIO3_1_Handler  startup_sse310mps3.o
-    0x1100053c   0x1100053c   0x00000004   PAD
-    0x11000540   0x11000540   0x00000004   Code   RO          399    .text.GPIO3_2_Handler  startup_sse310mps3.o
-    0x11000544   0x11000544   0x00000004   PAD
-    0x11000548   0x11000548   0x00000004   Code   RO          401    .text.GPIO3_3_Handler  startup_sse310mps3.o
-    0x1100054c   0x1100054c   0x00000004   PAD
-    0x11000550   0x11000550   0x00000004   Code   RO          297    .text.GPIO3_Combined_Handler  startup_sse310mps3.o
-    0x11000554   0x11000554   0x00000004   PAD
-    0x11000558   0x11000558   0x00000004   Code   RO          169    .text.HardFault_Handler  startup_sse310mps3.o
-    0x1100055c   0x1100055c   0x00000004   PAD
-    0x11000560   0x11000560   0x00000004   Code   RO          253    .text.I2S_Handler   startup_sse310mps3.o
-    0x11000564   0x11000564   0x00000004   PAD
-    0x11000568   0x11000568   0x00000004   Code   RO          199    .text.MPC_Handler   startup_sse310mps3.o
-    0x1100056c   0x1100056c   0x00000004   PAD
-    0x11000570   0x11000570   0x00000004   Code   RO          203    .text.MSC_Handler   startup_sse310mps3.o
-    0x11000574   0x11000574   0x00000004   PAD
-    0x11000578   0x11000578   0x00000004   Code   RO          171    .text.MemManage_Handler  startup_sse310mps3.o
-    0x1100057c   0x1100057c   0x00000004   PAD
-    0x11000580   0x11000580   0x00000004   Code   RO          167    .text.NMI_Handler   startup_sse310mps3.o
-    0x11000584   0x11000584   0x00000004   PAD
-    0x11000588   0x11000588   0x00000004   Code   RO          189    .text.NONSEC_WATCHDOG_Handler  startup_sse310mps3.o
-    0x1100058c   0x1100058c   0x00000004   PAD
-    0x11000590   0x11000590   0x00000004   Code   RO          187    .text.NONSEC_WATCHDOG_RESET_REQ_Handler  startup_sse310mps3.o
-    0x11000594   0x11000594   0x00000004   PAD
-    0x11000598   0x11000598   0x00000004   Code   RO          289    .text.NPU0_Handler  startup_sse310mps3.o
-    0x1100059c   0x1100059c   0x00000004   PAD
-    0x110005a0   0x110005a0   0x00000004   Code   RO          201    .text.PPC_Handler   startup_sse310mps3.o
-    0x110005a4   0x110005a4   0x00000004   PAD
-    0x110005a8   0x110005a8   0x00000004   Code   RO          183    .text.PendSV_Handler  startup_sse310mps3.o
-    0x110005ac   0x110005ac   0x00000004   PAD
-    0x110005b0   0x110005b0   0x00000032   Code   RO          409    .text.Reset_Handler  startup_sse310mps3.o
-    0x110005e2   0x110005e2   0x00000006   PAD
-    0x110005e8   0x110005e8   0x00000004   Code   RO          191    .text.SLOWCLK_Timer_Handler  startup_sse310mps3.o
-    0x110005ec   0x110005ec   0x00000004   PAD
-    0x110005f0   0x110005f0   0x00000004   Code   RO          259    .text.SPI_ADC_Handler  startup_sse310mps3.o
-    0x110005f4   0x110005f4   0x00000004   PAD
-    0x110005f8   0x110005f8   0x00000004   Code   RO          261    .text.SPI_SHIELD0_Handler  startup_sse310mps3.o
-    0x110005fc   0x110005fc   0x00000004   PAD
-    0x11000600   0x11000600   0x00000004   Code   RO          263    .text.SPI_SHIELD1_Handler  startup_sse310mps3.o
-    0x11000604   0x11000604   0x00000004   PAD
-    0x11000608   0x11000608   0x00000004   Code   RO          179    .text.SVC_Handler   startup_sse310mps3.o
-    0x1100060c   0x1100060c   0x00000004   PAD
-    0x11000610   0x11000610   0x00000004   Code   RO          177    .text.SecureFault_Handler  startup_sse310mps3.o
-    0x11000614   0x11000614   0x00000004   PAD
-    0x11000618   0x11000618   0x00000004   Code   RO          185    .text.SysTick_Handler  startup_sse310mps3.o
-    0x1100061c   0x1100061c   0x00000004   PAD
-    0x11000620   0x11000620   0x0000001e   Code   RO          419    .text.SystemCoreClockUpdate  system_sse310mps3.o
-    0x1100063e   0x1100063e   0x00000002   PAD
-    0x11000640   0x11000640   0x00000136   Code   RO          421    .text.SystemInit    system_sse310mps3.o
-    0x11000776   0x11000776   0x00000002   PAD
-    0x11000778   0x11000778   0x00000004   Code   RO          217    .text.System_Timestamp_Counter_Handler  startup_sse310mps3.o
-    0x1100077c   0x1100077c   0x00000004   PAD
-    0x11000780   0x11000780   0x00000004   Code   RO          193    .text.TFM_TIMER0_IRQ_Handler  startup_sse310mps3.o
-    0x11000784   0x11000784   0x00000004   PAD
-    0x11000788   0x11000788   0x00000004   Code   RO          195    .text.TIMER1_Handler  startup_sse310mps3.o
-    0x1100078c   0x1100078c   0x00000004   PAD
-    0x11000790   0x11000790   0x00000004   Code   RO          197    .text.TIMER2_Handler  startup_sse310mps3.o
-    0x11000794   0x11000794   0x00000004   PAD
-    0x11000798   0x11000798   0x00000004   Code   RO          211    .text.TIMER3_AON_Handler  startup_sse310mps3.o
-    0x1100079c   0x1100079c   0x00000004   PAD
-    0x110007a0   0x110007a0   0x00000004   Code   RO          255    .text.TOUCH_SCREEN_Handler  startup_sse310mps3.o
-    0x110007a4   0x110007a4   0x00000004   PAD
-    0x110007a8   0x110007a8   0x00000004   Code   RO          239    .text.UART0_Combined_Handler  startup_sse310mps3.o
-    0x110007ac   0x110007ac   0x00000004   PAD
-    0x110007b0   0x110007b0   0x00000004   Code   RO          241    .text.UART1_Combined_Handler  startup_sse310mps3.o
-    0x110007b4   0x110007b4   0x00000004   PAD
-    0x110007b8   0x110007b8   0x00000004   Code   RO          243    .text.UART2_Combined_Handler  startup_sse310mps3.o
-    0x110007bc   0x110007bc   0x00000004   PAD
-    0x110007c0   0x110007c0   0x00000004   Code   RO          245    .text.UART3_Combined_Handler  startup_sse310mps3.o
-    0x110007c4   0x110007c4   0x00000004   PAD
-    0x110007c8   0x110007c8   0x00000004   Code   RO          247    .text.UART4_Combined_Handler  startup_sse310mps3.o
-    0x110007cc   0x110007cc   0x00000004   PAD
-    0x110007d0   0x110007d0   0x00000004   Code   RO          407    .text.UART5_Combined_Handler  startup_sse310mps3.o
-    0x110007d4   0x110007d4   0x00000004   PAD
-    0x110007d8   0x110007d8   0x00000004   Code   RO          249    .text.UARTOVF_Handler  startup_sse310mps3.o
-    0x110007dc   0x110007dc   0x00000004   PAD
-    0x110007e0   0x110007e0   0x00000082   Code   RO           18    .text.UARTRX0_Handler  driver_usart.o
-    0x11000862   0x11000862   0x00000006   PAD
-    0x11000868   0x11000868   0x00000004   Code   RO          223    .text.UARTRX1_Handler  startup_sse310mps3.o
-    0x1100086c   0x1100086c   0x00000004   PAD
-    0x11000870   0x11000870   0x00000004   Code   RO          227    .text.UARTRX2_Handler  startup_sse310mps3.o
-    0x11000874   0x11000874   0x00000004   PAD
-    0x11000878   0x11000878   0x00000004   Code   RO          231    .text.UARTRX3_Handler  startup_sse310mps3.o
-    0x1100087c   0x1100087c   0x00000004   PAD
-    0x11000880   0x11000880   0x00000004   Code   RO          235    .text.UARTRX4_Handler  startup_sse310mps3.o
-    0x11000884   0x11000884   0x00000004   PAD
-    0x11000888   0x11000888   0x00000004   Code   RO          403    .text.UARTRX5_Handler  startup_sse310mps3.o
-    0x1100088c   0x1100088c   0x00000004   PAD
-    0x11000890   0x11000890   0x00000076   Code   RO           20    .text.UARTTX0_Handler  driver_usart.o
-    0x11000906   0x11000906   0x00000002   PAD
-    0x11000908   0x11000908   0x00000004   Code   RO          225    .text.UARTTX1_Handler  startup_sse310mps3.o
-    0x1100090c   0x1100090c   0x00000004   PAD
-    0x11000910   0x11000910   0x00000004   Code   RO          229    .text.UARTTX2_Handler  startup_sse310mps3.o
-    0x11000914   0x11000914   0x00000004   PAD
-    0x11000918   0x11000918   0x00000004   Code   RO          233    .text.UARTTX3_Handler  startup_sse310mps3.o
-    0x1100091c   0x1100091c   0x00000004   PAD
-    0x11000920   0x11000920   0x00000004   Code   RO          237    .text.UARTTX4_Handler  startup_sse310mps3.o
-    0x11000924   0x11000924   0x00000004   PAD
-    0x11000928   0x11000928   0x00000004   Code   RO          405    .text.UARTTX5_Handler  startup_sse310mps3.o
-    0x1100092c   0x1100092c   0x00000004   PAD
-    0x11000930   0x11000930   0x00000004   Code   RO          257    .text.USB_Handler   startup_sse310mps3.o
-    0x11000934   0x11000934   0x00000004   PAD
-    0x11000938   0x11000938   0x00000004   Code   RO          175    .text.UsageFault_Handler  startup_sse310mps3.o
-    0x1100093c   0x1100093c   0x00000004   PAD
-    0x11000940   0x11000940   0x00000048   Code   RO            7    .text.main          main_ns.o
-    0x11000988   0x11000988   0x00000056   Code   RO          148    .text.uart_cmsdk_clear_interrupt  uart_cmsdk_drv.o
-    0x110009de   0x110009de   0x00000002   PAD
-    0x110009e0   0x110009e0   0x0000003a   Code   RO          136    .text.uart_cmsdk_read  uart_cmsdk_drv.o
-    0x11000a1a   0x11000a1a   0x00000006   PAD
-    0x11000a20   0x11000a20   0x0000003a   Code   RO          138    .text.uart_cmsdk_write  uart_cmsdk_drv.o
-    0x11000a5a   0x11000a5a   0x0000001e   Code   RO          540    x$fpl$fpinit        fz_wv.l(fpinit_81m.o)
-    0x11000a78   0x11000a78   0x00000008   Data   RO          114    .rodata.UART0_CMSDK_DEV_CFG_S  device_definition.o
-    0x11000a80   0x11000a80   0x00000020   Data   RO          612    Region$$Table       anon$$obj.o
-
-
-    Execution Region CODE_WATERMARK (Exec base: 0x11000aa0, Load base: 0x11000aa0, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
+    Execution Region ER_CODE (Exec base: 0x01020000, Load base: 0x01020000, Size: 0x00000ad4, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x11000aa0        -       0x00000000   Zero   RW            1    CODE_WATERMARK.bss  anon$$obj.o
+    0x01020000   0x01020000   0x00000240   Data   RO          411    RESET               startup_sse310mps3.o
+    0x01020240   0x01020240   0x00000008   Code   RO          435  * !!!main             c_w.l(__main.o)
+    0x01020248   0x01020248   0x00000034   Code   RO          613    !!!scatter          c_w.l(__scatter.o)
+    0x0102027c   0x0102027c   0x0000001a   Code   RO          615    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x01020296   0x01020296   0x00000002   PAD
+    0x01020298   0x01020298   0x0000001c   Code   RO          617    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x010202b4   0x010202b4   0x00000002   Code   RO          467    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x010202b6   0x010202b6   0x00000004   Code   RO          477    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          480    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          482    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          485    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          487    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          489    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          492    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          494    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          496    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          498    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          500    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          502    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          504    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          506    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          508    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          510    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          512    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          516    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          518    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          520    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000000   Code   RO          522    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x010202ba   0x010202ba   0x00000002   Code   RO          523    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x010202bc   0x010202bc   0x00000002   Code   RO          552    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x010202be   0x010202be   0x00000000   Code   RO          564    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x010202be   0x010202be   0x00000000   Code   RO          566    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x010202be   0x010202be   0x00000000   Code   RO          569    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x010202be   0x010202be   0x00000000   Code   RO          572    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x010202be   0x010202be   0x00000000   Code   RO          574    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x010202be   0x010202be   0x00000000   Code   RO          577    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x010202be   0x010202be   0x00000002   Code   RO          578    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x010202c0   0x010202c0   0x00000000   Code   RO          437    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x010202c0   0x010202c0   0x00000000   Code   RO          439    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x010202c0   0x010202c0   0x00000004   Code   RO          453    .ARM.Collect$$rtentry$$00000007  c_w.l(__rtentry7.o)
+    0x010202c4   0x010202c4   0x00000000   Code   RO          441    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x010202c4   0x010202c4   0x00000004   Code   RO          442    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x010202c8   0x010202c8   0x00000000   Code   RO          444    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x010202c8   0x010202c8   0x00000008   Code   RO          445    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x010202d0   0x010202d0   0x00000004   Code   RO          454    .ARM.Collect$$rtentry$$00002718  c_w.l(__rtentry7.o)
+    0x010202d4   0x010202d4   0x00000002   Code   RO          475    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x010202d6   0x010202d6   0x00000000   Code   RO          532    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x010202d6   0x010202d6   0x00000004   Code   RO          533    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x010202da   0x010202da   0x00000006   Code   RO          534    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x010202e0   0x010202e0   0x00000012   Code   RO          460    .text               c_w.l(exit.o)
+    0x010202f2   0x010202f2   0x00000002   Code   RO          528    .text               c_w.l(use_no_semi.o)
+    0x010202f4   0x010202f4   0x00000000   Code   RO          530    .text               c_w.l(indicate_semi.o)
+    0x010202f4   0x010202f4   0x0000000c   Code   RO          542    .text               c_w.l(sys_exit.o)
+    0x01020300   0x01020300   0x00000004   Code   RO          205    .text.BRIDGE_ERROR_Handler  startup_sse310mps3.o
+    0x01020304   0x01020304   0x00000004   PAD
+    0x01020308   0x01020308   0x00000004   Code   RO          173    .text.BusFault_Handler  startup_sse310mps3.o
+    0x0102030c   0x0102030c   0x00000004   PAD
+    0x01020310   0x01020310   0x00000004   Code   RO          207    .text.COMBINED_PPU_Handler  startup_sse310mps3.o
+    0x01020314   0x01020314   0x00000004   PAD
+    0x01020318   0x01020318   0x00000004   Code   RO          213    .text.CPU0_CTI_0_Handler  startup_sse310mps3.o
+    0x0102031c   0x0102031c   0x00000004   PAD
+    0x01020320   0x01020320   0x00000004   Code   RO          215    .text.CPU0_CTI_1_Handler  startup_sse310mps3.o
+    0x01020324   0x01020324   0x00000004   PAD
+    0x01020328   0x01020328   0x00000004   Code   RO          269    .text.DMA_Ch_0_Combined_Handler  startup_sse310mps3.o
+    0x0102032c   0x0102032c   0x00000004   PAD
+    0x01020330   0x01020330   0x00000004   Code   RO          265    .text.DMA_Ch_0_Error_Handler  startup_sse310mps3.o
+    0x01020334   0x01020334   0x00000004   PAD
+    0x01020338   0x01020338   0x00000004   Code   RO          267    .text.DMA_Ch_0_Terminal_Count_Handler  startup_sse310mps3.o
+    0x0102033c   0x0102033c   0x00000004   PAD
+    0x01020340   0x01020340   0x00000004   Code   RO          275    .text.DMA_Ch_1_Combined_Handler  startup_sse310mps3.o
+    0x01020344   0x01020344   0x00000004   PAD
+    0x01020348   0x01020348   0x00000004   Code   RO          271    .text.DMA_Ch_1_Error_Handler  startup_sse310mps3.o
+    0x0102034c   0x0102034c   0x00000004   PAD
+    0x01020350   0x01020350   0x00000004   Code   RO          273    .text.DMA_Ch_1_Terminal_Count_Handler  startup_sse310mps3.o
+    0x01020354   0x01020354   0x00000004   PAD
+    0x01020358   0x01020358   0x00000004   Code   RO          281    .text.DMA_Ch_2_Combined_Handler  startup_sse310mps3.o
+    0x0102035c   0x0102035c   0x00000004   PAD
+    0x01020360   0x01020360   0x00000004   Code   RO          277    .text.DMA_Ch_2_Error_Handler  startup_sse310mps3.o
+    0x01020364   0x01020364   0x00000004   PAD
+    0x01020368   0x01020368   0x00000004   Code   RO          279    .text.DMA_Ch_2_Terminal_Count_Handler  startup_sse310mps3.o
+    0x0102036c   0x0102036c   0x00000004   PAD
+    0x01020370   0x01020370   0x00000004   Code   RO          287    .text.DMA_Ch_3_Combined_Handler  startup_sse310mps3.o
+    0x01020374   0x01020374   0x00000004   PAD
+    0x01020378   0x01020378   0x00000004   Code   RO          283    .text.DMA_Ch_3_Error_Handler  startup_sse310mps3.o
+    0x0102037c   0x0102037c   0x00000004   PAD
+    0x01020380   0x01020380   0x00000004   Code   RO          285    .text.DMA_Ch_3_Terminal_Count_Handler  startup_sse310mps3.o
+    0x01020384   0x01020384   0x00000004   PAD
+    0x01020388   0x01020388   0x00000004   Code   RO          181    .text.DebugMon_Handler  startup_sse310mps3.o
+    0x0102038c   0x0102038c   0x00000004   PAD
+    0x01020390   0x01020390   0x00000004   Code   RO          251    .text.ETHERNET_Handler  startup_sse310mps3.o
+    0x01020394   0x01020394   0x00000004   PAD
+    0x01020398   0x01020398   0x00000004   Code   RO          299    .text.GPIO0_0_Handler  startup_sse310mps3.o
+    0x0102039c   0x0102039c   0x00000004   PAD
+    0x010203a0   0x010203a0   0x00000004   Code   RO          319    .text.GPIO0_10_Handler  startup_sse310mps3.o
+    0x010203a4   0x010203a4   0x00000004   PAD
+    0x010203a8   0x010203a8   0x00000004   Code   RO          321    .text.GPIO0_11_Handler  startup_sse310mps3.o
+    0x010203ac   0x010203ac   0x00000004   PAD
+    0x010203b0   0x010203b0   0x00000004   Code   RO          323    .text.GPIO0_12_Handler  startup_sse310mps3.o
+    0x010203b4   0x010203b4   0x00000004   PAD
+    0x010203b8   0x010203b8   0x00000004   Code   RO          325    .text.GPIO0_13_Handler  startup_sse310mps3.o
+    0x010203bc   0x010203bc   0x00000004   PAD
+    0x010203c0   0x010203c0   0x00000004   Code   RO          327    .text.GPIO0_14_Handler  startup_sse310mps3.o
+    0x010203c4   0x010203c4   0x00000004   PAD
+    0x010203c8   0x010203c8   0x00000004   Code   RO          329    .text.GPIO0_15_Handler  startup_sse310mps3.o
+    0x010203cc   0x010203cc   0x00000004   PAD
+    0x010203d0   0x010203d0   0x00000004   Code   RO          301    .text.GPIO0_1_Handler  startup_sse310mps3.o
+    0x010203d4   0x010203d4   0x00000004   PAD
+    0x010203d8   0x010203d8   0x00000004   Code   RO          303    .text.GPIO0_2_Handler  startup_sse310mps3.o
+    0x010203dc   0x010203dc   0x00000004   PAD
+    0x010203e0   0x010203e0   0x00000004   Code   RO          305    .text.GPIO0_3_Handler  startup_sse310mps3.o
+    0x010203e4   0x010203e4   0x00000004   PAD
+    0x010203e8   0x010203e8   0x00000004   Code   RO          307    .text.GPIO0_4_Handler  startup_sse310mps3.o
+    0x010203ec   0x010203ec   0x00000004   PAD
+    0x010203f0   0x010203f0   0x00000004   Code   RO          309    .text.GPIO0_5_Handler  startup_sse310mps3.o
+    0x010203f4   0x010203f4   0x00000004   PAD
+    0x010203f8   0x010203f8   0x00000004   Code   RO          311    .text.GPIO0_6_Handler  startup_sse310mps3.o
+    0x010203fc   0x010203fc   0x00000004   PAD
+    0x01020400   0x01020400   0x00000004   Code   RO          313    .text.GPIO0_7_Handler  startup_sse310mps3.o
+    0x01020404   0x01020404   0x00000004   PAD
+    0x01020408   0x01020408   0x00000004   Code   RO          315    .text.GPIO0_8_Handler  startup_sse310mps3.o
+    0x0102040c   0x0102040c   0x00000004   PAD
+    0x01020410   0x01020410   0x00000004   Code   RO          317    .text.GPIO0_9_Handler  startup_sse310mps3.o
+    0x01020414   0x01020414   0x00000004   PAD
+    0x01020418   0x01020418   0x00000004   Code   RO          291    .text.GPIO0_Combined_Handler  startup_sse310mps3.o
+    0x0102041c   0x0102041c   0x00000004   PAD
+    0x01020420   0x01020420   0x00000004   Code   RO          331    .text.GPIO1_0_Handler  startup_sse310mps3.o
+    0x01020424   0x01020424   0x00000004   PAD
+    0x01020428   0x01020428   0x00000004   Code   RO          351    .text.GPIO1_10_Handler  startup_sse310mps3.o
+    0x0102042c   0x0102042c   0x00000004   PAD
+    0x01020430   0x01020430   0x00000004   Code   RO          353    .text.GPIO1_11_Handler  startup_sse310mps3.o
+    0x01020434   0x01020434   0x00000004   PAD
+    0x01020438   0x01020438   0x00000004   Code   RO          355    .text.GPIO1_12_Handler  startup_sse310mps3.o
+    0x0102043c   0x0102043c   0x00000004   PAD
+    0x01020440   0x01020440   0x00000004   Code   RO          357    .text.GPIO1_13_Handler  startup_sse310mps3.o
+    0x01020444   0x01020444   0x00000004   PAD
+    0x01020448   0x01020448   0x00000004   Code   RO          359    .text.GPIO1_14_Handler  startup_sse310mps3.o
+    0x0102044c   0x0102044c   0x00000004   PAD
+    0x01020450   0x01020450   0x00000004   Code   RO          361    .text.GPIO1_15_Handler  startup_sse310mps3.o
+    0x01020454   0x01020454   0x00000004   PAD
+    0x01020458   0x01020458   0x00000004   Code   RO          333    .text.GPIO1_1_Handler  startup_sse310mps3.o
+    0x0102045c   0x0102045c   0x00000004   PAD
+    0x01020460   0x01020460   0x00000004   Code   RO          335    .text.GPIO1_2_Handler  startup_sse310mps3.o
+    0x01020464   0x01020464   0x00000004   PAD
+    0x01020468   0x01020468   0x00000004   Code   RO          337    .text.GPIO1_3_Handler  startup_sse310mps3.o
+    0x0102046c   0x0102046c   0x00000004   PAD
+    0x01020470   0x01020470   0x00000004   Code   RO          339    .text.GPIO1_4_Handler  startup_sse310mps3.o
+    0x01020474   0x01020474   0x00000004   PAD
+    0x01020478   0x01020478   0x00000004   Code   RO          341    .text.GPIO1_5_Handler  startup_sse310mps3.o
+    0x0102047c   0x0102047c   0x00000004   PAD
+    0x01020480   0x01020480   0x00000004   Code   RO          343    .text.GPIO1_6_Handler  startup_sse310mps3.o
+    0x01020484   0x01020484   0x00000004   PAD
+    0x01020488   0x01020488   0x00000004   Code   RO          345    .text.GPIO1_7_Handler  startup_sse310mps3.o
+    0x0102048c   0x0102048c   0x00000004   PAD
+    0x01020490   0x01020490   0x00000004   Code   RO          347    .text.GPIO1_8_Handler  startup_sse310mps3.o
+    0x01020494   0x01020494   0x00000004   PAD
+    0x01020498   0x01020498   0x00000004   Code   RO          349    .text.GPIO1_9_Handler  startup_sse310mps3.o
+    0x0102049c   0x0102049c   0x00000004   PAD
+    0x010204a0   0x010204a0   0x00000004   Code   RO          293    .text.GPIO1_Combined_Handler  startup_sse310mps3.o
+    0x010204a4   0x010204a4   0x00000004   PAD
+    0x010204a8   0x010204a8   0x00000004   Code   RO          363    .text.GPIO2_0_Handler  startup_sse310mps3.o
+    0x010204ac   0x010204ac   0x00000004   PAD
+    0x010204b0   0x010204b0   0x00000004   Code   RO          383    .text.GPIO2_10_Handler  startup_sse310mps3.o
+    0x010204b4   0x010204b4   0x00000004   PAD
+    0x010204b8   0x010204b8   0x00000004   Code   RO          385    .text.GPIO2_11_Handler  startup_sse310mps3.o
+    0x010204bc   0x010204bc   0x00000004   PAD
+    0x010204c0   0x010204c0   0x00000004   Code   RO          387    .text.GPIO2_12_Handler  startup_sse310mps3.o
+    0x010204c4   0x010204c4   0x00000004   PAD
+    0x010204c8   0x010204c8   0x00000004   Code   RO          389    .text.GPIO2_13_Handler  startup_sse310mps3.o
+    0x010204cc   0x010204cc   0x00000004   PAD
+    0x010204d0   0x010204d0   0x00000004   Code   RO          391    .text.GPIO2_14_Handler  startup_sse310mps3.o
+    0x010204d4   0x010204d4   0x00000004   PAD
+    0x010204d8   0x010204d8   0x00000004   Code   RO          393    .text.GPIO2_15_Handler  startup_sse310mps3.o
+    0x010204dc   0x010204dc   0x00000004   PAD
+    0x010204e0   0x010204e0   0x00000004   Code   RO          365    .text.GPIO2_1_Handler  startup_sse310mps3.o
+    0x010204e4   0x010204e4   0x00000004   PAD
+    0x010204e8   0x010204e8   0x00000004   Code   RO          367    .text.GPIO2_2_Handler  startup_sse310mps3.o
+    0x010204ec   0x010204ec   0x00000004   PAD
+    0x010204f0   0x010204f0   0x00000004   Code   RO          369    .text.GPIO2_3_Handler  startup_sse310mps3.o
+    0x010204f4   0x010204f4   0x00000004   PAD
+    0x010204f8   0x010204f8   0x00000004   Code   RO          371    .text.GPIO2_4_Handler  startup_sse310mps3.o
+    0x010204fc   0x010204fc   0x00000004   PAD
+    0x01020500   0x01020500   0x00000004   Code   RO          373    .text.GPIO2_5_Handler  startup_sse310mps3.o
+    0x01020504   0x01020504   0x00000004   PAD
+    0x01020508   0x01020508   0x00000004   Code   RO          375    .text.GPIO2_6_Handler  startup_sse310mps3.o
+    0x0102050c   0x0102050c   0x00000004   PAD
+    0x01020510   0x01020510   0x00000004   Code   RO          377    .text.GPIO2_7_Handler  startup_sse310mps3.o
+    0x01020514   0x01020514   0x00000004   PAD
+    0x01020518   0x01020518   0x00000004   Code   RO          379    .text.GPIO2_8_Handler  startup_sse310mps3.o
+    0x0102051c   0x0102051c   0x00000004   PAD
+    0x01020520   0x01020520   0x00000004   Code   RO          381    .text.GPIO2_9_Handler  startup_sse310mps3.o
+    0x01020524   0x01020524   0x00000004   PAD
+    0x01020528   0x01020528   0x00000004   Code   RO          295    .text.GPIO2_Combined_Handler  startup_sse310mps3.o
+    0x0102052c   0x0102052c   0x00000004   PAD
+    0x01020530   0x01020530   0x00000004   Code   RO          395    .text.GPIO3_0_Handler  startup_sse310mps3.o
+    0x01020534   0x01020534   0x00000004   PAD
+    0x01020538   0x01020538   0x00000004   Code   RO          397    .text.GPIO3_1_Handler  startup_sse310mps3.o
+    0x0102053c   0x0102053c   0x00000004   PAD
+    0x01020540   0x01020540   0x00000004   Code   RO          399    .text.GPIO3_2_Handler  startup_sse310mps3.o
+    0x01020544   0x01020544   0x00000004   PAD
+    0x01020548   0x01020548   0x00000004   Code   RO          401    .text.GPIO3_3_Handler  startup_sse310mps3.o
+    0x0102054c   0x0102054c   0x00000004   PAD
+    0x01020550   0x01020550   0x00000004   Code   RO          297    .text.GPIO3_Combined_Handler  startup_sse310mps3.o
+    0x01020554   0x01020554   0x00000004   PAD
+    0x01020558   0x01020558   0x00000004   Code   RO          169    .text.HardFault_Handler  startup_sse310mps3.o
+    0x0102055c   0x0102055c   0x00000004   PAD
+    0x01020560   0x01020560   0x00000004   Code   RO          253    .text.I2S_Handler   startup_sse310mps3.o
+    0x01020564   0x01020564   0x00000004   PAD
+    0x01020568   0x01020568   0x00000004   Code   RO          199    .text.MPC_Handler   startup_sse310mps3.o
+    0x0102056c   0x0102056c   0x00000004   PAD
+    0x01020570   0x01020570   0x00000004   Code   RO          203    .text.MSC_Handler   startup_sse310mps3.o
+    0x01020574   0x01020574   0x00000004   PAD
+    0x01020578   0x01020578   0x00000004   Code   RO          171    .text.MemManage_Handler  startup_sse310mps3.o
+    0x0102057c   0x0102057c   0x00000004   PAD
+    0x01020580   0x01020580   0x00000004   Code   RO          167    .text.NMI_Handler   startup_sse310mps3.o
+    0x01020584   0x01020584   0x00000004   PAD
+    0x01020588   0x01020588   0x00000004   Code   RO          189    .text.NONSEC_WATCHDOG_Handler  startup_sse310mps3.o
+    0x0102058c   0x0102058c   0x00000004   PAD
+    0x01020590   0x01020590   0x00000004   Code   RO          187    .text.NONSEC_WATCHDOG_RESET_REQ_Handler  startup_sse310mps3.o
+    0x01020594   0x01020594   0x00000004   PAD
+    0x01020598   0x01020598   0x00000004   Code   RO          289    .text.NPU0_Handler  startup_sse310mps3.o
+    0x0102059c   0x0102059c   0x00000004   PAD
+    0x010205a0   0x010205a0   0x00000004   Code   RO          201    .text.PPC_Handler   startup_sse310mps3.o
+    0x010205a4   0x010205a4   0x00000004   PAD
+    0x010205a8   0x010205a8   0x00000004   Code   RO          183    .text.PendSV_Handler  startup_sse310mps3.o
+    0x010205ac   0x010205ac   0x00000004   PAD
+    0x010205b0   0x010205b0   0x00000032   Code   RO          409    .text.Reset_Handler  startup_sse310mps3.o
+    0x010205e2   0x010205e2   0x00000006   PAD
+    0x010205e8   0x010205e8   0x00000004   Code   RO          191    .text.SLOWCLK_Timer_Handler  startup_sse310mps3.o
+    0x010205ec   0x010205ec   0x00000004   PAD
+    0x010205f0   0x010205f0   0x00000004   Code   RO          259    .text.SPI_ADC_Handler  startup_sse310mps3.o
+    0x010205f4   0x010205f4   0x00000004   PAD
+    0x010205f8   0x010205f8   0x00000004   Code   RO          261    .text.SPI_SHIELD0_Handler  startup_sse310mps3.o
+    0x010205fc   0x010205fc   0x00000004   PAD
+    0x01020600   0x01020600   0x00000004   Code   RO          263    .text.SPI_SHIELD1_Handler  startup_sse310mps3.o
+    0x01020604   0x01020604   0x00000004   PAD
+    0x01020608   0x01020608   0x00000004   Code   RO          179    .text.SVC_Handler   startup_sse310mps3.o
+    0x0102060c   0x0102060c   0x00000004   PAD
+    0x01020610   0x01020610   0x00000004   Code   RO          177    .text.SecureFault_Handler  startup_sse310mps3.o
+    0x01020614   0x01020614   0x00000004   PAD
+    0x01020618   0x01020618   0x00000004   Code   RO          185    .text.SysTick_Handler  startup_sse310mps3.o
+    0x0102061c   0x0102061c   0x00000004   PAD
+    0x01020620   0x01020620   0x0000001e   Code   RO          419    .text.SystemCoreClockUpdate  system_sse310mps3.o
+    0x0102063e   0x0102063e   0x00000002   PAD
+    0x01020640   0x01020640   0x00000136   Code   RO          421    .text.SystemInit    system_sse310mps3.o
+    0x01020776   0x01020776   0x00000002   PAD
+    0x01020778   0x01020778   0x00000004   Code   RO          217    .text.System_Timestamp_Counter_Handler  startup_sse310mps3.o
+    0x0102077c   0x0102077c   0x00000004   PAD
+    0x01020780   0x01020780   0x00000004   Code   RO          193    .text.TFM_TIMER0_IRQ_Handler  startup_sse310mps3.o
+    0x01020784   0x01020784   0x00000004   PAD
+    0x01020788   0x01020788   0x00000004   Code   RO          195    .text.TIMER1_Handler  startup_sse310mps3.o
+    0x0102078c   0x0102078c   0x00000004   PAD
+    0x01020790   0x01020790   0x00000004   Code   RO          197    .text.TIMER2_Handler  startup_sse310mps3.o
+    0x01020794   0x01020794   0x00000004   PAD
+    0x01020798   0x01020798   0x00000004   Code   RO          211    .text.TIMER3_AON_Handler  startup_sse310mps3.o
+    0x0102079c   0x0102079c   0x00000004   PAD
+    0x010207a0   0x010207a0   0x00000004   Code   RO          255    .text.TOUCH_SCREEN_Handler  startup_sse310mps3.o
+    0x010207a4   0x010207a4   0x00000004   PAD
+    0x010207a8   0x010207a8   0x00000004   Code   RO          239    .text.UART0_Combined_Handler  startup_sse310mps3.o
+    0x010207ac   0x010207ac   0x00000004   PAD
+    0x010207b0   0x010207b0   0x00000004   Code   RO          241    .text.UART1_Combined_Handler  startup_sse310mps3.o
+    0x010207b4   0x010207b4   0x00000004   PAD
+    0x010207b8   0x010207b8   0x00000004   Code   RO          243    .text.UART2_Combined_Handler  startup_sse310mps3.o
+    0x010207bc   0x010207bc   0x00000004   PAD
+    0x010207c0   0x010207c0   0x00000004   Code   RO          245    .text.UART3_Combined_Handler  startup_sse310mps3.o
+    0x010207c4   0x010207c4   0x00000004   PAD
+    0x010207c8   0x010207c8   0x00000004   Code   RO          247    .text.UART4_Combined_Handler  startup_sse310mps3.o
+    0x010207cc   0x010207cc   0x00000004   PAD
+    0x010207d0   0x010207d0   0x00000004   Code   RO          407    .text.UART5_Combined_Handler  startup_sse310mps3.o
+    0x010207d4   0x010207d4   0x00000004   PAD
+    0x010207d8   0x010207d8   0x00000004   Code   RO          249    .text.UARTOVF_Handler  startup_sse310mps3.o
+    0x010207dc   0x010207dc   0x00000004   PAD
+    0x010207e0   0x010207e0   0x00000082   Code   RO           18    .text.UARTRX0_Handler  driver_usart.o
+    0x01020862   0x01020862   0x00000006   PAD
+    0x01020868   0x01020868   0x00000004   Code   RO          223    .text.UARTRX1_Handler  startup_sse310mps3.o
+    0x0102086c   0x0102086c   0x00000004   PAD
+    0x01020870   0x01020870   0x00000004   Code   RO          227    .text.UARTRX2_Handler  startup_sse310mps3.o
+    0x01020874   0x01020874   0x00000004   PAD
+    0x01020878   0x01020878   0x00000004   Code   RO          231    .text.UARTRX3_Handler  startup_sse310mps3.o
+    0x0102087c   0x0102087c   0x00000004   PAD
+    0x01020880   0x01020880   0x00000004   Code   RO          235    .text.UARTRX4_Handler  startup_sse310mps3.o
+    0x01020884   0x01020884   0x00000004   PAD
+    0x01020888   0x01020888   0x00000004   Code   RO          403    .text.UARTRX5_Handler  startup_sse310mps3.o
+    0x0102088c   0x0102088c   0x00000004   PAD
+    0x01020890   0x01020890   0x00000076   Code   RO           20    .text.UARTTX0_Handler  driver_usart.o
+    0x01020906   0x01020906   0x00000002   PAD
+    0x01020908   0x01020908   0x00000004   Code   RO          225    .text.UARTTX1_Handler  startup_sse310mps3.o
+    0x0102090c   0x0102090c   0x00000004   PAD
+    0x01020910   0x01020910   0x00000004   Code   RO          229    .text.UARTTX2_Handler  startup_sse310mps3.o
+    0x01020914   0x01020914   0x00000004   PAD
+    0x01020918   0x01020918   0x00000004   Code   RO          233    .text.UARTTX3_Handler  startup_sse310mps3.o
+    0x0102091c   0x0102091c   0x00000004   PAD
+    0x01020920   0x01020920   0x00000004   Code   RO          237    .text.UARTTX4_Handler  startup_sse310mps3.o
+    0x01020924   0x01020924   0x00000004   PAD
+    0x01020928   0x01020928   0x00000004   Code   RO          405    .text.UARTTX5_Handler  startup_sse310mps3.o
+    0x0102092c   0x0102092c   0x00000004   PAD
+    0x01020930   0x01020930   0x00000004   Code   RO          257    .text.USB_Handler   startup_sse310mps3.o
+    0x01020934   0x01020934   0x00000004   PAD
+    0x01020938   0x01020938   0x00000004   Code   RO          175    .text.UsageFault_Handler  startup_sse310mps3.o
+    0x0102093c   0x0102093c   0x00000004   PAD
+    0x01020940   0x01020940   0x00000064   Code   RO            7    .text.main          main_ns.o
+    0x010209a4   0x010209a4   0x00000004   PAD
+    0x010209a8   0x010209a8   0x00000056   Code   RO          148    .text.uart_cmsdk_clear_interrupt  uart_cmsdk_drv.o
+    0x010209fe   0x010209fe   0x00000002   PAD
+    0x01020a00   0x01020a00   0x0000003a   Code   RO          136    .text.uart_cmsdk_read  uart_cmsdk_drv.o
+    0x01020a3a   0x01020a3a   0x00000006   PAD
+    0x01020a40   0x01020a40   0x0000003a   Code   RO          138    .text.uart_cmsdk_write  uart_cmsdk_drv.o
+    0x01020a7a   0x01020a7a   0x0000000a   Ven    RO          619    Veneer$$Code        anon$$obj.o
+    0x01020a84   0x01020a84   0x0000000a   Ven    RO          620    Veneer$$Code        anon$$obj.o
+    0x01020a8e   0x01020a8e   0x0000001e   Code   RO          540    x$fpl$fpinit        fz_wv.l(fpinit_81m.o)
+    0x01020aac   0x01020aac   0x00000008   Data   RO          114    .rodata.UART0_CMSDK_DEV_CFG_S  device_definition.o
+    0x01020ab4   0x01020ab4   0x00000020   Data   RO          612    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_DATA (Exec base: 0x31000000, Load base: 0x11000aa0, Size: 0x00000044, Max: 0xffffffff, ABSOLUTE)
+    Execution Region CODE_WATERMARK (Exec base: 0x01020ad4, Load base: 0x01020ad4, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x31000000   0x11000aa0   0x00000024   Data   RW           76    .data.Driver_USART0_DEV  driver_usart.o
-    0x31000024   0x11000ac4   0x00000004   Data   RW          424    .data.PeripheralClock  system_sse310mps3.o
-    0x31000028   0x11000ac8   0x00000004   Data   RW          423    .data.SystemCoreClock  system_sse310mps3.o
-    0x3100002c   0x11000acc   0x00000008   Data   RW          116    .data.UART0_CMSDK_DEV_S  device_definition.o
-    0x31000034        -       0x0000000c   Zero   RW          115    .bss.UART0_CMSDK_DEV_DATA_S  device_definition.o
-    0x31000040        -       0x00000004   Zero   RW           10    .bss.x              main_ns.o
+    0x01020ad4        -       0x00000000   Zero   RW            1    CODE_WATERMARK.bss  anon$$obj.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x31000048, Load base: 0x11000ad8, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
+    Execution Region ER_DATA (Exec base: 0x21040000, Load base: 0x01020ad4, Size: 0x00000064, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x31000048        -       0x00000400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
+    0x21040000   0x01020ad4   0x00000024   Data   RW           76    .data.Driver_USART0_DEV  driver_usart.o
+    0x21040024   0x01020af8   0x00000004   Data   RW          424    .data.PeripheralClock  system_sse310mps3.o
+    0x21040028   0x01020afc   0x00000004   Data   RW          423    .data.SystemCoreClock  system_sse310mps3.o
+    0x2104002c   0x01020b00   0x00000008   Data   RW          116    .data.UART0_CMSDK_DEV_S  device_definition.o
+    0x21040034   0x01020b08   0x0000001e   Data   RW            9    .data.text          main_ns.o
+    0x21040052   0x01020b26   0x00000002   PAD
+    0x21040054        -       0x0000000c   Zero   RW          115    .bss.UART0_CMSDK_DEV_DATA_S  device_definition.o
+    0x21040060        -       0x00000004   Zero   RW           10    .bss.x              main_ns.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x31000460, Load base: 0x11000ae0, Size: 0x000003f8, Max: 0x000003f8, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x31000460        -       0x000003f8   Zero   RW            3    ARM_LIB_STACK.bss   anon$$obj.o
-
-
-    Execution Region STACKSEAL (Exec base: 0x31000858, Load base: 0x11000ae0, Size: 0x00000008, Max: 0x00000008, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x31000858        -       0x00000008   Zero   RW            4    STACKSEAL.bss       anon$$obj.o
-
-
-    Execution Region SRAM_WATERMARK (Exec base: 0x31000860, Load base: 0x11000ae0, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x21040068, Load base: 0x01020b28, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x31000860        -       0x00000000   Zero   RW            5    SRAM_WATERMARK.bss  anon$$obj.o
+    0x21040068        -       0x00000400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x21040480, Load base: 0x01020b40, Size: 0x000003f8, Max: 0x000003f8, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x21040480        -       0x000003f8   Zero   RW            3    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+    Execution Region STACKSEAL (Exec base: 0x21040878, Load base: 0x01020b40, Size: 0x00000008, Max: 0x00000008, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x21040878        -       0x00000008   Zero   RW            4    STACKSEAL.bss       anon$$obj.o
+
+
+    Execution Region SRAM_WATERMARK (Exec base: 0x21040880, Load base: 0x01020b40, Size: 0x00000000, Max: 0x00000000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x21040880        -       0x00000000   Zero   RW            5    SRAM_WATERMARK.bss  anon$$obj.o
 
 
 ==============================================================================
@@ -1634,15 +1653,15 @@ Image component sizes
 
          0          0          8          8         12       1147   device_definition.o
        248          0          0         36          0      12557   driver_usart.o
-        72          0          0          0          4       1086   main_ns.o
+       100          0          0         30          4       1103   main_ns.o
        522          0        576          0          0      11192   startup_sse310mps3.o
        340          0          0          8          0       2783   system_sse310mps3.o
        202          0          0          0          0       5178   uart_cmsdk_drv.o
 
     ----------------------------------------------------------------------
-      1882          0        616         52       2064      33943   Object Totals
-         0          0         32          0       2048          0   (incl. Generated)
-       498          0          0          0          0          0   (incl. Padding)
+      1934          0        616         84       2064      33960   Object Totals
+        20          0         32          0       2048          0   (incl. Generated)
+       502          0          0          2          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1688,15 +1707,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2104         16        616         52       2064      34411   Grand Totals
-      2104         16        616         52       2064      34411   ELF Image Totals
-      2104         16        616         52          0          0   ROM Totals
+      2156         16        616         84       2064      34428   Grand Totals
+      2156         16        616         84       2064      34428   ELF Image Totals
+      2156         16        616         84          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2720 (   2.66kB)
-    Total RW  Size (RW Data + ZI Data)              2116 (   2.07kB)
-    Total ROM Size (Code + RO Data + RW Data)       2772 (   2.71kB)
+    Total RO  Size (Code + RO Data)                 2772 (   2.71kB)
+    Total RW  Size (RW Data + ZI Data)              2148 (   2.10kB)
+    Total ROM Size (Code + RO Data + RW Data)       2856 (   2.79kB)
 
 ==============================================================================
 

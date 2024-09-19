@@ -7,8 +7,8 @@
 ".\objects\uart_cmsdk_drv.o"
 ".\objects\startup_sse310mps3.o"
 ".\objects\system_sse310mps3.o"
---strict --scatter ".\RTE\Device\SSE-310-MPS3_AN555\linker_SSE310MPS3_secure.sct"
---import-cmse-lib-out=".\Objects\SSE310_S_CMSE_Lib.o"
+--strict --scatter ".\RTE\Device\SSE-310-MPS3_AN555\linker_SSE310MPS3_secure _33.sct"
+--import-cmse-lib-out="..\SSE310_S\Objects\SSE310_S_CMSE_Lib.o"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\SSE310_S.map" -o .\Objects\SSE310_S.axf

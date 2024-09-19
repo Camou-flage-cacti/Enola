@@ -28,10 +28,10 @@ int main (void)
 
   SystemCoreClockUpdate();
 
-	//Secure_printf(text);
-	//Secure_printf(text);
+	Secure_printf(text);
+	Secure_printf(text);
 	for (int i = 0; i < 5; i++)
 	{
-		//test_llvm_nsc(i + 1);
+		test_llvm_nsc(i + 1);
 	}
 }

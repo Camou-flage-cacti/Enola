@@ -212,7 +212,7 @@
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
             <Im1Chk>1</Im1Chk>
-            <Im2Chk>1</Im2Chk>
+            <Im2Chk>0</Im2Chk>
             <OnChipMemories>
               <Ocm1>
                 <Type>0</Type>
@@ -302,7 +302,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x31000000</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x40000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -371,7 +371,7 @@
             <TextAddressRange>0x11000000</TextAddressRange>
             <DataAddressRange>0x31000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>.\RTE\Device\SSE-310-MPS3_AN555\linker_SSE310MPS3_secure.sct</ScatterFile>
+            <ScatterFile>.\RTE\Device\SSE-310-MPS3_AN555\linker_SSE310MPS3_secure _33.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
