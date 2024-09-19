@@ -17,7 +17,7 @@ Library Manager: ArmAr.exe V6.18
 Hex Converter:   FromElf.exe V6.18
 CPU DLL:         
 Dialog DLL:      
-Target DLL:      UL2V8M.DLL V1.7.9.0
+Target DLL:      CMSIS_AGDI_V8M.DLL V1.7.17.0
 Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
@@ -29,6 +29,8 @@ Project File Date:  09/19/2024
 Rebuild Project 'SSE310_NS' - Target 'Target 1'
 compiling device_definition.c...
 compiling retarget_io.c...
+compiling uart_cmsdk_drv.c...
+compiling system_SSE310MPS3.c...
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_NS\main_ns.c(9): warning: In file included from...
 C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV8.1m85\SSE310\SSE310_S\Secure_Functions.h(11): warning: no newline at end of file [-Wnewline-eof]
 extern void    test_llvm_nsc (int count);
@@ -44,8 +46,6 @@ C:\Users\dakum\OneDrive\Desktop\projects\code-CFA-with-pac\Evaluation\TrustZoneV
            ^
 3 warnings generated.
 compiling main_ns.c...
-compiling uart_cmsdk_drv.c...
-compiling system_SSE310MPS3.c...
 compiling Driver_USART.c...
 compiling startup_SSE310MPS3.c...
 linking...
@@ -102,21 +102,21 @@ Package Vendor: Keil
       Include file:  CMSIS/Core/Include/tz_context.h
 
    * Component: ARM::Device:Definition:2.0.0
-      Include file:  Board/Device_Definition/device_definition.h
       Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
       Include file:  Board/Platform/platform_base_address.h
-      Source file:   Board/Device_Definition/device_definition.c
       Include file:  Device/Config/device_cfg.h
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Board/Device_Definition/device_definition.h
 
    * Component: ARM::Device:Native Driver:UART:1.1.0
       Source file:   Device/Source/uart_cmsdk_drv.c
       Include file:  Device/Include/uart_cmsdk_drv.h
 
    * Component: ARM::Device:Startup:C Startup:2.0.0
-      Include file:  Device/Include/system_SSE310MPS3.h
       Source file:   Device/Source/startup_SSE310MPS3.c
       Source file:   Device/Source/system_SSE310MPS3.c
       Source file:   Examples/templates/empty_main.c
+      Include file:  Device/Include/system_SSE310MPS3.h
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:Breakpoint:1.2.0
       Source file:   Source/retarget_io.c
