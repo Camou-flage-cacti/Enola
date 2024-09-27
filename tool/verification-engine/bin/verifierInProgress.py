@@ -16,17 +16,38 @@ sim_func_call_return_stack = []
 sim_func_call_names = []
 occuerence_trace = []
 omit_functions =["init_trampoline", "secure_trace_storage", "indirect_secure_trace_storage"]
-
+loop_limit = {'crc32pseudo': 25, 'benchmark_body': 5}
 paresed_bin = lief.parse(binary_path)
+
+def get_basic_block_from_addr(addr):
+    # Perform a control flow graph (CFG) analysis
+    proj = angr.Project(binary_path, main_opts={'arch': 'ArchARMCortexM'})
+    cfg = proj.analyses.CFGFast()
+    
+    # Retrieve the corresponding node from the CFG for the given address
+    node = cfg.get_any_node(addr)
+
+    if node is None:
+        print(f"No basic block found for address {hex(addr)}")
+        return None
+
+    # Get the basic block associated with the node
+    basic_block = proj.factory.block(node.addr)
+
+    return basic_block
 
 def check_occurence_trace_presence(current_address):
     
     exists = False
 
-    for key, value in occuerence_trace:
-        if(key == current_address):
-            exists = True
-            break
+    for i, (key, value) in enumerate(occuerence_trace):
+        if key == current_address:
+            if value > 0:
+                occuerence_trace[i] = (key, value - 1)  # Decrement the value
+                exists = True
+            else:
+                exists = False
+            break  # Exit loop after finding the key
 
     return exists
 
@@ -486,6 +507,9 @@ def testIterativeMethod():
             
             if(check_occurence_trace_presence(insn.address)):
                 print("\n\nFound in occuerence trace 0x%x\n\n" %(insn.address))
+            else:
+                get_basic_block_from_addr(insn.address)
+            #if the above retruns false need to skip the whole basic block
 
             if(insn.mnemonic == "bl"):
                 target_address = insn.op_str  # The target address is usually in the operand string
@@ -523,6 +547,7 @@ def testIterativeMethod():
                 program_current_function = sim_func_call_names.pop()
                 print(f"Detected function return instruction at 0x{insn.address:x}, return value 0x{hex(program_counter)}")
                 break
+            # need to handle comparator branches
 
 def main():
     parse_occurence_trace('trace')
@@ -530,11 +555,14 @@ def main():
     #code = get_function_code_section('crc32pseudo', current_address)
     #for insn in md.disasm(code, current_address):
     #                        print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+    
+
     getExitBasicBlocks()
     #AbstractExec()
     #func = get_function_name_from_address( 0x1000049a)
     #print(func)
     testIterativeMethod()
+    print(occuerence_trace)
     print('\n\nThe simulated stack state:')
     for n in sim_func_call_return_stack:
         print(hex(n))
