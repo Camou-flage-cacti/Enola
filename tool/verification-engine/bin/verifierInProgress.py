@@ -20,36 +20,58 @@ loop_limit = {'crc32pseudo': 25, 'benchmark_body': 5}
 paresed_bin = lief.parse(binary_path)
 
 def get_basic_block_from_addr(addr):
+    #addr = addr + 1
     # Perform a control flow graph (CFG) analysis
-    proj = angr.Project(binary_path, main_opts={'arch': 'ArchARMCortexM'})
-    cfg = proj.analyses.CFGFast()
+    #proj = angr.Project(binary_path, main_opts={'arch': 'ArchARMCortexM'})
+    #cfg = proj.analyses.CFGFast()
     
     # Retrieve the corresponding node from the CFG for the given address
+       # Iterate through all nodes in the CFG
+    for node in cfg.graph.nodes():
+        block_start = node.addr
+        block_size = node.size
+        block_end = block_start + block_size
+
+        # Check if the address falls within the block
+        if block_start <= addr < block_end:
+            # Get the basic block associated with the node
+            basic_block = proj.factory.block(block_start)
+
+            print(f"Basic block found at address: {hex(addr)} where start is {hex(block_start-1)} with size {basic_block.size} bytes")
+            return basic_block
+        
+    print(f"No basic block contains address {hex(addr)}")
+    return None
+
+'''
     node = cfg.get_any_node(addr)
 
     if node is None:
         print(f"No basic block found for address {hex(addr)}")
         return None
+    else:
+        print(f"Basic block found for address {hex(addr)}")
 
     # Get the basic block associated with the node
     basic_block = proj.factory.block(node.addr)
 
     return basic_block
-
+'''
 def check_occurence_trace_presence(current_address):
     
     exists = False
+    non_zero = False
+
 
     for i, (key, value) in enumerate(occuerence_trace):
         if key == current_address:
             if value > 0:
                 occuerence_trace[i] = (key, value - 1)  # Decrement the value
-                exists = True
-            else:
-                exists = False
+                non_zero = True
+            exists = True
             break  # Exit loop after finding the key
 
-    return exists
+    return exists, non_zero
 
 def get_function_name_from_address(address):
     # Iterate over the symbols to find the function name for the given address
@@ -110,12 +132,13 @@ def getExitBasicBlocks():
 
     # Load the binary into an angr project
     #project = angr.Project(binary_path, auto_load_libs=False)
+    global proj
     proj = angr.Project(binary_path, main_opts={'arch': 'ArchARMCortexM'})
     print(proj.arch)
     print(hex(proj.entry))
 
     
-
+    global cfg
     # Generate the CFG
     cfg = proj.analyses.CFGFast()
     main_function = cfg.kb.functions.function(name='main')
@@ -504,11 +527,24 @@ def testIterativeMethod():
         for insn in md.disasm(code, program_counter):
             print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
 
-            
-            if(check_occurence_trace_presence(insn.address)):
+            exits, non_zero = check_occurence_trace_presence(insn.address)
+            if(exits and non_zero == False):
+                print("\n\n Need to skip basic block execution")
+                #get_basic_block_from_addr(insn.address)
+            elif (exits): #This is just for debug information
                 print("\n\nFound in occuerence trace 0x%x\n\n" %(insn.address))
-            else:
-                get_basic_block_from_addr(insn.address)
+                basic_block = get_basic_block_from_addr(insn.address)
+                if(basic_block):
+                    print(f"Total size of occuerence basic blcok 0x{basic_block.size}")
+
+                    instructions = basic_block.capstone.insns
+
+                    # Get the number of instructions
+                    num_instructions = len(instructions)
+                    print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
+
+            #else:
+            #    get_basic_block_from_addr(insn.address)
             #if the above retruns false need to skip the whole basic block
 
             if(insn.mnemonic == "bl"):
@@ -558,6 +594,7 @@ def main():
     
 
     getExitBasicBlocks()
+    #get_basic_block_from_addr(0x10000440)
     #AbstractExec()
     #func = get_function_name_from_address( 0x1000049a)
     #print(func)
