@@ -525,7 +525,7 @@ def testIterativeMethod():
         
         #start disassembling the function
         for insn in md.disasm(code, program_counter):
-            print("0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+            print("At disasm 0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
 
             exits, non_zero = check_occurence_trace_presence(insn.address)
             if(exits and non_zero == False):
@@ -533,6 +533,8 @@ def testIterativeMethod():
                 #get_basic_block_from_addr(insn.address)
             elif (exits): #This is just for debug information
                 print("\n\nFound in occuerence trace 0x%x\n\n" %(insn.address))
+                '''
+                #NEED TO SKIP THE WHOLE BRANCH NOT JUST THE BASIC BLOCK
                 basic_block = get_basic_block_from_addr(insn.address)
                 if(basic_block):
                     print(f"Total size of occuerence basic blcok 0x{basic_block.size}")
@@ -542,6 +544,20 @@ def testIterativeMethod():
                     # Get the number of instructions
                     num_instructions = len(instructions)
                     print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
+                    
+                    block_end = basic_block.addr + basic_block.size
+                    print(f"block addr {hex(basic_block.addr)}, block end: {hex(block_end)}")
+                    program_counter = block_end
+                    continue
+                    while insn.address < block_end:
+                        print(f"current ins address: {hex(insn.address)} end : {hex(block_end)}")
+                        try:
+                            insn = next(md.disasm(code[insn.address - basic_block.addr:], insn.address))
+                            #print(f"Skipping instruction : {hex(insn.address)}")
+                        except StopIteration:
+                            break  # Stop the loop if no more instructions
+
+                    continue  # Skip to the next iteration after skipping the block '''
 
             #else:
             #    get_basic_block_from_addr(insn.address)
