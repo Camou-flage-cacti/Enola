@@ -516,7 +516,7 @@ def simulateEnolaInstructions():
 def testIterativeMethod():
     program_current_function = 'main' #program_entry
     program_counter = 0x10000400
-
+    cmp_flag = False
     #while program_counter not in exit_points:
     for x in range(10):
         print('\n\n\nCurrent program counter: 0x%x belongs to function %s' %(program_counter, program_current_function))
@@ -601,6 +601,7 @@ def testIterativeMethod():
                 program_current_function = sim_func_call_names.pop()
                 print(f"Detected function return instruction at 0x{insn.address:x}, return value 0x{hex(program_counter)}")
                 break
+
             # need to handle comparator branches
             elif insn.mnemonic == "cbz":
                 print("Conditional branch instrcutions get denominators")
@@ -610,6 +611,7 @@ def testIterativeMethod():
                     cbz_successors.append(successor.addr)
 
                 print(f"CBZ at 0x{insn.address:x} has successors:")
+                #need to call recursive function and traverse all paths, but should consult with trace first
                 for succ in successors:
                     print(f" - Successor at 0x{succ.addr:x}")
 
@@ -621,19 +623,51 @@ def testIterativeMethod():
                     cbz_successors.append(successor.addr)
 
                 print(f"CBNZ at 0x{insn.address:x} has successors:")
+                #need to call recursive function and traverse all paths, but should consult with trace first
                 for succ in successors:
                     print(f" - Successor at 0x{succ.addr:x}")
 
             elif insn.mnemonic == "cmp":
                 print("cmp instrcutions get denominators")
+                #need to indentify successor branches, the problem is now the iit, popge instructions, 
+                #if the next instruction were b.cond instructions than it angr will give you all successors.
+                cmp_flag = True
+                continue
                 node = cfg.get_any_node(insn.address)
                 successors = cfg.get_successors(node)
                 for successor in successors:
                     cbz_successors.append(successor.addr)
                     
-                print(f"CBZ at 0x{insn.address:x} has successors:")
+                print(f"cmp at 0x{insn.address:x} has successors:")
                 for succ in successors:
                     print(f" - Successor at 0x{succ.addr:x}")
+            elif insn.mnemonic == "itt" and cmp_flag:
+                cmp_flag = False
+                print("\nhandling itt instructions\n")
+
+                basic_block = get_basic_block_from_addr(insn.address)
+                if(basic_block):
+                    print(f"Total size of occuerence basic blcok 0x{basic_block.size}")
+
+                    instructions = basic_block.capstone.insns
+
+                    # Get the number of instructions
+                    num_instructions = len(instructions)
+                    print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
+                    
+                    block_end = basic_block.addr + basic_block.size
+                    program_counter = block_end + 1
+                    print(f"block addr {hex(basic_block.addr)}, block end: {hex(block_end)} program counter moved to {hex(program_counter)}")
+                    
+                    currect_succecosr = []
+                    currect_succecosr.append(insn.address)
+                    currect_succecosr.append(program_counter)
+                    print(f"below are the successor that goes into recursive functions")
+                    for succ in currect_succecosr:
+                        print(f" - Successor at 0x{succ:x}")
+                    break
+
+
 
 def main():
     parse_occurence_trace('trace')
