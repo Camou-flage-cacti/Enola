@@ -19,6 +19,8 @@ omit_functions =["init_trampoline", "secure_trace_storage", "indirect_secure_tra
 loop_limit = {'crc32pseudo': 25, 'benchmark_body': 5}
 paresed_bin = lief.parse(binary_path)
 cbz_successors = []
+depth_limit = 100
+depth_counter = 0
 
 def get_basic_block_from_addr(addr):
     #addr = addr + 1
@@ -513,6 +515,139 @@ def simulateEnolaInstructions():
     return
 '''
 
+def recursive_traversing(program_counter, program_current_function):
+    cmp_flag = False
+
+    #while program_counter not in exit_points:
+    if program_counter in exit_points:
+        print("\nHit a program exit\n")
+        return True
+
+    if depth_counter >= depth_limit:
+        print("\nHit deapth limit\n")
+        return False
+    if not program_counter:
+        print('Function symbol not found for address 0x%x' %(program_counter))
+        return False
+    
+    code = get_function_code_section(program_current_function, program_counter)
+        
+    #start disassembling the function
+    for insn in md.disasm(code, program_counter):
+        print("At disasm 0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
+
+        exits, non_zero = check_occurence_trace_presence(insn.address)
+        
+        if(exits and non_zero == False):
+            print("\n\n Need to skip basic block execution")
+            #get_basic_block_from_addr(insn.address)
+        elif (exits): #This is just for debug information
+            print("\n\nFound in occuerence trace 0x%x\n\n" %(insn.address))
+
+        if(insn.mnemonic == "bl"):
+            target_address = insn.op_str  # The target address is usually in the operand string
+            #print("Found a BL instruction at 0x%x, targeting function at %s" % (insn.address, target_address))
+            clean_target_str = target_address.lstrip('#')
+            target_int = int(clean_target_str, 16)
+            
+            target_function = get_function_name_from_address(target_int)
+            #print(target_function)
+            if(target_function not in omit_functions):
+                print('Simulate the called function with return address: 0x%x' %(insn.address + insn.size))
+                sim_func_call_return_stack.append(insn.address + insn.size)
+                program_counter = target_int
+                sim_func_call_names.append(program_current_function)
+                program_current_function = target_function #update called function
+                break
+        elif(insn.mnemonic == "b"):
+            target_address = insn.op_str
+            clean_target_str = target_address.lstrip('#')
+            target_int = int(clean_target_str, 16)
+            target_function = get_function_name_from_address(target_int)
+            if not target_function:
+                print('branch within')
+                target_function = program_current_function
+            #print(target_function)
+            if(target_function not in omit_functions):
+                print("branch to %s" % (target_address))
+                #sim_func_call_return_stack.append(insn.address + insn.size)
+                program_counter = target_int
+                program_current_function = target_function #update called function
+                break
+        elif insn.mnemonic in ["bx", "pop"] and ("lr" in insn.op_str or "pc" in insn.op_str):
+            # Handle function return by checking common return instructions
+            program_counter = sim_func_call_return_stack.pop()
+            program_current_function = sim_func_call_names.pop()
+            print(f"Detected function return instruction at 0x{insn.address:x}, return value 0x{hex(program_counter)}")
+            break
+
+        # need to handle comparator branches
+        elif insn.mnemonic == "cbz":
+            print("Conditional branch instrcutions get denominators")
+            node = cfg.get_any_node(insn.address)
+            successors = cfg.get_successors(node)
+            for successor in successors:
+                cbz_successors.append(successor.addr - 1)
+
+            print(f"CBZ at 0x{insn.address:x} has successors:")
+            #need to call recursive function and traverse all paths, but should consult with trace first
+            for succ in successors:
+                print(f" - Successor at 0x{succ.addr - 1 :x}")
+
+        elif insn.mnemonic == "cbnz":
+            print("Conditional branch instrcutions get denominators")
+            node = cfg.get_any_node(insn.address)
+            successors = cfg.get_successors(node)
+            for successor in successors:
+                cbz_successors.append(successor.addr)
+
+            print(f"CBNZ at 0x{insn.address:x} has successors:")
+            #need to call recursive function and traverse all paths, but should consult with trace first
+            for succ in successors:
+                print(f" - Successor at 0x{succ.addr:x}")
+
+        elif insn.mnemonic == "cmp":
+            print("cmp instrcutions get denominators")
+            #need to indentify successor branches, the problem is now the iit, popge instructions, 
+            #if the next instruction were b.cond instructions than it angr will give you all successors.
+            cmp_flag = True
+            continue
+            node = cfg.get_any_node(insn.address)
+            successors = cfg.get_successors(node)
+            for successor in successors:
+                cbz_successors.append(successor.addr)
+                
+            print(f"cmp at 0x{insn.address:x} has successors:")
+            for succ in successors:
+                print(f" - Successor at 0x{succ.addr:x}")
+        elif insn.mnemonic == "itt" and cmp_flag:
+            cmp_flag = False
+            print("\nhandling itt instructions\n")
+
+            basic_block = get_basic_block_from_addr(insn.address)
+            if(basic_block):
+                print(f"Total size of occuerence basic blcok 0x{basic_block.size}")
+
+                instructions = basic_block.capstone.insns
+
+                # Get the number of instructions
+                num_instructions = len(instructions)
+                print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
+                
+                block_end = basic_block.addr + basic_block.size - 1
+                program_counter = block_end 
+                print(f"block addr {hex(basic_block.addr)}, block end: {hex(block_end)} program counter moved to {hex(program_counter)}")
+                
+                currect_successors = []
+                currect_successors.append(insn.address)
+                currect_successors.append(program_counter)
+                print(f"below are the successor that goes into recursive functions")
+                for succ in currect_successors:
+                    print(f" - Successor at 0x{succ:x}")
+                break
+
+
+
 def testIterativeMethod():
     program_current_function = 'main' #program_entry
     program_counter = 0x10000400
@@ -608,12 +743,12 @@ def testIterativeMethod():
                 node = cfg.get_any_node(insn.address)
                 successors = cfg.get_successors(node)
                 for successor in successors:
-                    cbz_successors.append(successor.addr)
+                    cbz_successors.append(successor.addr - 1)
 
                 print(f"CBZ at 0x{insn.address:x} has successors:")
                 #need to call recursive function and traverse all paths, but should consult with trace first
                 for succ in successors:
-                    print(f" - Successor at 0x{succ.addr:x}")
+                    print(f" - Successor at 0x{succ.addr - 1 :x}")
 
             elif insn.mnemonic == "cbnz":
                 print("Conditional branch instrcutions get denominators")
@@ -655,15 +790,15 @@ def testIterativeMethod():
                     num_instructions = len(instructions)
                     print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
                     
-                    block_end = basic_block.addr + basic_block.size
-                    program_counter = block_end + 1
+                    block_end = basic_block.addr + basic_block.size - 1
+                    program_counter = block_end 
                     print(f"block addr {hex(basic_block.addr)}, block end: {hex(block_end)} program counter moved to {hex(program_counter)}")
                     
-                    currect_succecosr = []
-                    currect_succecosr.append(insn.address)
-                    currect_succecosr.append(program_counter)
+                    currect_successors = []
+                    currect_successors.append(insn.address)
+                    currect_successors.append(program_counter)
                     print(f"below are the successor that goes into recursive functions")
-                    for succ in currect_succecosr:
+                    for succ in currect_successors:
                         print(f" - Successor at 0x{succ:x}")
                     break
 
