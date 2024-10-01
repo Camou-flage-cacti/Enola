@@ -18,6 +18,7 @@ occuerence_trace = []
 omit_functions =["init_trampoline", "secure_trace_storage", "indirect_secure_trace_storage"]
 loop_limit = {'crc32pseudo': 25, 'benchmark_body': 5}
 paresed_bin = lief.parse(binary_path)
+cbz_successors = []
 
 def get_basic_block_from_addr(addr):
     #addr = addr + 1
@@ -511,6 +512,7 @@ def simulateEnolaInstructions():
 
     return
 '''
+
 def testIterativeMethod():
     program_current_function = 'main' #program_entry
     program_counter = 0x10000400
@@ -600,6 +602,38 @@ def testIterativeMethod():
                 print(f"Detected function return instruction at 0x{insn.address:x}, return value 0x{hex(program_counter)}")
                 break
             # need to handle comparator branches
+            elif insn.mnemonic == "cbz":
+                print("Conditional branch instrcutions get denominators")
+                node = cfg.get_any_node(insn.address)
+                successors = cfg.get_successors(node)
+                for successor in successors:
+                    cbz_successors.append(successor.addr)
+
+                print(f"CBZ at 0x{insn.address:x} has successors:")
+                for succ in successors:
+                    print(f" - Successor at 0x{succ.addr:x}")
+
+            elif insn.mnemonic == "cbnz":
+                print("Conditional branch instrcutions get denominators")
+                node = cfg.get_any_node(insn.address)
+                successors = cfg.get_successors(node)
+                for successor in successors:
+                    cbz_successors.append(successor.addr)
+
+                print(f"CBNZ at 0x{insn.address:x} has successors:")
+                for succ in successors:
+                    print(f" - Successor at 0x{succ.addr:x}")
+
+            elif insn.mnemonic == "cmp":
+                print("cmp instrcutions get denominators")
+                node = cfg.get_any_node(insn.address)
+                successors = cfg.get_successors(node)
+                for successor in successors:
+                    cbz_successors.append(successor.addr)
+                    
+                print(f"CBZ at 0x{insn.address:x} has successors:")
+                for succ in successors:
+                    print(f" - Successor at 0x{succ.addr:x}")
 
 def main():
     parse_occurence_trace('trace')
@@ -615,6 +649,7 @@ def main():
     #func = get_function_name_from_address( 0x1000049a)
     #print(func)
     testIterativeMethod()
+
     print(occuerence_trace)
     print('\n\nThe simulated stack state:')
     for n in sim_func_call_return_stack:
