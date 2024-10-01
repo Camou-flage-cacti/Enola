@@ -537,7 +537,7 @@ def recursive_traversing(program_counter, program_current_function):
         print("At disasm 0x%x:\t%s\t%s" % (insn.address, insn.mnemonic, insn.op_str))
 
         exits, non_zero = check_occurence_trace_presence(insn.address)
-        
+
         if(exits and non_zero == False):
             print("\n\n Need to skip basic block execution")
             #get_basic_block_from_addr(insn.address)
@@ -558,28 +558,34 @@ def recursive_traversing(program_counter, program_current_function):
                 program_counter = target_int
                 sim_func_call_names.append(program_current_function)
                 program_current_function = target_function #update called function
-                break
+
+                return recursive_traversing(program_counter, program_current_function)
+            
         elif(insn.mnemonic == "b"):
             target_address = insn.op_str
             clean_target_str = target_address.lstrip('#')
             target_int = int(clean_target_str, 16)
             target_function = get_function_name_from_address(target_int)
+
             if not target_function:
                 print('branch within')
                 target_function = program_current_function
+
             #print(target_function)
             if(target_function not in omit_functions):
                 print("branch to %s" % (target_address))
                 #sim_func_call_return_stack.append(insn.address + insn.size)
                 program_counter = target_int
                 program_current_function = target_function #update called function
-                break
+
+                return recursive_traversing(program_counter, program_current_function)
+            
         elif insn.mnemonic in ["bx", "pop"] and ("lr" in insn.op_str or "pc" in insn.op_str):
             # Handle function return by checking common return instructions
             program_counter = sim_func_call_return_stack.pop()
             program_current_function = sim_func_call_names.pop()
             print(f"Detected function return instruction at 0x{insn.address:x}, return value 0x{hex(program_counter)}")
-            break
+            return recursive_traversing(program_counter, program_current_function)
 
         # need to handle comparator branches
         elif insn.mnemonic == "cbz":
@@ -788,7 +794,7 @@ def testIterativeMethod():
 
                     # Get the number of instructions
                     num_instructions = len(instructions)
-                    print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
+                    print(f"Total instructions in occuerence basic block 0x{num_instructions}")
                     
                     block_end = basic_block.addr + basic_block.size - 1
                     program_counter = block_end 
