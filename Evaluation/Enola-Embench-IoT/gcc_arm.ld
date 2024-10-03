@@ -26,6 +26,8 @@ SECTIONS
     KEEP(*(.vectors))
 
     _start = .; /* Define the entry point at the beginning of the .text section */
+    *main_Test.o(.text*)
+    *main_Test.o(.text)
     *main_ns.o(.text*)
     *main_ns.o(.text)
     *nettle-aes.o(.text*)

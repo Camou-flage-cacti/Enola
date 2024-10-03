@@ -530,6 +530,9 @@ def recursive_traversing(program_counter, program_current_function):
         print('Function symbol not found for address 0x%x' %(program_counter))
         return False
     
+    print(f"At depth {depth_counter}")
+    depth_counter = depth_counter  + 1
+    
     code = get_function_code_section(program_current_function, program_counter)
         
     #start disassembling the function
