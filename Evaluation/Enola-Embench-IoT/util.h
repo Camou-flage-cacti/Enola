@@ -4,17 +4,53 @@
 
 #define INT_MAX 2147483647
 
-void pinMode(int pin, int mode);
-void digitalWrite(int pin, int value);
-int digitalRead(int pin);
-int analogRead(int pin);
+void pinMode(int pin, int mode)
+{
 
-void Serial_begin(int baud);
-int Serial_available();
-int Serial_read();
-int Serial_write(char* output, int len);
+}
+void digitalWrite(int pin, int value)
+{
+    
+}
+int digitalRead(int pin)
+{
+    return 0;   
+}
 
-unsigned long millis();
-void delayMicroseconds(float usecs);
+int analogRead(int pin)
+{
+    return 0;
+}
 
-int toUInt(char* input, int len);
+void Serial_begin(int baud)
+{
+
+}
+
+int Serial_available()
+{
+    return 0;
+}
+int Serial_read()
+{
+    return 0;
+}
+
+int Serial_write(char* output, int len)
+{
+    return 0;
+}
+
+unsigned long millis()
+{
+    return 0;
+}
+void delayMicroseconds(float usecs)
+{
+
+}
+
+int toUInt(char* input, int len)
+{
+    return 0;
+}

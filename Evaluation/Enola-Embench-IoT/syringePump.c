@@ -14,12 +14,8 @@
 
 #include "LiquidCrystal.h"
 #include "util.h"
-#include "kernel/kprintf.h"
-#include "kernel/log.h"
-#include "kernel/led.h"
 
-#include "lib/cfa_stub.h"
-
+#include <stdio.h>
 
 /* -- Constants -- */
 #define SYRINGE_VOLUME_ML 30.0
@@ -131,6 +127,7 @@ void updateScreen();
 int get_key(unsigned int input);
 unsigned int tim;
 
+/*
 
 static uint8_t user_data[8] = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07 };
 static uint8_t quote_out[128];
@@ -140,7 +137,7 @@ extern btbl_entry_t __btbl_start;
 extern btbl_entry_t __btbl_end;
 extern ltbl_entry_t __ltbl_start;
 extern ltbl_entry_t __ltbl_end;
-
+*/
 void loop(){
 
 	//check for LCD updates
@@ -153,14 +150,14 @@ void loop(){
 	readSerial();
 	if(serialStrReady){
 
-		cfa_init((cfa_addr_t)&loop, (cfa_addr_t)0,
-					(btbl_entry_t*)&__btbl_start, (btbl_entry_t*)&__btbl_end,
-					(ltbl_entry_t*)&__ltbl_start, (ltbl_entry_t*)&__ltbl_end);
+		//cfa_init((cfa_addr_t)&loop, (cfa_addr_t)0,
+					//(btbl_entry_t*)&__btbl_start, (btbl_entry_t*)&__btbl_end,
+					//(ltbl_entry_t*)&__ltbl_start, (ltbl_entry_t*)&__ltbl_end);
 
 		processSerial();
 
-		quote_len = sizeof(quote_out);
-		cfa_quote(user_data, sizeof(user_data), quote_out, &quote_len);
+		//quote_len = sizeof(quote_out);
+		//cfa_quote(user_data, sizeof(user_data), quote_out, &quote_len);
 	}
 }
 
@@ -232,13 +229,13 @@ void bolus(int direction){
 	//change units to steps
 	long steps = (mLBolus * ustepsPerML);
 	if(direction == PUSH){
-		led_on();
+		//led_on();
 		digitalWrite(motorDirPin, HIGH);
 		steps = mLBolus * ustepsPerML;
 		mLUsed += mLBolus;
 	}
 	else if(direction == PULL){
-		led_off();
+		//led_off();
 		digitalWrite(motorDirPin, LOW);
 		if((mLUsed-mLBolus) > 0){
 			mLUsed -= mLBolus;
@@ -356,12 +353,12 @@ void updateScreen(){
 	int s2Len = 0;
 	
 	if(uiState == MAIN){
-		s1Len = sprintf(s1, "Used %d.%d mL", (int)mLUsed, three_dec_places(mLUsed));
-		s2Len = sprintf(s2, "Bolus %d.%d mL", (int)mLBolus, three_dec_places(mLBolus));
+		printf("Used %d.%d mL", (int)mLUsed, three_dec_places(mLUsed));
+		printf("Bolus %d.%d mL", (int)mLBolus, three_dec_places(mLBolus));
 	}
 	else if(uiState == BOLUS_MENU){
-		s1Len = sprintf(s1, "Menu> BolusStep");
-		s2Len = sprintf(s2, "%d.%d", (int)mLBolusStep, three_dec_places(mLBolusStep));
+		printf("Menu> BolusStep");
+		printf("%d.%d", (int)mLBolusStep, three_dec_places(mLBolusStep));
 	}
 
 	//do actual screen update
@@ -404,15 +401,3 @@ String decToString(float decNumber){
 	return String(wholePart) + String('.') + strZeros + String(decPart);
 }
 */
-
-//C-FLAT new code
-void main(unsigned int r0, unsigned int r1, unsigned int atags) {
-	(void)r0;
-	(void)r1;
-	(void)atags;
-	info("Starting syringe pump");
-	setup();
-	while(1) {
-		loop();
-	}
-}

@@ -9,9 +9,21 @@ typedef struct LiquidCrystalStruct{
 	unsigned int id;
 } LiquidCrystal;
 
-void lcd_begin(LiquidCrystal* lcd, unsigned int cols, unsigned int rows);
-void lcd_clear(LiquidCrystal* lcd); //http://stackoverflow.com/questions/10105666/clearing-the-terminal-screen
-void lcd_print(LiquidCrystal* lcd, char* output, int len);
-void lcd_setCursor(LiquidCrystal* lcd, int x, int y); //http://stackoverflow.com/questions/10105666/clearing-the-terminal-screen
+void lcd_begin(LiquidCrystal* lcd, unsigned int cols, unsigned int rows)
+{
+
+}
+void lcd_clear(LiquidCrystal* lcd)
+{
+
+}
+void lcd_print(LiquidCrystal* lcd, char* output, int len)
+{
+
+}
+void lcd_setCursor(LiquidCrystal* lcd, int x, int y)
+{
+    
+}
 
 #endif /* LIQUID_CRYSTAL_H */
