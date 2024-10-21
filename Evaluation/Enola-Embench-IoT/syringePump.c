@@ -34,8 +34,9 @@
 #define three_dec_places( x ) ( (int)( (x*1e3)+0.5 - (((int)x)*1e3) ) )
 
 long ustepsPerMM = MICROSTEPS_PER_STEP * STEPS_PER_REVOLUTION / THREADED_ROD_PITCH;
+//2560.0
 long ustepsPerML = (MICROSTEPS_PER_STEP * STEPS_PER_REVOLUTION * SYRINGE_BARREL_LENGTH_MM) / (SYRINGE_VOLUME_ML * THREADED_ROD_PITCH );
-
+//6826.666666666667
 /* -- Pin definitions -- */
 int motorDirPin = 2;
 int motorStepPin = 3;
@@ -62,6 +63,7 @@ const int mLBolusStepsLength = 9;
 float mLBolusSteps[9] = {0.001, 0.005, 0.010, 0.050, 0.100, 0.500, 1.000, 5.000, 10.000};
 
 /* -- Default Parameters -- */
+//we need adjust mLBolus to do the experiments 
 float mLBolus = 0.500; //default bolus size
 float mLBigBolus = 1.000; //default large bolus size
 float mLUsed = 0.0;
@@ -118,7 +120,7 @@ void setup(){
 }
 
 void checkTriggers();
-void readSerial();
+void readSerial(int count);
 void processSerial();
 void bolus(int direction);
 void readKey();
@@ -138,16 +140,16 @@ extern btbl_entry_t __btbl_end;
 extern ltbl_entry_t __ltbl_start;
 extern ltbl_entry_t __ltbl_end;
 */
-void loop(){
+void loop(int count){
 
 	//check for LCD updates
-	readKey();
+	//readKey();
 
 	//look for triggers on trigger lines
-	checkTriggers();
+	//checkTriggers();
 
 	//check serial port for new commands
-	readSerial();
+	readSerial(count%2);
 	if(serialStrReady){
 
 		//cfa_init((cfa_addr_t)&loop, (cfa_addr_t)0,
@@ -184,19 +186,37 @@ void checkTriggers(){
 	prevBigTrigger = bigTriggerValue;
 }
 
-void readSerial(){
-	//pulls in characters from serial port as they arrive
-	//builds serialStr and sets ready flag when newline is found
-	while (Serial_available()) {
-		char inChar = (char)Serial_read();
-		if (inChar < 0x20) {
-			serialStrReady = true;
-		}
-		else{
-			serialStr[serialStrLen] = inChar;
-			serialStrLen++;
-		}
-	}
+//Make it static with predefined inputs
+void readSerial(int count){
+    if(count == 0)
+    {
+        serialStr[serialStrLen] = '+';
+        serialStrLen++;
+        serialStrReady = true;
+    }
+    else if(count == 1)
+    {
+        serialStr[serialStrLen] = '-';
+        serialStrLen++;
+        serialStrReady = true;
+    }
+    else 
+    {
+        	//pulls in characters from serial port as they arrive
+            //builds serialStr and sets ready flag when newline is found
+            while (Serial_available()) {
+                char inChar = (char)Serial_read();
+                if (inChar < 0x20) {
+                    serialStrReady = true;
+                }
+                else{
+                    serialStr[serialStrLen] = inChar;
+                    serialStrLen++;
+                }
+            }
+
+    }
+
 }
 
 void processSerial(){
@@ -288,6 +308,7 @@ void readKey(){
 	}
 }
 
+//This is interaction with the user, to set bolus amount, step index from the steps array, push, pull syringe pump etc.
 void doKeyAction(unsigned int key){
 	if(key == KEY_NONE){
 		return;
