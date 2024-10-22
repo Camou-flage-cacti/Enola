@@ -26,6 +26,10 @@ SECTIONS
     KEEP(*(.vectors))
 
     _start = .; /* Define the entry point at the beginning of the .text section */
+    *main_syringe.o(.text*)
+    *main_syringe.o(.text)
+    *syringePump.o(.text*)
+    *syringePump.o(.text)
     *main_Test.o(.text*)
     *main_Test.o(.text)
     *main_ns.o(.text*)

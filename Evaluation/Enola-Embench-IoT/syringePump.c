@@ -88,7 +88,7 @@ int prevBigTrigger = HIGH;
 int prevTrigger = HIGH;
 
 //serial
-char serialStr[80] = "";
+char serialStr[80] = "+++++-----+++++-----+++++-----+++++-----+++++-----+++++-----+++++-----++++----";
 boolean serialStrReady = false;
 int serialStrLen = 0;
 
@@ -149,18 +149,13 @@ void loop(int count){
 	//checkTriggers();
 
 	//check serial port for new commands
-	readSerial(count%2);
-	if(serialStrReady){
-
-		//cfa_init((cfa_addr_t)&loop, (cfa_addr_t)0,
-					//(btbl_entry_t*)&__btbl_start, (btbl_entry_t*)&__btbl_end,
-					//(ltbl_entry_t*)&__ltbl_start, (ltbl_entry_t*)&__ltbl_end);
-
-		processSerial();
-
-		//quote_len = sizeof(quote_out);
-		//cfa_quote(user_data, sizeof(user_data), quote_out, &quote_len);
-	}
+	//readSerial(count);
+//	if(serialStrReady){
+		mLBolus = 0.500;
+		serialStr[0] = '+';
+		serialStrReady = true;
+		processSerial(count);
+//	}
 }
 
 void checkTriggers(){
@@ -219,7 +214,7 @@ void readSerial(int count){
 
 }
 
-void processSerial(){
+void processSerial(int count){
 	//process serial commands as they are read in
 	if(serialStr[0] == '+'){
 		bolus(PUSH);
