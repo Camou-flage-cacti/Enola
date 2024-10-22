@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.37.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: MD Armanuzzaman, University at Buffalo, LIC=UB40X-1FZUK-UN3QX-0G01W-UGX93-RV7MT
+License Information: MD Armanuzzaman, University at Buffalo, LIC=IC941-WQG4E-C464N-G0GKI-UGX93-RW7MT
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
@@ -26,9 +26,17 @@ Project File Date:  09/19/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build Project 'SSE310_S' - Target 'Target 1'
+Rebuild Project 'SSE310_S' - Target 'Target 1'
+compiling device_definition.c...
+compiling stdout_USART.c...
+compiling retarget_io.c...
+compiling main.c...
+compiling system_SSE310MPS3.c...
+compiling uart_cmsdk_drv.c...
+compiling Driver_USART.c...
+compiling startup_SSE310MPS3.c...
 linking...
-.\Objects\SSE310_S.axf: warning: Your license for feature Keil will expire in 1 days [-Wlicense-management]
+.\Objects\SSE310_S.axf: warning: Your license for feature Keil will expire in 28 days [-Wlicense-management]
 Program Size: Code=7014 RO-data=738 RW-data=28 ZI-data=2452  
 ".\Objects\SSE310_S.axf" - 0 Error(s), 1 Warning(s).
 
@@ -78,26 +86,26 @@ Package Vendor: Keil
       Include file:  CMSIS_Driver/Driver_USART_CMSDK.h
 
    * Component: ARM::CMSIS:CORE:6.0.0
-      Include file:  CMSIS/Core/Include/tz_context.h
       Source file:   CMSIS/Core/Template/ARMv8-M/tz_context.c
+      Include file:  CMSIS/Core/Include/tz_context.h
       Source file:   CMSIS/Core/Template/ARMv8-M/main_s.c
 
    * Component: ARM::Device:Definition:2.0.0
-      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
       Include file:  Board/Platform/platform_base_address.h
-      Include file:  Device/Config/device_cfg.h
-      Source file:   Board/Device_Definition/device_definition.c
       Include file:  Board/Device_Definition/device_definition.h
+      Include file:  CMSIS_Driver/Config/cmsis_driver_config.h
+      Source file:   Board/Device_Definition/device_definition.c
+      Include file:  Device/Config/device_cfg.h
 
    * Component: ARM::Device:Native Driver:UART:1.1.0
       Source file:   Device/Source/uart_cmsdk_drv.c
       Include file:  Device/Include/uart_cmsdk_drv.h
 
    * Component: ARM::Device:Startup:C Startup:2.0.0
-      Source file:   Device/Source/startup_SSE310MPS3.c
+      Include file:  Device/Include/system_SSE310MPS3.h
       Source file:   Device/Source/system_SSE310MPS3.c
       Source file:   Examples/templates/empty_main.c
-      Include file:  Device/Include/system_SSE310MPS3.h
+      Source file:   Device/Source/startup_SSE310MPS3.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:Breakpoint:1.2.0
       Source file:   Source/retarget_io.c

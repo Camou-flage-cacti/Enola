@@ -64,7 +64,7 @@ int main (void)
   s_psp = __get_PSP();
   __TZ_set_MSP_NS(NonSecure_StackPointer);
   ns_msp = __TZ_get_MSP_NS();
-  __TZ_set_PSP_NS(0x01020000u); //need to figure out the value. this value is wrong if psp is required
+  //__TZ_set_PSP_NS(0x01020000u); //need to figure out the value. this value is wrong if psp is required
   ns_psp = __TZ_get_PSP_NS();
  // SystemCoreClockUpdate();
 
