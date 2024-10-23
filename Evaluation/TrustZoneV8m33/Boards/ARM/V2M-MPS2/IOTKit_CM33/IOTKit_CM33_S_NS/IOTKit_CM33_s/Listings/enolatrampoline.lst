@@ -263,150 +263,62 @@ get_idx:
 	.cfi_startproc
 @ %bb.0:
 	@DEBUG_VALUE: get_idx:addr <- $r0
-	.save	{r4, r5, r7, lr}
-	push	{r4, r5, r7, lr}
-	.cfi_def_cfa_offset 16
-	.cfi_offset lr, -4
-	.cfi_offset r7, -8
-	.cfi_offset r5, -12
-	.cfi_offset r4, -16
 	movw	r1, :lower16:occurrence_trace_size
 	movt	r1, :upper16:occurrence_trace_size
 	ldr	r2, [r1]
 .Ltmp20:
 	@DEBUG_VALUE: i <- 0
-	@DEBUG_VALUE: get_idx:addr <- $r0
 	.loc	1 65 2 prologue_end             @ enolaTrampoline.c:65:2
-	cbz	r2, .LBB3_10
-.Ltmp21:
-@ %bb.1:
-	@DEBUG_VALUE: i <- 0
+	cmp	r2, #0
 	@DEBUG_VALUE: get_idx:addr <- $r0
-	.loc	1 0 2 is_stmt 0                 @ enolaTrampoline.c:0:2
-	movw	r12, :lower16:To
-	mov	r1, r0
-.Ltmp22:
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	.loc	1 65 2                          @ enolaTrampoline.c:65:2
-	rsb.w	lr, r2, #0
-	movs	r0, #0
-	movs	r3, #12
-	movt	r12, :upper16:To
-	b	.LBB3_4
-.Ltmp23:
-	.p2align	2
-.LBB3_2:                                @   in Loop: Header=BB3_4 Depth=1
-	@DEBUG_VALUE: i <- [DW_OP_constu 3, DW_OP_or, DW_OP_stack_value] $r0
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	@DEBUG_VALUE: i <- [DW_OP_constu 3, DW_OP_or, DW_OP_stack_value] $r0
-	.loc	1 67 6 is_stmt 1                @ enolaTrampoline.c:67:6
-	ldr.w	r2, [r12, r3]
-.Ltmp24:
-	.loc	1 67 6 is_stmt 0                @ enolaTrampoline.c:67:6
-	cmp	r2, r1
-	itt	eq
-	addeq	r0, #3
-.Ltmp25:
-	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
-	popeq	{r4, r5, r7, pc}
-.Ltmp26:
-.LBB3_3:                                @   in Loop: Header=BB3_4 Depth=1
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	.loc	1 65 54                         @ enolaTrampoline.c:65:54
-	adds	r0, #4
-.Ltmp27:
-	@DEBUG_VALUE: i <- $r0
-	.loc	1 65 28 is_stmt 0               @ enolaTrampoline.c:65:28
-	adds.w	r2, lr, r0
-	add.w	r3, r3, #16
 	itt	eq
 	movweq	r0, #3500
-.Ltmp28:
-	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
-	popeq	{r4, r5, r7, pc}
-.Ltmp29:
-.LBB3_4:                                @ =>This Inner Loop Header: Depth=1
+.Ltmp21:
+	.loc	1 73 1                          @ enolaTrampoline.c:73:1
+	bxeq	lr
+.Ltmp22:
+.LBB3_1:
+	@DEBUG_VALUE: i <- 0
+	.loc	1 0 1 is_stmt 0                 @ enolaTrampoline.c:0:1
+	movw	r12, :lower16:To
+	mov	r1, r0
+.Ltmp23:
+	@DEBUG_VALUE: get_idx:addr <- $r1
+	movs	r0, #0
+	movt	r12, :upper16:To
+.Ltmp24:
+	.p2align	2
+.LBB3_2:                                @ =>This Inner Loop Header: Depth=1
 	@DEBUG_VALUE: get_idx:addr <- $r1
 	@DEBUG_VALUE: i <- $r0
-	.loc	1 67 6                          @ enolaTrampoline.c:67:6
-	add.w	r2, r12, r3
-	ldr	r2, [r2, #-12]
-.Ltmp30:
+	.loc	1 67 6 is_stmt 1                @ enolaTrampoline.c:67:6
+	ldr.w	r3, [r12, r0, lsl #2]
+.Ltmp25:
 	.loc	1 67 6 is_stmt 0                @ enolaTrampoline.c:67:6
-	cmp	r2, r1
-.Ltmp31:
+	cmp	r3, r1
+.Ltmp26:
 	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
 	it	eq
-	popeq	{r4, r5, r7, pc}
-.Ltmp32:
-.LBB3_5:                                @   in Loop: Header=BB3_4 Depth=1
+	bxeq	lr
+.Ltmp27:
+.LBB3_3:                                @   in Loop: Header=BB3_2 Depth=1
 	@DEBUG_VALUE: i <- $r0
 	@DEBUG_VALUE: get_idx:addr <- $r1
-	@DEBUG_VALUE: i <- [DW_OP_constu 1, DW_OP_or, DW_OP_stack_value] $r0
-	.loc	1 65 28                         @ enolaTrampoline.c:65:28
-	add.w	r2, lr, r0
-.Ltmp33:
+	.loc	1 65 54                         @ enolaTrampoline.c:65:54
+	adds	r0, #1
+.Ltmp28:
+	@DEBUG_VALUE: i <- $r0
 	.loc	1 65 2 is_stmt 0                @ enolaTrampoline.c:65:2
-	adds	r4, r2, #1
-	beq	.LBB3_10
-.Ltmp34:
-@ %bb.6:                                @   in Loop: Header=BB3_4 Depth=1
-	@DEBUG_VALUE: i <- [DW_OP_constu 1, DW_OP_or, DW_OP_stack_value] $r0
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	@DEBUG_VALUE: i <- [DW_OP_constu 1, DW_OP_or, DW_OP_stack_value] $r0
-	.loc	1 67 6 is_stmt 1                @ enolaTrampoline.c:67:6
-	add.w	r4, r12, r0, lsl #2
-	ldr	r5, [r4, #4]
-.Ltmp35:
-	.loc	1 67 6 is_stmt 0                @ enolaTrampoline.c:67:6
-	cmp	r5, r1
-	itt	eq
-	addeq	r0, #1
-.Ltmp36:
-	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
-	popeq	{r4, r5, r7, pc}
-.Ltmp37:
-.LBB3_7:                                @   in Loop: Header=BB3_4 Depth=1
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	@DEBUG_VALUE: i <- [DW_OP_constu 2, DW_OP_or, DW_OP_stack_value] $r0
-	.loc	1 65 2                          @ enolaTrampoline.c:65:2
-	adds	r5, r2, #2
-	beq	.LBB3_10
-.Ltmp38:
-@ %bb.8:                                @   in Loop: Header=BB3_4 Depth=1
-	@DEBUG_VALUE: i <- [DW_OP_constu 2, DW_OP_or, DW_OP_stack_value] $r0
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	@DEBUG_VALUE: i <- [DW_OP_constu 2, DW_OP_or, DW_OP_stack_value] $r0
-	.loc	1 67 6                          @ enolaTrampoline.c:67:6
-	ldr	r4, [r4, #8]
-.Ltmp39:
-	.loc	1 67 6 is_stmt 0                @ enolaTrampoline.c:67:6
-	cmp	r4, r1
-	beq	.LBB3_11
-.Ltmp40:
-@ %bb.9:                                @   in Loop: Header=BB3_4 Depth=1
-	@DEBUG_VALUE: i <- [DW_OP_constu 2, DW_OP_or, DW_OP_stack_value] $r0
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	@DEBUG_VALUE: i <- [DW_OP_constu 3, DW_OP_or, DW_OP_stack_value] $r0
-	.loc	1 65 2 is_stmt 1                @ enolaTrampoline.c:65:2
-	adds	r2, #3
+	cmp	r2, r0
 	bne	.LBB3_2
-.Ltmp41:
-.LBB3_10:
-	.loc	1 0 2 is_stmt 0                 @ enolaTrampoline.c:0:2
+.Ltmp29:
+@ %bb.4:
+	@DEBUG_VALUE: get_idx:addr <- $r1
+	.loc	1 0 2                           @ enolaTrampoline.c:0:2
 	movw	r0, #3500
 	.loc	1 73 1 is_stmt 1                @ enolaTrampoline.c:73:1
-	pop	{r4, r5, r7, pc}
-.LBB3_11:
-.Ltmp42:
-	@DEBUG_VALUE: i <- [DW_OP_constu 2, DW_OP_or, DW_OP_stack_value] $r0
-	@DEBUG_VALUE: get_idx:addr <- $r1
-	.loc	1 67 6                          @ enolaTrampoline.c:67:6
-	adds	r0, #2
-.Ltmp43:
-	.loc	1 73 1                          @ enolaTrampoline.c:73:1
-	pop	{r4, r5, r7, pc}
-.Ltmp44:
+	bx	lr
+.Ltmp30:
 .Lfunc_end3:
 	.size	get_idx, .Lfunc_end3-get_idx
 	.cfi_endproc
@@ -437,19 +349,19 @@ secure_trace_storage:
 	.cfi_offset r7, -8
 	movw	r1, #64512
 	movt	r1, #65535
-.Ltmp45:
+.Ltmp31:
 	.loc	1 91 49 prologue_end            @ enolaTrampoline.c:91:49
 	uxtah	r3, r1, r0
-.Ltmp46:
+.Ltmp32:
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	.loc	1 92 27                         @ enolaTrampoline.c:92:27
 	movw	lr, :lower16:index_map
 	movt	lr, :upper16:index_map
-.Ltmp47:
+.Ltmp33:
 	@DEBUG_VALUE: secure_trace_storage:idx_ptr <- undef
 	.loc	1 93 21                         @ enolaTrampoline.c:93:21
 	ldr.w	r2, [lr, r3, lsl #1]
-.Ltmp48:
+.Ltmp34:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	.loc	1 0 21 is_stmt 0                @ enolaTrampoline.c:0:21
 	movw	r12, :lower16:To
@@ -457,7 +369,7 @@ secure_trace_storage:
 	adds	r1, r2, #1
 	movt	r12, :upper16:To
 	bne	.LBB4_2
-.Ltmp49:
+.Ltmp35:
 @ %bb.1:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
@@ -466,19 +378,19 @@ secure_trace_storage:
 	movw	r1, :lower16:occurrence_trace_size
 	movt	r1, :upper16:occurrence_trace_size
 	ldr	r2, [r1]
-.Ltmp50:
+.Ltmp36:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	.loc	1 98 46 is_stmt 0               @ enolaTrampoline.c:98:46
 	str.w	r0, [r12, r2, lsl #2]
 	.loc	1 100 31 is_stmt 1              @ enolaTrampoline.c:100:31
 	adds	r0, r2, #1
-.Ltmp51:
+.Ltmp37:
 	@DEBUG_VALUE: secure_trace_storage:current_addr <- [DW_OP_LLVM_entry_value 1] $r0
 	.loc	1 99 13                         @ enolaTrampoline.c:99:13
 	str.w	r2, [lr, r3, lsl #1]
 	.loc	1 100 31                        @ enolaTrampoline.c:100:31
 	str	r0, [r1]
-.Ltmp52:
+.Ltmp38:
 .LBB4_2:
 	@DEBUG_VALUE: secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
@@ -488,7 +400,7 @@ secure_trace_storage:
 	movw	r1, #14000
 	.loc	1 104 26 is_stmt 0              @ enolaTrampoline.c:104:26
 	ldr	r2, [r0, r1]
-.Ltmp53:
+.Ltmp39:
 	adds	r2, #1
 	str	r2, [r0, r1]
 	.loc	1 106 1 is_stmt 1               @ enolaTrampoline.c:106:1
@@ -496,7 +408,7 @@ secure_trace_storage:
 	mrs	r12, control
 	tst.w	r12, #8
 	beq	.LBB4_4
-.Ltmp54:
+.Ltmp40:
 @ %bb.3:
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	vmrs	r12, fpscr
@@ -511,18 +423,18 @@ secure_trace_storage:
 	vmov	d5, lr, lr
 	vmov	d6, lr, lr
 	vmov	d7, lr, lr
-.Ltmp55:
+.Ltmp41:
 .LBB4_4:
 	@DEBUG_VALUE: secure_trace_storage:map_idx <- $r3
 	mov	r0, lr
 	mov	r1, lr
 	mov	r2, lr
 	mov	r3, lr
-.Ltmp56:
+.Ltmp42:
 	mov	r12, lr
 	msr	apsr_nzcvqg, lr
 	bxns	lr
-.Ltmp57:
+.Ltmp43:
 .Lfunc_end4:
 	.size	secure_trace_storage, .Lfunc_end4-secure_trace_storage
 	.cfi_endproc
@@ -553,19 +465,19 @@ indirect_secure_trace_storage:
 	.cfi_offset r7, -8
 	movw	r1, #64512
 	movt	r1, #65535
-.Ltmp58:
+.Ltmp44:
 	.loc	1 121 52 prologue_end           @ enolaTrampoline.c:121:52
 	uxtah	r3, r1, r0
-.Ltmp59:
+.Ltmp45:
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	.loc	1 122 27                        @ enolaTrampoline.c:122:27
 	movw	lr, :lower16:index_map
 	movt	lr, :upper16:index_map
-.Ltmp60:
+.Ltmp46:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx_ptr <- undef
 	.loc	1 123 21                        @ enolaTrampoline.c:123:21
 	ldr.w	r2, [lr, r3, lsl #1]
-.Ltmp61:
+.Ltmp47:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	.loc	1 0 21 is_stmt 0                @ enolaTrampoline.c:0:21
 	movw	r12, :lower16:To
@@ -573,7 +485,7 @@ indirect_secure_trace_storage:
 	adds	r1, r2, #1
 	movt	r12, :upper16:To
 	bne	.LBB5_2
-.Ltmp62:
+.Ltmp48:
 @ %bb.1:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
@@ -582,19 +494,19 @@ indirect_secure_trace_storage:
 	movw	r1, :lower16:occurrence_trace_size
 	movt	r1, :upper16:occurrence_trace_size
 	ldr	r2, [r1]
-.Ltmp63:
+.Ltmp49:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	.loc	1 128 46 is_stmt 0              @ enolaTrampoline.c:128:46
 	str.w	r0, [r12, r2, lsl #2]
 	.loc	1 130 31 is_stmt 1              @ enolaTrampoline.c:130:31
 	adds	r0, r2, #1
-.Ltmp64:
+.Ltmp50:
 	@DEBUG_VALUE: indirect_secure_trace_storage:indirect_target <- [DW_OP_LLVM_entry_value 1] $r0
 	.loc	1 129 13                        @ enolaTrampoline.c:129:13
 	str.w	r2, [lr, r3, lsl #1]
 	.loc	1 130 31                        @ enolaTrampoline.c:130:31
 	str	r0, [r1]
-.Ltmp65:
+.Ltmp51:
 .LBB5_2:
 	@DEBUG_VALUE: indirect_secure_trace_storage:idx <- $r2
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
@@ -604,7 +516,7 @@ indirect_secure_trace_storage:
 	movw	r1, #14000
 	.loc	1 134 26 is_stmt 0              @ enolaTrampoline.c:134:26
 	ldr	r2, [r0, r1]
-.Ltmp66:
+.Ltmp52:
 	adds	r2, #1
 	str	r2, [r0, r1]
 	.loc	1 135 1 is_stmt 1               @ enolaTrampoline.c:135:1
@@ -612,7 +524,7 @@ indirect_secure_trace_storage:
 	mrs	r12, control
 	tst.w	r12, #8
 	beq	.LBB5_4
-.Ltmp67:
+.Ltmp53:
 @ %bb.3:
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	vmrs	r12, fpscr
@@ -627,18 +539,18 @@ indirect_secure_trace_storage:
 	vmov	d5, lr, lr
 	vmov	d6, lr, lr
 	vmov	d7, lr, lr
-.Ltmp68:
+.Ltmp54:
 .LBB5_4:
 	@DEBUG_VALUE: indirect_secure_trace_storage:map_idx <- $r3
 	mov	r0, lr
 	mov	r1, lr
 	mov	r2, lr
 	mov	r3, lr
-.Ltmp69:
+.Ltmp55:
 	mov	r12, lr
 	msr	apsr_nzcvqg, lr
 	bxns	lr
-.Ltmp70:
+.Ltmp56:
 .Lfunc_end5:
 	.size	indirect_secure_trace_storage, .Lfunc_end5-indirect_secure_trace_storage
 	.cfi_endproc
@@ -661,10 +573,10 @@ linear_ITL_search:
 	@DEBUG_VALUE: linear_ITL_search:target <- $r0
 	.loc	1 146 1 prologue_end            @ enolaTrampoline.c:146:1
 	movs	r0, #1
-.Ltmp71:
+.Ltmp57:
 	@DEBUG_VALUE: linear_ITL_search:target <- [DW_OP_LLVM_entry_value 1] $r0
 	bx	lr
-.Ltmp72:
+.Ltmp58:
 .Lfunc_end6:
 	.size	linear_ITL_search, .Lfunc_end6-linear_ITL_search
 	.cfi_endproc
@@ -690,7 +602,7 @@ init_registers:
 	mov.w	r11, #0
 
 	@NO_APP
-.Ltmp73:
+.Ltmp59:
 .Lfunc_end7:
 	.size	init_registers, .Lfunc_end7-init_registers
 	.cfi_endproc
@@ -809,14 +721,10 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin3                   @   base address
 	.long	.Lfunc_begin3-.Lfunc_begin3
-	.long	.Ltmp22-.Lfunc_begin3
+	.long	.Ltmp21-.Lfunc_begin3
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp22-.Lfunc_begin3
-	.long	.Ltmp41-.Lfunc_begin3
-	.short	1                               @ Loc expr size
-	.byte	81                              @ DW_OP_reg1
-	.long	.Ltmp42-.Lfunc_begin3
+	.long	.Ltmp23-.Lfunc_begin3
 	.long	.Lfunc_end3-.Lfunc_begin3
 	.short	1                               @ Loc expr size
 	.byte	81                              @ DW_OP_reg1
@@ -826,69 +734,25 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin3                   @   base address
 	.long	.Ltmp20-.Lfunc_begin3
-	.long	.Ltmp23-.Lfunc_begin3
+	.long	.Ltmp22-.Lfunc_begin3
 	.short	2                               @ Loc expr size
 	.byte	48                              @ DW_OP_lit0
 	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp23-.Lfunc_begin3
-	.long	.Ltmp25-.Lfunc_begin3
-	.short	5                               @ Loc expr size
-	.byte	112                             @ DW_OP_breg0
-	.byte	0                               @ 0
-	.byte	51                              @ DW_OP_lit3
-	.byte	33                              @ DW_OP_or
-	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp27-.Lfunc_begin3
-	.long	.Ltmp28-.Lfunc_begin3
-	.short	1                               @ Loc expr size
-	.byte	80                              @ DW_OP_reg0
+	.long	.Ltmp24-.Lfunc_begin3
 	.long	.Ltmp29-.Lfunc_begin3
-	.long	.Ltmp32-.Lfunc_begin3
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp32-.Lfunc_begin3
-	.long	.Ltmp36-.Lfunc_begin3
-	.short	5                               @ Loc expr size
-	.byte	112                             @ DW_OP_breg0
-	.byte	0                               @ 0
-	.byte	49                              @ DW_OP_lit1
-	.byte	33                              @ DW_OP_or
-	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp37-.Lfunc_begin3
-	.long	.Ltmp40-.Lfunc_begin3
-	.short	5                               @ Loc expr size
-	.byte	112                             @ DW_OP_breg0
-	.byte	0                               @ 0
-	.byte	50                              @ DW_OP_lit2
-	.byte	33                              @ DW_OP_or
-	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp40-.Lfunc_begin3
-	.long	.Ltmp41-.Lfunc_begin3
-	.short	5                               @ Loc expr size
-	.byte	112                             @ DW_OP_breg0
-	.byte	0                               @ 0
-	.byte	51                              @ DW_OP_lit3
-	.byte	33                              @ DW_OP_or
-	.byte	159                             @ DW_OP_stack_value
-	.long	.Ltmp42-.Lfunc_begin3
-	.long	.Ltmp43-.Lfunc_begin3
-	.short	5                               @ Loc expr size
-	.byte	112                             @ DW_OP_breg0
-	.byte	0                               @ 0
-	.byte	50                              @ DW_OP_lit2
-	.byte	33                              @ DW_OP_or
-	.byte	159                             @ DW_OP_stack_value
 	.long	0
 	.long	0
 .Ldebug_loc5:
 	.long	-1
 	.long	.Lfunc_begin4                   @   base address
 	.long	.Lfunc_begin4-.Lfunc_begin4
-	.long	.Ltmp51-.Lfunc_begin4
+	.long	.Ltmp37-.Lfunc_begin4
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp51-.Lfunc_begin4
-	.long	.Ltmp52-.Lfunc_begin4
+	.long	.Ltmp37-.Lfunc_begin4
+	.long	.Ltmp38-.Lfunc_begin4
 	.short	4                               @ Loc expr size
 	.byte	243                             @ DW_OP_GNU_entry_value
 	.byte	1                               @ 1
@@ -899,8 +763,8 @@ index_map:
 .Ldebug_loc6:
 	.long	-1
 	.long	.Lfunc_begin4                   @   base address
-	.long	.Ltmp46-.Lfunc_begin4
-	.long	.Ltmp56-.Lfunc_begin4
+	.long	.Ltmp32-.Lfunc_begin4
+	.long	.Ltmp42-.Lfunc_begin4
 	.short	1                               @ Loc expr size
 	.byte	83                              @ DW_OP_reg3
 	.long	0
@@ -908,8 +772,8 @@ index_map:
 .Ldebug_loc7:
 	.long	-1
 	.long	.Lfunc_begin4                   @   base address
-	.long	.Ltmp48-.Lfunc_begin4
-	.long	.Ltmp53-.Lfunc_begin4
+	.long	.Ltmp34-.Lfunc_begin4
+	.long	.Ltmp39-.Lfunc_begin4
 	.short	1                               @ Loc expr size
 	.byte	82                              @ DW_OP_reg2
 	.long	0
@@ -918,11 +782,11 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin5                   @   base address
 	.long	.Lfunc_begin5-.Lfunc_begin5
-	.long	.Ltmp64-.Lfunc_begin5
+	.long	.Ltmp50-.Lfunc_begin5
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp64-.Lfunc_begin5
-	.long	.Ltmp65-.Lfunc_begin5
+	.long	.Ltmp50-.Lfunc_begin5
+	.long	.Ltmp51-.Lfunc_begin5
 	.short	4                               @ Loc expr size
 	.byte	243                             @ DW_OP_GNU_entry_value
 	.byte	1                               @ 1
@@ -933,8 +797,8 @@ index_map:
 .Ldebug_loc9:
 	.long	-1
 	.long	.Lfunc_begin5                   @   base address
-	.long	.Ltmp59-.Lfunc_begin5
-	.long	.Ltmp69-.Lfunc_begin5
+	.long	.Ltmp45-.Lfunc_begin5
+	.long	.Ltmp55-.Lfunc_begin5
 	.short	1                               @ Loc expr size
 	.byte	83                              @ DW_OP_reg3
 	.long	0
@@ -942,8 +806,8 @@ index_map:
 .Ldebug_loc10:
 	.long	-1
 	.long	.Lfunc_begin5                   @   base address
-	.long	.Ltmp61-.Lfunc_begin5
-	.long	.Ltmp66-.Lfunc_begin5
+	.long	.Ltmp47-.Lfunc_begin5
+	.long	.Ltmp52-.Lfunc_begin5
 	.short	1                               @ Loc expr size
 	.byte	82                              @ DW_OP_reg2
 	.long	0
@@ -952,10 +816,10 @@ index_map:
 	.long	-1
 	.long	.Lfunc_begin6                   @   base address
 	.long	.Lfunc_begin6-.Lfunc_begin6
-	.long	.Ltmp71-.Lfunc_begin6
+	.long	.Ltmp57-.Lfunc_begin6
 	.short	1                               @ Loc expr size
 	.byte	80                              @ DW_OP_reg0
-	.long	.Ltmp71-.Lfunc_begin6
+	.long	.Ltmp57-.Lfunc_begin6
 	.long	.Lfunc_end6-.Lfunc_begin6
 	.short	4                               @ Loc expr size
 	.byte	243                             @ DW_OP_GNU_entry_value
@@ -1601,17 +1465,11 @@ index_map:
 	.section	.debug_ranges,"",%progbits
 .Ldebug_ranges0:
 	.long	.Ltmp20
-	.long	.Ltmp25
+	.long	.Ltmp21
+	.long	.Ltmp24
 	.long	.Ltmp26
-	.long	.Ltmp28
+	.long	.Ltmp27
 	.long	.Ltmp29
-	.long	.Ltmp31
-	.long	.Ltmp32
-	.long	.Ltmp36
-	.long	.Ltmp37
-	.long	.Ltmp41
-	.long	.Ltmp42
-	.long	.Ltmp43
 	.long	0
 	.long	0
 .Ldebug_ranges1:
