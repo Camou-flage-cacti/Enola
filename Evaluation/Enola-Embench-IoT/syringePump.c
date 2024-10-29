@@ -140,7 +140,8 @@ extern btbl_entry_t __btbl_end;
 extern ltbl_entry_t __ltbl_start;
 extern ltbl_entry_t __ltbl_end;
 */
-void loop(int count){
+//void loop(int count){
+void loop(){
 
 	//check for LCD updates
 	//readKey();
@@ -154,7 +155,7 @@ void loop(int count){
 		mLBolus = 0.500;
 		serialStr[0] = '+';
 		serialStrReady = true;
-		processSerial(count);
+		processSerial();
 //	}
 }
 
@@ -214,8 +215,9 @@ void readSerial(int count){
 
 }
 
-void processSerial(int count){
+void processSerial(){
 	//process serial commands as they are read in
+	bolus(PUSH);
 	if(serialStr[0] == '+'){
 		bolus(PUSH);
 		updateScreen();
@@ -238,7 +240,7 @@ void processSerial(int count){
 	serialStrLen = 0;
 }
 
-void bolus(int direction){
+void __attribute__((noinline)) bolus(int direction){
 	//Move stepper. Will not return until stepper is done moving.
   
 	//change units to steps
