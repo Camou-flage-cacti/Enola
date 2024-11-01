@@ -152,7 +152,7 @@ void loop(){
 	//check serial port for new commands
 	//readSerial(count);
 //	if(serialStrReady){
-		mLBolus = 0.500;
+		mLBolus = 2.000;
 		serialStr[0] = '+';
 		serialStrReady = true;
 		processSerial();
@@ -217,7 +217,6 @@ void readSerial(int count){
 
 void processSerial(){
 	//process serial commands as they are read in
-	bolus(PUSH);
 	if(serialStr[0] == '+'){
 		bolus(PUSH);
 		updateScreen();
