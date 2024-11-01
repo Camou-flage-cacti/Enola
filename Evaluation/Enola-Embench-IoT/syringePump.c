@@ -141,7 +141,7 @@ extern ltbl_entry_t __ltbl_start;
 extern ltbl_entry_t __ltbl_end;
 */
 //void loop(int count){
-void loop(){
+void loop(int count){
 
 	//check for LCD updates
 	//readKey();
@@ -151,9 +151,44 @@ void loop(){
 
 	//check serial port for new commands
 	//readSerial(count);
-//	if(serialStrReady){
-		mLBolus = 2.000;
+//	if(serialStrReady){	
+		/*if(count == 0)
+		{
+			serialStr[0] = '1';
+			serialStr[1] = '0';
+			mLBolus = 0.10;
+		}
+		else if(count == 1)
+		{
+			serialStr[0] = '+';
+			mLBolus = 0.10;
+		}
+		else if(count == 2)
+		{
+			serialStr[0] = '2';
+			serialStr[1] = '0';
+			mLBolus = 0.20;
+		}
+		else if(count == 3)
+		{
+			serialStr[0] = '+';
+			mLBolus = 0.20;
+		}
+		else if(count == 4)
+		{
+			serialStr[0] = '1';
+			serialStr[1] = '0';
+			serialStr[2] = '0';
+			mLBolus = 0.100;
+		}
+		else if(count == 5)
+		{
+			serialStr[0] = '+';
+			mLBolus = 0.100;
+		}*/
 		serialStr[0] = '+';
+		mLBolus = 2.0;
+		ustepsPerML =  2560.0;
 		serialStrReady = true;
 		processSerial();
 //	}
