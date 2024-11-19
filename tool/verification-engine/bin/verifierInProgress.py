@@ -517,6 +517,10 @@ def simulateEnolaInstructions():
 
 def recursive_traversing(program_counter, program_current_function):
     cmp_flag = False
+    global depth_counter
+    global depth_limit
+
+    print('\n\n\nCurrent program counter: 0x%x belongs to function %s' %(program_counter, program_current_function))
 
     #while program_counter not in exit_points:
     if program_counter in exit_points:
@@ -534,6 +538,8 @@ def recursive_traversing(program_counter, program_current_function):
     depth_counter = depth_counter  + 1
     
     code = get_function_code_section(program_current_function, program_counter)
+    if not code:
+        print("Code in PC null")
         
     #start disassembling the function
     for insn in md.disasm(code, program_counter):
@@ -724,6 +730,7 @@ def testIterativeMethod():
                     sim_func_call_names.append(program_current_function)
                     program_current_function = target_function #update called function
                     break
+            # this may be incomplete: it should change the program_counter
             elif(insn.mnemonic == "b"):
                 target_address = insn.op_str
                 clean_target_str = target_address.lstrip('#')
@@ -826,7 +833,8 @@ def main():
     #AbstractExec()
     #func = get_function_name_from_address( 0x1000049a)
     #print(func)
-    testIterativeMethod()
+    #testIterativeMethod()
+    recursive_traversing(0x10000400, 'main')
 
     print(occuerence_trace)
     print('\n\nThe simulated stack state:')
