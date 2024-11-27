@@ -589,7 +589,7 @@ def recursive_traversing(program_counter, program_current_function):
 
                 return recursive_traversing(program_counter, program_current_function)
             
-        elif insn.mnemonic in ["bx", "pop"] and ("lr" in insn.op_str or "pc" in insn.op_str):
+        elif insn.mnemonic in ["bx", "pop", "popge"] and ("lr" in insn.op_str or "pc" in insn.op_str):
             # Handle function return by checking common return instructions
             program_counter = sim_func_call_return_stack.pop()
             program_current_function = sim_func_call_names.pop()
@@ -608,6 +608,7 @@ def recursive_traversing(program_counter, program_current_function):
             #need to call recursive function and traverse all paths, but should consult with trace first
             for succ in successors:
                 print(f" - Successor at 0x{succ.addr - 1 :x}")
+                return False or recursive_traversing(succ.addr - 1, program_current_function)
 
         elif insn.mnemonic == "cbnz":
             print("Conditional branch instrcutions get denominators")
@@ -620,6 +621,7 @@ def recursive_traversing(program_counter, program_current_function):
             #need to call recursive function and traverse all paths, but should consult with trace first
             for succ in successors:
                 print(f" - Successor at 0x{succ.addr:x}")
+                return False or recursive_traversing(succ.addr - 1, program_current_function)
 
         elif insn.mnemonic == "cmp":
             print("cmp instrcutions get denominators")
@@ -650,16 +652,17 @@ def recursive_traversing(program_counter, program_current_function):
                 print(f"Total instructions in occuerence basic blcok 0x{num_instructions}")
                 
                 block_end = basic_block.addr + basic_block.size - 1
-                program_counter = block_end 
+                next_in_itt = insn.address + 2
+                next_bb_after_itt = block_end 
                 print(f"block addr {hex(basic_block.addr)}, block end: {hex(block_end)} program counter moved to {hex(program_counter)}")
                 
                 currect_successors = []
-                currect_successors.append(insn.address)
-                currect_successors.append(program_counter)
+                currect_successors.append(next_in_itt)
+                currect_successors.append(next_bb_after_itt)
                 print(f"below are the successor that goes into recursive functions")
                 for succ in currect_successors:
                     print(f" - Successor at 0x{succ:x}")
-                break
+                return recursive_traversing(insn.address + 2, program_current_function) or recursive_traversing(next_bb_after_itt, program_current_function)
 
 
 
