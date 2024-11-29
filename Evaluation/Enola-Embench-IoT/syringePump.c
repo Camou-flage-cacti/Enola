@@ -186,9 +186,8 @@ void loop(int count){
 			serialStr[0] = '+';
 			mLBolus = 0.100;
 		}*/
-		serialStr[0] = '1';
-		serialStr[1] = '0';
-		mLBolus = 2.0;
+		serialStr[0] = '+';
+		mLBolus = 0.50;
 		ustepsPerML =  6826.666666666667;
 		serialStrReady = true;
 		processSerial();
