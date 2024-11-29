@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "util.h"
+#include "../util.h"
 
 void pinMode(int pin, int mode) {
 	printf("%s (int pin = %d, int mode = %d)\n", __func__, pin, mode);
@@ -11,10 +11,7 @@ void pinMode(int pin, int mode) {
 }
 
 int digitalRead(int pin) {
-	int val;
-	printf("%s (int pin = %d)\n", __func__, pin);
-	scanf("%d", &val);
-	return val;
+
 }
 
 void digitalWrite(int pin, int value) {
@@ -23,12 +20,12 @@ void digitalWrite(int pin, int value) {
 }
 
 void Serial_begin(int baud) {
-	printf("%s (int baud = %d)\n", __func__, baud);
+	//printf("%s (int baud = %d)\n", __func__, baud);
 	return;
 }
 
 int Serial_available() {
-	char c;
+/*	char c;
 
 	c = getchar();
 
@@ -37,15 +34,17 @@ int Serial_available() {
 	if (c == 'y')
 		return 1;
 	else
-		return 0;
+		return 0;*/
+        return 0;
 }
 
 int Serial_read() {
-	char c;
+	/*char c;
 
 	c = getchar();
 
-	return (int)c;
+	return (int)c;*/
+    return 0;
 }
 
 int Serial_write(char* output, int len) {
@@ -54,10 +53,11 @@ int Serial_write(char* output, int len) {
 }
 
 int analogRead(int pin) {
-	int val;
+	/*int val;
 	printf("read from pin %d\n", pin);
 	scanf("%d", &val);
-	return val;
+	return val;*/
+    return 0;
 }
 
 unsigned long millis() {

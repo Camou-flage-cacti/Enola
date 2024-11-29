@@ -45,10 +45,6 @@ unsigned long millis()
 {
     return 0;
 }
-void delayMicroseconds(float usecs)
-{
-
-}
 
 int toUInt(char* input, int len)
 {

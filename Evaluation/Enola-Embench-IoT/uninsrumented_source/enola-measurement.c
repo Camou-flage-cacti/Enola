@@ -68,3 +68,12 @@ void  display_elapsed_times()
 		//printf("\r\n Evaluation info: Code snippet: %d || Average CPU cycles used %d || Max used %d ||Min used %d || Execution count %d\r\n", i, p_tbl->avg, p_tbl->max, p_tbl->min,p_tbl->count);
 	}
 }
+
+void delayMicroseconds(float usecs)
+{
+    uint32_t cycle_start = ARM_CM_DWT_CYCCNT;
+    float single_cycle_in_micro_second = 0.04;
+    uint32_t total_delay_cycle = (usecs/single_cycle_in_micro_second);
+    uint32_t cycle_limit = cycle_start + total_delay_cycle;
+    while(ARM_CM_DWT_CYCCNT <= cycle_limit);
+}
