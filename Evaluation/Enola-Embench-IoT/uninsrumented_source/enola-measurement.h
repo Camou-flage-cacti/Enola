@@ -24,5 +24,6 @@ void  elapsed_time_start (uint32_t  i);      // Start measurement
 void  elapsed_time_stop  (uint32_t  i);      // Stop  measurement 
 void  display_elapsed_times();
 void delayMicroseconds(float usecs);
+int toUInt(char* input, int len);
 extern void test_llvm_nsc(int);
 #endif

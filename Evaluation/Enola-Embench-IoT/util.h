@@ -45,8 +45,3 @@ unsigned long millis()
 {
     return 0;
 }
-
-int toUInt(char* input, int len)
-{
-    return 0;
-}

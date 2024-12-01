@@ -186,8 +186,13 @@ void loop(int count){
 			serialStr[0] = '+';
 			mLBolus = 0.100;
 		}*/
-		serialStr[0] = '+';
-		mLBolus = 0.50;
+		serialStr[0] = '2'; // for set-quantity path
+		//serialStr[1] = '0'; // for set-quantity path
+		//serialStr[2] = '0'; // for set-quantity path
+		//serialStr[3] = '0'; // for set-quantity path
+		serialStrLen = 1; // for set-quantity path
+		//serialStr[0] = '+'; // for move-syringe path
+		//mLBolus = 2.00; //for move-syringe path
 		ustepsPerML =  6826.666666666667;
 		serialStrReady = true;
 		processSerial();

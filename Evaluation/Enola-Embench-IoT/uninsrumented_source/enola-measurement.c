@@ -77,3 +77,23 @@ void delayMicroseconds(float usecs)
     uint32_t cycle_limit = cycle_start + total_delay_cycle;
     while(ARM_CM_DWT_CYCCNT <= cycle_limit);
 }
+
+int toUInt(char* input, int len)
+{
+    int result = 0; // Use unsigned int to store the result internally
+    int i;
+
+    for (i = 0; i < len; i++)
+    {
+        // Check if the character is not a digit
+        if (input[i] < '0' || input[i] > '9')
+        {
+            return 0; // Return -1 to indicate error
+        }
+
+        // Convert character to its integer value and accumulate in result
+        result = result * 10 + (input[i] - '0');
+    }
+
+    return result; // Safely cast unsigned int to int
+}
