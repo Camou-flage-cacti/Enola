@@ -2,24 +2,23 @@
 BUILD_DIR := build
 
 UNINSTRUMENTED_DIR := uninsrumented_source
-#BIN_PATH=/home/tomal/llvm_all/llvm-armv16-plain/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
-BIN_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/bin
-ENOLA_LIB_PATH=/home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so
+#BIN_PATH=/plain_llvm_root_path/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin
+BIN_PATH="your llvm path"
+ENOLA_LIB_PATH="your-path/LLVMEnolaPass.so"
 
-vpath %.c ./ /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP /home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition
+vpath %.c ./ root-path/Running/1.3.0/Device/Source ./ARM/RTE/Device/SSE-310-MPS3_FVP root-path/Running/1.3.0/Board/Device_Definition
 
 # Makefile generated from Keil project file
 
 # Include directories (converted to Unix-style paths)
 
 INCLUDES += -I./ARM/RTE/Device/SSE-310-MPS3_FVP -I./ARM/RTE/_ARMCLANG  
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/tool/misc_header
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Device_Definition 
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Board/Platform
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/CMSIS_Driver
-INCLUDES += -I/home/tomal/Desktop/cacti_lab/code-CFA-with-pac/Running/1.3.0/Device/Include
+INCLUDES += -Iroot-path/tool/misc_header
+INCLUDES += -Iroot-path/Running/1.3.0/Board/Device_Definition 
+INCLUDES += -Iroot-path/Running/1.3.0/Board/Platform
+INCLUDES += -Iroot-path/Running/1.3.0/CMSIS_Driver
+INCLUDES += -Iroot-path/Running/1.3.0/Device/Include
 INCLUDES += -Iuninsrumented_source
-#INCLUDES += -I/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve/include
 
 # Source files (converted to Unix-style paths)
 SOURCES = main.c
@@ -38,7 +37,7 @@ CC = $(BIN_PATH)/clang
 OPT = $(BIN_PATH)/opt
 LLC = $(BIN_PATH)/llc
 CFLAGS = -std=c99 --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -O0 -Wno-keyword-macro -mcpu=cortex-m85
-#CFLAGS = -std=c99 --sysroot=/home/tomal/llvm_all/LLVM-ARM/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/lib/clang-runtimes/arm-none-eabi/armv8.1m.main_hard_nofp_mve --target=thumbv8.1m.main-none-unknown-eabihf -march=thumbv8.1m.main+dsp+mve -mfpu=none -c -mthumb -gdwarf-2 -H -pedantic -Os -Wno-keyword-macro 
+
 
 
 CFLAGS += $(INCLUDES)
@@ -75,7 +74,7 @@ enolaME:
 	
 #application.o: Application/application.c:
 #	clang $(CFLAGS) application.c -S -emit-llvm -o application.ll
-#	opt $(CFLAGS) -enable-new-pm=0 -load /home/tomal/llvm_all/llvm-armv16/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
+#	opt $(CFLAGS) -enable-new-pm=0 -load root_path_of_llvm/LLVM-embedded-toolchain-for-Arm-release-16.0.0/build/llvm/lib/LLVMEnolaPass.so -EnolaPass application.ll -S -o application_opt.ll
 #	llc $(CFLAGS) -filetype=obj application_opt.ll -o application_opt.o
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)

@@ -29,14 +29,15 @@ This repository contains the LLVM implementation code, evaluation code, measurem
 ## Setting up LLVM Embedded Toolchain for Arm
 We will be using the LLVM arm tool chain version 16.0.0, Link: https://github.com/ARM-software/LLVM-embedded-toolchain-for-Arm/tree/llvm-16
 Follow the readme file and build from source markup files. Run the below commands to configure the environment.
-The [generate_version_txt.cmake](LLVM_compiler/Environment-config/generate_version_txt.cmake) file has some issues when dowlaoded from release, We need to replace that file in directory: LLVM-embedded-toolchain-for-Arm-release-16.0.0/cmake
+The [generate_version_txt.cmake](Enola_compiler/Environment-config/generate_version_txt.cmake) file has some issues when dowlaoded from release, We need to replace that file in directory: LLVM-embedded-toolchain-for-Arm-release-16.0.0/cmake
 
 1. mkdir repos
 2. git -C repos clone --branch llvmorg-16.0.0 https://github.com/llvm/llvm-project.git
 3. git -C repos/llvm-project apply ../../patches/llvm-project.patch
 4. git -C repos clone https://github.com/picolibc/picolibc.git && git -C repos/picolibc checkout 35c504ff6065b2a87ea8a106ae0d0d61d1e7ece5
 5. git -C repos/picolibc apply ../../patches/picolibc.patch
-6. mkdir build
-7. cd build
-8. cmake .. -GNinja -DFETCHCONTENT_SOURCE_DIR_LLVMPROJECT=../repos/llvm-project -DFETCHCONTENT_SOURCE_DIR_PICOLIBC=../repos/picolibc
-9. ninja
+6. Replace the Enola LLVM Source files according to [this](Enola_compiler/Readme.md)
+7. mkdir build
+8. cd build
+9. cmake .. -GNinja -DFETCHCONTENT_SOURCE_DIR_LLVMPROJECT=../repos/llvm-project -DFETCHCONTENT_SOURCE_DIR_PICOLIBC=../repos/picolibc
+10. ninja

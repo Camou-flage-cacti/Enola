@@ -64,17 +64,14 @@ INCLUDE_DIRS += -I $(APP_DIR)/ARM/RTE/Device/SSE-310-MPS3_FVP
 # by default it arm-none-eabi-gcc
 COMPILER = clang
 
-# get from the Keil IDE project settings
+
 CPU_FLAGS = -mcpu=cortex-m85+pacbti 
 ARCH_FLAGS = -mthumb -mfloat-abi=hard 
-#-c -mlittle-endian -gdwarf-4
-# get from the .dep file
+
 DEFINES += -D__UVISION_VERSION="537" -D_RTE_ -DCORSTONE310_FVP -D_RTE_
 
-#ifneq '' '$(findstring clang,$(COMPILER))'
-#$(info ===Clang Compiler Detected===)
-CROSS_COMPILE	=/home/tomal/llvm_all/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/bin
-CROSS_COMPILE_LLVM	=/home/tomal/llvm_all/LLVM-embedded-toolchain-for-Arm-release-17.0.1/build/llvm/bin
+CROSS_COMPILE	=root_path_of_llvm/build/llvm/bin
+CROSS_COMPILE_LLVM	=root_path_of_llvm/build/llvm/bin
 CC 				= $(CROSS_COMPILE)/clang
 CXX				= $(CROSS_COMPILE)/clang++
 LLC				= $(CROSS_COMPILE_LLVM)/llc
@@ -84,65 +81,21 @@ OBJDUMP			= $(CROSS_COMPILE_LLVM)/llvm-objdump
 OBJCOPY			= $(CROSS_COMPILE_LLVM)/llvm-objcopy
 STRIP			= $(CROSS_COMPILE_LLVM)/llvm-strip
 
-#LLVM_FLAGS += --config armv8m.main_hard_fp_rdimon_baremetal
-#COMPILER_SPECIFIC_CFLAGS += $(LLVM_FLAGS) --target=arm-none-eabi -Oz 
-#COMPILER_SPECIFIC_ASFLAGS += --target=arm-none-eabi -masm=gnu -c -mlittle-endian
-
-#COMIPLER_CONTROL_STRING += -xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar -mlittle-endian -gdwarf-4 -O2 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -Wno-padded -Wno-covered-switch-default $(DEFINES) -MD
-
 COMIPLER_CONTROL_STRING += -xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m85+pacbti -mfloat-abi=hard -c -fno-rtti -funsigned-char -fshort-enums -fshort-wchar
 
 MISC_CONTROL += -Wno-padded -Wno-covered-switch-default
-#COMPILER_SPECIFIC_LDFLAGS += 
+
 
 ASM_FLAGS += -Wa,-defsym,__UVISION_VERSION=537 -Wa,-defsym,_RTE_=1 -Wa,-defsym,CORSTONE310_FVP=1 -Wa,-defsym,_RTE_=1
 
 LDSCRIPT = linker_SSE310MPS3_secure.ld
 
 LINKER_FLAG += --cpu=Cortex-M85 --fpu=FPv5_D16 *.o --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols --info sizes --info totals --info unused --info veneers --list ".\Listings\Blinky.map" -o Blinky.axf
-# --import=".\Out\Blinky_CMSE_Lib.o" \
-# 							--summary_stderr --info summarysizes --map --load_addr_map_info \
-# 							--xref --callgraph --symbols \
-# 							--info sizes --info totals --info unused --info veneers
-#endif
+
 
 ../build/object: $(SRCS)
 	$(CC) $(COMIPLER_CONTROL_STRING) $(MISC_CONTROL) $(INCLUDE_DIRS) $(SRCS)
 
-#link: *.o
-#$(LINK) $(LINKER_FLAG) -o $(BIN)
-
-#all: ../build/object link
-#CFLAGS += $(COMPILER_SPECIFIC_CFLAGS)
-#LDFLAGS += $(COMPILER_SPECIFIC_LDFLAGS)
-#ASFLAGS += $(COMPILER_SPECIFIC_ASFLAGS)
-
-#############   flags  for arm gcc  ##############
-#COMMON_FLAGS = -Wall -Wextra -Wfatal-errors
-
-# Compile flags
-#CFLAGS += $(COMMON_FLAGS)
-#CFLAGS += -fno-rtti -funsigned-char
-#CFLAGS += -gdwarf-4 -MD -fno-function-sections -Wno-padded -Wno-covered-switch-default
-
-# asm flags
-#ASFLAGS = $(COMMON_FLAGS)
-#ASFLAGS += $(CPU_FLAGS) -c -gdwarf-3
-#ASFLAGS += -Wa,-defsym,_RTE_=1 -Wa,-defsym,IOTKit_CM33_FP=1 -Wa,-defsym,_RTE_=1
-
-# Link flags
-# -A=cortex-m33
-#LDFLAGS += -g -T $(LDSCRIPT)
-#  -import-cmse-lib-out=${BUILD_DIR}/Blinky_CMSE_Lib.o
-
-####################
-#LIBS = 
-
-#OBJ_FILES := $(SRCS:%.c=$(BUILD_DIR)/%.o) 
-#BC_FILES := $(SRCS:%.c=$(BUILD_DIR)/%.bc) 
-# $(ASMS:%.S=$(BUILD_DIR)/%.o)
-
-#CFLAGS += $(INCLUDE_DIRS)
 
 .PHONY: clean
 
