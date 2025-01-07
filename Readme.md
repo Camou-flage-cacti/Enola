@@ -2,10 +2,10 @@
 This repository contains the LLVM implementation code, evaluation code, measurement attestation engine code, offline analysis tools  of the Enola framework.
 
 ## Directory Structure
-- [Evaluaton](Evaluation/): Contains the Evaluation code to generate evaluation data on [Emebnch](https://github.com/embench/embench-iot) and [wolfSSL](https://github.com/wolfSSL/wolfssl) applications
+- [Evaluaton](Evaluation/): Contains the Evaluation code to generate evaluation data on [Emebnch](https://github.com/embench/embench-iot), [wolfSSL](https://github.com/wolfSSL/wolfssl) applications, and syrine-pump application. The Makefiles of each application is equiped with compiler flags with/without Enola instrumentations and loop unrolling optimization.
 - [LLVM_compiler](LLVM_compiler/): Contains the modified files with the LLVM sourcode.
 - [Running](Running/): Contains some examples appliations that can run on Cortex-m85 CPU.
-- [tool](tool/): Contains the Enola code scanner, Enola analyzer, and measurment engine implementations.
+- [tool](tool/): Contains the Enola code scanner, Enola analyzer, Enola verifier, and measurment engine implementations.
 - [Test_tz](Test_tz/): Contains our attempt to configure a TrustZone project for Cortex-m85 CPU.
 - [QARMA5](QARMA5/): Contains a software implementation of ARM PA measurement hardware, which can be used by the verifier.
 - [doc](doc/): Contains related documents for AN555 FPGA image.
