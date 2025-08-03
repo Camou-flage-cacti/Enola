@@ -27,19 +27,19 @@ void main(void) {
     SystemCoreClockUpdate();
 
 
-        //info("Starting syringe pump");
-        setup();
+	//info("Starting syringe pump");
+	setup();
 
   int count = 0;
   elapsed_time_init();
   elapsed_time_start(0);
-//      while(count < 6) {
+//	while(count < 6) {
 
     //loop();
     loop(count);
     count++;
 
-//      }
+//	}
   print_occurence_trace();
   elapsed_time_stop(0);
 }
